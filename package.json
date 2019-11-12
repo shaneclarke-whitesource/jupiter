@@ -1,0 +1,43 @@
+{
+  "name": "jupiter",
+  "version": "1.0.0",
+  "private": true,
+  "main": "app/index.js",
+  "description": "Rackspace Invoice Cart Sign Up Portal",
+  "repository": "git@github.com:racker/jupiter.git",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --config ./webpack.dev.js --watch",
+    "build": "webpack --config ./webpack.prod.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "dependencies": {
+    "@webcomponents/webcomponentsjs": "^2.3.0",
+    "helix-ui": "^0.18.0-rc.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-proposal-class-properties": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.7.0",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.0.5",
+    "css-loader": "^3.2.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.9.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "react-test-renderer": "^16.11.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
+  }
+}
