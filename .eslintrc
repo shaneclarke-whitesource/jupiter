@@ -6,7 +6,6 @@
   ],
   "plugins": [
     "jest",
-    "mocha",
     "react"
   ],
   "globals": {
@@ -31,7 +30,6 @@
     "import/order": [0],
     "jest/valid-expect": "error",
     "max-len": [2, 120, 4, {"ignoreUrls": true}],
-    "mocha/no-exclusive-tests": [2],
     "newline-per-chained-call": [0],
     "no-buffer-constructor": [0],
     "no-case-declarations": [0],

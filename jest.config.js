@@ -3,24 +3,23 @@
 
 module.exports = {
   coveragePathIgnorePatterns: [
-    "/node_modules/"
+    '/node_modules/'
   ],
-  setupFilesAfterEnv: ["<rootDir>test/jestSetup.js"],
-  testEnvironment: "node",
+  setupFilesAfterEnv: ['<rootDir>test/jestSetup.js'],
+  testEnvironment: 'node',
   // The glob patterns Jest uses to detect test files
   testMatch: [
-    "**/__tests__/**/*.[jt]s?(x)",
-    "**/?(*.)+(spec|test).[tj]s?(x)"
+    '**/__tests__/**/*.[jt]s?(x)',
+    '**/?(*.)+(spec|test).[tj]s?(x)'
   ],
   testPathIgnorePatterns: [
-    "/node_modules/"
+    '/node_modules/'
   ],
   transformIgnorePatterns: [
-    "/node_modules/"
+    '/node_modules/'
   ],
-
   unmockedModulePathPatterns: [
-    "node_modules/react/",
-    "node_modules/enzyme/"
-  ],
+    'node_modules/react/',
+    'node_modules/enzyme/'
+  ]
 };
