@@ -1,0 +1,13 @@
+{
+  "smartling": {
+    "string_format": "icu",
+    "translate_paths": {
+      "instruction": "*/instruction",
+      "key": "{*}/translation",
+      "path": "*/translation"
+    }
+  },
+  "headers.main.signUp": {
+    "translation": "Rackspace Invoice Sign Up"
+  }
+}

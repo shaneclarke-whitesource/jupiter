@@ -8,25 +8,37 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
-        jupiter: ['./app/index.js']
-    },
-    module: {
-        rules: [
-            {
-                test: /\.(js|jsx)$/,
-                exclude: /(node_modules|bower_components)/,
-                loader: 'babel-loader'
-            },
-            {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
-            }
+        jupiter: [
+            './app/index.js',
+            'react',
+            'react-dom',
+            'lodash'
         ]
     },
     resolve: { extensions: ['*', '.js', '.jsx'] },
     output: {
         path: path.resolve(__dirname, 'build'),
         publicPath: '/'
+    },
+    module: {
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                include: [path.join(__dirname, 'app'), path.join(__dirname, 'lib')],
+                loader: 'babel-loader'
+            },
+            {
+                test: /\.css$/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader']
+            },
+            {
+                test: /\.json$/,
+                include: [path.resolve(__dirname, 'i18n/')],
+                use: ['./lib/i18n/smartlingJsonLoader.js'],
+                type: 'javascript/auto'
+            }
+        ]
     },
     plugins: [
         new webpack.NormalModuleReplacementPlugin(
@@ -36,7 +48,6 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'app/index.html',
-            title: 'Jupiter Sign In',
             hash: true,
             inject: true,
             chunks: ['jupiter']

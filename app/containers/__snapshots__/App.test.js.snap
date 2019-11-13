@@ -4,9 +4,14 @@ exports[`App renders 1`] = `
 <div
   className="main-body u-flex-grow"
   id="stage"
+  title="Rackspace Invoice Sign Up"
 >
-  <h1>
-    Hello World
-  </h1>
+  <main
+    id="jupiter-content"
+  >
+    <h1>
+      Hello World
+    </h1>
+  </main>
 </div>
 `;

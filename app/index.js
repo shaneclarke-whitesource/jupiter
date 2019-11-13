@@ -3,6 +3,7 @@ import React from "react";
 import { render } from 'react-dom';
 import '@webcomponents/webcomponentsjs/webcomponents-bundle.js';
 import App from "./containers/App.js";
+import './i18n';
 
 const initializeJupiter = () => {
     const content = (
