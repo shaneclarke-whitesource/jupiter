@@ -5,14 +5,14 @@ import { i18NextConfig } from '../../app/i18n';
 import convertResources from '../../lib/i18n/convertResources';
 
 const testConfig = {
-    ...i18NextConfig,
-    resources: convertResources(i18NextConfig.resources),
-    lng: 'en-US'
+  ...i18NextConfig,
+  resources: convertResources(i18NextConfig.resources),
+  lng: 'en-US'
 };
 
 i18n
-    .use(ICU)
-    .use(initReactI18next)
-    .init(testConfig);
+  .use(ICU)
+  .use(initReactI18next)
+  .init(testConfig);
 
 export default i18n;

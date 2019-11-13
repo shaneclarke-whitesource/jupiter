@@ -1,15 +1,15 @@
 # jupiter
 Rackspace Signup page for Invoice Cart
 
-##Local Development
+## Local Development
 
-###Starting up
+### Starting up
 To start up Jupiter locally, run:
 ```
 yarn install && yarn start
 ```
 
-###Testing
+### Testing
 Jupiter is using the [Jest](https://jestjs.io/docs/en/getting-started) testing suite paired with [Enzyme](https://airbnb.io/enzyme/) for unit tests.
 To run tests locally run:
 ```

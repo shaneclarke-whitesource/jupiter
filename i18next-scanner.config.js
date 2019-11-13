@@ -1,6 +1,6 @@
 require('@babel/register');
 const { i18NextConfig } = require('./app/i18n');
-const { transform, flush } = require('./lib/i18n/smarlingScannerHelpers');
+const { transform, flush } = require('./lib/i18n/smartlingScannerHelpers');
 
 module.exports = {
     input: [
