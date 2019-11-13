@@ -41,9 +41,10 @@
     "no-underscore-dangle": [0],
     "no-unused-vars": [2, { "args": "none" }],
     "no-unused-expressions": [0],
+    "react/destructuring-assignment": [0],
     "react/prefer-stateless-function": [0],
     "react/jsx-first-prop-new-line": [0],
     "react/jsx-filename-extension": [0],
-    "quote-props": [2, "as-needed", { "keywords": true, "unnecessary": false }],
+    "quote-props": [2, "as-needed", { "keywords": true, "unnecessary": false }]
   }
 }

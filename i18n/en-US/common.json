@@ -7,6 +7,9 @@
       "path": "*/translation"
     }
   },
+  "headers.main.helloWorld": {
+    "translation": "Hello World"
+  },
   "headers.main.signUp": {
     "translation": "Rackspace Invoice Sign Up"
   }

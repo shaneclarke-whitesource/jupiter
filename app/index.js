@@ -7,7 +7,7 @@ import './i18n';
 
 const initializeJupiter = () => {
   const content = (
-    <div id="jupiter-wrapper" className="u-flex-grow">
+    <div id="jupiter-wrapper">
       <App />
     </div>
   );
