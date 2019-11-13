@@ -2,6 +2,7 @@
 Rackspace Signup page for Invoice Cart
 
 ##Local Development
+
 ###Starting up
 To start up Jupiter locally, run:
 ```
