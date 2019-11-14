@@ -33,6 +33,11 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader']
       },
       {
+        test: /\.ico$/,
+        loader: 'file-loader',
+        query: '?name=images/[name].[ext]'
+      },
+      {
         test: /\.json$/,
         include: [path.resolve(__dirname, 'i18n/')],
         use: ['./lib/i18n/smartlingJsonLoader.js'],
@@ -48,6 +53,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'app/index.html',
+      favicon: './static/favicon.ico',
       hash: true,
       inject: true,
       chunks: ['jupiter']

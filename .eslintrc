@@ -11,7 +11,10 @@
   "globals": {
     "configureMockStore": true,
     "expect": true,
-    "snapshot": true
+    "snapshot": true,
+    "shallow": true,
+    "render": true,
+    "mount": true
   },
   "env": {
     "browser": true,
@@ -27,6 +30,7 @@
     "import/prefer-default-export": [0],
     "import/no-extraneous-dependencies": [0],
     "import/no-dynamic-require": [0],
+    "import/newline-after-import": [0],
     "import/order": [0],
     "jest/valid-expect": "error",
     "max-len": [2, 120, 4, {"ignoreUrls": true}],

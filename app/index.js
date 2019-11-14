@@ -1,8 +1,9 @@
+import '@webcomponents/webcomponentsjs/webcomponents-bundle';
 import 'helix-ui/dist/css/helix-ui.css';
+import './index.css';
 import React from 'react';
 import { render } from 'react-dom';
 import App from './containers/App';
-import '@webcomponents/webcomponentsjs/webcomponents-bundle';
 import './i18n';
 
 const initializeJupiter = () => {
