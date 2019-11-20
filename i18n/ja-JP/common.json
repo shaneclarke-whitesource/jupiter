@@ -1,0 +1,16 @@
+{
+  "smartling": {
+    "string_format": "icu",
+    "translate_paths": {
+      "instruction": "*/instruction",
+      "key": "{*}/translation",
+      "path": "*/translation"
+    }
+  },
+  "headers.main.helloWorld": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "headers.main.signUp": {
+    "translation": "__NOT_TRANSLATED__"
+  }
+}
