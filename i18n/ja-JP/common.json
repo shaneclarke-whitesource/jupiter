@@ -7,10 +7,46 @@
       "path": "*/translation"
     }
   },
-  "headers.main.helloWorld": {
+  "actions.basic.cancel": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "actions.basic.submit": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "actions.confirm.password": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "actions.create.password": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "actions.create.username": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "footer.content.company": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "footer.content.policy": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "footer.content.terms": {
     "translation": "__NOT_TRANSLATED__"
   },
   "headers.main.signUp": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "signUp.headers.main": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "user.details.email": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "user.details.firstName": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "user.details.lastName": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "validation.password.mustMatch": {
     "translation": "__NOT_TRANSLATED__"
   }
 }

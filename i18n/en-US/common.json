@@ -7,10 +7,43 @@
       "path": "*/translation"
     }
   },
-  "headers.main.helloWorld": {
-    "translation": "Hello World"
+  "actions.basic.cancel": {
+    "translation": "Cancel"
+  },
+  "actions.basic.submit": {
+    "translation": "Submit"
+  },
+  "actions.confirm.password": {
+    "translation": "Confirm Password"
+  },
+  "actions.create.password": {
+    "translation": "Create Password"
+  },
+  "actions.create.username": {
+    "translation": "Create Username"
+  },
+  "footer.content.company": {
+    "translation": "{year} Rackspace US, Inc."
+  },
+  "footer.content.policy": {
+    "translation": "Privacy Policy"
+  },
+  "footer.content.terms": {
+    "translation": "Website Terms"
   },
   "headers.main.signUp": {
     "translation": "Rackspace Invoice Sign Up"
+  },
+  "signUp.headers.main": {
+    "translation": "Sign Up for Rackspace Invoice Cart"
+  },
+  "user.details.email": {
+    "translation": "Email Address"
+  },
+  "user.details.firstName": {
+    "translation": "First Name"
+  },
+  "user.details.lastName": {
+    "translation": "Last Name"
   }
 }

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
+import Footer from '../components/helix/Footer';
+import SignUpForm from './SignUp/SignUpForm';
 
 export class App extends React.Component {
   componentDidMount() {
@@ -11,10 +13,20 @@ export class App extends React.Component {
   render() {
     const { t } = this.props;
     return (
-      <div id="stage" className="main-body">
-        <main id="jupiter-content">
-          <h1>{t('common:headers.main.helloWorld')}</h1>
-        </main>
+      <div id="app">
+        <div className="jupiter-content">
+          <main id="content" className="main-body" role="main">
+            <div className="SignUp-header">
+              <h2>{t('common:signUp.headers.main')}</h2>
+            </div>
+            <div className="hx-row">
+              <div className="hxCol hxSpan-6 hxOffset-3">
+                <SignUpForm />
+              </div>
+            </div>
+          </main>
+          {/*<Footer />*/}
+        </div>
       </div>
     );
   }

@@ -11,7 +11,10 @@
   "globals": {
     "configureMockStore": true,
     "expect": true,
-    "snapshot": true
+    "snapshot": true,
+    "shallow": true,
+    "render": true,
+    "mount": true
   },
   "env": {
     "browser": true,
@@ -27,6 +30,7 @@
     "import/prefer-default-export": [0],
     "import/no-extraneous-dependencies": [0],
     "import/no-dynamic-require": [0],
+    "import/newline-after-import": [0],
     "import/order": [0],
     "jest/valid-expect": "error",
     "max-len": [2, 120, 4, {"ignoreUrls": true}],
@@ -43,6 +47,9 @@
     "react/prefer-stateless-function": [0],
     "react/jsx-first-prop-new-line": [0],
     "react/jsx-filename-extension": [0],
+    "react/jsx-one-expression-per-line": [0],
+    "react/require-default-props": [0],
+    "react/jsx-props-no-spreading": [0],
     "quote-props": [2, "as-needed", { "keywords": true, "unnecessary": false }]
   }
 }
