@@ -78,8 +78,13 @@ export class SignUpForm extends React.Component {
             <Button
               classNames="submit-btn hxPrimary"
               label={t('common:actions.basic.submit')}
+              type="submit"
             />
-            <Button classNames="cancel-btn hxTertiary" label={t('common:actions.basic.cancel')} />
+            <Button
+              classNames="cancel-btn hxTertiary"
+              label={t('common:actions.basic.cancel')}
+              type="cancel"
+            />
           </div>
         </form>
       </div>

@@ -8,8 +8,6 @@ import HelixUI from 'helix-ui';
 import App from './containers/App';
 import './i18n';
 
-HelixUI.initialize();
-
 const initializeJupiter = () => {
   const content = (
     <Provider store={configureStore()}>
@@ -21,4 +19,4 @@ const initializeJupiter = () => {
   render(content, document.getElementById('jupiter'));
 };
 
-initializeJupiter();
+HelixUI.initialize().then(initializeJupiter);

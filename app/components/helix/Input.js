@@ -25,7 +25,7 @@ const Input = (props) => {
       </hx-text-control>
       {touched && error && (
         <hx-error>
-          <small>{[].concat(error).join('. ')}</small>
+          <small>{error[0] || error}</small>
         </hx-error>
       )}
     </div>
