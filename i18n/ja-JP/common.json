@@ -45,8 +45,5 @@
   },
   "user.details.lastName": {
     "translation": "__NOT_TRANSLATED__"
-  },
-  "validation.password.mustMatch": {
-    "translation": "__NOT_TRANSLATED__"
   }
 }

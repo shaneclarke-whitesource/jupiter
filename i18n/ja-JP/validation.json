@@ -13,6 +13,9 @@
   "input.maxLength": {
     "translation": "__NOT_TRANSLATED__"
   },
+  "input.minLength": {
+    "translation": "__NOT_TRANSLATED__"
+  },
   "input.required": {
     "translation": "__NOT_TRANSLATED__"
   },
@@ -20,9 +23,6 @@
     "translation": "__NOT_TRANSLATED__"
   },
   "password.mustMatch": {
-    "translation": "__NOT_TRANSLATED__"
-  },
-  "password.requiredLength": {
     "translation": "__NOT_TRANSLATED__"
   }
 }

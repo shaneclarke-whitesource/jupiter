@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 import PropTypes from 'prop-types';
 
 const Input = (props) => {
@@ -26,10 +25,7 @@ const Input = (props) => {
       </hx-text-control>
       {touched && error && (
         <hx-error>
-          {error.map((errors) => (
-            <small key={errors}>
-              {errors} <br/>
-            </small>))}
+          <small>{[].concat(error).join('. ')}</small>
         </hx-error>
       )}
     </div>

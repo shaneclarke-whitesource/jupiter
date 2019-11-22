@@ -61,7 +61,6 @@ export class SignUpForm extends React.Component {
                 type="text"
                 component={Input}
                 label={t('common:actions.create.password')}
-                errorMsg={t('common:validation.password.mustMatch')}
                 required
               />
             </div>
