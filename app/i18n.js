@@ -14,10 +14,7 @@ export const i18NextConfig = {
     'ja': ['ja-JP'],
     'default': ['en-US']
   },
-  ns: [
-    'common',
-    'validation'
-  ],
+  ns: ['common', 'validation'],
   preload: ['en-US', 'ja-JP'],
   defaultNS: 'common',
   nsSeparator: ':',

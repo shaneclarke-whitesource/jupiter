@@ -25,7 +25,7 @@ export class App extends React.Component {
               </div>
             </div>
           </main>
-          {/*<Footer />*/}
+          <Footer />
         </div>
       </div>
     );

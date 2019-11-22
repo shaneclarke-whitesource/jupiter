@@ -1,40 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
-import { Field, FormSection, reduxForm } from 'redux-form';
+import { Field, reduxForm } from 'redux-form';
 import Input from '../../components/helix/Input';
 import Button from '../../components/helix/Button';
-import { validatePassword, validateEmail } from '../../../lib/validators';
+import { validatePassword, validateEmail, validateUser } from '../../validators';
 
-class SignUpForm extends React.Component {
+export class SignUpForm extends React.Component {
+  handleSubmit = () => {
+    console.log('hi');
+  };
+
   render() {
     const { t } = this.props;
     return (
       <div className="SignUp-form">
         <form onSubmit={this.handleSubmit}>
           <div className="InputField-content">
-            <FormSection name="name">
-              <div className="hxRow">
-                <div className="hxCol hxSpan-6">
-                  <Field
-                    name="firstName"
-                    component={Input}
-                    type="text"
-                    label={t('common:user.details.firstName')}
-                    required
-                  />
-                </div>
-                <div className="hxCol hxSpan-6">
-                  <Field
-                    name="lastName"
-                    component={Input}
-                    type="text"
-                    label={t('common:user.details.lastName')}
-                    required
-                  />
-                </div>
+            <div className="hxRow">
+              <div className="hxCol hxSpan-6">
+                <Field
+                  name="firstName"
+                  component={Input}
+                  type="text"
+                  label={t('common:user.details.firstName')}
+                  required
+                />
               </div>
-            </FormSection>
+              <div className="hxCol hxSpan-6">
+                <Field
+                  name="lastName"
+                  component={Input}
+                  type="text"
+                  label={t('common:user.details.lastName')}
+                  required
+                />
+              </div>
+            </div>
             <div className="hxCol hxSpan-12">
               <Field
                 name="email"
@@ -55,7 +57,7 @@ class SignUpForm extends React.Component {
             </div>
             <div className="hxCol hxSpan-12">
               <Field
-                name="main"
+                name="password"
                 type="text"
                 component={Input}
                 label={t('common:actions.create.password')}
@@ -90,16 +92,17 @@ SignUpForm.propTypes = {
   t: PropTypes.func.isRequired
 };
 
-const validate = (values) => {
+export const validateForm = (values, props) => {
   return {
-    ...validatePassword(values),
-    ...validateEmail(values)
+    ...validateUser(values, props),
+    ...validateEmail(values, props),
+    ...validatePassword(values, props)
   };
 };
 
 const SignUpReduxForm = reduxForm({
   form: 'signUp',
-  validate
+  validate: validateForm
 })(withTranslation()(SignUpForm));
 
 export default SignUpReduxForm;

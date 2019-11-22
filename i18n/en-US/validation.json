@@ -7,7 +7,22 @@
       "path": "*/translation"
     }
   },
-  "basic.required": {
+  "email.invalidFormat": {
+    "translation": "Email domain must be in valid format"
+  },
+  "input.maxLength": {
+    "translation": "{content} must be less than {characterCount} characters long"
+  },
+  "input.minLength": {
+    "translation": "{content} must be at least {characterCount} characters long"
+  },
+  "input.required": {
     "translation": "Required"
+  },
+  "password.charRestrictions": {
+    "translation": "Password must contain at least one numeric digit, one special character, and one uppercase and one lowercase letter"
+  },
+  "password.mustMatch": {
+    "translation": "Passwords do not match"
   }
 }

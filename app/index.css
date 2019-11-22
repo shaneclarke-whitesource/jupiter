@@ -24,8 +24,7 @@ html, body {
 .InputField {
     margin-bottom: 10px;
 }
-
-.InputField-label {:
+.InputField-label {
     color: #757575;
     font-weight: 600;
     font-size: 1rem;

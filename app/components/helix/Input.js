@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 import PropTypes from 'prop-types';
 
 const Input = (props) => {
@@ -20,11 +21,16 @@ const Input = (props) => {
           required={required}
         />
         <label htmlFor={input.name}>
-          <span className="InputField-label hxRequired">{label}</span>
+          <span className="InputField-label">{label}</span>
         </label>
       </hx-text-control>
       {touched && error && (
-        <hx-error>* {error}</hx-error>
+        <hx-error>
+          {error.map((errors) => (
+            <small key={errors}>
+              {errors} <br/>
+            </small>))}
+        </hx-error>
       )}
     </div>
   );
@@ -39,8 +45,11 @@ Input.propTypes = {
   errorMsg: PropTypes.string,
   meta: PropTypes.shape({
     touched: PropTypes.bool,
-    error: PropTypes.string,
-    warning: PropTypes.bool
+    warning: PropTypes.bool,
+    error: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.array
+    ])
   }),
   input: PropTypes.shape({
     name: PropTypes.string.isRequired
@@ -48,7 +57,7 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  required: true
+  required: false
 };
 
 export default Input;
