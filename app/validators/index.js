@@ -26,8 +26,7 @@ export const validateUser = (values, { t = i18nT() }) => {
     },
     lastName: {
       presence: {
-        allowEmpty: false,
-        message: t('validation:input.required')
+        allowEmpty: false
       },
       length: {
         maximum: 32,
@@ -39,8 +38,7 @@ export const validateUser = (values, { t = i18nT() }) => {
     },
     username: {
       presence: {
-        allowEmpty: false,
-        message: t('validation:input.required')
+        allowEmpty: false
       },
       length: {
         maximum: 10,
@@ -57,8 +55,7 @@ export const validateEmail = (values, { t = i18nT() }) => {
   return validate(values, {
     email: {
       presence: {
-        allowEmpty: false,
-        message: t('validation:input.required')
+        allowEmpty: false
       },
       email: {
         message: t('validation:email.invalidFormat')
@@ -86,8 +83,7 @@ export const validatePassword = (values, { t = i18nT() }) => {
   return validate(values, {
     password: {
       presence: {
-        allowEmpty: false,
-        message: t('validation:input.required')
+        allowEmpty: false
       },
       length: {
         minimum: 8,
@@ -103,8 +99,7 @@ export const validatePassword = (values, { t = i18nT() }) => {
     },
     passwordValidate: {
       presence: {
-        allowEmpty: false,
-        message: t('validation:input.required')
+        allowEmpty: false
       },
       equality: {
         attribute: 'password',
