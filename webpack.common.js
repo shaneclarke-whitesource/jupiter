@@ -59,7 +59,7 @@ module.exports = {
       chunks: ['jupiter']
     }),
     new CopyWebpackPlugin([
-      { from: 'node_modules/@webcomponents/webcomponentsjs/', to: './assets/webcomponents-2.2.6/' }
+      { from: 'node_modules/@webcomponents/webcomponentsjs/', to: './assets/webcomponents-2.4.0/' }
     ]),
     new MiniCssExtractPlugin({
       filename: '[name].[hash].css',

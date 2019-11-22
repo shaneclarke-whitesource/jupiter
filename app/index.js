@@ -1,4 +1,3 @@
-import '@webcomponents/webcomponentsjs/webcomponents-bundle';
 import 'helix-ui/dist/css/helix-ui.css';
 import './index.css';
 import React from 'react';
