@@ -83,7 +83,7 @@ export class SignUpForm extends React.Component {
             <Button
               classNames="cancel-btn hxTertiary"
               label={t('common:actions.basic.cancel')}
-              type="cancel"
+              type="reset"
             />
           </div>
         </form>
