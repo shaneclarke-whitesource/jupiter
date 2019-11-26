@@ -19,4 +19,4 @@ const initializeJupiter = () => {
   render(content, document.getElementById('jupiter'));
 };
 
-HelixUI.initialize().then(initializeJupiter);
+HelixUI.initialize().then(initializeJupiter());
