@@ -1,6 +1,10 @@
 .DS_Store
 .idea/
 build/
+.eslintcache
 
 node_modules/
 yarn-error.log
+
+coverage/
+**/__snapshots__/

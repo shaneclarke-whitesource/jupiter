@@ -1,0 +1,28 @@
+{
+  "smartling": {
+    "string_format": "icu",
+    "translate_paths": {
+      "instruction": "*/instruction",
+      "key": "{*}/translation",
+      "path": "*/translation"
+    }
+  },
+  "email.invalidFormat": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "input.maxLength": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "input.minLength": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "input.required": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "password.charRestrictions": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "password.mustMatch": {
+    "translation": "__NOT_TRANSLATED__"
+  }
+}

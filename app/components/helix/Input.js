@@ -1,35 +1,59 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Input extends React.Component {
-  render() {
-    const { id, label, required } = this.props;
-    return (
-      <div className="InputField">
-        <hx-text-control>
-          <input
-            id={id}
-            name={id}
-            required={required}
-            type="text"
-          />
-          <label htmlFor={id}>
-            <span className="InputField-label">{label}</span>
-          </label>
-        </hx-text-control>
-      </div>
-    );
-  }
-}
+const Input = (props) => {
+  const {
+    input,
+    label,
+    required,
+    type,
+    meta: { touched, error }
+  } = props;
+  return (
+    <div className="InputField">
+      <hx-text-control>
+        <input
+          {...input}
+          className="hxTextCtrl"
+          type={type}
+          name={input.name}
+          required={required}
+        />
+        <label htmlFor={input.name}>
+          <span className="InputField-label">{label}</span>
+        </label>
+      </hx-text-control>
+      {touched && error && (
+        <hx-error>
+          <small>{error[0] || error}</small>
+        </hx-error>
+      )}
+    </div>
+  );
+};
 
 Input.propTypes = {
-  id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  required: PropTypes.bool
+  required: PropTypes.bool,
+  // onChange: PropTypes.func,
+  error: PropTypes.bool,
+  type: PropTypes.string.isRequired,
+  errorMsg: PropTypes.string,
+  meta: PropTypes.shape({
+    touched: PropTypes.bool,
+    warning: PropTypes.bool,
+    error: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.array
+    ])
+  }),
+  input: PropTypes.shape({
+    name: PropTypes.string.isRequired
+  })
 };
 
 Input.defaultProps = {
-  required: true
+  required: false
 };
 
 export default Input;

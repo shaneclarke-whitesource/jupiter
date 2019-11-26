@@ -21,6 +21,9 @@ html, body {
     margin-top: 15px;
 }
 
+.InputField {
+    margin-bottom: 10px;
+}
 .InputField-label {
     color: #757575;
     font-weight: 600;
