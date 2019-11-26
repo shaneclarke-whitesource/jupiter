@@ -16,18 +16,19 @@ export class App extends React.Component {
       <div id="app">
         <div className="jupiter-content">
           <main role="main" id="content" className="main-body">
-            <div className="middle-modal">
+            <div className="SignUp-container hxSpan-6-lg hxSpan-8-sm hxSpan-11-xs">
               <div className="SignUp-header">
                 <h2>{t('common:signUp.headers.main')}</h2>
+                <hr />
               </div>
               <div className="hx-row">
-                <div className="hxCol hxSpan-6 hxOffset-3">
+                <div className="hxCol hxSpan-10 hxOffset-1 hxSpan-10-xs">
                   <SignUpForm />
                 </div>
               </div>
             </div>
           </main>
-          <Footer />
+          {/*<Footer />*/}
         </div>
       </div>
     );

@@ -11,14 +11,28 @@ html, body {
     margin-top: 25px;
 }
 
+/* Signup Container */
+.SignUp-container {
+    background: white;
+    margin: 25px auto;
+    padding: 25px;
+}
+
 /*Sign Up Section*/
 .SignUp-header {
     text-align: center;
     margin-bottom: 15px;
 }
 
+.SignUp-header hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 .SignUp-buttons {
-    margin-top: 15px;
+    margin-top: 25px;
 }
 
 .InputField {
