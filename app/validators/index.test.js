@@ -80,8 +80,7 @@ describe('validators', () => {
         passwordValidate: 'Password123'
       };
       expect(validatePasswords(invalid)).toEqual({
-        password: ['Password must contain at least one numeric digit, one special character, '
-        + 'and one uppercase and one lowercase letter']
+        password: ['Password must contain at least one uppercase letter, one numeric digit, and one special character.']
       });
     });
     test('it fails if password does not include uppercase letter', () => {
@@ -90,8 +89,7 @@ describe('validators', () => {
         passwordValidate: 'password123'
       };
       expect(validatePasswords(invalid)).toEqual({
-        password: ['Password must contain at least one numeric digit, one special character, '
-        + 'and one uppercase and one lowercase letter']
+        password: ['Password must contain at least one uppercase letter, one numeric digit, and one special character.']
       });
     });
     test('it fails if password does not include a number', () => {
@@ -100,8 +98,7 @@ describe('validators', () => {
         passwordValidate: 'Password!!'
       };
       expect(validatePasswords(invalid)).toEqual({
-        password: ['Password must contain at least one numeric digit, one special character, '
-        + 'and one uppercase and one lowercase letter']
+        password: ['Password must contain at least one uppercase letter, one numeric digit, and one special character.']
       });
     });
     test('it fails if password is less than 8 characters', () => {

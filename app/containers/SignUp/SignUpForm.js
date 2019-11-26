@@ -4,6 +4,7 @@ import { withTranslation } from 'react-i18next';
 import { Field, reduxForm } from 'redux-form';
 import Input from '../../components/helix/Input';
 import Button from '../../components/helix/Button';
+import PasswordInput from '../../components/PasswordInput';
 import { validatePassword, validateEmail, validateUser } from '../../validators';
 
 export class SignUpForm extends React.Component {
@@ -58,17 +59,16 @@ export class SignUpForm extends React.Component {
             <div className="hxCol hxSpan-12">
               <Field
                 name="password"
-                type="text"
-                component={Input}
+                component={PasswordInput}
                 label={t('common:actions.create.password')}
+                tooltip
                 required
               />
             </div>
             <div className="hxCol hxSpan-12">
               <Field
                 name="passwordValidate"
-                type="text"
-                component={Input}
+                component={PasswordInput}
                 label={t('common:actions.confirm.password')}
                 required
               />

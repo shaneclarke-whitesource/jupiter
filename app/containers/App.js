@@ -15,13 +15,15 @@ export class App extends React.Component {
     return (
       <div id="app">
         <div className="jupiter-content">
-          <main id="content" className="main-body" role="main">
-            <div className="SignUp-header">
-              <h2>{t('common:signUp.headers.main')}</h2>
-            </div>
-            <div className="hx-row">
-              <div className="hxCol hxSpan-6 hxOffset-3">
-                <SignUpForm />
+          <main role="main" id="content" className="main-body">
+            <div className="middle-modal">
+              <div className="SignUp-header">
+                <h2>{t('common:signUp.headers.main')}</h2>
+              </div>
+              <div className="hx-row">
+                <div className="hxCol hxSpan-6 hxOffset-3">
+                  <SignUpForm />
+                </div>
               </div>
             </div>
           </main>
