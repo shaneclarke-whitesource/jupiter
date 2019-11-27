@@ -52,7 +52,7 @@ jobs:
 
     steps:
       - attach_workspace:
-        at: /build-assets
+          at: /build-assets
 
       - aws-s3/sync:
           from: build-assets
