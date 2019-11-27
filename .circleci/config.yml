@@ -56,7 +56,7 @@ jobs:
       - run: "mkdir assets"
       - run: "ls -la"
       - attach_workspace:
-          at: /assets
+          at: ./assets
 
       - run: "ls -la ./assets"
 
