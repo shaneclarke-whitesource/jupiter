@@ -41,6 +41,12 @@ jobs:
 
       - run: yarn build
 
+     # https://circleci.com/docs/2.0/workflows/#using-workspaces-to-share-data-among-jobs
+      - persist_to_workspace:
+          root: .
+          paths:
+            - build
+
   deploy-staging:
     docker:
       - image: circleci/python:2.7
@@ -48,8 +54,11 @@ jobs:
     working_directory: ~/repo
 
     steps:
+      - attach_workspace:
+        at: /tmp/asseets
+      - run: 'ls /tmp/assets'
       - aws-s3/sync:
-          from: build
+          from: /tmp/asseets
           to: 's3://jupiter-assets/staging'
           arguments: '--acl public-read'
           overwrite: true
