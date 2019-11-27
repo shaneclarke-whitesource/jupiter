@@ -18,7 +18,7 @@ const Input = (props) => {
           type={type}
           name={input.name}
           required={required}
-          autoComplete={input.name}
+          autoComplete
         />
         <label htmlFor={input.name}>
           <span className="InputField-label">{label}</span>
