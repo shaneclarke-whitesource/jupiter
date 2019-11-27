@@ -19,6 +19,9 @@
   "input.required": {
     "translation": "__NOT_TRANSLATED__"
   },
+  "password.allowedSpecialChars": {
+    "translation": "__NOT_TRANSLATED__"
+  },
   "password.charRestrictions": {
     "translation": "__NOT_TRANSLATED__"
   },

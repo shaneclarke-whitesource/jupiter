@@ -14,7 +14,7 @@ const DropDown = (props) => {
   };
   return (
     <hx-select-control>
-      <select id={props.id} onChange={props.onChange}>
+      <select id={props.id} onChange={props.input.onChange}>
         {list()}
       </select>
       <hx-select />
@@ -29,7 +29,9 @@ DropDown.propTypes = {
   label: PropTypes.string,
   id: PropTypes.string,
   data: PropTypes.arrayOf(PropTypes.object),
-  onChange: PropTypes.func
+  input: PropTypes.shape({
+    onChange: PropTypes.func
+  })
 };
 
 export default DropDown;

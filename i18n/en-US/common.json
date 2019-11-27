@@ -7,20 +7,41 @@
       "path": "*/translation"
     }
   },
+  "account.actions.role.choose": {
+    "translation": "Choose Account Role"
+  },
+  "account.header.address": {
+    "translation": "Address"
+  },
+  "account.header.userInfo": {
+    "translation": "User Information"
+  },
+  "account.role.aviator": {
+    "translation": "Aviator"
+  },
+  "account.role.header": {
+    "translation": "Account Role"
+  },
+  "account.role.navigator": {
+    "translation": "Navigator"
+  },
+  "account.role.serviceBlocks": {
+    "translation": "Service Blocks"
+  },
   "actions.basic.cancel": {
     "translation": "Cancel"
-  },
-  "actions.basic.submit": {
-    "translation": "Submit"
-  },
-  "actions.basic.show": {
-    "translation": "Show"
   },
   "actions.basic.hide": {
     "translation": "Hide"
   },
   "actions.basic.select": {
     "translation": "Select"
+  },
+  "actions.basic.show": {
+    "translation": "Show"
+  },
+  "actions.basic.submit": {
+    "translation": "Submit"
   },
   "actions.confirm.password": {
     "translation": "Confirm Password"
@@ -58,6 +79,9 @@
   "user.location.city": {
     "translation": "City"
   },
+  "user.location.country": {
+    "translation": "Country"
+  },
   "user.location.state": {
     "translation": "State"
   },
@@ -66,23 +90,5 @@
   },
   "user.location.zipCode": {
     "translation": "Zip Code"
-  },
-  "user.location.country": {
-    "translation": "Country"
-  },
-  "account.role.header": {
-    "translation": "Account Role"
-  },
-  "account.actions.role.choose": {
-    "translation": "Choose Account Role"
-  },
-  "account.role.aviator": {
-    "translation": "Aviator"
-  },
-  "account.role.navigator": {
-    "translation": "Navigator"
-  },
-  "account.role.serviceBlocks": {
-    "translation": "Service Blocks"
   }
 }

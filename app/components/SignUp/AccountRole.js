@@ -10,7 +10,7 @@ import { Field } from 'redux-form';
 class AccountRole extends React.Component {
     state = {
       isOpen: null,
-      selectedRole: 'Aviator'
+      selectedRole: 'aviator'
     };
 
   closePopover = (e) => {
@@ -19,13 +19,7 @@ class AccountRole extends React.Component {
   };
 
   handleChange = (e) => {
-    const translatedRole = this.props.t(`common:account.role.${e.target.value}`);
-    this.setState({ selectedRole: translatedRole });
-  };
-
-  saveRole = (e) => {
-    e.preventDefault();
-    this.closePopover();
+    this.setState({ selectedRole: e.target.value });
   };
 
   render() {
@@ -50,7 +44,7 @@ class AccountRole extends React.Component {
           title={t('common:account.role.header')}
           btnLabel={t('common:actions.basic.select')}
           id="rolePopover"
-          role={this.state.selectedRole}
+          role={t(`common:account.role.${this.state.selectedRole}`)}
           isOpen={this.state.isOpen}
         >
           <Popover.Header> {t('common:account.actions.role.choose')}</Popover.Header>
@@ -69,7 +63,7 @@ class AccountRole extends React.Component {
           <Popover.Footer>
             <Submit
               label={t('common:actions.basic.submit')}
-              onClick={this.saveRole}
+              onClick={this.closePopover}
             />
             <Button
               classNames="cancel-btn hxTertiary"

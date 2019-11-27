@@ -57,8 +57,16 @@ html, body {
 .footer {
     flex-shrink: 0;
     width: 100%;
-    position: absolute;
     bottom: 0;
+}
+
+.popover {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.role {
+    font-size: 1.2rem;
 }
 
 

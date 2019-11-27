@@ -16,14 +16,17 @@ export class SignUpForm extends React.Component {
       <div className="SignUp-form">
         <form onSubmit={() => handleSubmit}>
           <div className="InputField-content">
+            <h2>{t('common:account.header.userInfo')}</h2>
             <FormSection name="userInfo">
               <UserInfo />
             </FormSection>
-            <FormSection name="address">
-              <AddressSection />
-            </FormSection>
             <FormSection name="accountRole">
               <AccountName />
+            </FormSection>
+            <hr />
+            <h2>{t('common:account.header.address')}</h2>
+            <FormSection name="address">
+              <AddressSection />
             </FormSection>
           </div>
           <div className="SignUp-buttons">

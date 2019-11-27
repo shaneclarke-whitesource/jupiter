@@ -7,7 +7,37 @@
       "path": "*/translation"
     }
   },
+  "account.actions.role.choose": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "account.header.address": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "account.header.userInfo": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "account.role.aviator": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "account.role.header": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "account.role.navigator": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "account.role.serviceBlocks": {
+    "translation": "__NOT_TRANSLATED__"
+  },
   "actions.basic.cancel": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "actions.basic.hide": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "actions.basic.select": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "actions.basic.show": {
     "translation": "__NOT_TRANSLATED__"
   },
   "actions.basic.submit": {
@@ -44,6 +74,21 @@
     "translation": "__NOT_TRANSLATED__"
   },
   "user.details.lastName": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "user.location.city": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "user.location.country": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "user.location.state": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "user.location.street": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "user.location.zipCode": {
     "translation": "__NOT_TRANSLATED__"
   }
 }
