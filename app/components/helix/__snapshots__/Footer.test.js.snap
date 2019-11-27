@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer it renders 1`] = `
+<footer
+  className="footer"
+  id="foot"
+>
+  © 
+   
+   
+  2019 Rackspace US, Inc.
+  <nav>
+    <a
+      href="https://www.rackspace.com/information/legal/websiteterms"
+    >
+      Website Terms
+    </a>
+    <a
+      href="https://www.rackspace.com/information/legal/privacystatement"
+    >
+      Privacy Policy
+    </a>
+  </nav>
+</footer>
+`;
