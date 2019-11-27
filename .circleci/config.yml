@@ -50,12 +50,15 @@ jobs:
     docker:
       - image: circleci/python:2.7
 
+    working_directory: ~/repo
+
     steps:
+      - run: "ls -la"
       - attach_workspace:
-          at: /build-assets
+          at: /build
 
       - aws-s3/sync:
-          from: build-assets
+          from: build
           to: 's3://jupiter-assets/staging'
           arguments: '--acl public-read'
           overwrite: true
