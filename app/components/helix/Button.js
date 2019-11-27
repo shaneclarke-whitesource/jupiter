@@ -3,8 +3,11 @@ import PropTypes from 'prop-types';
 
 class Button extends React.Component {
   render() {
-    const { label, disabled, classNames, type, onClick } = this.props;
+    const {
+      label, disabled, classNames, type, onClick
+    } = this.props;
     return (
+      // eslint-disable-next-line react/button-has-type
       <button className={`hxBtn ${classNames}`} type={type} disabled={disabled} onClick={onClick}>
         {label}
       </button>

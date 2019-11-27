@@ -8,7 +8,7 @@ import { validatePassword, validateEmail, validateUser } from '../../validators'
 
 export class SignUpForm extends React.Component {
   handleSubmit = () => {
-    console.log('hi');
+
   };
 
   render() {
