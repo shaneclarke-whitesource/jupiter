@@ -2,6 +2,8 @@
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
+orbs:
+  aws-s3: circleci/aws-s3@1.0.0
 version: 2
 jobs:
   build:
@@ -38,31 +40,41 @@ jobs:
       - run: yarn build
 
   deploy-staging:
-    docker:
-      - image: circleci/node:7.10
-
     working_directory: ~/repo
 
-    steps:
-      - run:
-          name: Install awscli
-          command: sudo pip install awscli
-      - run:
-          name: Deploy to staging S3
-          command: aws s3 sync build s3://jupiter-assets.s3-us-west-2.amazonaws.com/staging/ --delete
+    docker:
+      - image: circleci/python:2.7
+
+    - aws-s3/sync:
+        from: build
+        to: 's3://jupiter-assets/staging'
+        arguments: |
+          --acl public-read \
+          --cache-control "max-age=86400"
+        overwrite: true
+  deploy-prod:
+    # place holder
 
 workflows:
   version: 2
   build_and_deploy:
     jobs:
       - build
-      - approve-deploy-to-staging:
+      - staging-deploy-ask:
           type: approval
           requires:
             - build
-#          filters:
-#            branches:
-#              only: master
+      - staging-deploy-ask:
+            type: approval
+            requires:
+              - build
+              filters:
+                branches:
+                  only: master
       - deploy-staging:
           requires:
-            - approve-deploy-to-staging
+            - staging-deploy-ask
+      - deploy-prod:
+        requires:
+          - deploy-staging
+          - prod-deploy-ask
