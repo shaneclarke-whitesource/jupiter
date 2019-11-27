@@ -9,7 +9,7 @@ module.exports = merge(common, {
     path: path.join(__dirname, 'build'),
     filename: '[name].[hash].js',
     chunkFilename: '[name].[hash].js',
-    publicPath: '/assets/'
+    publicPath: '/jupiter/assets/'
   },
   plugins: [
     new CleanWebpackPlugin()
