@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button it renders correct props 1`] = `
+<button
+  className="hxBtn "
+  disabled={false}
+  type="button"
+>
+  Click Me!
+</button>
+`;

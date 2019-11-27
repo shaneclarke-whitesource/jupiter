@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input it renders with correct props 1`] = `
+<div
+  className="InputField"
+>
+  <hx-text-control>
+    <input
+      autoComplete="on"
+      className="hxTextCtrl"
+      name="name"
+      required={false}
+      type="text"
+    />
+    <label
+      htmlFor="name"
+    >
+      <span
+        className="InputField-label"
+      >
+        First Name
+      </span>
+    </label>
+  </hx-text-control>
+</div>
+`;
