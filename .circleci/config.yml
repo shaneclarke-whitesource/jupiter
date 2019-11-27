@@ -5,7 +5,7 @@
 version: 2.1
 
 orbs:
-  s3: ngs/s3-deploy@0.0.1
+  aws-s3: circleci/aws-s3@1.0.0
 
 jobs:
   build:
@@ -41,11 +41,31 @@ jobs:
 
       - run: yarn build
 
-      - persist_to_workspace:
-          root: .
-          paths:
-            - build
+  deploy-staging:
+    docker:
+      - image: circleci/python:2.7
 
+    working_directory: ~/repo
+
+    steps:
+      - aws-s3/sync:
+          from: build
+          to: 's3://jupiter-assets/staging'
+          arguments: '--acl public-read'
+          overwrite: true
+
+  deploy-prod:
+    docker:
+      - image: circleci/python:2.7
+
+    working_directory: ~/repo
+
+    steps:
+      - aws-s3/sync:
+          from: build
+          to: 's3://jupiter-assets/prod'
+          arguments: '--acl public-read'
+          overwrite: true
 
 workflows:
   version: 2.1
@@ -59,12 +79,17 @@ workflows:
       - deploy-staging:
           requires:
             - staging-deploy-ask
-      - s3/deploy:
+      - prod-deploy-ask:
+            type: approval
           requires:
             - build
           filters:
             branches:
               only: master
-          workspace: .
-          artifacts: build
-          bucket: jupiter-assets/staging
+      - deploy-prod:
+          requires:
+            - deploy-staging
+            - prod-deploy-ask
+          filters:
+            branches:
+              only: master
