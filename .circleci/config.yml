@@ -79,20 +79,16 @@ workflows:
           type: approval
           requires:
             - build
+          filters:
+            branches:
+              ignore:
+                - master
       - deploy-staging:
           requires:
             - staging-deploy-ask
-      - prod-deploy-ask:
-          type: approval
-          requires:
-            - build
-          filters:
-            branches:
-              only: master
       - deploy-prod:
           requires:
             - deploy-staging
-            - prod-deploy-ask
           filters:
             branches:
               only: master
