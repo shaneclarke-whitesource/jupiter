@@ -13,12 +13,12 @@ export class Popover extends React.Component {
           <div className="hxCol hxSpan-4">
             <span className="InputField-label role">{title}:</span>
           </div>
-          <div className="hxCol hxSpan-4 role">
+          <div className="hxCol hxSpan-2 role">
             {role}
           </div>
           <div className="hxCol hxSpan-4">
             <hx-disclosure aria-controls={id} class="hxBtn hxPrimary">
-              {btnLabel}
+              <hx-icon type="pencil" />
             </hx-disclosure>
             <hx-popover
               id={id}
