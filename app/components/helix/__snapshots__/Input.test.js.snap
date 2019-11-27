@@ -6,6 +6,7 @@ exports[`Input it renders with correct props 1`] = `
 >
   <hx-text-control>
     <input
+      autoComplete="on"
       className="hxTextCtrl"
       name="name"
       required={false}
