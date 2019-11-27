@@ -47,12 +47,12 @@ jobs:
 
     steps:
       - aws-s3/sync:
-        from: build
-        to: 's3://jupiter-assets/staging'
-        arguments: |
-          --acl public-read \
-          --cache-control "max-age=86400"
-        overwrite: true
+          from: build
+          to: 's3://jupiter-assets/staging'
+          arguments: |
+            --acl public-read \
+            --cache-control "max-age=86400"
+          overwrite: true
 
   deploy-prod:
     # place holder
@@ -63,20 +63,20 @@ workflows:
     jobs:
       - build
       - staging-deploy-ask:
-        type: approval
-        requires:
-          - build
+          type: approval
+          requires:
+            - build
       - staging-deploy-ask:
-        type: approval
-        requires:
-          - build
-        filters:
-          branches:
-            only: master
+          type: approval
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
       - deploy-staging:
-        requires:
-          - staging-deploy-ask
+          requires:
+            - staging-deploy-ask
       - deploy-prod:
-        requires:
-          - deploy-staging
-          - prod-deploy-ask
+          requires:
+            - deploy-staging
+            - prod-deploy-ask
