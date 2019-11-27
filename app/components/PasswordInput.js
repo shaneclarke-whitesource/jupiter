@@ -1,22 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation, Trans } from 'react-i18next';
-import Button from './helix/Button';
+import Button from './helix/buttons/Button';
 import Input from './helix/Input';
 
 class PasswordInput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+    state = {
       hidden: true
     };
-    this.showPassword = this.showPassword.bind(this);
-  }
 
-  showPassword(e) {
+  showPassword = (e) => {
     e.preventDefault();
     this.setState({ hidden: !this.state.hidden });
-  }
+  };
 
   renderTooltip() {
     const { input: { name }, t } = this.props;
@@ -64,7 +60,6 @@ class PasswordInput extends React.Component {
           <Button
             classNames="hxSuffix hxSecondary"
             label={this.state.hidden ? t('common:actions.basic.show') : t('common:actions.basic.hide')}
-            type="show"
             onClick={this.showPassword}
           />
         </hx-text-control>

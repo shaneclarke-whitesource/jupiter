@@ -19,6 +19,9 @@
   "actions.basic.hide": {
     "translation": "Hide"
   },
+  "actions.basic.select": {
+    "translation": "Select"
+  },
   "actions.confirm.password": {
     "translation": "Confirm Password"
   },
@@ -66,5 +69,20 @@
   },
   "user.location.country": {
     "translation": "Country"
+  },
+  "account.role.header": {
+    "translation": "Account Role"
+  },
+  "account.actions.role.choose": {
+    "translation": "Choose Account Role"
+  },
+  "account.role.aviator": {
+    "translation": "Aviator"
+  },
+  "account.role.navigator": {
+    "translation": "Navigator"
+  },
+  "account.role.serviceBlocks": {
+    "translation": "Service Blocks"
   }
 }
