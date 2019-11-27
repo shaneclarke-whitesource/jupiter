@@ -4,6 +4,7 @@ import { withTranslation } from 'react-i18next';
 import { Field, reduxForm } from 'redux-form';
 import Input from '../../components/helix/Input';
 import Button from '../../components/helix/Button';
+import SubmitButton from '../../components/helix/SubmitButton';
 import PasswordInput from '../../components/PasswordInput';
 import { validatePassword, validateEmail, validateUser } from '../../validators';
 
@@ -75,15 +76,12 @@ export class SignUpForm extends React.Component {
             </div>
           </div>
           <div className="SignUp-buttons">
-            <Button
-              classNames="submit-btn hxPrimary"
+            <SubmitButton
               label={t('common:actions.basic.submit')}
-              type="submit"
             />
             <Button
               classNames="cancel-btn hxTertiary"
               label={t('common:actions.basic.cancel')}
-              type="reset"
             />
           </div>
         </form>

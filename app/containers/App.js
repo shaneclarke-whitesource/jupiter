@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import Footer from '../components/helix/Footer';
-import SignUpForm from './SignUp/SignUpForm';
+import SignUpReduxForm from './SignUp/SignUpForm';
 
 export class App extends React.Component {
   componentDidMount() {
@@ -23,7 +23,7 @@ export class App extends React.Component {
               </div>
               <div className="hx-row">
                 <div className="hxCol hxSpan-10 hxOffset-1 hxSpan-10-xs">
-                  <SignUpForm />
+                  <SignUpReduxForm />
                 </div>
               </div>
             </div>
