@@ -63,19 +63,19 @@ workflows:
     jobs:
       - build
       - staging-deploy-ask:
-          type: approval
-          requires:
-            - build
+        type: approval
+        requires:
+          - build
       - staging-deploy-ask:
-            type: approval
-            requires:
-              - build
-              filters:
-                branches:
-                  only: master
+        type: approval
+        requires:
+          - build
+        filters:
+          branches:
+            only: master
       - deploy-staging:
-          requires:
-            - staging-deploy-ask
+        requires:
+          - staging-deploy-ask
       - deploy-prod:
         requires:
           - deploy-staging
