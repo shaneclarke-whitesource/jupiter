@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
-import { Link, Switch, Route } from 'react-router-dom';
 import Footer from '../components/helix/Footer';
 import SignUpReduxForm from './SignUp/SignUpForm';
-import AddressSection from '../components/SignUp/AddressSection';
 
 export class App extends React.Component {
   componentDidMount() {
@@ -25,10 +23,7 @@ export class App extends React.Component {
               </div>
               <div className="hx-row">
                 <div className="hxCol hxSpan-10 hxOffset-1 hxSpan-10-xs">
-                  <Switch>
-                    <Route path="/" component={SignUpReduxForm} />
-                    <Route path="/address-info" component={AddressSection} />
-                  </Switch>
+                  <SignUpReduxForm />
                 </div>
               </div>
             </div>
