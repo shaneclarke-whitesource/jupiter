@@ -53,15 +53,11 @@ jobs:
     working_directory: ~/repo
 
     steps:
-      - run: "mkdir assets"
-      - run: "ls -la"
       - attach_workspace:
-          at: ./assets
-
-      - run: "ls -la ./assets"
+          at: .
 
       - aws-s3/sync:
-          from: assets
+          from: build
           to: 's3://jupiter-assets/staging'
           arguments: '--acl public-read'
           overwrite: true
