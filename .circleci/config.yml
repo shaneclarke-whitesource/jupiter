@@ -2,9 +2,10 @@
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
+version: 2.1
 orbs:
   aws-s3: circleci/aws-s3@1.0.0
-version: 2
+
 jobs:
   build:
     docker:
@@ -78,17 +79,20 @@ workflows:
           type: approval
           requires:
             - build
-      - prod-deploy-ask:
-          type: approval
-          requires:
-            - build
-          filters:
-            branches:
-              only: master
       - deploy-staging:
           requires:
             - staging-deploy-ask
+      - prod-deploy-ask:
+            type: approval
+            requires:
+              - build
+            filters:
+              branches:
+                only: master
       - deploy-prod:
           requires:
             - deploy-staging
             - prod-deploy-ask
+          filters:
+            branches:
+              only: master
