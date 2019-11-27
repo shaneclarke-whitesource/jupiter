@@ -80,7 +80,7 @@ workflows:
           requires:
             - staging-deploy-ask
       - prod-deploy-ask:
-            type: approval
+          type: approval
           requires:
             - build
           filters:
