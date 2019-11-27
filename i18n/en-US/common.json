@@ -13,6 +13,12 @@
   "actions.basic.submit": {
     "translation": "Submit"
   },
+  "actions.basic.show": {
+    "translation": "Show"
+  },
+  "actions.basic.hide": {
+    "translation": "Hide"
+  },
   "actions.confirm.password": {
     "translation": "Confirm Password"
   },
