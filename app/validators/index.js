@@ -1,4 +1,5 @@
 import i18n from '../i18n';
+import _ from 'lodash';
 import validate from 'validate.js';
 
 function translateDefaultValidators(t) {
@@ -110,4 +111,31 @@ export const validatePassword = (values, { t = i18nT() }) => {
       }
     }
   }, { fullMessages: false }) || {};
+};
+
+export const validateAddress = (values, { t = i18nT() }) => {
+  const address = _.get(values, 'address', {});
+  const errors = validate(address, {
+    country: {
+      presence: true
+    },
+    street: {
+      presence: true
+    },
+    state: {
+      presence: true
+    },
+    city: {
+      presence: true
+    },
+    zipCode: {
+      presence: true,
+      length: {
+        maximum: 20,
+        tooLong: t('validation:input.maxLength', { content: undefined, characterCount: '%{count}' })
+      }
+    }
+  }, { fullMessages: false });
+
+  return errors ? { address: errors } : {};
 };

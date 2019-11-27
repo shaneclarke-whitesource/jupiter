@@ -45,5 +45,20 @@
   },
   "user.details.lastName": {
     "translation": "Last Name"
+  },
+  "user.location.city": {
+    "translation": "City"
+  },
+  "user.location.state": {
+    "translation": "State"
+  },
+  "user.location.street": {
+    "translation": "Street"
+  },
+  "user.location.zipCode": {
+    "translation": "Zip Code"
+  },
+  "user.location.country": {
+    "translation": "Country"
   }
 }

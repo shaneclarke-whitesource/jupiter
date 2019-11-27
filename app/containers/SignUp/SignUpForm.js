@@ -1,21 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
-import { Field, reduxForm } from 'redux-form';
+import { Field, FormSection, reduxForm } from 'redux-form';
 import Input from '../../components/helix/Input';
 import Button from '../../components/helix/Button';
-import { validatePassword, validateEmail, validateUser } from '../../validators';
+import {
+  validatePassword, validateEmail, validateUser, validateAddress
+} from '../../validators';
+import AddressSection from '../../components/SignUp/AddressSection';
+import AccountName from '../../components/SignUp/AccountName';
 
 export class SignUpForm extends React.Component {
-  handleSubmit = () => {
-    console.log('hi');
-  };
-
   render() {
-    const { t } = this.props;
+    const { t, handleSubmit, reset } = this.props;
+    console.log(this.props);
     return (
       <div className="SignUp-form">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={() => handleSubmit}>
           <div className="InputField-content">
             <div className="hxRow">
               <div className="hxCol hxSpan-6">
@@ -74,6 +75,12 @@ export class SignUpForm extends React.Component {
               />
             </div>
           </div>
+          <FormSection name="accountName">
+            <AccountName />
+          </FormSection>
+          <FormSection name="address">
+            <AddressSection />
+          </FormSection>
           <div className="SignUp-buttons">
             <Button
               classNames="submit-btn hxPrimary"
@@ -84,6 +91,7 @@ export class SignUpForm extends React.Component {
               classNames="cancel-btn hxTertiary"
               label={t('common:actions.basic.cancel')}
               type="reset"
+              onClick={reset}
             />
           </div>
         </form>
@@ -93,14 +101,17 @@ export class SignUpForm extends React.Component {
 }
 
 SignUpForm.propTypes = {
-  t: PropTypes.func.isRequired
+  t: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func,
+  reset: PropTypes.func
 };
 
 export const validateForm = (values, props) => {
   return {
     ...validateUser(values, props),
     ...validateEmail(values, props),
-    ...validatePassword(values, props)
+    ...validatePassword(values, props),
+    ...validateAddress(values, props)
   };
 };
 
@@ -108,5 +119,6 @@ const SignUpReduxForm = reduxForm({
   form: 'signUp',
   validate: validateForm
 })(withTranslation()(SignUpForm));
+
 
 export default SignUpReduxForm;
