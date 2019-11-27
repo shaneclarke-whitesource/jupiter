@@ -31,7 +31,6 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      # Todo add some better report details here
       - run: yarn lint
 
       - run: yarn test
@@ -61,9 +60,9 @@ workflows:
           type: approval
           requires:
             - build
-          filters:
-            branches:
-              only: master
+#          filters:
+#            branches:
+#              only: master
       - deploy-staging:
           requires:
             - approve-deploy-to-staging
