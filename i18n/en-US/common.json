@@ -16,6 +16,9 @@
   "account.header.userInfo": {
     "translation": "User Information"
   },
+  "account.role.actions.select": {
+    "translation": "Select Role"
+  },
   "account.role.aviator": {
     "translation": "Aviator"
   },
@@ -39,9 +42,6 @@
   },
   "actions.basic.hide": {
     "translation": "Hide"
-  },
-  "actions.basic.select": {
-    "translation": "Select"
   },
   "actions.basic.show": {
     "translation": "Show"
@@ -94,7 +94,7 @@
   "user.location.street": {
     "translation": "Street"
   },
-  "user.location.zipCode": {
-    "translation": "Zip Code"
+  "user.location.zipcode": {
+    "translation": "Zipcode"
   }
 }

@@ -6,7 +6,7 @@ import Popover from '../helix/popover/Popover';
 import DropDown from '../helix/Dropdown';
 import Checkbox from '../helix/Checkbox';
 
-class AccountRole extends React.Component {
+export class AccountRole extends React.Component {
   state = {
     isOpen: null,
     selectedRole: 'aviator'
@@ -63,7 +63,6 @@ class AccountRole extends React.Component {
       <div className="account-role-section">
         <Popover
           title={t('common:account.role.header')}
-          btnLabel={t('common:actions.basic.select')}
           id="role-popover"
           role={t(`common:account.role.${this.state.selectedRole}`)}
           isOpen={this.state.isOpen}
@@ -76,7 +75,7 @@ class AccountRole extends React.Component {
               options={dropdownData}
               valueField="value"
               textField="label"
-              label="Select Role"
+              label={t('common:account.role.actions.select')}
               id="role-select-popover"
               onChange={this.handleChange}
             />

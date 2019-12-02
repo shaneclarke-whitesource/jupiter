@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountRole it renders 1`] = `
+<div
+  className="account-role-section"
+>
+  <div
+    className="popover"
+  >
+    <div
+      className="hxRow"
+    >
+      <div
+        className="hxCol hxSpan-4"
+      >
+        <span
+          className="InputField-label role"
+        >
+          Account Role
+          :
+        </span>
+      </div>
+      <div
+        className="hxCol hxSpan-4 role"
+      >
+        Aviator
+      </div>
+      <div
+        className="hxCol hxSpan-4"
+      >
+        <hx-disclosure
+          aria-controls="role-popover"
+          class="hxBtn hxPrimary"
+        >
+          <hx-icon
+            type="pencil"
+          />
+        </hx-disclosure>
+        <hx-popover
+          id="role-popover"
+          open={null}
+          position="right-middle"
+        >
+          <header>
+             
+            Choose Account Role
+          </header>
+          <hx-div>
+            <hx-select-control>
+              <select
+                id="role-select-popover"
+                onChange={[Function]}
+              >
+                <option
+                  value="aviator"
+                >
+                  Aviator
+                </option>
+                <option
+                  value="navigator"
+                >
+                  Navigator
+                </option>
+                <option
+                  value="serviceBlocks"
+                >
+                  Service Blocks
+                </option>
+              </select>
+              <hx-select />
+              <label
+                htmlFor="role-select-popover"
+              >
+                Select Role
+              </label>
+            </hx-select-control>
+          </hx-div>
+        </hx-popover>
+      </div>
+    </div>
+  </div>
+</div>
+`;
