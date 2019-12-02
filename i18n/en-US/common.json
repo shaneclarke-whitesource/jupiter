@@ -25,14 +25,14 @@
   "account.role.navigator": {
     "translation": "Navigator"
   },
-  "account.role.serviceBlocks": {
-    "translation": "Service Blocks"
+  "account.role.purchasingArchitectAndDeploy": {
+    "translation": "Is customer purchasing Architect & Deploy?"
   },
   "account.role.purchasingManageAndOperate": {
     "translation": "Is customer purchasing Manage & Operate?"
   },
-  "account.role.purchasingArchitectAndDeploy": {
-    "translation": "Is customer purchasing Architect & Deploy?"
+  "account.role.serviceBlocks": {
+    "translation": "Service Blocks"
   },
   "actions.basic.cancel": {
     "translation": "Cancel"

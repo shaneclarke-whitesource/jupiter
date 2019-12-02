@@ -10,7 +10,6 @@ import Submit from '../../components/helix/buttons/Submit';
 import UserInfo from '../../components/SignUp/UserInfo';
 
 export class SignUpForm extends React.Component {
-
   handleSubmit = () => {
 
   };
