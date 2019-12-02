@@ -11,6 +11,7 @@ function i18nT() {
 }
 
 export const validateEmail = (values, { t = i18nT() }) => {
+  translateDefaultValidators(t);
   return validate(values, {
     email: {
       presence: {
@@ -39,6 +40,7 @@ validate.validators.regex = (value, options, key, attributes) => {
 };
 
 export const validatePassword = (values, { t = i18nT() }) => {
+  translateDefaultValidators(t);
   return validate(values, {
     password: {
       presence: {
@@ -72,6 +74,7 @@ export const validatePassword = (values, { t = i18nT() }) => {
 };
 
 export const validateUser = (values, { t = i18nT() }) => {
+  translateDefaultValidators(t);
   const userInfo = _.get(values, 'userInfo');
   translateDefaultValidators(t);
   const errors = validate(userInfo, {
