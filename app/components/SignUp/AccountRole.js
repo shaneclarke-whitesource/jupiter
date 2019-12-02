@@ -64,7 +64,7 @@ class AccountRole extends React.Component {
         <Popover
           title={t('common:account.role.header')}
           btnLabel={t('common:actions.basic.select')}
-          id="rolePopover"
+          id="role-popover"
           role={t(`common:account.role.${this.state.selectedRole}`)}
           isOpen={this.state.isOpen}
         >
@@ -73,11 +73,11 @@ class AccountRole extends React.Component {
             <Field
               name="role"
               component={DropDown}
-              data={dropdownData}
+              options={dropdownData}
               valueField="value"
               textField="label"
               label="Select Role"
-              id="roleSelectPopover"
+              id="role-select-popover"
               onChange={this.handleChange}
             />
           </Popover.Body>

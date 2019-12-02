@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const DropDown = (props) => {
   const list = () => {
-    return _.map(props.data, (item, index) => {
+    return _.map(props.options, (item, index) => {
       return (
         <option key={index + 1} value={item.value}>
           {item.label}
@@ -28,7 +28,7 @@ const DropDown = (props) => {
 DropDown.propTypes = {
   label: PropTypes.string,
   id: PropTypes.string,
-  data: PropTypes.arrayOf(PropTypes.object),
+  options: PropTypes.arrayOf(PropTypes.object),
   input: PropTypes.shape({
     onChange: PropTypes.func
   })
