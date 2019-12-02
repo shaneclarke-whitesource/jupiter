@@ -28,6 +28,12 @@
   "account.role.serviceBlocks": {
     "translation": "Service Blocks"
   },
+  "account.role.purchasingManageAndOperate": {
+    "translation": "Is customer purchasing Manage & Operate?"
+  },
+  "account.role.purchasingArchitectAndDeploy": {
+    "translation": "Is customer purchasing Architect & Deploy?"
+  },
   "actions.basic.cancel": {
     "translation": "Cancel"
   },

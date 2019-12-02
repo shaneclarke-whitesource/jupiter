@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
 import { withTranslation } from 'react-i18next';
 import Input from '../helix/Input';
@@ -64,6 +65,10 @@ const UserInfo = ({ t }) => {
       </div>
     </div>
   );
+};
+
+UserInfo.propTypes = {
+  t: PropTypes.func.isRequired
 };
 
 export default withTranslation()(UserInfo);

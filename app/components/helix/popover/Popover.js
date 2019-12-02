@@ -5,15 +5,32 @@ import Footer from './Footer';
 import Header from './Header';
 
 export class Popover extends React.Component {
+  componentDidMount() {
+    this.checkOpen();
+  }
+
+  checkOpen = () => {
+    if (this.hxPopover) {
+      if (this.props.isOpen) {
+        this.hxPopover.setAttribute('open', true);
+      } else {
+        this.hxPopover.removeAttribute('open');
+      }
+    }
+  };
+
+  setRef = (element) => { this.hxPopover = element; };
+
   render() {
-    const { title, id, btnLabel, children, isOpen, role } = this.props;
+    this.checkOpen();
+    const { title, id, children, role } = this.props;
     return (
       <div className="popover">
         <div className="hxRow">
           <div className="hxCol hxSpan-4">
             <span className="InputField-label role">{title}:</span>
           </div>
-          <div className="hxCol hxSpan-2 role">
+          <div className="hxCol hxSpan-4 role">
             {role}
           </div>
           <div className="hxCol hxSpan-4">
@@ -22,8 +39,8 @@ export class Popover extends React.Component {
             </hx-disclosure>
             <hx-popover
               id={id}
-              open={isOpen ? true : null}
               position="right-middle"
+              ref={this.setRef}
             >
               {children}
             </hx-popover>
@@ -37,7 +54,6 @@ export class Popover extends React.Component {
 Popover.propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
-  btnLabel: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   isOpen: PropTypes.bool,
   role: PropTypes.string

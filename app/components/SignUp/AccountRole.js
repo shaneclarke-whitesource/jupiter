@@ -1,25 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DropDown from '../helix/Dropdown';
-import { withTranslation } from 'react-i18next';
-import Button from '../helix/buttons/Button';
-import Submit from '../helix/buttons/Submit';
-import Popover from '../helix/popover/Popover';
 import { Field } from 'redux-form';
+import { withTranslation } from 'react-i18next';
+import Popover from '../helix/popover/Popover';
+import DropDown from '../helix/Dropdown';
+import Checkbox from '../helix/Checkbox';
 
 class AccountRole extends React.Component {
-    state = {
-      isOpen: null,
-      selectedRole: 'aviator'
-    };
-
-  closePopover = (e) => {
-    e.preventDefault();
-    this.setState({ isOpen: null });
+  state = {
+    isOpen: null,
+    selectedRole: 'aviator'
   };
 
   handleChange = (e) => {
-    this.setState({ selectedRole: e.target.value });
+    this.setState({
+      selectedRole: e.target.value,
+      isOpen: null
+    });
+  };
+
+  ifServiceBlocks = () => {
+    const { t } = this.props;
+    if (this.state.selectedRole === 'serviceBlocks') {
+      return (
+        <div className="serviceBlocks-Checkboxes">
+          <Field
+            id="manage-and-operate"
+            content={t('common:account.role.purchasingManageAndOperate')}
+            textField="label"
+            name="manage-and-operate"
+            component={Checkbox}
+          />
+          <Field
+            id="architect-and-deploy"
+            content={t('common:account.role.purchasingArchitectAndDeploy')}
+            textField="label"
+            name="architect-and-deploy"
+            component={Checkbox}
+          />
+        </div>
+      );
+    }
   };
 
   render() {
@@ -60,18 +81,8 @@ class AccountRole extends React.Component {
               onChange={this.handleChange}
             />
           </Popover.Body>
-          <Popover.Footer>
-            <Submit
-              label={t('common:actions.basic.submit')}
-              onClick={this.closePopover}
-            />
-            <Button
-              classNames="cancel-btn hxTertiary"
-              label={t('common:actions.basic.cancel')}
-              onClick={this.closePopover}
-            />
-          </Popover.Footer>
         </Popover>
+        {this.ifServiceBlocks()}
       </div>
     );
   }
