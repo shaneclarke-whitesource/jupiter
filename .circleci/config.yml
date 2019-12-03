@@ -73,25 +73,29 @@ jobs:
 workflows:
   version: 2.1
   build_and_deploy_staging:
-    filters:
-      branches:
-        ignore:
-          - master
     jobs:
       - build
       - staging-deploy-ask:
           type: approval
           requires:
             - build
+          filters:
+            branches:
+              ignore:
+                - master
       - deploy-staging:
           requires:
             - staging-deploy-ask
-  build_and_deploy_prod:
-    filters:
-      branches:
-        only: master
+          filters:
+            branches:
+              ignore:
+                - master
+  build_master_and_deploy_prod:
     jobs:
       - build
       - deploy-prod:
           requires:
             - build
+          filters:
+            branches:
+              only: master
