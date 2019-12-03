@@ -84,10 +84,9 @@ not_master: &not_master
 
 workflows:
   version: 2.1
-  build_and_deploy_staging:
+  build_and_deploy:
     jobs:
-      - build:
-          <<: *not_master
+      - build
       - staging-deploy-ask:
           <<: *not_master
           type: approval
@@ -97,13 +96,7 @@ workflows:
           <<: *not_master
           requires:
             - staging-deploy-ask
-
-  build_master_and_deploy_prod:
-    jobs:
-      - build:
-          <<: *master_only
       - deploy-prod:
-          <<: *master_only
-          requires:
-            - build
-
+            <<: *master_only
+            requires:
+              - build
