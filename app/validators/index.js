@@ -1,4 +1,5 @@
 import i18n from '../i18n';
+import _ from 'lodash';
 import validate from 'validate.js';
 
 function translateDefaultValidators(t) {
@@ -8,48 +9,6 @@ function translateDefaultValidators(t) {
 function i18nT() {
   return i18n.t.bind(i18n);
 }
-
-export const validateUser = (values, { t = i18nT() }) => {
-  translateDefaultValidators(t);
-  return validate(values, {
-    firstName: {
-      presence: {
-        allowEmpty: false
-      },
-      length: {
-        maximum: 32,
-        tooLong: t('validation:input.maxLength', {
-          content: 'Input',
-          characterCount: '%{count}'
-        })
-      }
-    },
-    lastName: {
-      presence: {
-        allowEmpty: false
-      },
-      length: {
-        maximum: 32,
-        tooLong: t('validation:input.maxLength', {
-          content: 'Input',
-          characterCount: '%{count}'
-        })
-      }
-    },
-    username: {
-      presence: {
-        allowEmpty: false
-      },
-      length: {
-        maximum: 10,
-        tooLong: t('validation:input.maxLength', {
-          content: 'Username',
-          characterCount: '%{count}'
-        })
-      }
-    }
-  }, { fullMessages: false }) || {};
-};
 
 export const validateEmail = (values, { t = i18nT() }) => {
   return validate(values, {
@@ -110,4 +69,90 @@ export const validatePassword = (values, { t = i18nT() }) => {
       }
     }
   }, { fullMessages: false }) || {};
+};
+
+export const validateUser = (values, { t = i18nT() }) => {
+  const userInfo = _.get(values, 'userInfo');
+  translateDefaultValidators(t);
+  const errors = validate(userInfo, {
+    firstName: {
+      presence: {
+        allowEmpty: false
+      },
+      length: {
+        maximum: 32,
+        tooLong: t('validation:input.maxLength', {
+          content: 'Input',
+          characterCount: '%{count}'
+        })
+      }
+    },
+    lastName: {
+      presence: {
+        allowEmpty: false
+      },
+      length: {
+        maximum: 32,
+        tooLong: t('validation:input.maxLength', {
+          content: 'Input',
+          characterCount: '%{count}'
+        })
+      }
+    },
+    username: {
+      presence: {
+        allowEmpty: false
+      },
+      length: {
+        maximum: 10,
+        tooLong: t('validation:input.maxLength', {
+          content: 'Username',
+          characterCount: '%{count}'
+        })
+      }
+    }
+  }, { fullMessages: false }) || {};
+  return {
+    userInfo: {
+      ...errors,
+      ...validateEmail(userInfo, t),
+      ...validatePassword(userInfo, t)
+    }
+  };
+};
+
+export const validateAddress = (values, { t = i18nT() }) => {
+  const address = _.get(values, 'address', {});
+  const errors = validate(address, {
+    country: {
+      presence: true
+    },
+    street: {
+      presence: true
+    },
+    state: {
+      presence: true
+    },
+    city: {
+      presence: true
+    },
+    zipCode: {
+      presence: true,
+      length: {
+        maximum: 20,
+        tooLong: t('validation:input.maxLength', { content: undefined, characterCount: '%{count}' })
+      }
+    }
+  }, { fullMessages: false });
+
+  return errors ? { address: errors } : {};
+};
+
+export const validateRole = (values) => {
+  const role = _.get(values, 'accountRole', {});
+  return validate(role, {
+    role: {
+      presence: true
+    }
+  });
 };

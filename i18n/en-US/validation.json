@@ -11,7 +11,7 @@
     "translation": "Email domain must be in valid format"
   },
   "input.maxLength": {
-    "translation": "{content} must be less than {characterCount} characters long"
+    "translation": "{content, select, undefined{Must} other {{content} must} } be less than {characterCount} characters long"
   },
   "input.minLength": {
     "translation": "{content} must be at least {characterCount} characters long"
@@ -19,11 +19,11 @@
   "input.required": {
     "translation": "Required"
   },
-  "password.charRestrictions": {
-    "translation": "Password must contain at least one uppercase letter, one numeric digit, and one special character."
-  },
   "password.allowedSpecialChars": {
     "translation": "Special characters can be any of the following: <br/> <0>@ $ ! % * # ? &</0>"
+  },
+  "password.charRestrictions": {
+    "translation": "Password must contain at least one uppercase letter, one numeric digit, and one special character."
   },
   "password.mustMatch": {
     "translation": "Passwords do not match"

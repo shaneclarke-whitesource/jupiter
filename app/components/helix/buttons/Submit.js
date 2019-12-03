@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class SubmitButton extends React.Component {
+class Submit extends React.Component {
   render() {
     const { label, disabled, classNames, onClick } = this.props;
     return (
@@ -16,17 +16,17 @@ class SubmitButton extends React.Component {
   }
 }
 
-SubmitButton.propTypes = {
+Submit.propTypes = {
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
   classNames: PropTypes.string
 };
 
-SubmitButton.defaultProps = {
+Submit.defaultProps = {
   disabled: false,
   classNames: 'submit-btn hxPrimary'
 };
 
 
-export default SubmitButton;
+export default Submit;

@@ -57,8 +57,16 @@ html, body {
 .footer {
     flex-shrink: 0;
     width: 100%;
-    position: absolute;
     bottom: 0;
+}
+
+.popover {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.role {
+    font-size: 1.2rem;
 }
 
 
@@ -73,6 +81,13 @@ hx-text-control > input[type="password"] {
 
 hx-text-control[hx-dirty] > input[type="password"]:enabled:invalid, hx-text-control.hxInvalid > input[type="password"]:enabled {
     border: 2px solid #d32f2f;
+}
+
+.disallow-user-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .tooltip {
