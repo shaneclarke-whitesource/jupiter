@@ -9,7 +9,7 @@ const Checkbox = ({ id, content, input }) => {
         id={id}
         onChange={input.onChange}
       />
-      <label htmlFor={id}>
+      <label htmlFor={id} className="disallow-user-select">
         <hx-checkbox> </hx-checkbox>
         {content}
       </label>
