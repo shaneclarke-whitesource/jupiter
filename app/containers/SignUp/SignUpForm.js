@@ -1,8 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import { FormSection, reduxForm } from 'redux-form';
 import { validateUser, validateAddress, validateRole } from '../../validators';
+import { submitUserData } from '../../actions/signUpUser';
 import Button from '../../components/helix/buttons/Button';
 import AddressSection from '../../components/SignUp/AddressSection';
 import AccountName from '../../components/SignUp/AccountRole';
@@ -10,15 +12,15 @@ import Submit from '../../components/helix/buttons/Submit';
 import UserInfo from '../../components/SignUp/UserInfo';
 
 export class SignUpForm extends React.Component {
-  handleSubmit = () => {
-
+  handleSubmit = (values) => {
+    this.props.signUp(values);
   };
 
   render() {
-    const { t, handleSubmit, reset } = this.props;
+    const { t, handleSubmit } = this.props;
     return (
       <div className="SignUp-form">
-        <form onSubmit={() => handleSubmit}>
+        <form onSubmit={handleSubmit(this.handleSubmit)}>
           <div className="InputField-content">
             <h2>{t('common:account.header.userInfo')}</h2>
             <FormSection name="userInfo">
@@ -40,7 +42,6 @@ export class SignUpForm extends React.Component {
             <Button
               classNames="cancel-btn hxTertiary"
               label={t('common:actions.basic.cancel')}
-              onClick={reset}
             />
           </div>
         </form>
@@ -51,8 +52,8 @@ export class SignUpForm extends React.Component {
 
 SignUpForm.propTypes = {
   t: PropTypes.func.isRequired,
-  handleSubmit: PropTypes.func,
-  reset: PropTypes.func
+  handleSubmit: PropTypes.func.isRequired,
+  signUp: PropTypes.func.isRequired
 };
 
 export const validateForm = (values, props) => {
@@ -63,10 +64,17 @@ export const validateForm = (values, props) => {
   };
 };
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signUp: (value) => {
+      dispatch(submitUserData(value));
+    }
+  };
+};
 const SignUpReduxForm = reduxForm({
   form: 'signUp',
   validate: validateForm
 })(withTranslation()(SignUpForm));
 
 
-export default SignUpReduxForm;
+export default connect(null, mapDispatchToProps)(SignUpReduxForm);
