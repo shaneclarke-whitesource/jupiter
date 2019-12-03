@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation, Trans } from 'react-i18next';
-import Button from './helix/Button';
+import Button from './helix/buttons/Button';
 import Input from './helix/Input';
 
 class PasswordInput extends React.Component {
