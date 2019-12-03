@@ -16,6 +16,9 @@
   "account.header.userInfo": {
     "translation": "__NOT_TRANSLATED__"
   },
+  "account.role.actions.select": {
+    "translation": "__NOT_TRANSLATED__"
+  },
   "account.role.aviator": {
     "translation": "__NOT_TRANSLATED__"
   },
@@ -38,9 +41,6 @@
     "translation": "__NOT_TRANSLATED__"
   },
   "actions.basic.hide": {
-    "translation": "__NOT_TRANSLATED__"
-  },
-  "actions.basic.select": {
     "translation": "__NOT_TRANSLATED__"
   },
   "actions.basic.show": {
@@ -94,7 +94,7 @@
   "user.location.street": {
     "translation": "__NOT_TRANSLATED__"
   },
-  "user.location.zipCode": {
+  "user.location.zipcode": {
     "translation": "__NOT_TRANSLATED__"
   }
 }

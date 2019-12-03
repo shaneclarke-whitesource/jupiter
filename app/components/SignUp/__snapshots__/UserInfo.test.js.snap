@@ -1,0 +1,251 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddressSection it renders 1`] = `
+<div
+  className="user-info-section"
+>
+  <div
+    className="hxRow"
+  >
+    <div
+      className="hxCol hxSpan-6"
+    >
+      <div
+        className="InputField"
+      >
+        <hx-text-control>
+          <input
+            autoComplete="on"
+            className="hxTextCtrl"
+            name="firstName"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onDragStart={[Function]}
+            onDrop={[Function]}
+            onFocus={[Function]}
+            required={true}
+            type="text"
+            value=""
+          />
+          <label
+            htmlFor="firstName"
+          >
+            <span
+              className="InputField-label"
+            >
+              First Name
+            </span>
+          </label>
+        </hx-text-control>
+      </div>
+    </div>
+    <div
+      className="hxCol hxSpan-6"
+    >
+      <div
+        className="InputField"
+      >
+        <hx-text-control>
+          <input
+            autoComplete="on"
+            className="hxTextCtrl"
+            name="lastName"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onDragStart={[Function]}
+            onDrop={[Function]}
+            onFocus={[Function]}
+            required={true}
+            type="text"
+            value=""
+          />
+          <label
+            htmlFor="lastName"
+          >
+            <span
+              className="InputField-label"
+            >
+              Last Name
+            </span>
+          </label>
+        </hx-text-control>
+      </div>
+    </div>
+  </div>
+  <div
+    className="hxCol hxSpan-12"
+  >
+    <div
+      className="InputField"
+    >
+      <hx-text-control>
+        <input
+          autoComplete="on"
+          className="hxTextCtrl"
+          name="email"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onDragStart={[Function]}
+          onDrop={[Function]}
+          onFocus={[Function]}
+          required={true}
+          type="text"
+          value=""
+        />
+        <label
+          htmlFor="email"
+        >
+          <span
+            className="InputField-label"
+          >
+            Email Address
+          </span>
+        </label>
+      </hx-text-control>
+    </div>
+  </div>
+  <div
+    className="hxCol hxSpan-12"
+  >
+    <div
+      className="InputField"
+    >
+      <hx-text-control>
+        <input
+          autoComplete="on"
+          className="hxTextCtrl"
+          name="username"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onDragStart={[Function]}
+          onDrop={[Function]}
+          onFocus={[Function]}
+          required={true}
+          type="text"
+          value=""
+        />
+        <label
+          htmlFor="username"
+        >
+          <span
+            className="InputField-label"
+          >
+            Create Username
+          </span>
+        </label>
+      </hx-text-control>
+    </div>
+  </div>
+  <div
+    className="hxCol hxSpan-12"
+  >
+    <div
+      className="InputField"
+    >
+      <hx-text-control
+        class=""
+      >
+        <input
+          autoComplete="new-password"
+          className="hxTextCtrl"
+          name="password"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onDragStart={[Function]}
+          onDrop={[Function]}
+          onFocus={[Function]}
+          required={true}
+          type="password"
+          value=""
+        />
+        <label
+          htmlFor="password"
+        >
+          <span
+            className="InputField-label"
+          >
+            Create Password
+          </span>
+           
+          <div
+            className="tooltip"
+          >
+            <hx-icon
+              id="password-tooltip"
+              type="help-circle"
+            />
+            <hx-tooltip
+              for="password-tooltip"
+              position="right-middle"
+            >
+              Password must contain at least one uppercase letter, one numeric digit, and one special character.
+              <br />
+               
+              <br />
+              Special characters can be any of the following: 
+              <br />
+               
+              <code
+                className="help-block"
+              >
+                @ $ ! % * # ? &
+              </code>
+            </hx-tooltip>
+          </div>
+        </label>
+        <button
+          className="hxBtn hxSuffix hxSecondary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Show
+        </button>
+      </hx-text-control>
+    </div>
+  </div>
+  <div
+    className="hxCol hxSpan-12"
+  >
+    <div
+      className="InputField"
+    >
+      <hx-text-control
+        class=""
+      >
+        <input
+          autoComplete="new-password"
+          className="hxTextCtrl"
+          name="passwordValidate"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onDragStart={[Function]}
+          onDrop={[Function]}
+          onFocus={[Function]}
+          required={true}
+          type="password"
+          value=""
+        />
+        <label
+          htmlFor="passwordValidate"
+        >
+          <span
+            className="InputField-label"
+          >
+            Confirm Password
+          </span>
+           
+        </label>
+        <button
+          className="hxBtn hxSuffix hxSecondary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Show
+        </button>
+      </hx-text-control>
+    </div>
+  </div>
+</div>
+`;
