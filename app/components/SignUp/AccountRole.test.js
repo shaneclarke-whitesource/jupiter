@@ -5,8 +5,10 @@ import { AccountRole } from './AccountRole';
 
 describe('AccountRole', () => {
   let wrapper;
+  let root;
   beforeEach(() => {
-    wrapper = mountWithProvider(SignUpReduxForm, { t }).find('AccountRole');
+    root = mountWithProvider(SignUpReduxForm, { t });
+    wrapper = root.find('AccountRole');
   });
 
   test('it renders', () => {
@@ -48,10 +50,8 @@ describe('AccountRole', () => {
     expect(wrapper.hasClass('serviceBlocks-Checkboxes')).toBeFalsy();
   });
 
-  // test('it renders the checkboxes only if selected role is serviceBlocks', () => {
-  //   wrapper.setState({ selectedRole: 'serviceBlocks' });
-  //   wrapper.instance().forceUpdate();
-  //   console.log(wrapper.debug());
-  //   // console.log(wrapper.hasClass('serviceBlocks-Checkboxes'));
-  // });
+  test('it renders the checkboxes only if selected role is serviceBlocks', () => {
+    wrapper.setState({ selectedRole: 'serviceBlocks' });
+    expect(root.find('.serviceBlocks-Checkboxes').length).toBe(1);
+  });
 });
