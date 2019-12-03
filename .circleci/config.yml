@@ -86,9 +86,11 @@ workflows:
       - deploy-staging:
           requires:
             - staging-deploy-ask
+          filters:
+            branches:
+              ignore:
+                - master
       - deploy-prod:
-          requires:
-            - deploy-staging
           filters:
             branches:
               only: master
