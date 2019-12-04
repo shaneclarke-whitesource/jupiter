@@ -37,6 +37,9 @@
   "account.product.navigator": {
     "translation": "Navigator"
   },
+  "account.product.none": {
+    "translation": "None"
+  },
   "account.product.purchasingArchitectAndDeploy": {
     "translation": "Is customer purchasing Architect & Deploy?"
   },
