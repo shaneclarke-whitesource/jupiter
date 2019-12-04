@@ -7,7 +7,8 @@ import PasswordInput from '../PasswordInput';
 
 const UserInfo = ({ t }) => {
   return (
-    <div>
+    <section className="Input-section">
+      <h2>{t('common:account.header.userInfo')}</h2>
       <div className="hxRow">
         <div className="hxCol hxSpan-6">
           <Field
@@ -63,7 +64,7 @@ const UserInfo = ({ t }) => {
           required
         />
       </div>
-    </div>
+    </section>
   );
 };
 

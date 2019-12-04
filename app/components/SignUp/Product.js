@@ -9,13 +9,17 @@ import Checkbox from '../helix/Checkbox';
 class Product extends React.Component {
   state = {
     isOpen: null,
-    product: 'aviator'
+    product: 'none',
+    touched: false,
+    error: false
   };
 
   handleChange = (e) => {
     this.setState({
       product: e.target.value,
-      isOpen: null
+      isOpen: null,
+      touched: true,
+      error: e.target.value === 'none'
     });
   };
 
@@ -23,7 +27,7 @@ class Product extends React.Component {
     const { t } = this.props;
     if (this.state.product === 'serviceBlocks') {
       return (
-        <div className="serviceBlocks-Checkboxes">
+        <div className="serviceBlocks-Checkboxes hxOffset-2">
           <Field
             id="manage-and-operate"
             content={t('common:account.product.purchasingManageAndOperate')}
@@ -60,15 +64,20 @@ class Product extends React.Component {
       }
     ];
     return (
-      <div className="account-role-section">
+      <div className="Input-section">
+        <h2>{t('common:account.customer.info')}</h2>
         <Popover
           title={t('common:account.product.header')}
           btnLabel={t('common:actions.basic.select')}
           id="product-popover"
           product={t(`common:account.product.${this.state.product}`)}
           isOpen={this.state.isOpen}
+          classNames="hxRequired customer-info-header"
+          touched={this.state.touched}
+          error={this.state.error}
+          errMsg={t('validation:input.required')}
         >
-          <Popover.Header> {t('common:account.actions.product.choose')}</Popover.Header>
+          <Popover.Header>{t('common:account.actions.product.choose')}</Popover.Header>
           <Popover.Body>
             <Field
               name="product"

@@ -16,9 +16,9 @@ export class App extends React.Component {
       <div id="app">
         <div className="jupiter-content">
           <main role="main" id="content" className="main-body">
-            <div className="SignUp-container hxSpan-6-lg hxSpan-8-sm hxSpan-11-xs">
+            <div className="SignUp-container hxSpan-7-lg hxSpan-9-sm hxSpan-11-xs">
               <div className="SignUp-header">
-                <h2>{t('common:signUp.headers.main')}</h2>
+                <h1>{t('common:signUp.headers.main')}</h1>
                 <hr />
               </div>
               <div className="hx-row">

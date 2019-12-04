@@ -13,6 +13,15 @@
   "account.actions.product.select": {
     "translation": "__NOT_TRANSLATED__"
   },
+  "account.customer.info": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "account.customer.isRbu": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "account.customer.type": {
+    "translation": "__NOT_TRANSLATED__"
+  },
   "account.header.address": {
     "translation": "__NOT_TRANSLATED__"
   },
@@ -32,6 +41,9 @@
     "translation": "__NOT_TRANSLATED__"
   },
   "account.product.purchasingManageAndOperate": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "account.product.select": {
     "translation": "__NOT_TRANSLATED__"
   },
   "account.product.serviceBlocks": {

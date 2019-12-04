@@ -13,6 +13,15 @@
   "account.actions.product.select": {
     "translation": "Select Product"
   },
+  "account.customer.info": {
+    "translation": "Customer Information"
+  },
+  "account.customer.isRbu": {
+    "translation": "Is this for an RBU customer?"
+  },
+  "account.customer.type": {
+    "translation": "Customer"
+  },
   "account.header.address": {
     "translation": "Address"
   },
@@ -33,6 +42,9 @@
   },
   "account.product.purchasingManageAndOperate": {
     "translation": "Is customer purchasing Manage & Operate?"
+  },
+  "account.product.select": {
+    "translation": "-- Please Select --"
   },
   "account.product.serviceBlocks": {
     "translation": "Service Blocks"

@@ -8,6 +8,7 @@ import AddressSection from '../../components/SignUp/AddressSection';
 import Product from '../../components/SignUp/Product';
 import Submit from '../../components/helix/buttons/Submit';
 import UserInfo from '../../components/SignUp/UserInfo';
+import CustomerType from '../../components/SignUp/CustomerType';
 
 export class SignUpForm extends React.Component {
   handleSubmit = () => {
@@ -20,15 +21,17 @@ export class SignUpForm extends React.Component {
       <div className="SignUp-form">
         <form onSubmit={() => handleSubmit}>
           <div className="InputField-content">
-            <h2>{t('common:account.header.userInfo')}</h2>
             <FormSection name="userInfo">
               <UserInfo />
             </FormSection>
+            <hr />
             <FormSection name="accountProduct">
               <Product />
             </FormSection>
+            <FormSection name="customerType">
+              <CustomerType />
+            </FormSection>
             <hr />
-            <h2>{t('common:account.header.address')}</h2>
             <FormSection name="address">
               <AddressSection />
             </FormSection>

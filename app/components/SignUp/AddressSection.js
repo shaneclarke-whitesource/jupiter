@@ -18,7 +18,8 @@ export class AddressSection extends React.Component {
   render() {
     const { t } = this.props;
     return (
-      <div className="address-section">
+      <div className="Input-section">
+        <h2>{t('common:account.header.address')}</h2>
         <Field
           name="city"
           type="text"
@@ -48,7 +49,7 @@ export class AddressSection extends React.Component {
               valueField="value"
               textField="label"
               label={t('common:user.location.country')}
-              id="country-select-popover"
+              id="country-select-dropdown"
               country={this.state.country}
               onCountryChange={this.onCountryChange}
             />
@@ -60,7 +61,7 @@ export class AddressSection extends React.Component {
               valueField="value"
               textField="label"
               label={t('common:user.location.state')}
-              id="country-select-popover"
+              id="state-select-dropdown"
               country={this.state.country}
             />
           </div>

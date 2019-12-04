@@ -148,11 +148,14 @@ export const validateAddress = (values, { t = i18nT() }) => {
   return errors ? { address: errors } : {};
 };
 
-export const validateRole = (values) => {
+export const validateRole = (values, { t = i18nT() }) => {
   const role = _.get(values, 'accountProduct', {});
-  return validate(role, {
-    role: {
-      presence: true
+  const errors = validate(role, {
+    product: {
+      exclusion: {
+        within: ['none']
+      }
     }
-  });
+  }, { fullMessages: false });
+  return errors ? { accountProduct: errors } : {};
 };
