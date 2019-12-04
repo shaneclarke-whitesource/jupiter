@@ -13,6 +13,7 @@ class CountrySelect extends React.Component {
             name={input.name}
             className="form-control"
             value={country}
+            valueType="short"
             id={input.name}
             onChange={(val) => input.onChange(onCountryChange(val))}
           />

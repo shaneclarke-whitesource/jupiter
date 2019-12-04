@@ -7,7 +7,6 @@ class StateSelect extends React.Component {
     region: ''
   };
 
-
   selectRegion = (val) => {
     this.setState({ region: val });
   };
@@ -23,6 +22,8 @@ class StateSelect extends React.Component {
             className="form-control"
             country={country}
             value={this.state.region}
+            countryValueType="short"
+            valueType="short"
             id={input.name}
             onChange={(val) => input.onChange(this.selectRegion(val))}
           />

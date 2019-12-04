@@ -153,7 +153,8 @@ export const validateRole = (values, { t = i18nT() }) => {
   const errors = validate(role, {
     product: {
       exclusion: {
-        within: ['none']
+        within: ['none'],
+        message: t('validation:dropdown.role.mustBeSelected')
       }
     }
   }, { fullMessages: false });
