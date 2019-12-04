@@ -7,7 +7,10 @@
       "path": "*/translation"
     }
   },
-  "account.actions.role.choose": {
+  "account.actions.product.choose": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "account.actions.product.select": {
     "translation": "__NOT_TRANSLATED__"
   },
   "account.header.address": {
@@ -16,22 +19,22 @@
   "account.header.userInfo": {
     "translation": "__NOT_TRANSLATED__"
   },
-  "account.role.aviator": {
+  "account.product.aviator": {
     "translation": "__NOT_TRANSLATED__"
   },
-  "account.role.header": {
+  "account.product.header": {
     "translation": "__NOT_TRANSLATED__"
   },
-  "account.role.navigator": {
+  "account.product.navigator": {
     "translation": "__NOT_TRANSLATED__"
   },
-  "account.role.purchasingArchitectAndDeploy": {
+  "account.product.purchasingArchitectAndDeploy": {
     "translation": "__NOT_TRANSLATED__"
   },
-  "account.role.purchasingManageAndOperate": {
+  "account.product.purchasingManageAndOperate": {
     "translation": "__NOT_TRANSLATED__"
   },
-  "account.role.serviceBlocks": {
+  "account.product.serviceBlocks": {
     "translation": "__NOT_TRANSLATED__"
   },
   "actions.basic.cancel": {

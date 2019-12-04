@@ -149,7 +149,7 @@ export const validateAddress = (values, { t = i18nT() }) => {
 };
 
 export const validateRole = (values) => {
-  const role = _.get(values, 'accountRole', {});
+  const role = _.get(values, 'accountProduct', {});
   return validate(role, {
     role: {
       presence: true

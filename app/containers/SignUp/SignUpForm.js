@@ -5,7 +5,7 @@ import { FormSection, reduxForm } from 'redux-form';
 import { validateUser, validateAddress, validateRole } from '../../validators';
 import Button from '../../components/helix/buttons/Button';
 import AddressSection from '../../components/SignUp/AddressSection';
-import AccountName from '../../components/SignUp/AccountRole';
+import Product from '../../components/SignUp/Product';
 import Submit from '../../components/helix/buttons/Submit';
 import UserInfo from '../../components/SignUp/UserInfo';
 
@@ -24,8 +24,8 @@ export class SignUpForm extends React.Component {
             <FormSection name="userInfo">
               <UserInfo />
             </FormSection>
-            <FormSection name="accountRole">
-              <AccountName />
+            <FormSection name="accountProduct">
+              <Product />
             </FormSection>
             <hr />
             <h2>{t('common:account.header.address')}</h2>

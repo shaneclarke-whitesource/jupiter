@@ -23,15 +23,15 @@ export class Popover extends React.Component {
 
   render() {
     this.checkOpen();
-    const { title, id, children, role } = this.props;
+    const { title, id, children, product } = this.props;
     return (
       <div className="popover">
         <div className="hxRow">
           <div className="hxCol hxSpan-4">
-            <span className="InputField-label role">{title}:</span>
+            <span className="InputField-label product">{title}:</span>
           </div>
-          <div className="hxCol hxSpan-4 role">
-            {role}
+          <div className="hxCol hxSpan-4 product">
+            {product}
           </div>
           <div className="hxCol hxSpan-4">
             <hx-disclosure aria-controls={id} class="hxBtn hxPrimary">
@@ -56,7 +56,7 @@ Popover.propTypes = {
   title: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   isOpen: PropTypes.bool,
-  role: PropTypes.string
+  product: PropTypes.string
 };
 
 
