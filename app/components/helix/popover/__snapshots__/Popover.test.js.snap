@@ -35,7 +35,6 @@ exports[`Popover it renders correct props 1`] = `
       </hx-disclosure>
       <hx-popover
         id="default-id"
-        open={null}
         position="right-middle"
       >
         &lt;h1&gt;Popover Content&lt;/h1&gt;

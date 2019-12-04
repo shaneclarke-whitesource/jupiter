@@ -297,7 +297,6 @@ exports[`SignUpForm it renders 1`] = `
               </hx-disclosure>
               <hx-popover
                 id="role-popover"
-                open={null}
                 position="right-middle"
               >
                 <header>

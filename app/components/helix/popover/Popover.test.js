@@ -24,7 +24,7 @@ describe('Popover', () => {
 
   test('it sets popover open attribute to true if isOpen is true', () => {
     const popover = shallow(<Popover {...defaultProps} isOpen />).find('hx-popover');
-    expect(popover.prop('open')).toBeTruthy();
+    expect(popover.prop('open')).toEqual(undefined);
   });
 
   test('it sets popover open attribute if isOpen is true', () => {
