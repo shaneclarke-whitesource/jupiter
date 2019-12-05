@@ -23,7 +23,7 @@ describe('AddressSection', () => {
   });
 
   test('it renders correct labels', () => {
-    const labels = wrapper.find('span').map(label => label.text());
+    const labels = wrapper.find('span').map((label) => label.text());
     expect(labels).toContain('First Name');
     expect(labels).toContain('Last Name');
     expect(labels).toContain('Email Address');
