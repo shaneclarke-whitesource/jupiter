@@ -483,7 +483,6 @@ exports[`SignUpForm it renders 1`] = `
             >
               <hx-select-control>
                 <select
-                  className="form-control"
                   disabled={false}
                   id="address.country"
                   name="address.country"
@@ -1761,7 +1760,6 @@ exports[`SignUpForm it renders 1`] = `
             >
               <hx-select-control>
                 <select
-                  className="form-control"
                   disabled={false}
                   id="address.state"
                   name="address.state"

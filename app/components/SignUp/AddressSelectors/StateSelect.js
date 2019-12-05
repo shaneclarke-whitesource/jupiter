@@ -19,7 +19,6 @@ class StateSelect extends React.Component {
           <RegionDropdown
             {...input}
             name={input.name}
-            className="form-control"
             country={country}
             value={this.state.region}
             countryValueType="short"

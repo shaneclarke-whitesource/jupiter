@@ -6,11 +6,10 @@ import { shallow } from 'enzyme';
 describe('CountrySelect', () => {
   let wrapper;
   const onChangeMock = jest.fn();
-  const onCountryChangeMock = jest.fn();
   const props = {
     country: 'US',
     label: 'United States',
-    onCountryChange: onCountryChangeMock,
+    onCountryChange: onChangeMock,
     input: {
       name: 'country',
       onChange: onChangeMock
@@ -31,7 +30,6 @@ describe('CountrySelect', () => {
   test('CountryDropdown call onChange methods when onChange is invoked', () => {
     wrapper.find('CountryDropdown').simulate('change', 'New Country');
     expect(onChangeMock).toBeCalled();
-    expect(onCountryChangeMock).toBeCalledWith('New Country');
   });
   test('it sets the name, id, and htmlFor attributes according to input name', () => {
     const dropdown = wrapper.find('CountryDropdown');

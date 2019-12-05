@@ -11,11 +11,10 @@ class CountrySelect extends React.Component {
           <CountryDropdown
             {...input}
             name={input.name}
-            className="form-control"
             value={country}
             valueType="short"
             id={input.name}
-            onChange={(val) => input.onChange(onCountryChange(val))}
+            onChange={onCountryChange}
           />
           <hx-select />
           <label htmlFor={input.name}>

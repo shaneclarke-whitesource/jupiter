@@ -70,6 +70,10 @@ Popover.propTypes = {
   touched: PropTypes.bool
 };
 
+Popover.defaultProps = {
+  classNames: ''
+};
+
 
 Popover.Header = Header;
 Popover.Body = Body;

@@ -11,7 +11,7 @@ exports[`Popover it renders correct props 1`] = `
       className="hxCol hxSpan-4 hxOffset-1"
     >
       <span
-        className="InputField-label undefined"
+        className="InputField-label "
       >
         Role
         :

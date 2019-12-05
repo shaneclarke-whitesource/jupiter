@@ -6,7 +6,6 @@ exports[`StateSelect it renders 1`] = `
 >
   <hx-select-control>
     <select
-      className="form-control"
       disabled={false}
       id="state"
       name="state"
