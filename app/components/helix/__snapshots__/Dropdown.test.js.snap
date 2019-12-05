@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown it renders with appropriate props 1`] = `
+<hx-select-control>
+  <select
+    id="dropdown-id"
+    onChange={[MockFunction]}
+  >
+    <option
+      value="none"
+    >
+      -- Please Select --
+    </option>
+    <option
+      value="option-1"
+    >
+      First Choice
+    </option>
+    <option
+      value="option-2"
+    >
+      Second Choice
+    </option>
+  </select>
+  <hx-select />
+  <label
+    htmlFor="dropdown-id"
+  >
+    Dropdown Label
+  </label>
+</hx-select-control>
+`;

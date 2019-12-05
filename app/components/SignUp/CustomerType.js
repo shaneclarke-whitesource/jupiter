@@ -1,37 +1,30 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import Checkbox from '../helix/Checkbox';
 
-class CustomerType extends React.Component {
-  render() {
-    const { t } = this.props;
-    return (
-      <div className="customer-type-section hxOffset-1 hxCenter">
-        <div className="hxRow">
-          <div className="hxCol hxSpan-3">
-            <span className="InputField-label customer-info-header hxRequired">
-              {t('common:account.customer.type')}
-            </span>
-          </div>
-          <div className="hxCol hxSpan-6">
-            <Field
-              name="customerType"
-              content={t('common:account.customer.isRbu')}
-              textField="label"
-              id="customer-type"
-              component={Checkbox}
-            />
-          </div>
+const CustomerType = () => {
+  const { t } = useTranslation();
+  return (
+    <div className="customer-type-section">
+      <div className="hxRow">
+        <div className="hxCol hxSpan-4 hxOffset-1">
+          <span className="InputField-label customer-info-header hxRequired">
+            {t('common:account.customer.type')}
+          </span>
+        </div>
+        <div className="hxCol hxSpan-6">
+          <Field
+            name="customerType"
+            content={t('common:account.customer.isRbu')}
+            textField="label"
+            id="customer-type"
+            component={Checkbox}
+          />
         </div>
       </div>
-    );
-  }
-}
-
-CustomerType.propTypes = {
-  t: PropTypes.func.isRequired
+    </div>
+  );
 };
 
-export default withTranslation()(CustomerType);
+export default CustomerType;

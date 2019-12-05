@@ -1,4 +1,5 @@
 import React from 'react';
+import renderer from 'react-test-renderer';
 import CountrySelect from './CountrySelect';
 import { shallow } from 'enzyme';
 
@@ -18,6 +19,12 @@ describe('CountrySelect', () => {
   beforeEach(() => {
     wrapper = shallow(<CountrySelect {...props} />);
   });
+
+  test('it renders', () => {
+    const component = renderer.create(<CountrySelect {...props} />).toJSON();
+    expect(component).toMatchSnapshot();
+  });
+
   test('it renders the label according to the label prop', () => {
     expect(wrapper.find('.InputField-label').text()).toEqual('United States');
   });

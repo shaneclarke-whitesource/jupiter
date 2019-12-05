@@ -27,7 +27,7 @@ export class Popover extends React.Component {
     return (
       <div className="popover">
         <div className="hxRow">
-          <div className="hxCol hxSpan-4 hxOffset-1 hxCenter">
+          <div className="hxCol hxSpan-4 hxOffset-1">
             <span className={`InputField-label ${classNames}`}>{title}:</span>
           </div>
           <div className="hxCol hxSpan-3 product">

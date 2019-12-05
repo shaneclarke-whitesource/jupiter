@@ -136,7 +136,7 @@ export const validateAddress = (values, { t = i18nT() }) => {
     city: {
       presence: true
     },
-    zipCode: {
+    zipcode: {
       presence: true,
       length: {
         maximum: 20,

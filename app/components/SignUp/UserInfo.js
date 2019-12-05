@@ -1,11 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import Input from '../helix/Input';
 import PasswordInput from '../PasswordInput';
 
-const UserInfo = ({ t }) => {
+const UserInfo = () => {
+  const { t } = useTranslation();
   return (
     <section className="Input-section">
       <h2>{t('common:account.header.userInfo')}</h2>
@@ -68,8 +68,4 @@ const UserInfo = ({ t }) => {
   );
 };
 
-UserInfo.propTypes = {
-  t: PropTypes.func.isRequired
-};
-
-export default withTranslation()(UserInfo);
+export default UserInfo;

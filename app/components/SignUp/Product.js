@@ -68,7 +68,6 @@ class Product extends React.Component {
         <h2>{t('common:account.customer.info')}</h2>
         <Popover
           title={t('common:account.product.header')}
-          btnLabel={t('common:actions.basic.select')}
           id="product-popover"
           product={t(`common:account.product.${this.state.product}`)}
           isOpen={this.state.isOpen}

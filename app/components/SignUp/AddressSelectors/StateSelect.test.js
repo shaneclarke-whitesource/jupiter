@@ -1,6 +1,7 @@
 import React from 'react';
-import StateSelect from './StateSelect';
+import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
+import StateSelect from './StateSelect';
 
 describe('StateSelect', () => {
   let wrapper;
@@ -15,6 +16,11 @@ describe('StateSelect', () => {
   };
   beforeEach(() => {
     wrapper = shallow(<StateSelect {...props} />);
+  });
+
+  test('it renders', () => {
+    const component = renderer.create(<StateSelect {...props} />).toJSON();
+    expect(component).toMatchSnapshot();
   });
 
   test('it renders the label according to the label prop', () => {
