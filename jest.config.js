@@ -5,7 +5,7 @@ module.exports = {
   coveragePathIgnorePatterns: [
     '/node_modules/'
   ],
-  setupFilesAfterEnv: ['<rootDir>test/jestSetup.js'],
+  setupFilesAfterEnv: ['<rootDir>/test/jestSetup.js'],
   testEnvironment: 'jsdom',
   // The glob patterns Jest uses to detect test files
   testMatch: [

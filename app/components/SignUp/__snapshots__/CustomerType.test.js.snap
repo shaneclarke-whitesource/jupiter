@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomerType it renders 1`] = `
+<div
+  className="customer-type-section"
+>
+  <div
+    className="hxRow"
+  >
+    <div
+      className="hxCol hxSpan-4 hxOffset-1"
+    >
+      <span
+        className="InputField-label customer-info-header hxRequired"
+      >
+        Customer
+      </span>
+    </div>
+    <div
+      className="hxCol hxSpan-6"
+    >
+      <hx-checkbox-control>
+        <input
+          id="customer-type"
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <label
+          className="disallow-user-select"
+          htmlFor="customer-type"
+        >
+          <hx-checkbox />
+          Is this for an RBU customer?
+        </label>
+      </hx-checkbox-control>
+    </div>
+  </div>
+</div>
+`;

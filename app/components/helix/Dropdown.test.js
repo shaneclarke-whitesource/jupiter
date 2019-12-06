@@ -2,6 +2,8 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import DropDown from './Dropdown';
+import { t } from '../../../test/i18n/mocks';
+
 
 describe('Dropdown', () => {
   let wrapper;
@@ -17,7 +19,8 @@ describe('Dropdown', () => {
     {
       value: 'option-2',
       label: 'Second Choice'
-    }]
+    }],
+    t
   };
 
   beforeEach(() => {
@@ -32,13 +35,16 @@ describe('Dropdown', () => {
 
   test('it renders multiple options based on data prop', () => {
     const options = wrapper.find('option');
-    expect(options.length).toEqual(2);
+    expect(options.length).toEqual(3);
   });
 
   test('it renders label for each option', () => {
-    const options = wrapper.find('option');
-    expect(options.first().text()).toEqual('First Choice');
-    expect(options.at(1).text()).toEqual('Second Choice');
+    const options = wrapper.find('option').map((labels) => labels.text());
+    expect(options).toEqual([
+      '-- Please Select --',
+      'First Choice',
+      'Second Choice'
+    ]);
   });
 
   test('it calls onChange prop when option is chosen', () => {

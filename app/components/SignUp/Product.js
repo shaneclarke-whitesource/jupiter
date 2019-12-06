@@ -6,34 +6,38 @@ import Popover from '../helix/popover/Popover';
 import DropDown from '../helix/Dropdown';
 import Checkbox from '../helix/Checkbox';
 
-export class AccountRole extends React.Component {
+class Product extends React.Component {
   state = {
     isOpen: null,
-    selectedRole: 'aviator'
+    product: 'none',
+    touched: false,
+    error: false
   };
 
   handleChange = (e) => {
     this.setState({
-      selectedRole: e.target.value,
-      isOpen: null
+      product: e.target.value,
+      isOpen: null,
+      touched: true,
+      error: e.target.value === 'none'
     });
   };
 
   ifServiceBlocks = () => {
     const { t } = this.props;
-    if (this.state.selectedRole === 'serviceBlocks') {
+    if (this.state.product === 'serviceBlocks') {
       return (
-        <div className="serviceBlocks-Checkboxes">
+        <div className="serviceBlocks-Checkboxes hxOffset-2">
           <Field
             id="manage-and-operate"
-            content={t('common:account.role.purchasingManageAndOperate')}
+            content={t('common:account.product.purchasingManageAndOperate')}
             textField="label"
             name="manage-and-operate"
             component={Checkbox}
           />
           <Field
             id="architect-and-deploy"
-            content={t('common:account.role.purchasingArchitectAndDeploy')}
+            content={t('common:account.product.purchasingArchitectAndDeploy')}
             textField="label"
             name="architect-and-deploy"
             component={Checkbox}
@@ -47,36 +51,41 @@ export class AccountRole extends React.Component {
     const { t } = this.props;
     const dropdownData = [
       {
-        label: t('common:account.role.aviator'),
+        label: t('common:account.product.aviator'),
         value: 'aviator'
       },
       {
-        label: t('common:account.role.navigator'),
+        label: t('common:account.product.navigator'),
         value: 'navigator'
       },
       {
-        label: t('common:account.role.serviceBlocks'),
+        label: t('common:account.product.serviceBlocks'),
         value: 'serviceBlocks'
       }
     ];
     return (
-      <div className="account-role-section">
+      <div className="Input-section">
+        <h2>{t('common:account.customer.info')}</h2>
         <Popover
-          title={t('common:account.role.header')}
-          id="role-popover"
-          role={t(`common:account.role.${this.state.selectedRole}`)}
+          title={t('common:account.product.header')}
+          id="product-popover"
+          product={t(`common:account.product.${this.state.product}`)}
           isOpen={this.state.isOpen}
+          classNames="hxRequired customer-info-header"
+          touched={this.state.touched}
+          error={this.state.error}
+          errMsg={t('validation:input.required')}
         >
-          <Popover.Header> {t('common:account.actions.role.choose')}</Popover.Header>
+          <Popover.Header>{t('common:account.actions.product.choose')}</Popover.Header>
           <Popover.Body>
             <Field
-              name="role"
+              name="product"
               component={DropDown}
               options={dropdownData}
               valueField="value"
               textField="label"
-              label={t('common:account.role.actions.select')}
-              id="role-select-popover"
+              label={t('common:account.actions.product.select')}
+              id="product-select-popover"
               onChange={this.handleChange}
             />
           </Popover.Body>
@@ -87,8 +96,8 @@ export class AccountRole extends React.Component {
   }
 }
 
-AccountRole.propTypes = {
+Product.propTypes = {
   t: PropTypes.func.isRequired
 };
 
-export default withTranslation()(AccountRole);
+export default withTranslation()(Product);
