@@ -29,7 +29,7 @@ exports[`Product it renders 1`] = `
         None
       </div>
       <div
-        className="hxCol hxSpan-1"
+        className="hxCol hxSpan-1 hxSpan-2-xs"
       >
         <hx-disclosure
           aria-controls="product-popover"

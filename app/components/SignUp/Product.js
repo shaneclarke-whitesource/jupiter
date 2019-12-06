@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
 import { withTranslation } from 'react-i18next';
 import Popover from '../helix/popover/Popover';
-import DropDown from '../helix/Dropdown';
-import Radio from '../helix/Radio/Radio';
-import RadioGroup from '../helix/Radio/RadioGroup';
+import DropDown from '../helix/inputTypes/Dropdown';
+import Radio from '../helix/radio/Radio';
+import RadioGroup from '../helix/radio/RadioGroup';
 
 export class Product extends React.Component {
   state = {

@@ -1,5 +1,5 @@
 {
   "hooks": {
-    "pre-push": "bash scripts/prepush.sh && yarn lint && yarn test"
+    "pre-push": "bash scripts/prepush.sh && yarn lint"
   }
 }

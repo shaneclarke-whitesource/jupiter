@@ -33,7 +33,7 @@ export class Popover extends React.Component {
           <div className="hxCol hxSpan-3 product">
             {product}
           </div>
-          <div className="hxCol hxSpan-1">
+          <div className="hxCol hxSpan-1 hxSpan-2-xs">
             <hx-disclosure aria-controls={id} class="hxBtn hxPrimary">
               <hx-icon type="pencil" />
             </hx-disclosure>
@@ -46,7 +46,7 @@ export class Popover extends React.Component {
             </hx-popover>
           </div>
           {touched && error && (
-            <div className="hxCol hxSpan-3">
+            <div className="hxCol hxSpan-2">
               <hx-error>
                 <small>{errMsg}</small>
               </hx-error>

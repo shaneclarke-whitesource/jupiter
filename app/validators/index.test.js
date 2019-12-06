@@ -13,6 +13,7 @@ describe('validators', () => {
         firstName: 'mr',
         lastName: 'wow',
         username: 'muchWow',
+        accountName: 'newAccountName',
         email: 'email@company.com',
         password: 'Password123!',
         passwordValidate: 'Password123!'

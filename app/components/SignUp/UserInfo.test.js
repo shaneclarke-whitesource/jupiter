@@ -13,8 +13,8 @@ describe('AddressSection', () => {
     expect(rendered).toMatchSnapshot();
   });
 
-  test('it renders 6 input fields', () => {
-    expect(wrapper.find('.InputField').length).toEqual(6);
+  test('it renders 7 input fields', () => {
+    expect(wrapper.find('.InputField').length).toEqual(7);
   });
 
   test('it renders password and password validate field', () => {
@@ -23,11 +23,14 @@ describe('AddressSection', () => {
 
   test('it renders correct labels', () => {
     const labels = wrapper.find('span').map((label) => label.text());
-    expect(labels).toContain('First Name');
-    expect(labels).toContain('Last Name');
-    expect(labels).toContain('Email Address');
-    expect(labels).toContain('Create Username');
-    expect(labels).toContain('Create Password');
-    expect(labels).toContain('Confirm Password');
+    expect(labels).toEqual([
+      'First Name',
+      'Last Name',
+      'Email Address',
+      'Create Username',
+      'Create Account Name',
+      'Create Password',
+      'Confirm Password'
+    ]);
   });
 });
