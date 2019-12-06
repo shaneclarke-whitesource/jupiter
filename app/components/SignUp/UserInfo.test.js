@@ -1,12 +1,11 @@
-import { mountWithProvider, renderWithForm } from '../../../test/provider';
-import SignUpReduxForm from '../../containers/SignUp/SignUpForm';
+import { mountWithForm, renderWithForm } from '../../../test/provider';
 import { t } from '../../../test/i18n/mocks';
 import UserInfo from './UserInfo';
 
 describe('AddressSection', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = mountWithProvider(SignUpReduxForm, { t }).find('UserInfo');
+    wrapper = mountWithForm(UserInfo, { t });
   });
 
   test('it renders', () => {
