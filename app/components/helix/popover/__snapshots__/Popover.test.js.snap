@@ -8,22 +8,20 @@ exports[`Popover it renders correct props 1`] = `
     className="hxRow"
   >
     <div
-      className="hxCol hxSpan-4"
+      className="hxCol hxSpan-4 hxOffset-1"
     >
       <span
-        className="InputField-label role"
+        className="InputField-label "
       >
         Role
         :
       </span>
     </div>
     <div
-      className="hxCol hxSpan-4 role"
-    >
-      Aviator
-    </div>
+      className="hxCol hxSpan-3 product"
+    />
     <div
-      className="hxCol hxSpan-4"
+      className="hxCol hxSpan-1"
     >
       <hx-disclosure
         aria-controls="default-id"

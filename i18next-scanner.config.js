@@ -5,6 +5,7 @@ const { transform, flush } = require('./lib/i18n/smartlingScannerHelpers');
 module.exports = {
   input: [
     'app/**/*.{js,jsx}',
+    'i18next-scanner-whitelist.js',
     // Use ! to filter out files or directories
     '!app/**/*.test.{js,jsx}',
     '!app/**/__snapshots__/**',

@@ -1,9 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AccountRole it renders 1`] = `
+exports[`Product it renders 1`] = `
 <div
-  className="account-role-section"
+  className="Input-section"
 >
+  <h2>
+    Customer Information
+  </h2>
   <div
     className="popover"
   >
@@ -11,25 +14,25 @@ exports[`AccountRole it renders 1`] = `
       className="hxRow"
     >
       <div
-        className="hxCol hxSpan-4"
+        className="hxCol hxSpan-4 hxOffset-1"
       >
         <span
-          className="InputField-label role"
+          className="InputField-label hxRequired customer-info-header"
         >
-          Account Role
+          Account Product
           :
         </span>
       </div>
       <div
-        className="hxCol hxSpan-4 role"
+        className="hxCol hxSpan-3 product"
       >
-        Aviator
+        None
       </div>
       <div
-        className="hxCol hxSpan-4"
+        className="hxCol hxSpan-1"
       >
         <hx-disclosure
-          aria-controls="role-popover"
+          aria-controls="product-popover"
           class="hxBtn hxPrimary"
         >
           <hx-icon
@@ -37,19 +40,23 @@ exports[`AccountRole it renders 1`] = `
           />
         </hx-disclosure>
         <hx-popover
-          id="role-popover"
+          id="product-popover"
           position="right-middle"
         >
           <header>
-             
-            Choose Account Role
+            Choose Product
           </header>
           <hx-div>
             <hx-select-control>
               <select
-                id="role-select-popover"
+                id="product-select-popover"
                 onChange={[Function]}
               >
+                <option
+                  value="none"
+                >
+                  -- Please Select --
+                </option>
                 <option
                   value="aviator"
                 >
@@ -68,9 +75,9 @@ exports[`AccountRole it renders 1`] = `
               </select>
               <hx-select />
               <label
-                htmlFor="role-select-popover"
+                htmlFor="product-select-popover"
               >
-                Select Role
+                Select Product
               </label>
             </hx-select-control>
           </hx-div>

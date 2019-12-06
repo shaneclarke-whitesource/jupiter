@@ -148,11 +148,15 @@ export const validateAddress = (values, { t = i18nT() }) => {
   return errors ? { address: errors } : {};
 };
 
-export const validateRole = (values) => {
-  const role = _.get(values, 'accountRole', {});
-  return validate(role, {
-    role: {
-      presence: true
+export const validateRole = (values, { t = i18nT() }) => {
+  const role = _.get(values, 'accountProduct', {});
+  const errors = validate(role, {
+    product: {
+      exclusion: {
+        within: ['none'],
+        message: t('validation:dropdown.role.mustBeSelected')
+      }
     }
-  });
+  }, { fullMessages: false });
+  return errors ? { accountProduct: errors } : {};
 };

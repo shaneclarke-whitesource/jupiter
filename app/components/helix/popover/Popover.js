@@ -23,17 +23,17 @@ export class Popover extends React.Component {
 
   render() {
     this.checkOpen();
-    const { title, id, children, role } = this.props;
+    const { title, id, children, product, classNames, error, touched, errMsg } = this.props;
     return (
       <div className="popover">
         <div className="hxRow">
-          <div className="hxCol hxSpan-4">
-            <span className="InputField-label role">{title}:</span>
+          <div className="hxCol hxSpan-4 hxOffset-1">
+            <span className={`InputField-label ${classNames}`}>{title}:</span>
           </div>
-          <div className="hxCol hxSpan-4 role">
-            {role}
+          <div className="hxCol hxSpan-3 product">
+            {product}
           </div>
-          <div className="hxCol hxSpan-4">
+          <div className="hxCol hxSpan-1">
             <hx-disclosure aria-controls={id} class="hxBtn hxPrimary">
               <hx-icon type="pencil" />
             </hx-disclosure>
@@ -45,6 +45,13 @@ export class Popover extends React.Component {
               {children}
             </hx-popover>
           </div>
+          {touched && error && (
+            <div className="hxCol hxSpan-3">
+              <hx-error>
+                <small>{errMsg}</small>
+              </hx-error>
+            </div>
+          )}
         </div>
       </div>
     );
@@ -56,7 +63,15 @@ Popover.propTypes = {
   title: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   isOpen: PropTypes.bool,
-  role: PropTypes.string
+  product: PropTypes.string,
+  classNames: PropTypes.string,
+  error: PropTypes.bool,
+  errMsg: PropTypes.string,
+  touched: PropTypes.bool
+};
+
+Popover.defaultProps = {
+  classNames: ''
 };
 
 

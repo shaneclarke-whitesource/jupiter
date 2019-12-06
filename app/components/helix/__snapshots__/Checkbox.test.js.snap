@@ -11,9 +11,7 @@ exports[`Checkbox renders with appropriate props 1`] = `
     className="disallow-user-select"
     htmlFor="option-1"
   >
-    <hx-checkbox>
-       
-    </hx-checkbox>
+    <hx-checkbox />
     Select Me
   </label>
 </hx-checkbox-control>
