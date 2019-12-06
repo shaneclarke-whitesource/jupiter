@@ -58,6 +58,14 @@ module.exports = {
       inject: true,
       chunks: ['jupiter']
     }),
+    /* Error page for S3 related errors, IE 404 not found */
+    new HtmlWebpackPlugin({
+      filename: 'error.html',
+      template: 'app/error.html',
+      favicon: './static/favicon.ico',
+      inject: false,
+      chunks: ['jupiter']
+    }),
     new CopyWebpackPlugin([
       { from: 'node_modules/@webcomponents/webcomponentsjs/', to: './assets/webcomponents-2.4.0/' }
     ]),
