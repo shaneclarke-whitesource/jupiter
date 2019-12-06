@@ -23,11 +23,12 @@ describe('AddressSection', () => {
   });
 
   test('it renders correct labels', () => {
-    expect(wrapper.find('Input').at(0).prop('label')).toEqual('First Name');
-    expect(wrapper.find('Input').at(1).prop('label')).toEqual('Last Name');
-    expect(wrapper.find('Input').at(2).prop('label')).toEqual('Email Address');
-    expect(wrapper.find('Input').at(3).prop('label')).toEqual('Create Username');
-    expect(wrapper.find('PasswordInput').first().prop('label')).toEqual('Create Password');
-    expect(wrapper.find('PasswordInput').last().prop('label')).toEqual('Confirm Password');
+    const labels = wrapper.find('span').map((label) => label.text());
+    expect(labels).toContain('First Name');
+    expect(labels).toContain('Last Name');
+    expect(labels).toContain('Email Address');
+    expect(labels).toContain('Create Username');
+    expect(labels).toContain('Create Password');
+    expect(labels).toContain('Confirm Password');
   });
 });

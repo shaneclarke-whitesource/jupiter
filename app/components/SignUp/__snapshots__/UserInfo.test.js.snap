@@ -1,9 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AddressSection it renders 1`] = `
-<div
-  className="user-info-section"
+<section
+  className="Input-section"
 >
+  <h2>
+    User Information
+  </h2>
   <div
     className="hxRow"
   >
@@ -247,5 +250,5 @@ exports[`AddressSection it renders 1`] = `
       </hx-text-control>
     </div>
   </div>
-</div>
+</section>
 `;

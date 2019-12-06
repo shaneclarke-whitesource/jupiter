@@ -19,14 +19,16 @@ describe('SignUpForm', () => {
   });
 
   test('it has the correct headers', () => {
-    expect(wrapper.find('h2').at(0).text()).toEqual('User Information');
-    expect(wrapper.find('h2').at(1).text()).toEqual('Address');
+    const headers = wrapper.find('h2').map((label) => label.text());
+    expect(headers).toEqual([
+      'User Information',
+      'Customer Information',
+      'Address'
+    ]);
   });
 
   test('it renders all Form Sections', () => {
-    expect(wrapper.find('.user-info-section').length).toEqual(1);
-    expect(wrapper.find('.account-role-section').length).toEqual(1);
-    expect(wrapper.find('.address-section').length).toEqual(1);
+    expect(wrapper.find('.Input-section').length).toEqual(3);
   });
 
   test('renders both the Submit and Cancel buttons with appropriate text', () => {

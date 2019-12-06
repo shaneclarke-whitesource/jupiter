@@ -52,7 +52,7 @@ jobs:
 
       - aws-s3/sync:
           from: build
-          to: 's3://staging-jupiter-assets/jupiter'
+          to: 's3://staging-jupiter-assets'
           arguments: '--acl public-read'
           overwrite: true
 
@@ -66,31 +66,42 @@ jobs:
 
       - aws-s3/sync:
           from: build
-          to: 's3://prod-jupiter-assets/jupiter'
+          to: 's3://prod-jupiter-assets'
           arguments: '--acl public-read'
           overwrite: true
+
+master_only: &master_only
+  filters:
+    branches:
+      only:
+        - master
+
+not_master: &not_master
+  filters:
+    branches:
+      ignore:
+        - master
 
 workflows:
   version: 2.1
   build_and_deploy:
     jobs:
+      # Triggered on all branches
       - build
+
+      # All branches must go to staging before going to master - enforced by git branch protection.
       - staging-deploy-ask:
+          <<: *not_master
           type: approval
           requires:
             - build
-          filters:
-            branches:
-              ignore:
-                - master
       - deploy-staging:
+          <<: *not_master
           requires:
             - staging-deploy-ask
-          filters:
-            branches:
-              ignore:
-                - master
+
+      # Because deploy to staging has already happened before merge to master, we can go to prod - enforced by git branch protection.
       - deploy-prod:
-          filters:
-            branches:
-              only: master
+            <<: *master_only
+            requires:
+              - build
