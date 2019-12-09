@@ -5,6 +5,10 @@ import Checkbox from '../helix/Checkbox';
 
 const CustomerType = () => {
   const { t } = useTranslation();
+  const handleChange = (e) => {
+
+  };
+
   return (
     <div className="customer-type-section">
       <div className="hxRow">
@@ -20,6 +24,7 @@ const CustomerType = () => {
             textField="label"
             id="customer-type"
             component={Checkbox}
+            onChange={handleChange}
           />
         </div>
       </div>
