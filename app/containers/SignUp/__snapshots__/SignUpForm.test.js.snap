@@ -208,7 +208,6 @@ exports[`SignUpForm it renders 1`] = `
                 <div
                   className="tooltip"
                 >
-                   
                   <hx-icon
                     id="userInfo.password-tooltip"
                     type="help-circle"

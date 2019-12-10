@@ -199,7 +199,6 @@ exports[`AddressSection it renders 1`] = `
           <div
             className="tooltip"
           >
-             
             <hx-icon
               id="password-tooltip"
               type="help-circle"

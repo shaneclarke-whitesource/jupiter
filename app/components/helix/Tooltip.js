@@ -5,7 +5,6 @@ const Tooltip = (props) => {
   const { id, type, position, children } = props;
   return (
     <div className="tooltip">
-      {' '}
       <hx-icon id={`${id}-tooltip`} type={type} />
       <hx-tooltip for={`${id}-tooltip`} position={position}>
         {children}

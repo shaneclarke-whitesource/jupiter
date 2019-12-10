@@ -4,7 +4,6 @@ exports[`Tooltip it renders correct props 1`] = `
 <div
   className="tooltip"
 >
-   
   <hx-icon
     id="testing-tooltip"
     type="help-circle"
