@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { submitFailure, submitPending, submitSuccess } from './signUpUser';
 
 export const GET_CUSTOMER_PENDING = 'GET_CUSTOMER_PENDING';
 export const GET_CUSTOMER_SUCCESS = 'GET_CUSTOMER_SUCCESS';
@@ -37,6 +38,34 @@ export function getRbuCustomerDetails() {
       })
       .catch((error) => {
         dispatch(getCustomerFailure());
+        throw (error);
+      });
+  };
+}
+
+const token = 'cf4dbd4b-a963-4843-ba3c-53ff598825e2';
+// dummy setup/url
+export function handleSubmit() {
+  return (dispatch) => {
+    return axios.get(
+      'https://portal.rackspace.com/api/admin/routes',
+      {
+        headers: {
+          'Access-Control-Allow-Origin': 'localhost:3000',
+          'X-Requested-With': 'XMLHttpRequest',
+          'Content-Type': 'application/json',
+          Cookie: '__Secure-portal_sessionid=cf4dbd4b-a963-4843-ba3c-53ff598825e2;'
+        },
+        withCredentials: true,
+      }
+    )
+      .then((response) => {
+        console.log(response);
+        dispatch(submitPending());
+        dispatch(submitSuccess(response.data));
+      })
+      .catch((error) => {
+        dispatch(submitFailure());
         throw (error);
       });
   };
