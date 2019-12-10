@@ -1,31 +1,44 @@
 const path = require('path');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
+const readlineSync = require('readline-sync');
+const fs = require('fs');
 
+const PORTAL_URL = process.argv.includes('--staging')
+    ? 'https://staging.portal.rackspace.com/'
+    : 'https://portal.rackspace.com/';
 
-const cookie = "_ga=GA1.2.1723060556.1575843608; _gid=GA1.2.1952113615.1575843608; visid_incap_784204=UEPCn7rdTFm6WMgNp37SdkyC7V0AAAAAQUIPAAAAAADhEXKpp0glQ/UF5F1R+S2I; nlbi_784204=9p9uQseFgxI/bXa7tgYHMAAAAABIAsbmagb/U48740TnWmK1; incap_ses_113_784204=tiDQWBjITTh7FCu0z3WRAUyC7V0AAAAAw/ngnJpOoFK2W6d4ystr+Q==; bc6aca893070ffe19c61119686fa2258=3539d87b891ffda7ced9b4488284b93e; __Secure-portal_sessionid=d869399b-8668-4916-86ac-561df00c409d";
+// Ask dev for portal session id
+console.log(`for /api/ access you need a portal session.
+to get sessions ID: ${PORTAL_URL}racker Copy cookie value for "__Secure-portal_sessionid"`);
+
+let portalSessionId = readlineSync.question('Enter Portal Session ID [DEFAULTS to last saved session]:');
+
+if (!portalSessionId) {
+    portalSessionId = fs.readFileSync('.portal-session').toString();
+} else {
+    fs.writeFileSync('.portal-session', portalSessionId);
+}
+
 module.exports = merge(common, {
     mode: 'development',
     devtool: 'inline-source-map',
     devServer: {
-        allowedHosts: [
-            'portal.rackspace.local',
-        ],
         contentBase: path.join(__dirname, './build/'),
         port: 3000,
         historyApiFallback: true,
         https: true,
+        /** @docs https://github.com/chimurai/http-proxy-middleware */
         proxy: {
-            '/api/*': {
-                target: 'https://staging.portal.rackspace.com/',
+            '/api/**': {
+                target: PORTAL_URL,
                 changeOrigin: true,
-                secure: true,
+                cookieDomainRewrite: "",
                 onProxyReq: (proxyReq)  => {
-                    proxyReq.setHeader("Cookie", cookie);
-                    console.log(proxyReq);
+                    proxyReq.setHeader("Cookie", `__Secure-portal_sessionid=${portalSessionId}`);
                 },
-                cookieDomainRewrite: ""
+                secure: true
             }
         }
-    },
+    }
 });

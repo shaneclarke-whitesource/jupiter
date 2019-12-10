@@ -8,6 +8,10 @@ To start up Jupiter locally, run:
 ```
 yarn install && yarn start
 ```
+To use portal staging API end-points: `staging.portal.rackspace.com/api/`
+```css
+yarn start --staging
+```
 
 ### Production
 To run a production build run `yarn build`.
