@@ -9,9 +9,9 @@ describe('StateSelect', () => {
   const props = {
     country: 'US',
     label: 'Colorado',
+    setRegion: onChangeMock,
     input: {
       name: 'state',
-      onChange: onChangeMock
     }
   };
   beforeEach(() => {
@@ -40,13 +40,13 @@ describe('StateSelect', () => {
   });
 
   test('it changes the region state when onChange is invoked', () => {
-    expect(wrapper.state().region).toEqual('');
+    expect(wrapper.prop('region')).toEqual('');
     wrapper.find('RegionDropdown').simulate('change', 'VA');
-    expect(wrapper.state().region).toEqual('VA');
+    expect(wrapper.prop('region')).toEqual('VA');
   });
 
   test('it changes the value prop in RegionDropdown when state is changed', () => {
-    wrapper.setState({ region: 'CO' });
+    wrapper.find('RegionDropdown').simulate('change', 'CO');
     expect(wrapper.find('RegionDropdown').prop('value')).toEqual('CO');
   });
 });
