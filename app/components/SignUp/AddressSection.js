@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { change, Field, formValueSelector } from 'redux-form';
 import { withTranslation } from 'react-i18next';
-import Input from '../helix/Input';
+import Input from '../helix/inputTypes/Input';
 import CountrySelect from './AddressSelectors/CountrySelect';
 import StateSelect from './AddressSelectors/StateSelect';
 

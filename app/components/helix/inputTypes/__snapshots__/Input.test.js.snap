@@ -4,7 +4,9 @@ exports[`Input it renders with correct props 1`] = `
 <div
   className="InputField"
 >
-  <hx-text-control>
+  <hx-text-control
+    class=""
+  >
     <input
       autoComplete="on"
       className="hxTextCtrl"

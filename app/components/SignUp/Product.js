@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
 import { withTranslation } from 'react-i18next';
 import Popover from '../helix/popover/Popover';
-import DropDown from '../helix/Dropdown';
-import Checkbox from '../helix/Checkbox';
+import DropDown from '../helix/inputTypes/Dropdown';
+import Radio from '../helix/radio/Radio';
+import RadioGroup from '../helix/radio/RadioGroup';
 
-class Product extends React.Component {
+export class Product extends React.Component {
   state = {
     isOpen: null,
     product: 'none',
@@ -27,21 +28,24 @@ class Product extends React.Component {
     const { t } = this.props;
     if (this.state.product === 'serviceBlocks') {
       return (
-        <div className="serviceBlocks-Checkboxes hxOffset-2">
-          <Field
-            id="manage-and-operate"
-            content={t('common:account.product.purchasingManageAndOperate')}
-            textField="label"
-            name="manage-and-operate"
-            component={Checkbox}
-          />
-          <Field
-            id="architect-and-deploy"
-            content={t('common:account.product.purchasingArchitectAndDeploy')}
-            textField="label"
-            name="architect-and-deploy"
-            component={Checkbox}
-          />
+        <div className="hxOffset-2">
+          <RadioGroup>
+            <Radio
+              fieldName="serviceBlocksType"
+              options={[
+                {
+                  id: 'manage',
+                  value: 'manageAndOperate',
+                  label: t('common:account.product.purchasingManageAndOperate')
+                },
+                {
+                  id: 'architect',
+                  value: 'architectAndDeploy',
+                  label: t('common:account.product.purchasingArchitectAndDeploy')
+                }
+              ]}
+            />
+          </RadioGroup>
         </div>
       );
     }

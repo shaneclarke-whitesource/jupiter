@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Field, change, formValueSelector } from 'redux-form';
 import { withTranslation } from 'react-i18next';
 import { CLEAR_ADDRESS_FIELDS, RBU_ADDRESS_FIELDS } from '../../actions/constants/address';
-import Checkbox from '../helix/Checkbox';
+import Checkbox from '../helix/inputTypes/Checkbox';
 
 class CustomerType extends React.Component {
   handleChange = (e) => {

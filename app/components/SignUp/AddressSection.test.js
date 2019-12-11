@@ -1,14 +1,17 @@
-import { mountWithProvider, renderWithForm } from '../../../test/provider';
-import SignUpReduxForm from '../../containers/SignUp/SignUpForm';
+import { mountWithForm, renderWithForm } from '../../../test/provider';
 import { t } from '../../../test/i18n/mocks';
 import AddressSection from './AddressSection';
 
 describe('AddressSection', () => {
-  let root;
   let wrapper;
+  const defaultProps = {
+    setCountry: jest.fn(),
+    country: 'US',
+    t
+  };
+
   beforeEach(() => {
-    root = mountWithProvider(SignUpReduxForm, { t });
-    wrapper = root.find('AddressSection');
+    wrapper = mountWithForm(AddressSection, defaultProps);
   });
 
   test('it renders', () => {
@@ -22,7 +25,7 @@ describe('AddressSection', () => {
 
   ['city', 'street', 'zipcode', 'country', 'state'].forEach((item, index) => {
     test(`it renders ${item} label`, () => {
-      const label = wrapper.find(`label[htmlFor="address.${item}"]`);
+      const label = wrapper.find(`label[htmlFor="${item}"]`);
       expect(label.text()).toEqual(
         item.charAt(0).toUpperCase() + item.slice(1)
       );
@@ -31,10 +34,11 @@ describe('AddressSection', () => {
   test('it changes the country state when onChange is invoked', () => {
     const event = {
       target: {
-        value: 'US'
+        value: 'AF'
       }
     };
     wrapper.find('CountryDropdown').simulate('change', event);
-    expect(wrapper.state().country).toEqual('US');
+    console.log(wrapper.find('CountryDropdown').html());
+    expect(wrapper.prop('country')).toEqual('US');
   });
 });

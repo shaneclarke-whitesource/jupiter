@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tooltip it renders correct props 1`] = `
+<div
+  className="tooltip"
+>
+  <hx-icon
+    id="testing-tooltip"
+    type="help-circle"
+  />
+  <hx-tooltip
+    for="testing-tooltip"
+    position="right-middle"
+  >
+    &lt;h1&gt;Tooltip Content&lt;/h1&gt;
+  </hx-tooltip>
+</div>
+`;

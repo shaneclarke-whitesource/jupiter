@@ -38,7 +38,6 @@ StateSelect.propTypes = {
   label: PropTypes.string.isRequired,
   country: PropTypes.string.isRequired,
   input: PropTypes.shape({
-    onChange: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired
   }).isRequired,
   setRegion: PropTypes.func,
