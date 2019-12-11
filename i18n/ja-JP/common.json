@@ -1,115 +1,115 @@
 {
-  "smartling": {
-    "string_format": "icu",
-    "translate_paths": {
-      "instruction": "*/instruction",
-      "key": "{*}/translation",
-      "path": "*/translation"
+  "smartling" : {
+    "string_format" : "icu",
+    "translate_paths" : {
+      "instruction" : "*/instruction",
+      "key" : "{*}/translation",
+      "path" : "*/translation"
     }
   },
-  "account.actions.product.choose": {
-    "translation": "__NOT_TRANSLATED__"
+  "account.actions.product.choose" : {
+    "translation" : "製品を選択してください"
   },
-  "account.actions.product.select": {
-    "translation": "__NOT_TRANSLATED__"
+  "account.actions.product.select" : {
+    "translation" : "製品を選択"
   },
-  "account.customer.info": {
-    "translation": "__NOT_TRANSLATED__"
+  "account.customer.info" : {
+    "translation" : "顧客情報"
   },
-  "account.customer.isRbu": {
-    "translation": "__NOT_TRANSLATED__"
+  "account.customer.isRbu" : {
+    "translation" : "これはRBUのお客様向けですか？"
   },
-  "account.customer.type": {
-    "translation": "__NOT_TRANSLATED__"
+  "account.customer.type" : {
+    "translation" : "顧客"
   },
-  "account.header.address": {
-    "translation": "__NOT_TRANSLATED__"
+  "account.header.address" : {
+    "translation" : "住所"
   },
-  "account.header.userInfo": {
-    "translation": "__NOT_TRANSLATED__"
+  "account.header.userInfo" : {
+    "translation" : "ユーザー情報"
   },
-  "account.product.aviator": {
-    "translation": "__NOT_TRANSLATED__"
+  "account.product.aviator" : {
+    "translation" : "Aviator"
   },
-  "account.product.header": {
-    "translation": "__NOT_TRANSLATED__"
+  "account.product.header" : {
+    "translation" : "アカウント製品"
   },
-  "account.product.navigator": {
-    "translation": "__NOT_TRANSLATED__"
+  "account.product.navigator" : {
+    "translation" : "Navigator"
   },
-  "account.product.none": {
-    "translation": "__NOT_TRANSLATED__"
+  "account.product.none" : {
+    "translation" : "なし"
   },
-  "account.product.purchasingArchitectAndDeploy": {
-    "translation": "__NOT_TRANSLATED__"
+  "account.product.purchasingArchitectAndDeploy" : {
+    "translation" : "顧客はArchitect & Deployを購入していますか？"
   },
-  "account.product.purchasingManageAndOperate": {
-    "translation": "__NOT_TRANSLATED__"
+  "account.product.purchasingManageAndOperate" : {
+    "translation" : "顧客はManage & Operateを購入していますか？"
   },
-  "account.product.select": {
-    "translation": "__NOT_TRANSLATED__"
+  "account.product.select" : {
+    "translation" : "-- 選択してください --"
   },
-  "account.product.serviceBlocks": {
-    "translation": "__NOT_TRANSLATED__"
+  "account.product.serviceBlocks" : {
+    "translation" : "Service Blocks"
   },
-  "actions.basic.cancel": {
-    "translation": "__NOT_TRANSLATED__"
+  "actions.basic.cancel" : {
+    "translation" : "キャンセル"
   },
-  "actions.basic.hide": {
-    "translation": "__NOT_TRANSLATED__"
+  "actions.basic.hide" : {
+    "translation" : "隠す"
   },
-  "actions.basic.show": {
-    "translation": "__NOT_TRANSLATED__"
+  "actions.basic.show" : {
+    "translation" : "表示する"
   },
-  "actions.basic.submit": {
-    "translation": "__NOT_TRANSLATED__"
+  "actions.basic.submit" : {
+    "translation" : "送信"
   },
-  "actions.confirm.password": {
-    "translation": "__NOT_TRANSLATED__"
+  "actions.confirm.password" : {
+    "translation" : "パスワードを確認する"
   },
-  "actions.create.password": {
-    "translation": "__NOT_TRANSLATED__"
+  "actions.create.password" : {
+    "translation" : "パスワードを作成する"
   },
-  "actions.create.username": {
-    "translation": "__NOT_TRANSLATED__"
+  "actions.create.username" : {
+    "translation" : "ユーザー名を作成する"
   },
-  "footer.content.company": {
-    "translation": "__NOT_TRANSLATED__"
+  "footer.content.company" : {
+    "translation" : "{year} Rackspace US, Inc."
   },
-  "footer.content.policy": {
-    "translation": "__NOT_TRANSLATED__"
+  "footer.content.policy" : {
+    "translation" : "個人情報保護方針"
   },
-  "footer.content.terms": {
-    "translation": "__NOT_TRANSLATED__"
+  "footer.content.terms" : {
+    "translation" : "Webサイト利用規約"
   },
-  "headers.main.signUp": {
-    "translation": "__NOT_TRANSLATED__"
+  "headers.main.signUp" : {
+    "translation" : "Rackspace Invoiceのサインアップ"
   },
-  "signUp.headers.main": {
-    "translation": "__NOT_TRANSLATED__"
+  "signUp.headers.main" : {
+    "translation" : "Rackspace Invoice Cartにサインアップする"
   },
-  "user.details.email": {
-    "translation": "__NOT_TRANSLATED__"
+  "user.details.email" : {
+    "translation" : "メールアドレス"
   },
-  "user.details.firstName": {
-    "translation": "__NOT_TRANSLATED__"
+  "user.details.firstName" : {
+    "translation" : "名"
   },
-  "user.details.lastName": {
-    "translation": "__NOT_TRANSLATED__"
+  "user.details.lastName" : {
+    "translation" : "姓"
   },
-  "user.location.city": {
-    "translation": "__NOT_TRANSLATED__"
+  "user.location.city" : {
+    "translation" : "都市"
   },
-  "user.location.country": {
-    "translation": "__NOT_TRANSLATED__"
+  "user.location.country" : {
+    "translation" : "国"
   },
-  "user.location.state": {
-    "translation": "__NOT_TRANSLATED__"
+  "user.location.state" : {
+    "translation" : "州"
   },
-  "user.location.street": {
-    "translation": "__NOT_TRANSLATED__"
+  "user.location.street" : {
+    "translation" : "番地"
   },
-  "user.location.zipcode": {
-    "translation": "__NOT_TRANSLATED__"
+  "user.location.zipcode" : {
+    "translation" : "郵便番号"
   }
 }
