@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
-import Input from '../helix/Input';
+import Input from '../helix/inputTypes/Input';
 import { withTranslation } from 'react-i18next';
 import CountrySelect from './AddressSelectors/CountrySelect';
 import StateSelect from './AddressSelectors/StateSelect';

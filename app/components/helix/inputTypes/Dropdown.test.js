@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import DropDown from './Dropdown';
-import { t } from '../../../test/i18n/mocks';
+import { t } from '../../../../test/i18n/mocks';
 
 
 describe('Dropdown', () => {
