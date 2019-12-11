@@ -110,6 +110,18 @@ export const validateUser = (values, { t = i18nT() }) => {
           characterCount: '%{count}'
         })
       }
+    },
+    accountName: {
+      presence: {
+        allowEmpty: false
+      },
+      length: {
+        maximum: 20,
+        tooLong: t('validation:input.maxLength', {
+          content: 'Account Name',
+          characterCount: '%{count}'
+        })
+      }
     }
   }, { fullMessages: false }) || {};
   return {
@@ -153,8 +165,7 @@ export const validateRole = (values, { t = i18nT() }) => {
   const errors = validate(role, {
     product: {
       exclusion: {
-        within: ['none'],
-        message: t('validation:dropdown.role.mustBeSelected')
+        within: ['none']
       }
     }
   }, { fullMessages: false });
