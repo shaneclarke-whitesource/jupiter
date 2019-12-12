@@ -4,9 +4,7 @@ exports[`SignUpForm it renders 1`] = `
 <div
   className="SignUp-form"
 >
-  <form
-    onSubmit={[Function]}
-  >
+  <form>
     <div
       className="InputField-content"
     >
@@ -1826,7 +1824,6 @@ exports[`SignUpForm it renders 1`] = `
       <button
         className="hxBtn cancel-btn hxTertiary"
         disabled={false}
-        onClick={[Function]}
         type="button"
       >
         Cancel
