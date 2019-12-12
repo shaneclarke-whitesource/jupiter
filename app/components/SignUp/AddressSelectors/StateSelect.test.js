@@ -1,8 +1,5 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { shallowWithForm, renderWithForm, mountWithForm } from '../../../../test/provider';
-import StateSelect from './StateSelect';
-import _ from 'lodash'
+import { renderWithForm, mountWithProvider } from '../../../../test/provider';
+import { StateSelect } from './StateSelect';
 
 describe('StateSelect', () => {
   let wrapper;
@@ -11,12 +8,13 @@ describe('StateSelect', () => {
     country: 'US',
     label: 'Colorado',
     setRegion: onChangeMock,
+    region: '',
     input: {
       name: 'state'
     }
   };
   beforeEach(() => {
-    wrapper = mountWithForm(StateSelect, defaultProps);
+    wrapper = mountWithProvider(StateSelect, defaultProps);
   });
 
   test('it renders', () => {
@@ -36,22 +34,8 @@ describe('StateSelect', () => {
   });
 
   test('RegionDropdown calls onChange methods when onChange is invoked', () => {
-    const setRegionMock = jest.fn(() => 'CA');
-    const props = _.merge({}, defaultProps, { setRegion: setRegionMock });
-    const mounted = mountWithForm(StateSelect, props);
-    console.log(mounted.props().setRegion);
-    mounted.find('RegionDropdown').simulate('change', 'CA');
-    expect(setRegionMock).toBeCalled();
-  });
-
-  test('it changes the region state when onChange is invoked', () => {
-    expect(wrapper.prop('region')).toEqual('');
-    wrapper.find('RegionDropdown').simulate('change', 'VA');
-    expect(wrapper.prop('region')).toEqual('VA');
-  });
-
-  test('it changes the value prop in RegionDropdown when state is changed', () => {
-    wrapper.find('RegionDropdown').simulate('change', 'CO');
-    expect(wrapper.find('RegionDropdown').prop('value')).toEqual('CO');
+    expect(onChangeMock).toHaveBeenCalledTimes(0);
+    wrapper.find('RegionDropdown').simulate('change', '');
+    expect(onChangeMock).toBeCalled();
   });
 });

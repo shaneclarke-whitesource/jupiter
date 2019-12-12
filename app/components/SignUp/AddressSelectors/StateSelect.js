@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { RegionDropdown } from 'react-country-region-selector';
 import { change, formValueSelector } from 'redux-form';
 
-class StateSelect extends React.Component {
+export class StateSelect extends React.Component {
   selectRegion = (val) => {
     this.props.setRegion(val);
   };

@@ -38,7 +38,6 @@ describe('AddressSection', () => {
       }
     };
     wrapper.find('CountryDropdown').simulate('change', event);
-    console.log(wrapper.find('CountryDropdown').html());
-    expect(wrapper.prop('country')).toEqual('US');
+    expect(wrapper.find('CountryDropdown').props().value).toEqual('AF');
   });
 });
