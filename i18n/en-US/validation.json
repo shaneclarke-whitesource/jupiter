@@ -7,9 +7,6 @@
       "path": "*/translation"
     }
   },
-  "dropdown.role.mustBeSelected": {
-    "translation": "__NOT_TRANSLATED__"
-  },
   "email.invalidFormat": {
     "translation": "Email domain must be in valid format"
   },

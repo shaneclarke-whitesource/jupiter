@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field } from 'redux-form';
 import { useTranslation } from 'react-i18next';
-import Checkbox from '../helix/Checkbox';
+import Checkbox from '../helix/inputTypes/Checkbox';
 
 const CustomerType = () => {
   const { t } = useTranslation();

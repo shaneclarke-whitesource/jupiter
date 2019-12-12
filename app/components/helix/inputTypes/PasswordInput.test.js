@@ -1,8 +1,7 @@
 import React from 'react';
 import PasswordInput from './PasswordInput';
 import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
-import { t } from '../../test/i18n/mocks';
+import { t } from '../../../../test/i18n/mocks';
 
 describe('PasswordInput', () => {
   const defaultProps = {
@@ -24,7 +23,7 @@ describe('PasswordInput', () => {
   });
 
   test('it does not show error if it has not been touched', () => {
-    const wrapper = shallow(<PasswordInput {...defaultProps} />);
+    const wrapper = mount(<PasswordInput {...defaultProps} />);
     expect(wrapper.find('hx-error').length).toBe(0);
   });
 
