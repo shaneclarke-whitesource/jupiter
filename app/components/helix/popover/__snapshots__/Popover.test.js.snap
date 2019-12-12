@@ -21,7 +21,7 @@ exports[`Popover it renders correct props 1`] = `
       className="hxCol hxSpan-3 product"
     />
     <div
-      className="hxCol hxSpan-1"
+      className="hxCol hxSpan-1 hxSpan-2-xs"
     >
       <hx-disclosure
         aria-controls="default-id"

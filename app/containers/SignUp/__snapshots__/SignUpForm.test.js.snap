@@ -27,7 +27,6 @@ exports[`SignUpForm it renders 1`] = `
             >
               <hx-text-control>
                 <input
-                  autoComplete="on"
                   className="hxTextCtrl"
                   name="userInfo.firstName"
                   onBlur={[Function]}
@@ -59,7 +58,6 @@ exports[`SignUpForm it renders 1`] = `
             >
               <hx-text-control>
                 <input
-                  autoComplete="on"
                   className="hxTextCtrl"
                   name="userInfo.lastName"
                   onBlur={[Function]}
@@ -92,7 +90,6 @@ exports[`SignUpForm it renders 1`] = `
           >
             <hx-text-control>
               <input
-                autoComplete="on"
                 className="hxTextCtrl"
                 name="userInfo.email"
                 onBlur={[Function]}
@@ -124,7 +121,6 @@ exports[`SignUpForm it renders 1`] = `
           >
             <hx-text-control>
               <input
-                autoComplete="on"
                 className="hxTextCtrl"
                 name="userInfo.username"
                 onBlur={[Function]}
@@ -143,6 +139,37 @@ exports[`SignUpForm it renders 1`] = `
                   className="InputField-label"
                 >
                   Create Username
+                </span>
+              </label>
+            </hx-text-control>
+          </div>
+        </div>
+        <div
+          className="hxCol hxSpan-12"
+        >
+          <div
+            className="InputField"
+          >
+            <hx-text-control>
+              <input
+                className="hxTextCtrl"
+                name="userInfo.accountName"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onDragStart={[Function]}
+                onDrop={[Function]}
+                onFocus={[Function]}
+                required={true}
+                type="text"
+                value=""
+              />
+              <label
+                htmlFor="userInfo.accountName"
+              >
+                <span
+                  className="InputField-label"
+                >
+                  Create Account Name
                 </span>
               </label>
             </hx-text-control>
@@ -178,7 +205,6 @@ exports[`SignUpForm it renders 1`] = `
                 >
                   Create Password
                 </span>
-                 
                 <div
                   className="tooltip"
                 >
@@ -246,7 +272,6 @@ exports[`SignUpForm it renders 1`] = `
                 >
                   Confirm Password
                 </span>
-                 
               </label>
               <button
                 className="hxBtn hxSuffix hxSecondary"
@@ -289,7 +314,7 @@ exports[`SignUpForm it renders 1`] = `
               None
             </div>
             <div
-              className="hxCol hxSpan-1"
+              className="hxCol hxSpan-1 hxSpan-2-xs"
             >
               <hx-disclosure
                 aria-controls="product-popover"
@@ -393,7 +418,6 @@ exports[`SignUpForm it renders 1`] = `
         >
           <hx-text-control>
             <input
-              autoComplete="on"
               className="hxTextCtrl"
               name="address.city"
               onBlur={[Function]}
@@ -421,7 +445,6 @@ exports[`SignUpForm it renders 1`] = `
         >
           <hx-text-control>
             <input
-              autoComplete="on"
               className="hxTextCtrl"
               name="address.street"
               onBlur={[Function]}
@@ -449,7 +472,6 @@ exports[`SignUpForm it renders 1`] = `
         >
           <hx-text-control>
             <input
-              autoComplete="on"
               className="hxTextCtrl"
               name="address.zipcode"
               onBlur={[Function]}
