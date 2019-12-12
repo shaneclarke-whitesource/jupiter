@@ -11,7 +11,7 @@ class CountrySelect extends React.Component {
           <CountryDropdown
             {...input}
             name={input.name}
-            value={country || ''}
+            value={country}
             valueType="short"
             id={input.name}
             onChange={onCountryChange}
@@ -34,6 +34,10 @@ CountrySelect.propTypes = {
     onChange: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired
   }).isRequired
+};
+
+CountrySelect.defaultProps = {
+  country: ''
 };
 
 

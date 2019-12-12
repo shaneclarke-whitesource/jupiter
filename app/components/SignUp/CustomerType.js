@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Field, change, formValueSelector } from 'redux-form';
 import { withTranslation } from 'react-i18next';
-import { CLEAR_ADDRESS_FIELDS, RBU_ADDRESS_FIELDS } from '../../actions/constants/address';
+import { ADDRESS_FIELDS } from '../../actions/constants/address';
 import Checkbox from '../helix/inputTypes/Checkbox';
 
 class CustomerType extends React.Component {
@@ -16,14 +16,14 @@ class CustomerType extends React.Component {
   };
 
   populateAddressFields = () => {
-    Object.keys(RBU_ADDRESS_FIELDS).forEach((field) => {
-      this.props.setAddress(field, RBU_ADDRESS_FIELDS[field]);
+    Object.entries(ADDRESS_FIELDS).forEach((entry) => {
+      this.props.setAddress(...entry);
     });
   };
 
   clearAddressFields = () => {
-    Object.keys(CLEAR_ADDRESS_FIELDS).forEach((field) => {
-      this.props.clearAddress(field);
+    Object.entries(ADDRESS_FIELDS).forEach((entry) => {
+      this.props.clearAddress(...entry);
     });
   };
 

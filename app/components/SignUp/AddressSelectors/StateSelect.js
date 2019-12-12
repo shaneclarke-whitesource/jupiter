@@ -5,10 +5,6 @@ import { RegionDropdown } from 'react-country-region-selector';
 import { change, formValueSelector } from 'redux-form';
 
 export class StateSelect extends React.Component {
-  selectRegion = (val) => {
-    this.props.setRegion(val);
-  };
-
   render() {
     const { input, country, label, region } = this.props;
     return (
@@ -18,11 +14,11 @@ export class StateSelect extends React.Component {
             {...input}
             name={input.name}
             country={country}
-            value={region || ''}
+            value={region}
             countryValueType="short"
             valueType="short"
             id={input.name}
-            onChange={this.selectRegion}
+            onChange={this.props.setRegion}
           />
           <hx-select />
           <label htmlFor={input.name}>
@@ -36,12 +32,17 @@ export class StateSelect extends React.Component {
 
 StateSelect.propTypes = {
   label: PropTypes.string.isRequired,
-  country: PropTypes.string.isRequired,
+  country: PropTypes.string,
   input: PropTypes.shape({
     name: PropTypes.string.isRequired
   }).isRequired,
   setRegion: PropTypes.func,
   region: PropTypes.string
+};
+
+StateSelect.defaultProps = {
+  country: '',
+  region: ''
 };
 
 const mapStateToProps = (state) => {

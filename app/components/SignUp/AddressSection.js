@@ -8,10 +8,6 @@ import CountrySelect from './AddressSelectors/CountrySelect';
 import StateSelect from './AddressSelectors/StateSelect';
 
 class AddressSection extends React.Component {
-  onCountryChange = (country) => {
-    this.props.setCountry(country);
-  };
-
   render() {
     const { t, country } = this.props;
     return (
@@ -48,7 +44,7 @@ class AddressSection extends React.Component {
               label={t('common:user.location.country')}
               id="country-select-dropdown"
               country={country || ''}
-              onCountryChange={this.onCountryChange}
+              onCountryChange={this.props.setCountry}
             />
           </div>
           <div className="hxCol hxSpan-6">

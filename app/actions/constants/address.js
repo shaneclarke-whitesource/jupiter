@@ -4,18 +4,16 @@
  in StateSelect.js
  * */
 
-export const RBU_ADDRESS_FIELDS = {
+/**
+ * Address Fields are automatically set with RBU address values
+ * this changes automatically based on user input
+ * or if rbu customer type is checked
+ */
+
+export const ADDRESS_FIELDS = {
   city: 'Minato-ku',
   street: 'Toranomon Hills Mori Tower 7th Floor Toranomon 1-23-1',
   zipcode: '106-6155',
   country: 'JP',
   state: '13'
-};
-
-export const CLEAR_ADDRESS_FIELDS = {
-  city: '',
-  street: '',
-  zipcode: '',
-  country: '',
-  state: ''
 };
