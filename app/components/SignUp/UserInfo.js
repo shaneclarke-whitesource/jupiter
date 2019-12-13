@@ -1,8 +1,8 @@
 import React from 'react';
 import { Field } from 'redux-form';
 import { useTranslation } from 'react-i18next';
-import Input from '../helix/Input';
-import PasswordInput from '../PasswordInput';
+import Input from '../helix/inputTypes/Input';
+import PasswordInput from '../helix/inputTypes/PasswordInput';
 
 const UserInfo = () => {
   const { t } = useTranslation();
@@ -49,11 +49,19 @@ const UserInfo = () => {
       </div>
       <div className="hxCol hxSpan-12">
         <Field
+          name="accountName"
+          component={Input}
+          type="text"
+          label={t('common:user.details.accountName')}
+          required
+        />
+      </div>
+      <div className="hxCol hxSpan-12">
+        <Field
           name="password"
           component={PasswordInput}
           label={t('common:actions.create.password')}
           tooltip
-          required
         />
       </div>
       <div className="hxCol hxSpan-12">
@@ -61,7 +69,6 @@ const UserInfo = () => {
           name="passwordValidate"
           component={PasswordInput}
           label={t('common:actions.confirm.password')}
-          required
         />
       </div>
     </section>

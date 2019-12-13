@@ -91,6 +91,9 @@
   "user.details.email" : {
     "translation" : "メールアドレス"
   },
+  "user.details.accountName": {
+    "translation": "__NOT_TRANSLATED__"
+  },
   "user.details.firstName" : {
     "translation" : "名"
   },

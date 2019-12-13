@@ -7,22 +7,28 @@ const Input = (props) => {
     label,
     required,
     type,
-    meta: { touched, error }
+    tooltip,
+    meta: { touched, error },
+    children,
+    hxClassNames,
+    autoComplete
   } = props;
   return (
     <div className="InputField">
-      <hx-text-control>
+      <hx-text-control class={hxClassNames}>
         <input
           {...input}
           className="hxTextCtrl"
           type={type}
           name={input.name}
           required={required}
-          autoComplete="on"
+          autoComplete={autoComplete}
         />
         <label htmlFor={input.name}>
           <span className="InputField-label">{label}</span>
+          {tooltip}
         </label>
+        {children}
       </hx-text-control>
       {touched && error && (
         <hx-error>
@@ -34,12 +40,13 @@ const Input = (props) => {
 };
 
 Input.propTypes = {
+  children: PropTypes.node,
+  hxClassNames: PropTypes.string,
   label: PropTypes.string.isRequired,
   required: PropTypes.bool,
-  // onChange: PropTypes.func,
-  error: PropTypes.bool,
-  type: PropTypes.string.isRequired,
-  errorMsg: PropTypes.string,
+  type: PropTypes.string,
+  tooltip: PropTypes.node,
+  autoComplete: PropTypes.string,
   meta: PropTypes.shape({
     touched: PropTypes.bool,
     warning: PropTypes.bool,
@@ -54,7 +61,10 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  required: false
+  required: false,
+  type: 'text',
+  autoComplete: 'on',
+  hxClassNames: ''
 };
 
 export default Input;

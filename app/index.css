@@ -92,6 +92,10 @@ hx-text-control[hx-dirty] > input[type="password"]:enabled:invalid, hx-text-cont
     border: 2px solid #d32f2f;
 }
 
+.tooltip hx-icon {
+    margin-left: 5px;
+}
+
 .disallow-user-select {
     -webkit-user-select: none;
     -moz-user-select: none;

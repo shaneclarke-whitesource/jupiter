@@ -1,14 +1,15 @@
+import React from 'react';
 import SignUpReduxForm from '../../containers/SignUp/SignUpForm';
-import { mountWithProvider, renderWithForm } from '../../../test/provider';
+import { mountWithForm, mountWithProvider, renderWithForm } from '../../../test/provider';
 import { t } from '../../../test/i18n/mocks';
-import Product from './Product';
+import { Product } from './Product';
 
 describe('Product', () => {
   let wrapper;
-  let root;
+  let mounted;
   beforeEach(() => {
-    root = mountWithProvider(SignUpReduxForm, { t });
-    wrapper = root.find('Product');
+    wrapper = shallow(<Product t={t} />);
+    mounted = mountWithForm(Product, { t });
   });
 
   test('it renders', () => {
@@ -25,7 +26,7 @@ describe('Product', () => {
   });
 
   test('the dropdown renders all the options', () => {
-    const values = wrapper.find('option').map((val) => val.prop('value'));
+    const values = mounted.find('option').map((val) => val.prop('value'));
     expect(values).toEqual([
       'none',
       'aviator',
@@ -35,18 +36,20 @@ describe('Product', () => {
   });
 
   test('it renders the Dropdown list', () => {
-    const dropdown = wrapper.find('Field').first();
+    const dropdown = mounted.find('Field').first();
     expect(dropdown.find('hx-select-control').length).toEqual(1);
   });
 
   test('it does not render the checkboxes if role is not serviceBlocks', () => {
     expect(wrapper.state().product).toEqual('none');
-    expect(wrapper.hasClass('serviceBlocks-Checkboxes')).toBeFalsy();
+    expect(wrapper.hasClass('hx-radio-set')).toBeFalsy();
   });
 
   test('it renders the checkboxes only if selected role is serviceBlocks', () => {
-    wrapper.setState({ product: 'serviceBlocks' });
-    expect(root.find('.serviceBlocks-Checkboxes').length).toBe(1);
+    const root = mountWithProvider(SignUpReduxForm, { t });
+    const newWrap = root.find('Product');
+    newWrap.setState({ product: 'serviceBlocks' });
+    expect(root.find('hx-radio-set').length).toBe(1);
   });
 
   test('it changes the state when handleChange is called', () => {
