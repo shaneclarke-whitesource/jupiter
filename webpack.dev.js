@@ -37,7 +37,7 @@ module.exports = merge(common, {
         },
         bypass: (req, res) => {
           if (req.headers && req.headers.referer) {
-            req.headers.referer = req.headers.referer.replace('https://localhost:3000', 'https://staging.portal.rackspace.com/5821007/jupiter')
+            req.headers.referer = req.headers.referer.replace('https://localhost:3000', 'https://staging.portal.rackspace.com/5821007/jupiter');
           }
         },
         secure: true
