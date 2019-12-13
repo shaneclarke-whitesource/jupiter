@@ -10,8 +10,11 @@ exports[`AddressSection it renders 1`] = `
   <div
     className="InputField"
   >
-    <hx-text-control>
+    <hx-text-control
+      class=""
+    >
       <input
+        autoComplete="on"
         className="hxTextCtrl"
         name="city"
         onBlur={[Function]}
@@ -37,8 +40,11 @@ exports[`AddressSection it renders 1`] = `
   <div
     className="InputField"
   >
-    <hx-text-control>
+    <hx-text-control
+      class=""
+    >
       <input
+        autoComplete="on"
         className="hxTextCtrl"
         name="street"
         onBlur={[Function]}
@@ -64,8 +70,11 @@ exports[`AddressSection it renders 1`] = `
   <div
     className="InputField"
   >
-    <hx-text-control>
+    <hx-text-control
+      class=""
+    >
       <input
+        autoComplete="on"
         className="hxTextCtrl"
         name="zipcode"
         onBlur={[Function]}

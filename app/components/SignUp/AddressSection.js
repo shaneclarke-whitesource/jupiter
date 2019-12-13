@@ -1,22 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Field } from 'redux-form';
-import Input from '../helix/inputTypes/Input';
+import { connect } from 'react-redux';
+import { change, Field, formValueSelector } from 'redux-form';
 import { withTranslation } from 'react-i18next';
+import Input from '../helix/inputTypes/Input';
 import CountrySelect from './AddressSelectors/CountrySelect';
 import StateSelect from './AddressSelectors/StateSelect';
 
-export class AddressSection extends React.Component {
-  state = {
-    country: ''
-  };
-
-  onCountryChange = (country) => {
-    this.setState({ country });
-  };
-
+class AddressSection extends React.Component {
   render() {
-    const { t } = this.props;
+    const { t, country } = this.props;
     return (
       <div className="Input-section">
         <h2>{t('common:account.header.address')}</h2>
@@ -50,8 +43,8 @@ export class AddressSection extends React.Component {
               textField="label"
               label={t('common:user.location.country')}
               id="country-select-dropdown"
-              country={this.state.country}
-              onCountryChange={this.onCountryChange}
+              country={country || ''}
+              onCountryChange={this.props.setCountry}
             />
           </div>
           <div className="hxCol hxSpan-6">
@@ -62,7 +55,7 @@ export class AddressSection extends React.Component {
               textField="label"
               label={t('common:user.location.state')}
               id="state-select-dropdown"
-              country={this.state.country}
+              country={country || ''}
             />
           </div>
         </div>
@@ -71,8 +64,24 @@ export class AddressSection extends React.Component {
   }
 }
 
-AddressSection.propTypes = {
-  t: PropTypes.func.isRequired
+const mapStateToProps = (state) => {
+  return {
+    country: formValueSelector('signUp')(state, 'address.country')
+  };
 };
 
-export default withTranslation()(AddressSection);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setCountry: (country) => {
+      dispatch(change('signUp', 'address.country', country));
+    }
+  };
+};
+
+AddressSection.propTypes = {
+  t: PropTypes.func.isRequired,
+  country: PropTypes.string,
+  setCountry: PropTypes.func
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(AddressSection));

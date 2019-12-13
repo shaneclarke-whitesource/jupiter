@@ -1,25 +1,24 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
-import StateSelect from './StateSelect';
+import { renderWithForm, mountWithProvider } from '../../../../test/provider';
+import { StateSelect } from './StateSelect';
 
 describe('StateSelect', () => {
   let wrapper;
   const onChangeMock = jest.fn();
-  const props = {
+  const defaultProps = {
     country: 'US',
     label: 'Colorado',
+    setRegion: onChangeMock,
+    region: '',
     input: {
-      name: 'state',
-      onChange: onChangeMock
+      name: 'state'
     }
   };
   beforeEach(() => {
-    wrapper = shallow(<StateSelect {...props} />);
+    wrapper = mountWithProvider(StateSelect, defaultProps);
   });
 
   test('it renders', () => {
-    const component = renderer.create(<StateSelect {...props} />).toJSON();
+    const component = renderWithForm(StateSelect, defaultProps).toJSON();
     expect(component).toMatchSnapshot();
   });
 
@@ -35,18 +34,8 @@ describe('StateSelect', () => {
   });
 
   test('RegionDropdown calls onChange methods when onChange is invoked', () => {
-    wrapper.find('RegionDropdown').simulate('change', 'CA');
+    expect(onChangeMock).toHaveBeenCalledTimes(0);
+    wrapper.find('RegionDropdown').simulate('change', '');
     expect(onChangeMock).toBeCalled();
-  });
-
-  test('it changes the region state when onChange is invoked', () => {
-    expect(wrapper.state().region).toEqual('');
-    wrapper.find('RegionDropdown').simulate('change', 'VA');
-    expect(wrapper.state().region).toEqual('VA');
-  });
-
-  test('it changes the value prop in RegionDropdown when state is changed', () => {
-    wrapper.setState({ region: 'CO' });
-    expect(wrapper.find('RegionDropdown').prop('value')).toEqual('CO');
   });
 });
