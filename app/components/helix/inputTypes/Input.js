@@ -11,7 +11,8 @@ const Input = (props) => {
     meta: { touched, error },
     children,
     hxClassNames,
-    autoComplete
+    autoComplete,
+    optional
   } = props;
   return (
     <div className="InputField">
@@ -24,7 +25,7 @@ const Input = (props) => {
           required={required}
           autoComplete={autoComplete}
         />
-        <label htmlFor={input.name}>
+        <label htmlFor={input.name} className={optional ? 'hxOptional' : ''}>
           <span className="InputField-label">{label}</span>
           {tooltip}
         </label>
@@ -42,6 +43,7 @@ const Input = (props) => {
 Input.propTypes = {
   children: PropTypes.node,
   hxClassNames: PropTypes.string,
+  optional: PropTypes.bool,
   label: PropTypes.string.isRequired,
   required: PropTypes.bool,
   type: PropTypes.string,
@@ -64,7 +66,8 @@ Input.defaultProps = {
   required: false,
   type: 'text',
   autoComplete: 'on',
-  hxClassNames: ''
+  hxClassNames: '',
+  optional: false
 };
 
 export default Input;

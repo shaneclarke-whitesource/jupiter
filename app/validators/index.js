@@ -71,6 +71,26 @@ export const validatePassword = (values, { t = i18nT() }) => {
   }, { fullMessages: false }) || {};
 };
 
+
+export const validatePhoneNumber = (values, { t = i18nT() }) => {
+  const errors = validate(values, {
+    phoneNumber: {
+      presence: true
+    }
+  }, { fullMessages: false }) || {};
+  const phoneNumber = _.get(values, 'phoneNumber');
+  if (phoneNumber) {
+    if (typeof phoneNumber === 'object') {
+      if (_.isEmpty(_.trim(phoneNumber.number))) {
+        errors.phoneNumber = [t('validation:input.required')];
+      } else if (!phoneNumber.valid) {
+        errors.phoneNumber = [t('validation:phone.mustBeAValidNumber')];
+      }
+    }
+  }
+  return errors;
+};
+
 export const validateUser = (values, { t = i18nT() }) => {
   const userInfo = _.get(values, 'userInfo');
   translateDefaultValidators(t);
@@ -128,7 +148,8 @@ export const validateUser = (values, { t = i18nT() }) => {
     userInfo: {
       ...errors,
       ...validateEmail(userInfo, t),
-      ...validatePassword(userInfo, t)
+      ...validatePassword(userInfo, t),
+      ...validatePhoneNumber(userInfo, t)
     }
   };
 };
@@ -152,7 +173,10 @@ export const validateAddress = (values, { t = i18nT() }) => {
       presence: true,
       length: {
         maximum: 20,
-        tooLong: t('validation:input.maxLength', { content: undefined, characterCount: '%{count}' })
+        tooLong: t('validation:input.maxLength', {
+          content: undefined,
+          characterCount: '%{count}'
+        })
       }
     }
   }, { fullMessages: false });

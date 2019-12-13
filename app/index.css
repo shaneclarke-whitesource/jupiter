@@ -113,3 +113,9 @@ hx-text-control[hx-dirty] > input[type="password"]:enabled:invalid, hx-text-cont
     border-radius: 4px;
     text-align: center;
 }
+
+.u-input-stretch {
+    width: 100%;
+}
+
+

@@ -94,11 +94,17 @@
   "user.details.email": {
     "translation": "Email Address"
   },
+  "user.details.phoneNumber": {
+    "translation": "Phone Number"
+  },
   "user.details.firstName": {
     "translation": "First Name"
   },
   "user.details.lastName": {
     "translation": "Last Name"
+  },
+  "user.details.title": {
+    "translation": "Title"
   },
   "user.location.city": {
     "translation": "City"
