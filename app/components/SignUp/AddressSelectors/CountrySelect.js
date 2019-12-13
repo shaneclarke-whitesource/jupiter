@@ -4,7 +4,7 @@ import { CountryDropdown } from 'react-country-region-selector';
 
 class CountrySelect extends React.Component {
   render() {
-    const { input, onCountryChange, country, label } = this.props;
+    const { input, country, label, onCountryChange } = this.props;
     return (
       <div className="InputField">
         <hx-select-control>
@@ -27,13 +27,17 @@ class CountrySelect extends React.Component {
 }
 
 CountrySelect.propTypes = {
-  country: PropTypes.string.isRequired,
+  country: PropTypes.string,
   label: PropTypes.string.isRequired,
   onCountryChange: PropTypes.func,
   input: PropTypes.shape({
     onChange: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired
   }).isRequired
+};
+
+CountrySelect.defaultProps = {
+  country: ''
 };
 
 

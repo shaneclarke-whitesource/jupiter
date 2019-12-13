@@ -1,18 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { RegionDropdown } from 'react-country-region-selector';
+import { change, formValueSelector } from 'redux-form';
 
-class StateSelect extends React.Component {
-  state = {
-    region: ''
-  };
-
-  selectRegion = (val) => {
-    this.setState({ region: val });
-  };
-
+export class StateSelect extends React.Component {
   render() {
-    const { input, country, label } = this.props;
+    const { input, country, label, region } = this.props;
     return (
       <div className="InputField">
         <hx-select-control>
@@ -20,11 +14,11 @@ class StateSelect extends React.Component {
             {...input}
             name={input.name}
             country={country}
-            value={this.state.region}
+            value={region}
             countryValueType="short"
             valueType="short"
             id={input.name}
-            onChange={(val) => input.onChange(this.selectRegion(val))}
+            onChange={this.props.setRegion}
           />
           <hx-select />
           <label htmlFor={input.name}>
@@ -38,12 +32,31 @@ class StateSelect extends React.Component {
 
 StateSelect.propTypes = {
   label: PropTypes.string.isRequired,
-  country: PropTypes.string.isRequired,
+  country: PropTypes.string,
   input: PropTypes.shape({
-    onChange: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired
-  }).isRequired
+  }).isRequired,
+  setRegion: PropTypes.func,
+  region: PropTypes.string
 };
 
+StateSelect.defaultProps = {
+  country: '',
+  region: ''
+};
 
-export default StateSelect;
+const mapStateToProps = (state) => {
+  return {
+    region: formValueSelector('signUp')(state, 'address.state')
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setRegion: (region) => {
+      dispatch(change('signUp', 'address.state', region));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(StateSelect);
