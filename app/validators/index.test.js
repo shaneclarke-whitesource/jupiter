@@ -16,7 +16,8 @@ describe('validators', () => {
         accountName: 'newAccountName',
         email: 'email@company.com',
         password: 'Password123!',
-        passwordValidate: 'Password123!'
+        passwordValidate: 'Password123!',
+        phoneNumber: '1231232'
       }
     };
     test('it passes if all values are valid', () => {
@@ -35,11 +36,11 @@ describe('validators', () => {
       expect(result.contact.lastName).toEqual(['Input must be less than 32 characters long']);
     });
 
-    test('it fails if username is longer than 10 characters', () => {
-      const longName = _.fill(Array(11), 'c').join('');
-      const result = validateUserInfo({ contact: { username: longName } });
-      expect(result.contact.username).toEqual(['Username must be less than 10 characters long']);
-    });
+    // test('it fails if username is longer than 10 characters', () => {
+    //   const longName = _.fill(Array(11), 'c').join('');
+    //   const result = validateUserInfo({ contact: { username: longName } });
+    //   expect(result.contact.username).toEqual(['Username must be less than 10 characters long']);
+    // });
 
     ['firstName', 'lastName', 'username'].forEach((field) => {
       test(`returns required when ${field} is empty`, () => {

@@ -5,7 +5,7 @@ import { t } from '../../../test/i18n/mocks';
 describe('SignUpForm', () => {
   let wrapper;
   const defaultProps = {
-    handleSubmit: jest.fn(),
+    signUp: jest.fn(),
     reset: jest.fn(),
     t
   };

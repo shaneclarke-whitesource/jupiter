@@ -2,6 +2,7 @@ import React from 'react';
 import { Field, FormSection } from 'redux-form';
 import { useTranslation } from 'react-i18next';
 import Input from '../helix/inputTypes/Input';
+import PhoneField from '../helix/inputTypes/PhoneField';
 
 const UserInfo = () => {
   const { t } = useTranslation();
@@ -39,6 +40,24 @@ const UserInfo = () => {
           />
         </div>
       </FormSection>
+      <div className="hxCol hxSpan-12">
+        <Field
+          name="title"
+          component={Input}
+          type="text"
+          label={t('common:user.details.title')}
+          optional
+        />
+      </div>
+      <div className="hxCol hxSpan-12">
+        <Field
+          name="phoneNumber"
+          id="phoneNumber"
+          component={PhoneField}
+          label={t('common:user.details.phoneNumber')}
+          required
+        />
+      </div>
       <div className="hxCol hxSpan-12">
         <Field
           name="username"

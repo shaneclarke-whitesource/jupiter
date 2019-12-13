@@ -29,7 +29,7 @@ export const CUSTOMER_SIGNUP_REQUEST = {
   'geography': 'US',
   'defaultRegion': 'SYD',
   'externalId': 'AWS',
-  'serviceLevel': '',
+  'serviceLevel': 'Aviator',
   'paymentMethod': {
     'paymentInfo': {
       'notificationOption': 'OPT_IN',
@@ -78,8 +78,8 @@ export const CUSTOMER_SIGNUP_REQUEST = {
         'phoneNumbers': {
           'phoneNumber': [
             {
-              'country': '',
-              'number': '',
+              'country': 'US',
+              'number': '1234567890',
               'category': 'HOME',
               'primary': true
             }
