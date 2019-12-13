@@ -52,7 +52,6 @@ const UserInfo = () => {
         <Field
           name="phoneNumber"
           id="phoneNumber"
-          type="number"
           component={PhoneField}
           label={t('common:user.details.phoneNumber')}
           required

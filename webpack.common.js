@@ -24,7 +24,7 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /(node_modules)/,
+        exclude: /node_modules/,
         include: [path.join(__dirname, 'app'), path.join(__dirname, 'lib')],
         loader: 'babel-loader'
       },
