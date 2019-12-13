@@ -22,8 +22,8 @@ class CustomerType extends React.Component {
   };
 
   clearAddressFields = () => {
-    Object.entries(ADDRESS_FIELDS).forEach((entry) => {
-      this.props.clearAddress(...entry);
+    Object.keys(ADDRESS_FIELDS).forEach((field) => {
+      this.props.setAddress(field, '');
     });
   };
 
@@ -55,8 +55,7 @@ class CustomerType extends React.Component {
 
 CustomerType.propTypes = {
   t: PropTypes.func.isRequired,
-  setAddress: PropTypes.func,
-  clearAddress: PropTypes.func
+  setAddress: PropTypes.func
 };
 
 const mapStateToProps = (state) => {
@@ -70,9 +69,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setAddress: (field, value) => {
       dispatch(change('signUp', `address.${field}`, value));
-    },
-    clearAddress: (field) => {
-      dispatch(change('signUp', `address.${field}`, ''));
     }
   };
 };
