@@ -15,7 +15,7 @@ describe('AddressSection', () => {
   });
 
   test('it renders', () => {
-    const rendered = renderWithForm(AddressSection, {}).toJSON();
+    const rendered = renderWithForm(AddressSection, { defaultProps }).toJSON();
     expect(rendered).toMatchSnapshot();
   });
 

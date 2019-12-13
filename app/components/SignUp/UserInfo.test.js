@@ -1,5 +1,5 @@
 import { renderWithForm } from '../../../test/provider';
-// import { t } from '../../../test/i18n/mocks';
+import { t } from '../../../test/i18n/mocks';
 import UserInfo from './UserInfo';
 
 describe('AddressSection', () => {
@@ -9,7 +9,7 @@ describe('AddressSection', () => {
   // });
 
   test('it renders', () => {
-    const rendered = renderWithForm(UserInfo, {}).toJSON();
+    const rendered = renderWithForm(UserInfo, { t }).toJSON();
     expect(rendered).toMatchSnapshot();
   });
 
