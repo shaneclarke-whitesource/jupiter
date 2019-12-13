@@ -27,16 +27,17 @@ export const submitFailure = (error) => {
   };
 };
 
+
 export function submitUserData(values) {
   return (dispatch) => {
     dispatch(submitPending());
     axios.post(
-      '/api/signup/v1/',
-      { values },
+      '/api/signup/v1/signups/invoice',
+      { },
       {
         headers: {
           'Access-Control-Allow-Credentials': true,
-          'X-Requested-With': 'XMLHttpRequest',
+          'Accept': 'application/json',
           'Content-Type': 'application/json; charset=UTF-8'
         },
         withCredentials: true

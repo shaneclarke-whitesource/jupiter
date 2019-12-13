@@ -15,7 +15,7 @@ const CustomerType = () => {
         </div>
         <div className="hxCol hxSpan-6">
           <Field
-            name="customerType"
+            name="isRbu"
             content={t('common:account.customer.isRbu')}
             textField="label"
             id="customer-type"

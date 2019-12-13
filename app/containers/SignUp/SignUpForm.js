@@ -5,6 +5,9 @@ import { withTranslation } from 'react-i18next';
 import { FormSection, reduxForm } from 'redux-form';
 import { validateUser, validateAddress, validateRole } from '../../validators';
 import { submitUserData } from '../../actions/signUpUser';
+import _ from 'lodash';
+import { CUSTOMER_SIGNUP_REQUEST } from '../../signupReqFormat.js/customer';
+import { RBU_SIGNUP_REQUEST } from '../../signupReqFormat.js/rbuCustomer';
 import Button from '../../components/helix/buttons/Button';
 import AddressSection from '../../components/SignUp/AddressSection';
 import Product from '../../components/SignUp/Product';
@@ -12,9 +15,34 @@ import Submit from '../../components/helix/buttons/Submit';
 import UserInfo from '../../components/SignUp/UserInfo';
 import CustomerType from '../../components/SignUp/CustomerType';
 
+// my nested object - given request nested obj
+
+// userInfo.accountName - accountName
+// userInfo.firstName - contacts.contact.firstName
+// userInfo.lastName - contacts.contact.lastName
+// userInfo.title - contacts.contact.title
+// userInfo.email - contacts.contact.emailAddresses.emailAddress
+// userInfo.username - contacts.contact.user.username
+// userInfo.password - contacts.contact.user.password
+// userInfo.phoneNumber - contacts.contact.phoneNumbers.phoneNumber
+// address - contacts.contact.addresses.address
+// userInfo.emailAddress - contacts.contact.emailAddresses.emailAddress
+
 export class SignUpForm extends React.Component {
+  formatRequest = (values) => {
+    const reqUsed = _.get(values, ['customerType', 'isRbu']) ? RBU_SIGNUP_REQUEST : CUSTOMER_SIGNUP_REQUEST;
+    const userContactFields = _.get(reqUsed, ['contacts', 'contact']);
+    _.forEach(userContactFields, (reqKey) => {
+      return Object.keys(values.contact).forEach((key) => {
+        if (reqKey.hasOwnProperty(key)) {
+          reqKey[key] = values.contact[key];
+        }
+      });
+    });
+  };
+
   handleSubmit = (values) => {
-    this.props.signUp(values);
+    this.formatRequest(values);
   };
 
   render() {
@@ -34,7 +62,7 @@ export class SignUpForm extends React.Component {
               <CustomerType />
             </FormSection>
             <hr />
-            <FormSection name="address">
+            <FormSection name="addesses.address">
               <AddressSection />
             </FormSection>
           </div>

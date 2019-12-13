@@ -72,7 +72,7 @@ export const validatePassword = (values, { t = i18nT() }) => {
 };
 
 export const validateUser = (values, { t = i18nT() }) => {
-  const userInfo = _.get(values, 'userInfo');
+  const userInfo = _.get(values, 'contact');
   translateDefaultValidators(t);
   const errors = validate(userInfo, {
     firstName: {
@@ -104,7 +104,7 @@ export const validateUser = (values, { t = i18nT() }) => {
         allowEmpty: false
       },
       length: {
-        maximum: 10,
+        maximum: 20,
         tooLong: t('validation:input.maxLength', {
           content: 'Username',
           characterCount: '%{count}'
@@ -125,7 +125,7 @@ export const validateUser = (values, { t = i18nT() }) => {
     }
   }, { fullMessages: false }) || {};
   return {
-    userInfo: {
+    contact: {
       ...errors,
       ...validateEmail(userInfo, t),
       ...validatePassword(userInfo, t)

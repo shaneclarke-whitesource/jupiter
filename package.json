@@ -7,7 +7,7 @@
   "repository": "git@github.com:racker/jupiter.git",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.dev.js --watch",
+    "start": "webpack-dev-server --config ./webpack.dev.js --env.api=https://staging.portal.rackspace.com/5821007/jupiter --watch",
     "build": "webpack --config ./webpack.prod.js",
     "test": "jest",
     "test:coverage": "jest --coverage",
@@ -32,6 +32,7 @@
     "react-dom": "^16.11.0",
     "react-i18next": "^11.2.0",
     "react-redux": "^7.1.3",
+    "readline-sync": "^1.4.10",
     "redux": "^4.0.4",
     "redux-form": "^8.2.6",
     "redux-thunk": "^2.3.0",

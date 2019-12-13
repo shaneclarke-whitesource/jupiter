@@ -1,0 +1,91 @@
+{
+  "serviceType": "SYSOPS",
+  "metadata": {
+    "property": [
+      {
+        "value": "192.0.2.10",
+        "key": "ipAddress"
+      },
+      {
+        "value": "277299723",
+        "key": "rackUID"
+      },
+      {
+        "value": "false",
+        "key": "skipCloudWelcomeEmail"
+      },
+      {
+        "value": "RBU",
+        "key": "Business_Unit"
+      }
+    ]
+  },
+  "accountName": "TheRandomBusinessSoph",
+  "description": "A Karate (RBU) cloud signup request from the retail site.",
+  "skipFraudCheck": true,
+  "type": "CLOUD",
+  "termsAndConditions": "US",
+  "acceptTermsAndConditions": true,
+  "geography": "US",
+  "defaultRegion": "SYD",
+  "externalId": "AWS",
+  "serviceLevel": "MANAGED",
+  "paymentMethod": {
+    "paymentInfo": {
+      "notificationOption": "OPT_IN",
+      "paymentTerms": "NET_30",
+      "paymentType": "INVOICE"
+    }
+  },
+  "businessType": "BUSINESS",
+  "currencyCode": "USD",
+  "contacts": {
+    "contact": [
+      {
+        "firstName": "James",
+        "lastName": "May",
+        "addresses": {
+          "address": [
+            {
+              "zipcode": "78751",
+              "country": "US",
+              "city": "Austin",
+              "street": "4700 West Guadalupe",
+              "state": "Texas",
+              "primary": true
+            }
+          ]
+        },
+        "emailAddresses": {
+          "emailAddress": [
+            {
+              "address": "ana-sophia.brande@rackspace.com",
+              "primary": true
+            }
+          ]
+        },
+        "roles": {
+          "role": [
+            "BILLING",
+            "PRIMARY"
+          ]
+        },
+        "title": "Mr",
+        "user": {
+          "password": "Aw3s0meP4ss",
+          "username": "soph_rbu_user"
+        },
+        "phoneNumbers": {
+          "phoneNumber": [
+            {
+              "country": "US",
+              "number": "8573645555",
+              "category": "HOME",
+              "primary": true
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
