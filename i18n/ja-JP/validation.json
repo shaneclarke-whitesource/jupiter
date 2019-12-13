@@ -27,5 +27,8 @@
   },
   "password.mustMatch": {
     "translation": "__NOT_TRANSLATED__"
+  },
+  "phone.mustBeAValidNumber": {
+    "translation": "__NOT_TRANSLATED__"
   }
 }

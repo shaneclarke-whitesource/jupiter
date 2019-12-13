@@ -100,6 +100,12 @@
   "user.details.lastName": {
     "translation": "__NOT_TRANSLATED__"
   },
+  "user.details.phoneNumber": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "user.details.title": {
+    "translation": "__NOT_TRANSLATED__"
+  },
   "user.location.city": {
     "translation": "__NOT_TRANSLATED__"
   },

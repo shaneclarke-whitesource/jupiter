@@ -10,9 +10,6 @@
   "email.invalidFormat": {
     "translation": "Email domain must be in valid format"
   },
-  "phone.mustBeAValidNumber": {
-    "translation": "Must be a valid phone number"
-  },
   "input.maxLength": {
     "translation": "{content, select, undefined{Must} other {{content} must} } be less than {characterCount} characters long"
   },
@@ -30,5 +27,8 @@
   },
   "password.mustMatch": {
     "translation": "Passwords do not match"
+  },
+  "phone.mustBeAValidNumber": {
+    "translation": "Must be a valid phone number"
   }
 }
