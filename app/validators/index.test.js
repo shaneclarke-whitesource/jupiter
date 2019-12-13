@@ -16,7 +16,8 @@ describe('validators', () => {
         accountName: 'newAccountName',
         email: 'email@company.com',
         password: 'Password123!',
-        passwordValidate: 'Password123!'
+        passwordValidate: 'Password123!',
+        phoneNumber: '1231232'
       }
     };
     test('it passes if all values are valid', () => {

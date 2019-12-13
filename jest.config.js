@@ -21,5 +21,8 @@ module.exports = {
   unmockedModulePathPatterns: [
     'node_modules/react/',
     'node_modules/enzyme/'
-  ]
+  ],
+  moduleNameMapper: {
+    "\\.css$": "<rootDir>/test/__mocks__/styleMock.js"
+  }
 };

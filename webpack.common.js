@@ -33,7 +33,7 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader']
       },
       {
-        test: /\.ico$/,
+        test: /\.(ico|png)$/,
         loader: 'file-loader',
         query: '?name=images/[name].[ext]'
       },
@@ -49,6 +49,10 @@ module.exports = {
     new webpack.NormalModuleReplacementPlugin(
       /^helix-ui\.css$/,
       path.join(__dirname, '/node_modules/helix-ui/dist/styles/helix-ui.min.css')
+    ),
+    new webpack.NormalModuleReplacementPlugin(
+      /^react-intl-tel-input$/,
+      path.join(__dirname + '/node_modules/react-intl-tel-input/dist/main.js')
     ),
     new HtmlWebpackPlugin({
       filename: 'index.html',
