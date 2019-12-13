@@ -14,7 +14,7 @@ describe('AddressSection', () => {
   });
 
   test('it renders 7 input fields', () => {
-    expect(wrapper.find('.InputField').length).toEqual(7);
+    expect(wrapper.find('.InputField').length).toEqual(9);
   });
 
   test('it renders password and password validate field', () => {
@@ -22,11 +22,13 @@ describe('AddressSection', () => {
   });
 
   test('it renders correct labels', () => {
-    const labels = wrapper.find('span').map((label) => label.text());
+    const labels = wrapper.find('.InputField-label').map((label) => label.text());
     expect(labels).toEqual([
       'First Name',
       'Last Name',
+      'Title',
       'Email Address',
+      'Phone Number',
       'Create Username',
       'Create Account Name',
       'Create Password',
