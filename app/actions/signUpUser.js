@@ -33,7 +33,7 @@ export function submitUserData(values) {
     dispatch(submitPending());
     axios.post(
       '/api/signup/v1/signups/invoice',
-      { },
+      { ...values },
       {
         headers: {
           'Access-Control-Allow-Credentials': true,

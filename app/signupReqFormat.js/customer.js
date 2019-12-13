@@ -59,7 +59,7 @@ export const CUSTOMER_SIGNUP_REQUEST = {
         'emailAddresses': {
           'emailAddress': [
             {
-              'address': '',
+              'address': 'me@rackspace.com',
               'primary': true
             }
           ]
@@ -72,8 +72,8 @@ export const CUSTOMER_SIGNUP_REQUEST = {
         },
         'title': '',
         'user': {
-          'password': '',
-          'username': ''
+          'password': 'Pass123',
+          'username': 'Soph'
         },
         'phoneNumbers': {
           'phoneNumber': [

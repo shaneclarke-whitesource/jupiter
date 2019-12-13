@@ -83,7 +83,7 @@ export class Product extends React.Component {
           <Popover.Header>{t('common:account.actions.product.choose')}</Popover.Header>
           <Popover.Body>
             <Field
-              name="product"
+              name="serviceLevel"
               component={DropDown}
               options={dropdownData}
               valueField="value"
