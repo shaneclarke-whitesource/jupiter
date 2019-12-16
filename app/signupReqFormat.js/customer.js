@@ -85,8 +85,8 @@ export const CUSTOMER_SIGNUP_REQUEST = {
         'title': '',
         'suffix': '',
         'user': {
-          'password': 'Pass123',
-          'username': 'Soph_Racker'
+          'password': 'juv%UBWg@6pS',
+          'username': 'Soph_Racker-123'
         },
         'phoneNumbers': {
           'phoneNumber': [
