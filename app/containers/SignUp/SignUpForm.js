@@ -62,7 +62,8 @@ export class SignUpForm extends React.Component {
             user: {
               username: values.contact.user.username,
               password: values.contact.user.password
-            }
+            },
+            roles: template.contacts.contact.roles
           }
         ]
       }
