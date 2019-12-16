@@ -3,33 +3,45 @@ export const CUSTOMER_SIGNUP_REQUEST = {
   'metadata': {
     'property': [
       {
+        'value': 'true',
+        'key': 'cloudFilesPurchased'
+      },
+      {
+        'value': 'true',
+        'key': 'cloudServersPurchased'
+      },
+      {
+        'value': 'false',
+        'key': 'loadBalancersPurchased'
+      },
+      {
         'value': '192.0.2.10',
         'key': 'ipAddress'
       },
       {
-        'value': '277299723',
+        'value': '277298293',
         'key': 'rackUID'
       },
       {
-        'value': 'false',
-        'key': 'skipCloudWelcomeEmail'
-      },
-      {
-        'value': 'RBU',
-        'key': 'Business_Unit'
+        'value': '134.288-8901',
+        'key': 'deviceFingerPrint'
       }
     ]
   },
-  'accountName': 'TheRandomBusiness',
+  'accountName': 'soph_racker_123',
   'description': 'A Karate (RBU) cloud signup request from the retail site.',
-  'skipFraudCheck': true,
   'type': 'CLOUD',
   'termsAndConditions': 'US',
   'acceptTermsAndConditions': true,
   'geography': 'US',
+  'affiliateCodeAndType': {
+    'code': 'My Affiliate',
+    'type': 'BRC'
+  },
+  'promoCode': '788',
+  'vatCode': 'GB0177282',
   'defaultRegion': 'SYD',
-  'externalId': 'AWS',
-  'serviceLevel': 'Aviator',
+  'serviceLevel': 'MANAGED',
   'paymentMethod': {
     'paymentInfo': {
       'notificationOption': 'OPT_IN',
@@ -71,9 +83,10 @@ export const CUSTOMER_SIGNUP_REQUEST = {
           ]
         },
         'title': '',
+        'suffix': '',
         'user': {
           'password': 'Pass123',
-          'username': 'Soph'
+          'username': 'Soph_Racker'
         },
         'phoneNumbers': {
           'phoneNumber': [
