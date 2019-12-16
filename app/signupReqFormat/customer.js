@@ -1,7 +1,19 @@
-export const RBU_SIGNUP_REQUEST = {
+export const CUSTOMER_SIGNUP_REQUEST = {
   'serviceType': 'SYSOPS',
   'metadata': {
     'property': [
+      {
+        'value': 'true',
+        'key': 'cloudFilesPurchased'
+      },
+      {
+        'value': 'true',
+        'key': 'cloudServersPurchased'
+      },
+      {
+        'value': 'false',
+        'key': 'loadBalancersPurchased'
+      },
       {
         'value': '192.0.2.10',
         'key': 'ipAddress'
@@ -13,20 +25,11 @@ export const RBU_SIGNUP_REQUEST = {
       {
         'value': '134.288-8901',
         'key': 'deviceFingerPrint'
-      },
-      {
-        'value': 'false',
-        'key': 'skipCloudWelcomeEmail'
-      },
-      {
-        'value': 'RBU',
-        'key': 'Business_Unit'
       }
     ]
   },
-  'accountName': 'Initech',
+  'accountName': '',
   'description': 'A Karate (RBU) cloud signup request from the retail site.',
-  'skipFraudCheck': true,
   'type': 'CLOUD',
   'termsAndConditions': 'US',
   'acceptTermsAndConditions': true,
@@ -36,8 +39,8 @@ export const RBU_SIGNUP_REQUEST = {
     'type': 'BRC'
   },
   'promoCode': '788',
+  'vatCode': 'GB0177282',
   'defaultRegion': 'SYD',
-  'externalId': 'AWS',
   'serviceLevel': 'MANAGED',
   'paymentMethod': {
     'paymentInfo': {
@@ -51,16 +54,16 @@ export const RBU_SIGNUP_REQUEST = {
   'contacts': {
     'contact': [
       {
-        'firstName': 'John',
-        'lastName': 'Doe',
+        'firstName': '',
+        'lastName': '',
         'addresses': {
           'address': [
             {
-              'zipcode': '78366',
-              'country': 'US',
-              'city': 'San Francisco',
-              'street': '1 Dezavala Place',
-              'state': 'California',
+              'zipcode': '',
+              'country': '',
+              'city': '',
+              'street': '',
+              'state': '',
               'primary': true
             }
           ]
@@ -68,7 +71,7 @@ export const RBU_SIGNUP_REQUEST = {
         'emailAddresses': {
           'emailAddress': [
             {
-              'address': 'demo@example.com',
+              'address': 'me@rackspace.com',
               'primary': true
             }
           ]
@@ -79,21 +82,17 @@ export const RBU_SIGNUP_REQUEST = {
             'PRIMARY'
           ]
         },
-        'suffix': 'Senior',
-        'title': 'Mr',
+        'title': '',
+        'suffix': '',
         'user': {
-          'password': 'theaLam0123',
-          'secretQA': {
-            'answer': 'Clay',
-            'question': 'What is my name?'
-          },
-          'username': 'john.doe'
+          'password': 'juv%UBWg@6pS',
+          'username': ''
         },
         'phoneNumbers': {
           'phoneNumber': [
             {
               'country': 'US',
-              'number': '6758783848',
+              'number': '1234567890',
               'category': 'HOME',
               'primary': true
             }

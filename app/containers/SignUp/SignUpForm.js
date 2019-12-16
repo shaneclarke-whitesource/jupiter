@@ -6,15 +6,15 @@ import { FormSection, reduxForm, Field } from 'redux-form';
 import { validateUser, validateAddress, validateRole } from '../../validators';
 import { submitUserData } from '../../actions/signUpUser';
 import _ from 'lodash';
-import { CUSTOMER_SIGNUP_REQUEST } from '../../signupReqFormat.js/customer';
-import { RBU_SIGNUP_REQUEST } from '../../signupReqFormat.js/rbuCustomer';
+import { CUSTOMER_SIGNUP_REQUEST } from '../../signupReqFormat/customer';
+import { RBU_SIGNUP_REQUEST } from '../../signupReqFormat/rbuCustomer';
 import Button from '../../components/helix/buttons/Button';
 import AddressSection from '../../components/SignUp/AddressSection';
-import Product from '../../components/SignUp/Product';
 import Submit from '../../components/helix/buttons/Submit';
 import UserInfo from '../../components/SignUp/UserInfo';
 import CustomerType from '../../components/SignUp/CustomerType';
 import PasswordInput from '../../components/helix/inputTypes/PasswordInput';
+import Input from '../../components/helix/inputTypes/Input';
 
 export class SignUpForm extends React.Component {
   formatRequest = (values) => {
@@ -33,6 +33,8 @@ export class SignUpForm extends React.Component {
         }
       });
     });
+    reqUsed.accountName = values.contact.accountName;
+    reqUsed.contacts.contact[0].user.username = values.contact.user.username;
     return reqUsed;
   };
 
@@ -51,6 +53,15 @@ export class SignUpForm extends React.Component {
               <UserInfo />
               <FormSection name="user">
                 <div className="hxCol hxSpan-12">
+                  <div className="hxCol hxSpan-12">
+                    <Field
+                      name="username"
+                      component={Input}
+                      type="text"
+                      label={t('common:actions.create.username')}
+                      required
+                    />
+                  </div>
                   <Field
                     name="password"
                     component={PasswordInput}
@@ -67,7 +78,6 @@ export class SignUpForm extends React.Component {
                 </div>
               </FormSection>
               <hr />
-              <Product />
               <FormSection name="customerType">
                 <CustomerType />
               </FormSection>
