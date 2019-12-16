@@ -23,7 +23,8 @@ module.exports = merge(common, {
   devtool: 'inline-source-map',
   devServer: {
     contentBase: path.join(__dirname, './build/'),
-    port: 3000,
+    port: 443,
+    host: 'staging.portal.rackspace.com',
     historyApiFallback: true,
     https: true,
     /** @docs https://github.com/chimurai/http-proxy-middleware */
