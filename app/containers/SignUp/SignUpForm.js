@@ -50,14 +50,14 @@ export class SignUpForm extends React.Component {
             phoneNumber: [
               {
                 country: values.contact.addresses.address.country,
-                number: values.contact.phoneNumber.number,
+                number: values.contact.phoneNumbers.phoneNumber.number,
                 category: 'HOME',
                 primary: true
               }
             ]
           },
           user: {
-            username: values.contact.username,
+            username: values.contact.user.username,
             password: values.contact.user.password
           }
         }
