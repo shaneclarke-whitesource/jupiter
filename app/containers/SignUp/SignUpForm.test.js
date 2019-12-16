@@ -28,7 +28,7 @@ describe('SignUpForm', () => {
   });
 
   test('it renders all Form Sections', () => {
-    expect(wrapper.find('.Input-section').length).toEqual(3);
+    expect(wrapper.find('.Input-section').length).toEqual(2);
   });
 
   test('renders both the Submit and Cancel buttons with appropriate text', () => {

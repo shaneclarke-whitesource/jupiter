@@ -78,6 +78,7 @@ export class SignUpForm extends React.Component {
                 </div>
               </FormSection>
               <hr />
+              <h2>{t('common:account.customer.info')}</h2>
               <FormSection name="customerType">
                 <CustomerType />
               </FormSection>
