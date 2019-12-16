@@ -25,6 +25,8 @@ export class SignUpForm extends React.Component {
     );
     return {
       ...template,
+      accountName: values.contact.accountName,
+      serviceLevel: 'MANAGED',
       contacts: {
         contact: {
           firstName: values.contact.firstName,
