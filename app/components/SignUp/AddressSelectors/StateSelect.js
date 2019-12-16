@@ -16,7 +16,6 @@ export class StateSelect extends React.Component {
             country={country}
             value={region}
             countryValueType="short"
-            valueType="short"
             id={input.name}
             onChange={this.props.setRegion}
           />
