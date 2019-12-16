@@ -18,53 +18,50 @@ import Input from '../../components/helix/inputTypes/Input';
 
 export class SignUpForm extends React.Component {
   formatRequest = (values) => {
-    const isRbu = _.get(values, ['contact', 'customerType', 'isRbu']);
-    if (isRbu) {
-      return {
-        ...RBU_SIGNUP_REQUEST,
-        contacts: {
-          contact: {
-            firstName: values.contact.firstName,
-            lastName: values.contact.lastName,
-            title: values.contact.title,
-            addresses: {
-              address: [
-                {
-                  ...values.contact.addresses.address,
-                  primary: true
-                }
-              ]
-            },
-            emailAddresses: {
-              emailAddress: [
-                {
-                  address: values.contact.emailAddresses.email,
-                  primary: true
-                }
-              ]
-            },
-            phoneNumbers: {
-              phoneNumber: [
-                {
-                  country: values.contact.addresses.address.country,
-                  number: values.contact.phoneNumber.number,
-                  category: 'HOME',
-                  primary: true
-                }
-              ]
-            },
-            user: {
-              username: values.contact.username,
-              password: values.contact.user.password
-            }
+    const template = (
+      _.get(values, ['contact', 'customerType', 'isRbu'])
+        ? RBU_SIGNUP_REQUEST
+        : CUSTOMER_SIGNUP_REQUEST
+    );
+    return {
+      ...template,
+      contacts: {
+        contact: {
+          firstName: values.contact.firstName,
+          lastName: values.contact.lastName,
+          title: values.contact.title,
+          addresses: {
+            address: [
+              {
+                ...values.contact.addresses.address,
+                primary: true
+              }
+            ]
+          },
+          emailAddresses: {
+            emailAddress: [
+              {
+                address: values.contact.emailAddresses.email,
+                primary: true
+              }
+            ]
+          },
+          phoneNumbers: {
+            phoneNumber: [
+              {
+                country: values.contact.addresses.address.country,
+                number: values.contact.phoneNumber.number,
+                category: 'HOME',
+                primary: true
+              }
+            ]
+          },
+          user: {
+            username: values.contact.username,
+            password: values.contact.user.password
           }
         }
-      };
-    }
-
-    return {
-      ...CUSTOMER_SIGNUP_REQUEST
-      // TODO
+      }
     };
   };
 
