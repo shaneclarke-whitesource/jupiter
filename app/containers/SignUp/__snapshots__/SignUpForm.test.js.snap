@@ -29,7 +29,7 @@ exports[`SignUpForm it renders 1`] = `
                 <hx-text-control>
                   <input
                     className="hxTextCtrl"
-                    name="contact.firstName"
+                    name="userInfo.firstName"
                     onBlur={[Function]}
                     onChange={[Function]}
                     onDragStart={[Function]}
@@ -41,7 +41,7 @@ exports[`SignUpForm it renders 1`] = `
                   />
                   <label
                     className=""
-                    htmlFor="contact.firstName"
+                    htmlFor="userInfo.firstName"
                   >
                     <span
                       className="InputField-label"
@@ -61,7 +61,7 @@ exports[`SignUpForm it renders 1`] = `
                 <hx-text-control>
                   <input
                     className="hxTextCtrl"
-                    name="contact.lastName"
+                    name="userInfo.lastName"
                     onBlur={[Function]}
                     onChange={[Function]}
                     onDragStart={[Function]}
@@ -73,7 +73,7 @@ exports[`SignUpForm it renders 1`] = `
                   />
                   <label
                     className=""
-                    htmlFor="contact.lastName"
+                    htmlFor="userInfo.lastName"
                   >
                     <span
                       className="InputField-label"
@@ -94,7 +94,7 @@ exports[`SignUpForm it renders 1`] = `
               <hx-text-control>
                 <input
                   className="hxTextCtrl"
-                  name="contact.title"
+                  name="userInfo.title"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onDragStart={[Function]}
@@ -106,7 +106,7 @@ exports[`SignUpForm it renders 1`] = `
                 />
                 <label
                   className="hxOptional"
-                  htmlFor="contact.title"
+                  htmlFor="userInfo.title"
                 >
                   <span
                     className="InputField-label"
@@ -126,7 +126,7 @@ exports[`SignUpForm it renders 1`] = `
               <hx-text-control>
                 <input
                   className="hxTextCtrl"
-                  name="contact.emailAddresses.email"
+                  name="userInfo.email"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onDragStart={[Function]}
@@ -138,7 +138,7 @@ exports[`SignUpForm it renders 1`] = `
                 />
                 <label
                   className=""
-                  htmlFor="contact.emailAddresses.email"
+                  htmlFor="userInfo.email"
                 >
                   <span
                     className="InputField-label"
@@ -6589,7 +6589,7 @@ exports[`SignUpForm it renders 1`] = `
               <hx-text-control>
                 <input
                   className="hxTextCtrl"
-                  name="contact.accountName"
+                  name="userInfo.accountName"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onDragStart={[Function]}
@@ -6601,7 +6601,7 @@ exports[`SignUpForm it renders 1`] = `
                 />
                 <label
                   className=""
-                  htmlFor="contact.accountName"
+                  htmlFor="userInfo.accountName"
                 >
                   <span
                     className="InputField-label"
@@ -6612,43 +6612,41 @@ exports[`SignUpForm it renders 1`] = `
               </hx-text-control>
             </div>
           </div>
-        </section>
-        <div>
           <div
             className="hxCol hxSpan-12"
           >
             <div
-              className="hxCol hxSpan-12"
+              className="InputField"
             >
-              <div
-                className="InputField"
-              >
-                <hx-text-control>
-                  <input
-                    className="hxTextCtrl"
-                    name="contact.user.username"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onDragStart={[Function]}
-                    onDrop={[Function]}
-                    onFocus={[Function]}
-                    required={true}
-                    type="text"
-                    value=""
-                  />
-                  <label
-                    className=""
-                    htmlFor="contact.user.username"
+              <hx-text-control>
+                <input
+                  className="hxTextCtrl"
+                  name="userInfo.username"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onDragStart={[Function]}
+                  onDrop={[Function]}
+                  onFocus={[Function]}
+                  required={true}
+                  type="text"
+                  value=""
+                />
+                <label
+                  className=""
+                  htmlFor="userInfo.username"
+                >
+                  <span
+                    className="InputField-label"
                   >
-                    <span
-                      className="InputField-label"
-                    >
-                      Create Username
-                    </span>
-                  </label>
-                </hx-text-control>
-              </div>
+                    Create Username
+                  </span>
+                </label>
+              </hx-text-control>
             </div>
+          </div>
+          <div
+            className="hxCol hxSpan-12"
+          >
             <div
               className="InputField"
             >
@@ -6658,7 +6656,7 @@ exports[`SignUpForm it renders 1`] = `
                 <input
                   autoComplete="new-password"
                   className="hxTextCtrl"
-                  name="contact.user.password"
+                  name="userInfo.password"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onDragStart={[Function]}
@@ -6670,7 +6668,7 @@ exports[`SignUpForm it renders 1`] = `
                 />
                 <label
                   className=""
-                  htmlFor="contact.user.password"
+                  htmlFor="userInfo.password"
                 >
                   <span
                     className="InputField-label"
@@ -6681,11 +6679,11 @@ exports[`SignUpForm it renders 1`] = `
                     className="tooltip"
                   >
                     <hx-icon
-                      id="contact.user.password-tooltip"
+                      id="userInfo.password-tooltip"
                       type="help-circle"
                     />
                     <hx-tooltip
-                      for="contact.user.password-tooltip"
+                      for="userInfo.password-tooltip"
                       position="right-middle"
                     >
                       Password must contain at least one uppercase letter, one numeric digit, and one special character.
@@ -6726,7 +6724,7 @@ exports[`SignUpForm it renders 1`] = `
                 <input
                   autoComplete="new-password"
                   className="hxTextCtrl"
-                  name="contact.user.passwordValidate"
+                  name="userInfo.passwordValidate"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onDragStart={[Function]}
@@ -6738,7 +6736,7 @@ exports[`SignUpForm it renders 1`] = `
                 />
                 <label
                   className=""
-                  htmlFor="contact.user.passwordValidate"
+                  htmlFor="userInfo.passwordValidate"
                 >
                   <span
                     className="InputField-label"
@@ -6757,7 +6755,7 @@ exports[`SignUpForm it renders 1`] = `
               </hx-text-control>
             </div>
           </div>
-        </div>
+        </section>
         <hr />
         <h2>
           Customer Information
@@ -6811,7 +6809,7 @@ exports[`SignUpForm it renders 1`] = `
               <hx-text-control>
                 <input
                   className="hxTextCtrl"
-                  name="contact.addresses.address.city"
+                  name="userInfo.address.city"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onDragStart={[Function]}
@@ -6823,7 +6821,7 @@ exports[`SignUpForm it renders 1`] = `
                 />
                 <label
                   className=""
-                  htmlFor="contact.addresses.address.city"
+                  htmlFor="userInfo.address.city"
                 >
                   <span
                     className="InputField-label"
@@ -6839,7 +6837,7 @@ exports[`SignUpForm it renders 1`] = `
               <hx-text-control>
                 <input
                   className="hxTextCtrl"
-                  name="contact.addresses.address.street"
+                  name="userInfo.address.street"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onDragStart={[Function]}
@@ -6851,7 +6849,7 @@ exports[`SignUpForm it renders 1`] = `
                 />
                 <label
                   className=""
-                  htmlFor="contact.addresses.address.street"
+                  htmlFor="userInfo.address.street"
                 >
                   <span
                     className="InputField-label"
@@ -6867,7 +6865,7 @@ exports[`SignUpForm it renders 1`] = `
               <hx-text-control>
                 <input
                   className="hxTextCtrl"
-                  name="contact.addresses.address.zipcode"
+                  name="userInfo.address.zipcode"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onDragStart={[Function]}
@@ -6879,7 +6877,7 @@ exports[`SignUpForm it renders 1`] = `
                 />
                 <label
                   className=""
-                  htmlFor="contact.addresses.address.zipcode"
+                  htmlFor="userInfo.address.zipcode"
                 >
                   <span
                     className="InputField-label"
@@ -6901,8 +6899,8 @@ exports[`SignUpForm it renders 1`] = `
                   <hx-select-control>
                     <select
                       disabled={false}
-                      id="contact.addresses.address.country"
-                      name="contact.addresses.address.country"
+                      id="userInfo.address.country"
+                      name="userInfo.address.country"
                       onBlur={[Function]}
                       onChange={[Function]}
                       onDragStart={[Function]}
@@ -8158,7 +8156,7 @@ exports[`SignUpForm it renders 1`] = `
                     </select>
                     <hx-select />
                     <label
-                      htmlFor="contact.addresses.address.country"
+                      htmlFor="userInfo.address.country"
                     >
                       <span
                         className="InputField-label"
@@ -8178,8 +8176,8 @@ exports[`SignUpForm it renders 1`] = `
                   <hx-select-control>
                     <select
                       disabled={false}
-                      id="contact.addresses.address.state"
-                      name="contact.addresses.address.state"
+                      id="userInfo.address.state"
+                      name="userInfo.address.state"
                       onBlur={[Function]}
                       onChange={[Function]}
                       onDragStart={[Function]}
@@ -8195,7 +8193,7 @@ exports[`SignUpForm it renders 1`] = `
                     </select>
                     <hx-select />
                     <label
-                      htmlFor="contact.addresses.address.state"
+                      htmlFor="userInfo.address.state"
                     >
                       <span
                         className="InputField-label"

@@ -60,15 +60,15 @@ CustomerType.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    country: formValueSelector('signUp')(state, 'address.country'),
-    stateSelected: formValueSelector('signUp')(state, 'address.state')
+    country: formValueSelector('signUp')(state, 'userInfo.address.country'),
+    stateSelected: formValueSelector('signUp')(state, 'userInfo.address.state')
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     setAddress: (field, value) => {
-      dispatch(change('signUp', `address.${field}`, value));
+      dispatch(change('signUp', `userInfo.address.${field}`, value));
     }
   };
 };

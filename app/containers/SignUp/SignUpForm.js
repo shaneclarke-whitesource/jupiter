@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
-import { FormSection, reduxForm, Field } from 'redux-form';
-import { validateUser, validateAddress, validateRole } from '../../validators';
+import { FormSection, reduxForm } from 'redux-form';
+import { validateUser, validateAddress } from '../../validators';
 import { submitUserData } from '../../actions/signUpUser';
 import _ from 'lodash';
 import { CUSTOMER_SIGNUP_REQUEST } from '../../signupReqFormat/customer';
@@ -13,30 +13,28 @@ import AddressSection from '../../components/SignUp/AddressSection';
 import Submit from '../../components/helix/buttons/Submit';
 import UserInfo from '../../components/SignUp/UserInfo';
 import CustomerType from '../../components/SignUp/CustomerType';
-import PasswordInput from '../../components/helix/inputTypes/PasswordInput';
-import Input from '../../components/helix/inputTypes/Input';
 
 export class SignUpForm extends React.Component {
   formatRequest = (values) => {
     const template = (
-      _.get(values, ['contact', 'customerType', 'isRbu'])
+      _.get(values, ['userInfo', 'customerType', 'isRbu'])
         ? RBU_SIGNUP_REQUEST
         : CUSTOMER_SIGNUP_REQUEST
     );
     return {
       ...template,
-      accountName: values.contact.accountName,
+      accountName: values.userInfo.accountName,
       serviceLevel: 'MANAGED',
       contacts: {
         contact: [
           {
-            firstName: values.contact.firstName,
-            lastName: values.contact.lastName,
-            title: values.contact.title,
+            firstName: values.userInfo.firstName,
+            lastName: values.userInfo.lastName,
+            title: values.userInfo.title,
             addresses: {
               address: [
                 {
-                  ...values.contact.addresses.address,
+                  ...values.userInfo.address,
                   primary: true
                 }
               ]
@@ -44,7 +42,7 @@ export class SignUpForm extends React.Component {
             emailAddresses: {
               emailAddress: [
                 {
-                  address: values.contact.emailAddresses.email,
+                  address: values.userInfo.email,
                   primary: true
                 }
               ]
@@ -52,16 +50,16 @@ export class SignUpForm extends React.Component {
             phoneNumbers: {
               phoneNumber: [
                 {
-                  country: values.contact.addresses.address.country,
-                  number: values.contact.phoneNumbers.phoneNumber.number,
+                  country: values.userInfo.address.country,
+                  number: values.userInfo.phoneNumber.number,
                   category: 'HOME',
                   primary: true
                 }
               ]
             },
             user: {
-              username: values.contact.user.username,
-              password: values.contact.user.password
+              username: values.userInfo.username,
+              password: values.userInfo.password
             },
             roles: template.contacts.contact.roles
           }
@@ -81,43 +79,15 @@ export class SignUpForm extends React.Component {
       <div className="SignUp-form">
         <form onSubmit={handleSubmit(this.handleSubmit)}>
           <div className="InputField-content">
-            <FormSection name="contact">
+            <FormSection name="userInfo">
               <UserInfo />
-              <FormSection name="user">
-                <div className="hxCol hxSpan-12">
-                  <div className="hxCol hxSpan-12">
-                    <Field
-                      name="username"
-                      component={Input}
-                      type="text"
-                      label={t('common:actions.create.username')}
-                      required
-                    />
-                  </div>
-                  <Field
-                    name="password"
-                    component={PasswordInput}
-                    label={t('common:actions.create.password')}
-                    tooltip
-                  />
-                </div>
-                <div className="hxCol hxSpan-12">
-                  <Field
-                    name="passwordValidate"
-                    component={PasswordInput}
-                    label={t('common:actions.confirm.password')}
-                  />
-                </div>
-              </FormSection>
               <hr />
               <h2>{t('common:account.customer.info')}</h2>
               <FormSection name="customerType">
                 <CustomerType />
               </FormSection>
               <hr />
-              <FormSection name="addresses">
-                <AddressSection />
-              </FormSection>
+              <AddressSection />
             </FormSection>
           </div>
           <div className="SignUp-buttons">
@@ -145,8 +115,7 @@ SignUpForm.propTypes = {
 export const validateForm = (values, props) => {
   return {
     ...validateUser(values, props),
-    ...validateAddress(values, props),
-    ...validateRole(values, props)
+    ...validateAddress(values, props)
   };
 };
 

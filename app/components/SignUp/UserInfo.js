@@ -1,8 +1,9 @@
 import React from 'react';
-import { Field, FormSection } from 'redux-form';
+import { Field } from 'redux-form';
 import { useTranslation } from 'react-i18next';
 import Input from '../helix/inputTypes/Input';
 import PhoneField from '../helix/inputTypes/PhoneField';
+import PasswordInput from '../helix/inputTypes/PasswordInput';
 
 const UserInfo = () => {
   const { t } = useTranslation();
@@ -38,28 +39,24 @@ const UserInfo = () => {
           optional
         />
       </div>
-      <FormSection name="emailAddresses">
-        <div className="hxCol hxSpan-12">
-          <Field
-            name="email"
-            component={Input}
-            type="text"
-            label={t('common:user.details.email')}
-            required
-          />
-        </div>
-      </FormSection>
-      <FormSection name="phoneNumbers">
-        <div className="hxCol hxSpan-12">
-          <Field
-            name="phoneNumber"
-            id="phoneNumber"
-            component={PhoneField}
-            label={t('common:user.details.phoneNumber')}
-            required
-          />
-        </div>
-      </FormSection>
+      <div className="hxCol hxSpan-12">
+        <Field
+          name="email"
+          component={Input}
+          type="text"
+          label={t('common:user.details.email')}
+          required
+        />
+      </div>
+      <div className="hxCol hxSpan-12">
+        <Field
+          name="phoneNumber"
+          id="phoneNumber"
+          component={PhoneField}
+          label={t('common:user.details.phoneNumber')}
+          required
+        />
+      </div>
       <div className="hxCol hxSpan-12">
         <Field
           name="accountName"
@@ -67,6 +64,30 @@ const UserInfo = () => {
           type="text"
           label={t('common:user.details.accountName')}
           required
+        />
+      </div>
+      <div className="hxCol hxSpan-12">
+        <Field
+          name="username"
+          component={Input}
+          type="text"
+          label={t('common:actions.create.username')}
+          required
+        />
+      </div>
+      <div className="hxCol hxSpan-12">
+        <Field
+          name="password"
+          component={PasswordInput}
+          label={t('common:actions.create.password')}
+          tooltip
+        />
+      </div>
+      <div className="hxCol hxSpan-12">
+        <Field
+          name="passwordValidate"
+          component={PasswordInput}
+          label={t('common:actions.confirm.password')}
         />
       </div>
     </section>

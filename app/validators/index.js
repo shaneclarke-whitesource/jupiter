@@ -92,7 +92,7 @@ export const validatePhoneNumber = (values, { t = i18nT() }) => {
 };
 
 export const validateUser = (values, { t = i18nT() }) => {
-  const userInfo = _.get(values, 'contact');
+  const userInfo = _.get(values, 'userInfo');
   translateDefaultValidators(t);
   const errors = validate(userInfo, {
     firstName: {
@@ -145,7 +145,7 @@ export const validateUser = (values, { t = i18nT() }) => {
     }
   }, { fullMessages: false }) || {};
   return {
-    contact: {
+    userInfo: {
       ...errors,
       ...validateEmail(userInfo, t),
       ...validatePassword(userInfo, t),
@@ -182,16 +182,4 @@ export const validateAddress = (values, { t = i18nT() }) => {
   }, { fullMessages: false });
 
   return errors ? { address: errors } : {};
-};
-
-export const validateRole = (values, { t = i18nT() }) => {
-  const role = _.get(values, 'accountProduct', {});
-  const errors = validate(role, {
-    product: {
-      exclusion: {
-        within: ['none']
-      }
-    }
-  }, { fullMessages: false });
-  return errors ? { accountProduct: errors } : {};
 };

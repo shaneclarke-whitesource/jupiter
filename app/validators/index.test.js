@@ -9,7 +9,7 @@ describe('validators', () => {
       return validators.validateUser(props, defaultProps);
     };
     const valid = {
-      contact: {
+      userInfo: {
         firstName: 'mr',
         lastName: 'wow',
         username: 'muchWow',
@@ -21,35 +21,35 @@ describe('validators', () => {
       }
     };
     test('it passes if all values are valid', () => {
-      expect(validateUserInfo({ ...valid })).toEqual({ contact: {} });
+      expect(validateUserInfo({ ...valid })).toEqual({ userInfo: {} });
     });
 
     test('it fails if firstName is longer than 32 characters', () => {
       const longName = _.fill(Array(33), 'a').join('');
-      const result = validateUserInfo({ contact: { firstName: longName } });
-      expect(result.contact.firstName).toEqual(['Input must be less than 32 characters long']);
+      const result = validateUserInfo({ userInfo: { firstName: longName } });
+      expect(result.userInfo.firstName).toEqual(['Input must be less than 32 characters long']);
     });
 
     test('it fails if lastName is longer than 32 characters', () => {
       const longName = _.fill(Array(33), 'b').join('');
-      const result = validateUserInfo({ contact: { lastName: longName } });
-      expect(result.contact.lastName).toEqual(['Input must be less than 32 characters long']);
+      const result = validateUserInfo({ userInfo: { lastName: longName } });
+      expect(result.userInfo.lastName).toEqual(['Input must be less than 32 characters long']);
     });
 
     // test('it fails if username is longer than 10 characters', () => {
     //   const longName = _.fill(Array(11), 'c').join('');
-    //   const result = validateUserInfo({ contact: { username: longName } });
-    //   expect(result.contact.username).toEqual(['Username must be less than 10 characters long']);
+    //   const result = validateUserInfo({ userInfo: { username: longName } });
+    //   expect(result.userInfo.username).toEqual(['Username must be less than 10 characters long']);
     // });
 
     ['firstName', 'lastName', 'username'].forEach((field) => {
       test(`returns required when ${field} is empty`, () => {
-        const result = validateUserInfo({ contact: { [field]: '' } });
-        expect([].concat(result.contact[field])).toEqual(['Required']);
+        const result = validateUserInfo({ userInfo: { [field]: '' } });
+        expect([].concat(result.userInfo[field])).toEqual(['Required']);
       });
       test(`returns required when ${field} is empty string`, () => {
-        const result = validateUserInfo({ contact: { [field]: '     ' } });
-        expect([].concat(result.contact[field])).toEqual(['Required']);
+        const result = validateUserInfo({ userInfo: { [field]: '     ' } });
+        expect([].concat(result.userInfo[field])).toEqual(['Required']);
       });
     });
   });

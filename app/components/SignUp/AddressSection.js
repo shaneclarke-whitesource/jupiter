@@ -68,14 +68,14 @@ class AddressSection extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    country: formValueSelector('signUp')(state, 'address.country')
+    country: formValueSelector('signUp')(state, 'userInfo.address.country')
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     setCountry: (country) => {
-      dispatch(change('signUp', 'address.country', country));
+      dispatch(change('signUp', 'userInfo.address.country', country));
     }
   };
 };
