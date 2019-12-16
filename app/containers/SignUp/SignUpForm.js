@@ -28,41 +28,43 @@ export class SignUpForm extends React.Component {
       accountName: values.contact.accountName,
       serviceLevel: 'MANAGED',
       contacts: {
-        contact: {
-          firstName: values.contact.firstName,
-          lastName: values.contact.lastName,
-          title: values.contact.title,
-          addresses: {
-            address: [
-              {
-                ...values.contact.addresses.address,
-                primary: true
-              }
-            ]
-          },
-          emailAddresses: {
-            emailAddress: [
-              {
-                address: values.contact.emailAddresses.email,
-                primary: true
-              }
-            ]
-          },
-          phoneNumbers: {
-            phoneNumber: [
-              {
-                country: values.contact.addresses.address.country,
-                number: values.contact.phoneNumbers.phoneNumber.number,
-                category: 'HOME',
-                primary: true
-              }
-            ]
-          },
-          user: {
-            username: values.contact.user.username,
-            password: values.contact.user.password
+        contact: [
+          {
+            firstName: values.contact.firstName,
+            lastName: values.contact.lastName,
+            title: values.contact.title,
+            addresses: {
+              address: [
+                {
+                  ...values.contact.addresses.address,
+                  primary: true
+                }
+              ]
+            },
+            emailAddresses: {
+              emailAddress: [
+                {
+                  address: values.contact.emailAddresses.email,
+                  primary: true
+                }
+              ]
+            },
+            phoneNumbers: {
+              phoneNumber: [
+                {
+                  country: values.contact.addresses.address.country,
+                  number: values.contact.phoneNumbers.phoneNumber.number,
+                  category: 'HOME',
+                  primary: true
+                }
+              ]
+            },
+            user: {
+              username: values.contact.user.username,
+              password: values.contact.user.password
+            }
           }
-        }
+        ]
       }
     };
   };
