@@ -93,41 +93,6 @@ exports[`AddressSection it renders 1`] = `
         <input
           autoComplete="on"
           className="hxTextCtrl"
-          name="emailAddresses.email"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onDragStart={[Function]}
-          onDrop={[Function]}
-          onFocus={[Function]}
-          required={true}
-          type="text"
-          value=""
-        />
-        <label
-          className=""
-          htmlFor="emailAddresses.email"
-        >
-          <span
-            className="InputField-label"
-          >
-            Email Address
-          </span>
-        </label>
-      </hx-text-control>
-    </div>
-  </div>
-  <div
-    className="hxCol hxSpan-12"
-  >
-    <div
-      className="InputField"
-    >
-      <hx-text-control
-        class=""
-      >
-        <input
-          autoComplete="on"
-          className="hxTextCtrl"
           name="title"
           onBlur={[Function]}
           onChange={[Function]}
@@ -146,6 +111,41 @@ exports[`AddressSection it renders 1`] = `
             className="InputField-label"
           >
             Title
+          </span>
+        </label>
+      </hx-text-control>
+    </div>
+  </div>
+  <div
+    className="hxCol hxSpan-12"
+  >
+    <div
+      className="InputField"
+    >
+      <hx-text-control
+        class=""
+      >
+        <input
+          autoComplete="on"
+          className="hxTextCtrl"
+          name="emailAddresses.email"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onDragStart={[Function]}
+          onDrop={[Function]}
+          onFocus={[Function]}
+          required={true}
+          type="text"
+          value=""
+        />
+        <label
+          className=""
+          htmlFor="emailAddresses.email"
+        >
+          <span
+            className="InputField-label"
+          >
+            Email Address
           </span>
         </label>
       </hx-text-control>
@@ -6580,41 +6580,6 @@ exports[`AddressSection it renders 1`] = `
           value=""
         />
       </div>
-    </div>
-  </div>
-  <div
-    className="hxCol hxSpan-12"
-  >
-    <div
-      className="InputField"
-    >
-      <hx-text-control
-        class=""
-      >
-        <input
-          autoComplete="on"
-          className="hxTextCtrl"
-          name="username"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onDragStart={[Function]}
-          onDrop={[Function]}
-          onFocus={[Function]}
-          required={true}
-          type="text"
-          value=""
-        />
-        <label
-          className=""
-          htmlFor="username"
-        >
-          <span
-            className="InputField-label"
-          >
-            Create Username
-          </span>
-        </label>
-      </hx-text-control>
     </div>
   </div>
   <div

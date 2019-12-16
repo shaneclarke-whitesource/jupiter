@@ -94,38 +94,6 @@ exports[`SignUpForm it renders 1`] = `
               <hx-text-control>
                 <input
                   className="hxTextCtrl"
-                  name="contact.emailAddresses.email"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onDragStart={[Function]}
-                  onDrop={[Function]}
-                  onFocus={[Function]}
-                  required={true}
-                  type="text"
-                  value=""
-                />
-                <label
-                  className=""
-                  htmlFor="contact.emailAddresses.email"
-                >
-                  <span
-                    className="InputField-label"
-                  >
-                    Email Address
-                  </span>
-                </label>
-              </hx-text-control>
-            </div>
-          </div>
-          <div
-            className="hxCol hxSpan-12"
-          >
-            <div
-              className="InputField"
-            >
-              <hx-text-control>
-                <input
-                  className="hxTextCtrl"
                   name="contact.title"
                   onBlur={[Function]}
                   onChange={[Function]}
@@ -144,6 +112,38 @@ exports[`SignUpForm it renders 1`] = `
                     className="InputField-label"
                   >
                     Title
+                  </span>
+                </label>
+              </hx-text-control>
+            </div>
+          </div>
+          <div
+            className="hxCol hxSpan-12"
+          >
+            <div
+              className="InputField"
+            >
+              <hx-text-control>
+                <input
+                  className="hxTextCtrl"
+                  name="contact.emailAddresses.email"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onDragStart={[Function]}
+                  onDrop={[Function]}
+                  onFocus={[Function]}
+                  required={true}
+                  type="text"
+                  value=""
+                />
+                <label
+                  className=""
+                  htmlFor="contact.emailAddresses.email"
+                >
+                  <span
+                    className="InputField-label"
+                  >
+                    Email Address
                   </span>
                 </label>
               </hx-text-control>
@@ -6589,38 +6589,6 @@ exports[`SignUpForm it renders 1`] = `
               <hx-text-control>
                 <input
                   className="hxTextCtrl"
-                  name="contact.username"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onDragStart={[Function]}
-                  onDrop={[Function]}
-                  onFocus={[Function]}
-                  required={true}
-                  type="text"
-                  value=""
-                />
-                <label
-                  className=""
-                  htmlFor="contact.username"
-                >
-                  <span
-                    className="InputField-label"
-                  >
-                    Create Username
-                  </span>
-                </label>
-              </hx-text-control>
-            </div>
-          </div>
-          <div
-            className="hxCol hxSpan-12"
-          >
-            <div
-              className="InputField"
-            >
-              <hx-text-control>
-                <input
-                  className="hxTextCtrl"
                   name="contact.accountName"
                   onBlur={[Function]}
                   onChange={[Function]}
@@ -6649,6 +6617,38 @@ exports[`SignUpForm it renders 1`] = `
           <div
             className="hxCol hxSpan-12"
           >
+            <div
+              className="hxCol hxSpan-12"
+            >
+              <div
+                className="InputField"
+              >
+                <hx-text-control>
+                  <input
+                    className="hxTextCtrl"
+                    name="contact.user.username"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onDragStart={[Function]}
+                    onDrop={[Function]}
+                    onFocus={[Function]}
+                    required={true}
+                    type="text"
+                    value=""
+                  />
+                  <label
+                    className=""
+                    htmlFor="contact.user.username"
+                  >
+                    <span
+                      className="InputField-label"
+                    >
+                      Create Username
+                    </span>
+                  </label>
+                </hx-text-control>
+              </div>
+            </div>
             <div
               className="InputField"
             >
@@ -6759,91 +6759,9 @@ exports[`SignUpForm it renders 1`] = `
           </div>
         </div>
         <hr />
-        <div
-          className="Input-section"
-        >
-          <h2>
-            Customer Information
-          </h2>
-          <div
-            className="popover"
-          >
-            <div
-              className="hxRow"
-            >
-              <div
-                className="hxCol hxSpan-4 hxOffset-1"
-              >
-                <span
-                  className="InputField-label hxRequired customer-info-header"
-                >
-                  Account Product
-                  :
-                </span>
-              </div>
-              <div
-                className="hxCol hxSpan-3 product"
-              >
-                None
-              </div>
-              <div
-                className="hxCol hxSpan-1 hxSpan-2-xs"
-              >
-                <hx-disclosure
-                  aria-controls="product-popover"
-                  class="hxBtn hxPrimary"
-                >
-                  <hx-icon
-                    type="pencil"
-                  />
-                </hx-disclosure>
-                <hx-popover
-                  id="product-popover"
-                  position="right-middle"
-                >
-                  <header>
-                    Choose Product
-                  </header>
-                  <hx-div>
-                    <hx-select-control>
-                      <select
-                        id="product-select-popover"
-                        onChange={[Function]}
-                      >
-                        <option
-                          value="none"
-                        >
-                          -- Please Select --
-                        </option>
-                        <option
-                          value="aviator"
-                        >
-                          Aviator
-                        </option>
-                        <option
-                          value="navigator"
-                        >
-                          Navigator
-                        </option>
-                        <option
-                          value="serviceBlocks"
-                        >
-                          Service Blocks
-                        </option>
-                      </select>
-                      <hx-select />
-                      <label
-                        htmlFor="product-select-popover"
-                      >
-                        Select Product
-                      </label>
-                    </hx-select-control>
-                  </hx-div>
-                </hx-popover>
-              </div>
-            </div>
-          </div>
-        </div>
+        <h2>
+          Customer Information
+        </h2>
         <div
           className="customer-type-section"
         >

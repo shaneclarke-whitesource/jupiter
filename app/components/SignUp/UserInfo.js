@@ -29,6 +29,15 @@ const UserInfo = () => {
           />
         </div>
       </div>
+      <div className="hxCol hxSpan-12">
+        <Field
+          name="title"
+          component={Input}
+          type="text"
+          label={t('common:user.details.title')}
+          optional
+        />
+      </div>
       <FormSection name="emailAddresses">
         <div className="hxCol hxSpan-12">
           <Field
@@ -40,33 +49,17 @@ const UserInfo = () => {
           />
         </div>
       </FormSection>
-      <div className="hxCol hxSpan-12">
-        <Field
-          name="title"
-          component={Input}
-          type="text"
-          label={t('common:user.details.title')}
-          optional
-        />
-      </div>
-      <div className="hxCol hxSpan-12">
-        <Field
-          name="phoneNumber"
-          id="phoneNumber"
-          component={PhoneField}
-          label={t('common:user.details.phoneNumber')}
-          required
-        />
-      </div>
-      <div className="hxCol hxSpan-12">
-        <Field
-          name="username"
-          component={Input}
-          type="text"
-          label={t('common:actions.create.username')}
-          required
-        />
-      </div>
+      <FormSection name="phoneNumbers">
+        <div className="hxCol hxSpan-12">
+          <Field
+            name="phoneNumber"
+            id="phoneNumber"
+            component={PhoneField}
+            label={t('common:user.details.phoneNumber')}
+            required
+          />
+        </div>
+      </FormSection>
       <div className="hxCol hxSpan-12">
         <Field
           name="accountName"
