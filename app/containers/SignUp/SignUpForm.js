@@ -18,24 +18,51 @@ import Input from '../../components/helix/inputTypes/Input';
 
 export class SignUpForm extends React.Component {
   formatRequest = (values) => {
-    const reqUsed = _.get(values, ['customerType', 'isRbu']) ? RBU_SIGNUP_REQUEST : CUSTOMER_SIGNUP_REQUEST;
-    const userContactFields = _.get(reqUsed, ['contacts', 'contact']);
-    _.filter(userContactFields, (reqKey) => {
-      return Object.keys(values.contact).forEach((key) => {
-        if (reqKey.hasOwnProperty(key) && typeof reqKey[key] !== 'object') {
-          reqKey[key] = values.contact[key];
-        } else {
-          return _.transform(reqKey[key], (acc, value, nestedKey) => {
-            _.filter(reqKey[key][nestedKey], (obj) => {
-              _.merge(obj, values.contact[key][nestedKey]);
-            });
-          });
+    const template = (
+      _.get(values, ['contact', 'customerType', 'isRbu'])
+        ? RBU_SIGNUP_REQUEST
+        : CUSTOMER_SIGNUP_REQUEST
+    );
+    return {
+      ...template,
+      contacts: {
+        contact: {
+          firstName: values.contact.firstName,
+          lastName: values.contact.lastName,
+          title: values.contact.title,
+          addresses: {
+            address: [
+              {
+                ...values.contact.addresses.address,
+                primary: true
+              }
+            ]
+          },
+          emailAddresses: {
+            emailAddress: [
+              {
+                address: values.contact.emailAddresses.email,
+                primary: true
+              }
+            ]
+          },
+          phoneNumbers: {
+            phoneNumber: [
+              {
+                country: values.contact.addresses.address.country,
+                number: values.contact.phoneNumber.number,
+                category: 'HOME',
+                primary: true
+              }
+            ]
+          },
+          user: {
+            username: values.contact.username,
+            password: values.contact.user.password
+          }
         }
-      });
-    });
-    reqUsed.accountName = values.contact.accountName;
-    reqUsed.contacts.contact[0].user.username = values.contact.user.username;
-    return reqUsed;
+      }
+    };
   };
 
   handleSubmit = (values) => {
