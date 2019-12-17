@@ -74,7 +74,8 @@ export class SignUpForm extends React.Component {
   };
 
   render() {
-    const { t, handleSubmit } = this.props;
+    const { t, handleSubmit, pending } = this.props;
+
     return (
       <div className="SignUp-form">
         <form onSubmit={handleSubmit(this.handleSubmit)}>
@@ -93,6 +94,8 @@ export class SignUpForm extends React.Component {
           <div className="SignUp-buttons">
             <Submit
               label={t('common:actions.basic.submit')}
+              disabled={pending}
+              processing={pending}
             />
           </div>
         </form>
@@ -105,13 +108,20 @@ export class SignUpForm extends React.Component {
 SignUpForm.propTypes = {
   t: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  signUp: PropTypes.func.isRequired
+  signUp: PropTypes.func.isRequired,
+  pending: PropTypes.bool.isRequired
 };
 
 export const validateForm = (values, props) => {
   return {
     ...validateUser(values, props),
     ...validateAddress(values, props)
+  };
+};
+
+const mapStateToProps = (state) => {
+  return {
+    pending: state.userInfo.pending
   };
 };
 
@@ -128,4 +138,4 @@ const SignUpReduxForm = reduxForm({
 })(withTranslation()(SignUpForm));
 
 
-export default connect(null, mapDispatchToProps)(SignUpReduxForm);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpReduxForm);
