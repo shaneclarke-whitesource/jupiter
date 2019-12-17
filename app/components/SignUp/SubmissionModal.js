@@ -14,7 +14,7 @@ export class SubmissionModal extends React.Component {
     };
     if (success) {
       modalContent.header = t('common:create.status.success');
-      modalContent.message = t('common:create.status.success.message', username);
+      modalContent.message = t('common:create.status.success.message', { username });
     } else {
       modalContent.header = t('validation:error.header');
       switch (code) {
@@ -22,7 +22,7 @@ export class SubmissionModal extends React.Component {
           if (message === 'Invalid Password') {
             modalContent.message = t('validation:error.create.password');
           } else if (message === 'User name already in use.') {
-            modalContent.message = t('validation:error.create.userExists', username);
+            modalContent.message = t('validation:error.create.userExists', { username });
           } else {
             modalContent.message = message;
           }
