@@ -28,7 +28,6 @@ exports[`AddressSection it renders 1`] = `
           value=""
         />
         <label
-          className=""
           htmlFor="address.city"
         >
           <span
@@ -59,7 +58,6 @@ exports[`AddressSection it renders 1`] = `
           value=""
         />
         <label
-          className=""
           htmlFor="address.street"
         >
           <span
@@ -90,7 +88,6 @@ exports[`AddressSection it renders 1`] = `
           value=""
         />
         <label
-          className=""
           htmlFor="address.zipcode"
         >
           <span

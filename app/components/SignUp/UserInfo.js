@@ -36,7 +36,6 @@ const UserInfo = () => {
           component={Input}
           type="text"
           label={t('common:user.details.title')}
-          optional
         />
       </div>
       <div className="hxCol hxSpan-12">

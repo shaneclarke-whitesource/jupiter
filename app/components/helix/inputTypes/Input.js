@@ -11,8 +11,7 @@ const Input = (props) => {
     meta: { touched, error },
     children,
     hxClassNames,
-    autoComplete,
-    optional
+    autoComplete
   } = props;
   return (
     <div className="InputField">
@@ -25,7 +24,7 @@ const Input = (props) => {
           required={required}
           autoComplete={autoComplete}
         />
-        <label htmlFor={input.name} className={optional ? 'hxOptional' : ''}>
+        <label htmlFor={input.name}>
           <span className="InputField-label">{label}</span>
           {tooltip}
         </label>
@@ -66,8 +65,7 @@ Input.defaultProps = {
   required: false,
   type: 'text',
   autoComplete: 'on',
-  hxClassNames: '',
-  optional: false
+  hxClassNames: ''
 };
 
 export default Input;
