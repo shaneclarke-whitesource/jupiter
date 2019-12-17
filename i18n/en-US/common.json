@@ -52,9 +52,6 @@
   "account.product.serviceBlocks": {
     "translation": "Service Blocks"
   },
-  "actions.basic.cancel": {
-    "translation": "Cancel"
-  },
   "actions.basic.hide": {
     "translation": "Hide"
   },
@@ -72,6 +69,12 @@
   },
   "actions.create.username": {
     "translation": "Create Username"
+  },
+  "create.status.success": {
+    "translation": "Success!"
+  },
+  "create.status.success.message": {
+    "translation": "User {username} has been created"
   },
   "footer.content.company": {
     "translation": "{year} Rackspace US, Inc."

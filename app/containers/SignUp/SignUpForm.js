@@ -8,11 +8,11 @@ import { submitUserData } from '../../actions/signUpUser';
 import _ from 'lodash';
 import { CUSTOMER_SIGNUP_REQUEST } from '../../signupReqFormat/customer';
 import { RBU_SIGNUP_REQUEST } from '../../signupReqFormat/rbuCustomer';
-import Button from '../../components/helix/buttons/Button';
 import AddressSection from '../../components/SignUp/AddressSection';
 import Submit from '../../components/helix/buttons/Submit';
 import UserInfo from '../../components/SignUp/UserInfo';
 import CustomerType from '../../components/SignUp/CustomerType';
+import SubmissionModal from '../../components/SignUp/SubmissionModal';
 
 export class SignUpForm extends React.Component {
   formatRequest = (values) => {
@@ -74,7 +74,7 @@ export class SignUpForm extends React.Component {
   };
 
   render() {
-    const { t, handleSubmit, signUp, pending } = this.props;
+    const { t, handleSubmit, pending } = this.props;
 
     return (
       <div className="SignUp-form">
@@ -97,14 +97,9 @@ export class SignUpForm extends React.Component {
               disabled={pending}
               processing={pending}
             />
-            <Button
-              classNames="cancel-btn hxTertiary"
-              label={t('common:actions.basic.cancel')}
-              onClick={signUp}
-              disabled={pending}
-            />
           </div>
         </form>
+        <SubmissionModal />
       </div>
     );
   }
@@ -126,7 +121,7 @@ export const validateForm = (values, props) => {
 
 const mapStateToProps = (state) => {
   return {
-    pending: state.userInfo.pending
+    pending: state.signUpResponse.pending
   };
 };
 

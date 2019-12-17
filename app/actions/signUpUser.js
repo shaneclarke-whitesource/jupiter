@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { reset } from 'redux-form';
 
 export const SUBMIT_PENDING = 'SUBMIT_PENDING';
 export const SUBMIT_SUCCESS = 'SUBMIT_SUCCESS';
@@ -45,9 +46,10 @@ export function submitUserData(values) {
     )
       .then((response) => {
         dispatch(submitSuccess(response.data));
+        dispatch(reset('signUp'));
       })
       .catch((error) => {
-        dispatch(submitFailure());
+        dispatch(submitFailure(error.response.data));
         throw (error);
       });
   };

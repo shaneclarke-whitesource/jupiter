@@ -10,6 +10,24 @@
   "email.invalidFormat": {
     "translation": "メールドメインは有効な形式でなければなりません"
   },
+  "error.create.password": {
+    "translation": "無効なパスワード。より安全なパスワードを使用してみてください。"
+  },
+  "error.create.processing": {
+    "translation": "リクエストの処理中にエラーが発生しました"
+  },
+  "error.create.userExists": {
+    "translation": "ユーザー名は既に使用されています。別の方法を試してください。"
+  },
+  "error.header": {
+    "translation": "エラー"
+  },
+  "error.notAuthorized": {
+    "translation": "未承認"
+  },
+  "error.serverError": {
+    "translation": "サーバー接続エラー"
+  },
   "input.maxLength": {
     "translation": "{content, select, undefined {{characterCount}文字未満である必要があります} other {{content}は{characterCount}文字未満である必要があります}}"
   },
