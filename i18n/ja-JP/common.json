@@ -92,7 +92,7 @@
     "translation": "Rackspace Invoice Cartにサインアップする"
   },
   "user.details.accountName": {
-    "translation": "__NOT_TRANSLATED__"
+    "translation": "アカウント名を作成する"
   },
   "user.details.email": {
     "translation": "メールアドレス"
@@ -104,7 +104,7 @@
     "translation": "姓"
   },
   "user.details.phoneNumber": {
-    "translation": "__NOT_TRANSLATED__"
+    "translation": "電話番号"
   },
   "user.details.title": {
     "translation": "タイトル（オプション）"
