@@ -52,9 +52,6 @@
   "account.product.serviceBlocks": {
     "translation": "Service Blocks"
   },
-  "actions.basic.cancel": {
-    "translation": "キャンセル"
-  },
   "actions.basic.hide": {
     "translation": "隠す"
   },
@@ -72,6 +69,12 @@
   },
   "actions.create.username": {
     "translation": "ユーザー名を作成する"
+  },
+  "create.status.success": {
+    "translation": "成功しました！"
+  },
+  "create.status.success.message": {
+    "translation": "__NOT_TRANSLATED__"
   },
   "footer.content.company": {
     "translation": "{year} Rackspace US, Inc."

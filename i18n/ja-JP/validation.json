@@ -10,6 +10,24 @@
   "email.invalidFormat": {
     "translation": "メールドメインは有効な形式でなければなりません"
   },
+  "error.create.password": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "error.create.processing": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "error.create.userExists": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "error.header": {
+    "translation": "エラー"
+  },
+  "error.notAuthorized": {
+    "translation": "未承認"
+  },
+  "error.serverError": {
+    "translation": "サーバー接続エラー"
+  },
   "input.maxLength": {
     "translation": "{content, select, undefined {{characterCount}文字未満である必要があります} other {{content}は{characterCount}文字未満である必要があります}}"
   },

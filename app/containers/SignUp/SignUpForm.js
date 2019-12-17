@@ -8,11 +8,11 @@ import { submitUserData } from '../../actions/signUpUser';
 import _ from 'lodash';
 import { CUSTOMER_SIGNUP_REQUEST } from '../../signupReqFormat/customer';
 import { RBU_SIGNUP_REQUEST } from '../../signupReqFormat/rbuCustomer';
-import Button from '../../components/helix/buttons/Button';
 import AddressSection from '../../components/SignUp/AddressSection';
 import Submit from '../../components/helix/buttons/Submit';
 import UserInfo from '../../components/SignUp/UserInfo';
 import CustomerType from '../../components/SignUp/CustomerType';
+import SubmissionModal from '../../components/SignUp/SubmissionModal';
 
 export class SignUpForm extends React.Component {
   formatRequest = (values) => {
@@ -94,13 +94,9 @@ export class SignUpForm extends React.Component {
             <Submit
               label={t('common:actions.basic.submit')}
             />
-            <Button
-              classNames="cancel-btn hxTertiary"
-              label={t('common:actions.basic.cancel')}
-              onClick={this.props.signUp}
-            />
           </div>
         </form>
+        <SubmissionModal />
       </div>
     );
   }

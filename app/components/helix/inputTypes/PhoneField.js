@@ -18,9 +18,9 @@ class PhoneField extends React.Component {
       valid,
       inputValue,
       number,
-      countryCode: _.toUpper(_.get(countryData, 'dialCode'))
+      countryCode: _.toUpper(_.get(countryData, 'iso2'))
     };
-  }
+  };
 
   render() {
     const { name, id, label, meta: { touched, error } } = this.props;
@@ -37,7 +37,6 @@ class PhoneField extends React.Component {
           containerClassName="intl-tel-input u-input-stretch form-control tel-input"
           inputClassName="hxTextCtrl"
           formatOnInit
-          format
           allowDropdown
           utilsScript="libphonenumber.js"
           nationalMode={false}
