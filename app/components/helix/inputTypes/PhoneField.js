@@ -11,13 +11,12 @@ class PhoneField extends React.Component {
 
   onBlur = (...args) => this.props.input.onBlur(this.formatValue(...args));
 
-
   /** Format large data-set coming from component into a smaller data-set we can send back to redux-form */
   formatValue = (valid, inputValue, countryData, number) => {
     return {
       valid,
       inputValue,
-      number,
+      number: number.replace(/[- .()]?/g, ''),
       countryCode: _.toUpper(_.get(countryData, 'iso2'))
     };
   };

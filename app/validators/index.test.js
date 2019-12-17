@@ -25,15 +25,15 @@ describe('validators', () => {
     });
 
     test('it fails if firstName is longer than 32 characters', () => {
-      const longName = _.fill(Array(33), 'a').join('');
+      const longName = _.fill(Array(101), 'a').join('');
       const result = validateUserInfo({ userInfo: { firstName: longName } });
-      expect(result.userInfo.firstName).toEqual(['Input must be less than 32 characters long']);
+      expect(result.userInfo.firstName).toEqual(['Input must be less than 100 characters long']);
     });
 
     test('it fails if lastName is longer than 32 characters', () => {
-      const longName = _.fill(Array(33), 'b').join('');
+      const longName = _.fill(Array(101), 'b').join('');
       const result = validateUserInfo({ userInfo: { lastName: longName } });
-      expect(result.userInfo.lastName).toEqual(['Input must be less than 32 characters long']);
+      expect(result.userInfo.lastName).toEqual(['Input must be less than 100 characters long']);
     });
 
     // test('it fails if username is longer than 10 characters', () => {

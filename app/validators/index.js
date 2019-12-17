@@ -100,7 +100,7 @@ export const validateUser = (values, { t = i18nT() }) => {
         allowEmpty: false
       },
       length: {
-        maximum: 32,
+        maximum: 100,
         tooLong: t('validation:input.maxLength', {
           content: 'Input',
           characterCount: '%{count}'
@@ -112,7 +112,7 @@ export const validateUser = (values, { t = i18nT() }) => {
         allowEmpty: false
       },
       length: {
-        maximum: 32,
+        maximum: 100,
         tooLong: t('validation:input.maxLength', {
           content: 'Input',
           characterCount: '%{count}'
@@ -124,7 +124,7 @@ export const validateUser = (values, { t = i18nT() }) => {
         allowEmpty: false
       },
       length: {
-        maximum: 20,
+        maximum: 255,
         tooLong: t('validation:input.maxLength', {
           content: 'Username',
           characterCount: '%{count}'
@@ -136,7 +136,7 @@ export const validateUser = (values, { t = i18nT() }) => {
         allowEmpty: false
       },
       length: {
-        maximum: 20,
+        maximum: 255,
         tooLong: t('validation:input.maxLength', {
           content: 'Account Name',
           characterCount: '%{count}'
