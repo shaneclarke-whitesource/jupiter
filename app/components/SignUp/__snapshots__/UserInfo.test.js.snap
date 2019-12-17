@@ -101,7 +101,7 @@ exports[`AddressSection it renders 1`] = `
           <span
             className="InputField-label"
           >
-            Title
+            Title (optional)
           </span>
         </label>
       </hx-text-control>
