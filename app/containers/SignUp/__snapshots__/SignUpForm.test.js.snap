@@ -8212,12 +8212,13 @@ exports[`SignUpForm it renders 1`] = `
     <div
       className="SignUp-buttons"
     >
-      <input
+      <button
         className="hxBtn submit-btn hxPrimary"
         disabled={false}
         type="submit"
-        value="Submit"
-      />
+      >
+        Submit
+      </button>
       <button
         className="hxBtn cancel-btn hxTertiary"
         disabled={false}

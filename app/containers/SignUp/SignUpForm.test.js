@@ -7,6 +7,7 @@ describe('SignUpForm', () => {
   const defaultProps = {
     signUp: jest.fn(),
     reset: jest.fn(),
+    pending: false,
     t
   };
   beforeEach(() => {
@@ -33,7 +34,7 @@ describe('SignUpForm', () => {
 
   test('renders both the Submit and Cancel buttons with appropriate text', () => {
     const form = wrapper.find('form');
-    expect(form.find('.submit-btn').first().prop('value')).toEqual('Submit');
+    expect(form.find('.submit-btn').first().text()).toEqual('Submit');
     expect(form.find('.cancel-btn').last().text()).toEqual('Cancel');
   });
 });

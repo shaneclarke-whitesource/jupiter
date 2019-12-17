@@ -1,10 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Submit it renders correct props 1`] = `
-<input
+<button
   className="hxBtn submit-btn hxPrimary"
   disabled={false}
   type="submit"
-  value="Submit!"
-/>
+>
+  Submit!
+</button>
 `;

@@ -5,7 +5,7 @@ class Button extends React.Component {
   render() {
     const { label, disabled, classNames, onClick, processing, submit, children } = this.props;
     return (
-      <button
+      <button // eslint-disable-line react/button-has-type
         className={`hxBtn ${classNames}`}
         type={submit ? 'submit' : 'button'}
         disabled={disabled}
