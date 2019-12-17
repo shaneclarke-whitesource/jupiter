@@ -47,6 +47,6 @@
     "translation": "パスワードが一致しません"
   },
   "phone.mustBeAValidNumber": {
-    "translation": "__NOT_TRANSLATED__"
+    "translation": "有効な電話番号を入力してください"
   }
 }

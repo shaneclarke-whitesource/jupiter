@@ -30,7 +30,6 @@ exports[`AddressSection it renders 1`] = `
             value=""
           />
           <label
-            className=""
             htmlFor="firstName"
           >
             <span
@@ -62,7 +61,6 @@ exports[`AddressSection it renders 1`] = `
             value=""
           />
           <label
-            className=""
             htmlFor="lastName"
           >
             <span
@@ -95,13 +93,12 @@ exports[`AddressSection it renders 1`] = `
           value=""
         />
         <label
-          className="hxOptional"
           htmlFor="title"
         >
           <span
             className="InputField-label"
           >
-            Title
+            Title (optional)
           </span>
         </label>
       </hx-text-control>
@@ -127,7 +124,6 @@ exports[`AddressSection it renders 1`] = `
           value=""
         />
         <label
-          className=""
           htmlFor="email"
         >
           <span
@@ -6590,7 +6586,6 @@ exports[`AddressSection it renders 1`] = `
           value=""
         />
         <label
-          className=""
           htmlFor="accountName"
         >
           <span
@@ -6622,7 +6617,6 @@ exports[`AddressSection it renders 1`] = `
           value=""
         />
         <label
-          className=""
           htmlFor="username"
         >
           <span
@@ -6657,7 +6651,6 @@ exports[`AddressSection it renders 1`] = `
           value=""
         />
         <label
-          className=""
           htmlFor="password"
         >
           <span
@@ -6725,7 +6718,6 @@ exports[`AddressSection it renders 1`] = `
           value=""
         />
         <label
-          className=""
           htmlFor="passwordValidate"
         >
           <span

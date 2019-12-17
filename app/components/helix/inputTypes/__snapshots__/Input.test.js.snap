@@ -15,7 +15,6 @@ exports[`Input it renders with correct props 1`] = `
       type="text"
     />
     <label
-      className=""
       htmlFor="name"
     >
       <span
