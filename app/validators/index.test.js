@@ -36,11 +36,11 @@ describe('validators', () => {
       expect(result.userInfo.lastName).toEqual(['Input must be less than 32 characters long']);
     });
 
-    test('it fails if username is longer than 10 characters', () => {
-      const longName = _.fill(Array(11), 'c').join('');
-      const result = validateUserInfo({ userInfo: { username: longName } });
-      expect(result.userInfo.username).toEqual(['Username must be less than 10 characters long']);
-    });
+    // test('it fails if username is longer than 10 characters', () => {
+    //   const longName = _.fill(Array(11), 'c').join('');
+    //   const result = validateUserInfo({ userInfo: { username: longName } });
+    //   expect(result.userInfo.username).toEqual(['Username must be less than 10 characters long']);
+    // });
 
     ['firstName', 'lastName', 'username'].forEach((field) => {
       test(`returns required when ${field} is empty`, () => {

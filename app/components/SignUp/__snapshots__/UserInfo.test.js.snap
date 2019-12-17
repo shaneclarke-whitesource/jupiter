@@ -6579,38 +6579,6 @@ exports[`AddressSection it renders 1`] = `
       <hx-text-control>
         <input
           className="hxTextCtrl"
-          name="username"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onDragStart={[Function]}
-          onDrop={[Function]}
-          onFocus={[Function]}
-          required={true}
-          type="text"
-          value=""
-        />
-        <label
-          className=""
-          htmlFor="username"
-        >
-          <span
-            className="InputField-label"
-          >
-            Create Username
-          </span>
-        </label>
-      </hx-text-control>
-    </div>
-  </div>
-  <div
-    className="hxCol hxSpan-12"
-  >
-    <div
-      className="InputField"
-    >
-      <hx-text-control>
-        <input
-          className="hxTextCtrl"
           name="accountName"
           onBlur={[Function]}
           onChange={[Function]}
@@ -6629,6 +6597,38 @@ exports[`AddressSection it renders 1`] = `
             className="InputField-label"
           >
             Create Account Name
+          </span>
+        </label>
+      </hx-text-control>
+    </div>
+  </div>
+  <div
+    className="hxCol hxSpan-12"
+  >
+    <div
+      className="InputField"
+    >
+      <hx-text-control>
+        <input
+          className="hxTextCtrl"
+          name="username"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onDragStart={[Function]}
+          onDrop={[Function]}
+          onFocus={[Function]}
+          required={true}
+          type="text"
+          value=""
+        />
+        <label
+          className=""
+          htmlFor="username"
+        >
+          <span
+            className="InputField-label"
+          >
+            Create Username
           </span>
         </label>
       </hx-text-control>

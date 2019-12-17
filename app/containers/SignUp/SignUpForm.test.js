@@ -5,7 +5,7 @@ import { t } from '../../../test/i18n/mocks';
 describe('SignUpForm', () => {
   let wrapper;
   const defaultProps = {
-    handleSubmit: jest.fn(),
+    signUp: jest.fn(),
     reset: jest.fn(),
     t
   };
@@ -28,7 +28,7 @@ describe('SignUpForm', () => {
   });
 
   test('it renders all Form Sections', () => {
-    expect(wrapper.find('.Input-section').length).toEqual(3);
+    expect(wrapper.find('.Input-section').length).toEqual(2);
   });
 
   test('renders both the Submit and Cancel buttons with appropriate text', () => {

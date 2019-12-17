@@ -13,13 +13,11 @@ console.log(`for /api/ access you need a portal session.
 to get sessions ID: ${PORTAL_URL}racker Copy cookie value for "__Secure-portal_sessionid"`);
 
 let portalSessionId = readlineSync.question('Enter Portal Session ID [DEFAULTS to last saved session]:');
-
 if (!portalSessionId) {
   portalSessionId = fs.readFileSync('.portal-session').toString();
 } else {
   fs.writeFileSync('.portal-session', portalSessionId);
 }
-
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
@@ -36,6 +34,11 @@ module.exports = merge(common, {
         cookieDomainRewrite: '',
         onProxyReq: (proxyReq) => {
           proxyReq.setHeader('Cookie', `__Secure-portal_sessionid=${portalSessionId}`);
+        },
+        bypass: (req, res) => {
+          if (req.headers && req.headers.referer) {
+            req.headers.referer = req.headers.referer.replace('https://localhost:3000', 'https://staging.portal.rackspace.com');
+          }
         },
         secure: true
       }

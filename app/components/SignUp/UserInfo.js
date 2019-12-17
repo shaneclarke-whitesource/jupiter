@@ -2,8 +2,8 @@ import React from 'react';
 import { Field } from 'redux-form';
 import { useTranslation } from 'react-i18next';
 import Input from '../helix/inputTypes/Input';
-import PasswordInput from '../helix/inputTypes/PasswordInput';
 import PhoneField from '../helix/inputTypes/PhoneField';
+import PasswordInput from '../helix/inputTypes/PasswordInput';
 
 const UserInfo = () => {
   const { t } = useTranslation();
@@ -59,19 +59,19 @@ const UserInfo = () => {
       </div>
       <div className="hxCol hxSpan-12">
         <Field
-          name="username"
+          name="accountName"
           component={Input}
           type="text"
-          label={t('common:actions.create.username')}
+          label={t('common:user.details.accountName')}
           required
         />
       </div>
       <div className="hxCol hxSpan-12">
         <Field
-          name="accountName"
+          name="username"
           component={Input}
           type="text"
-          label={t('common:user.details.accountName')}
+          label={t('common:actions.create.username')}
           required
         />
       </div>

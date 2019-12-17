@@ -35,4 +35,11 @@ yarn test -f "SomeTestFile" -t "test description"
 ```
 
 ### Helpful Links
-For more information on the invoice sign up process see the [documentation](https://one.rackspace.com/display/manpubcld/Invoice+Sign+Up+Process).
+
+Manual Invoice sign up process [documentation](https://one.rackspace.com/display/manpubcld/Invoice+Sign+Up+Process).
+
+Signup is the API use to create accounts. Some details related to nodes can be found [here:](https://one.rackspace.com/display/SU/Environment+Details?searchId=51G3GLA6J#EnvironmentDetails-Dev-ORD1) 
+
+Admin Api [documentation](https://github.rackspace.com/portal/session/wiki/Admin-API)
+
+Signup Developer guide [documentation](https://pages.github.rackspace.com/IX/internal-docs-signup/api-docs/api-reference/index.html)

@@ -124,7 +124,7 @@ export const validateUser = (values, { t = i18nT() }) => {
         allowEmpty: false
       },
       length: {
-        maximum: 10,
+        maximum: 20,
         tooLong: t('validation:input.maxLength', {
           content: 'Username',
           characterCount: '%{count}'
@@ -182,16 +182,4 @@ export const validateAddress = (values, { t = i18nT() }) => {
   }, { fullMessages: false });
 
   return errors ? { address: errors } : {};
-};
-
-export const validateRole = (values, { t = i18nT() }) => {
-  const role = _.get(values, 'accountProduct', {});
-  const errors = validate(role, {
-    product: {
-      exclusion: {
-        within: ['none']
-      }
-    }
-  }, { fullMessages: false });
-  return errors ? { accountProduct: errors } : {};
 };

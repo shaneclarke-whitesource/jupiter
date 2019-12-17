@@ -16,7 +16,6 @@ export class StateSelect extends React.Component {
             country={country}
             value={region}
             countryValueType="short"
-            valueType="short"
             id={input.name}
             onChange={this.props.setRegion}
           />
@@ -47,14 +46,14 @@ StateSelect.defaultProps = {
 
 const mapStateToProps = (state) => {
   return {
-    region: formValueSelector('signUp')(state, 'address.state')
+    region: formValueSelector('signUp')(state, 'userInfo.address.state')
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     setRegion: (region) => {
-      dispatch(change('signUp', 'address.state', region));
+      dispatch(change('signUp', 'userInfo.address.state', region));
     }
   };
 };

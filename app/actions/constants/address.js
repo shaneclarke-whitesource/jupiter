@@ -15,5 +15,5 @@ export const ADDRESS_FIELDS = {
   street: 'Toranomon Hills Mori Tower 7th Floor Toranomon 1-23-1',
   zipcode: '106-6155',
   country: 'JP',
-  state: '13'
+  state: 'Tokyo'
 };
