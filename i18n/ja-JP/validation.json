@@ -11,13 +11,13 @@
     "translation": "メールドメインは有効な形式でなければなりません"
   },
   "error.create.password": {
-    "translation": "__NOT_TRANSLATED__"
+    "translation": "無効なパスワード。より安全なパスワードを使用してみてください。"
   },
   "error.create.processing": {
-    "translation": "__NOT_TRANSLATED__"
+    "translation": "リクエストの処理中にエラーが発生しました"
   },
   "error.create.userExists": {
-    "translation": "__NOT_TRANSLATED__"
+    "translation": "ユーザー名は既に使用されています。別の方法を試してください。"
   },
   "error.header": {
     "translation": "エラー"
