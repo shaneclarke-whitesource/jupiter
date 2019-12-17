@@ -10,6 +10,21 @@
   "email.invalidFormat": {
     "translation": "Email domain must be in valid format"
   },
+  "error.registrationError": {
+    "translation": "User Registration Error"
+  },
+  "error.serverError": {
+    "translation": "Error connecting to server"
+  },
+  "error.unknownError": {
+    "translation": "Unknown Error"
+  },
+  "error.serverConnectionError": {
+    "translation": "Error getting server response"
+  },
+  "error.notAuthorized": {
+    "translation": "Not Authorized"
+  },
   "input.maxLength": {
     "translation": "{content, select, undefined{Must} other {{content} must} } be less than {characterCount} characters long"
   },

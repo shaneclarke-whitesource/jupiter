@@ -10,6 +10,21 @@
   "email.invalidFormat": {
     "translation": "メールドメインは有効な形式でなければなりません"
   },
+  "error.registrationError": {
+    "translation": "ユーザー登録エラー"
+  },
+  "error.serverError": {
+    "translation": "サーバー接続エラー"
+  },
+  "error.unknownError": {
+    "translation": "不明なエラー"
+  },
+  "error.serverConnectionError": {
+    "translation": "サーバーの応答エラー"
+  },
+  "error.notAuthorized": {
+    "translation": "未承認"
+  },
   "input.maxLength": {
     "translation": "{content, select, undefined {{characterCount}文字未満である必要があります} other {{content}は{characterCount}文字未満である必要があります}}"
   },
