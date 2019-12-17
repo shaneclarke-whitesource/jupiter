@@ -3,10 +3,17 @@ import PropTypes from 'prop-types';
 
 class Button extends React.Component {
   render() {
-    const { label, disabled, classNames, onClick, children } = this.props;
+    const { label, disabled, classNames, onClick, processing, submit, children } = this.props;
     return (
-      <button className={`hxBtn ${classNames}`} type="button" disabled={disabled} onClick={onClick}>
-        {label || children}
+      <button
+        className={`hxBtn ${classNames}`}
+        type={submit ? 'submit' : 'button'}
+        disabled={disabled}
+        onClick={onClick}
+      >
+        {!processing && (label || children)}
+        {processing && <span>{label || children}</span>}
+        {processing && <hx-busy />}
       </button>
     );
   }
@@ -17,12 +24,15 @@ Button.propTypes = {
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
-  classNames: PropTypes.string
+  classNames: PropTypes.string,
+  processing: PropTypes.bool,
+  submit: PropTypes.bool
 };
 
 Button.defaultProps = {
   disabled: false,
-  classNames: ''
+  classNames: '',
+  submit: false
 };
 
 
