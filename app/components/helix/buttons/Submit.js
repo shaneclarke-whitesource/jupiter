@@ -1,16 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Button from './Button';
+
 class Submit extends React.Component {
   render() {
-    const { label, disabled, classNames, onClick } = this.props;
     return (
-      <input
-        className={`hxBtn ${classNames}`}
-        type="submit"
-        value={label}
-        disabled={disabled}
-        onClick={onClick}
+      <Button
+        {...this.props}
+        submit
       />
     );
   }
