@@ -72,24 +72,32 @@ describe('async submit action', () => {
     expect(store.getActions()).toEqual(expectedActions);
     expect(mockAxios.post).toHaveBeenCalled();
   });
-  // test('axios calls submit failure', async () => {
-  //   const error = { response: { data: { message: 'An error has occurred' } } };
-  //   mockAxios.post.mockImplementationOnce(() => Promise.reject(error));
-  //   const expectedActions = [
-  //     {
-  //       type: actions.SUBMIT_PENDING,
-  //       pending: true
-  //     },
-  //     {
-  //       type: actions.SUBMIT_FAILURE,
-  //       pending: false,
-  //       error: {
-  //         message: 'An error has occurred'
-  //       }
-  //     }
-  //   ];
-  //   await store.dispatch(actions.submitUserData());
-  //   expect(store.getActions()).toEqual(expectedActions);
-  //   // expect(mockAxios.post).toHaveBeenCalled();
-  // });
+  test('axios calls submit failure', async () => {
+    const error = { response: { data: { message: 'An error has occurred' } } };
+    mockAxios.post.mockImplementationOnce(() => Promise.reject(error));
+    const expectedActions = [
+      {
+        type: actions.SUBMIT_PENDING,
+        pending: true
+      },
+      {
+        type: actions.SUBMIT_FAILURE,
+        pending: false,
+        error: {
+          message: 'An error has occurred'
+        }
+      }
+    ];
+    return new Promise((resolve, reject) => {
+      store.subscribe(() => {
+        const currentActions = store.getActions();
+        expect(currentActions).toEqual(expectedActions.slice(0, currentActions.length));
+        expect(mockAxios.post).toHaveBeenCalled();
+        if (currentActions.length === expectedActions.length) {
+          resolve(true);
+        }
+      });
+      store.dispatch(actions.submitUserData());
+    });
+  });
 });
