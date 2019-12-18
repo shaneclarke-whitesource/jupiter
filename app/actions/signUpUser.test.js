@@ -2,6 +2,7 @@ import mockAxios from 'axios';
 import * as actions from './signUpUser';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
+
 const middleware = [thunk];
 const mockStore = configureMockStore(middleware);
 
@@ -72,7 +73,7 @@ describe('async submit action', () => {
     expect(mockAxios.post).toHaveBeenCalled();
   });
   // test('axios calls submit failure', async () => {
-  //   const error = { response: { data: 'An error has occurred' } };
+  //   const error = { response: { data: { message: 'An error has occurred' } } };
   //   mockAxios.post.mockImplementationOnce(() => Promise.reject(error));
   //   const expectedActions = [
   //     {
@@ -82,11 +83,13 @@ describe('async submit action', () => {
   //     {
   //       type: actions.SUBMIT_FAILURE,
   //       pending: false,
-  //       error: 'An error has occurred'
+  //       error: {
+  //         message: 'An error has occurred'
+  //       }
   //     }
   //   ];
   //   await store.dispatch(actions.submitUserData());
-  //   // expect(store.getActions()).toEqual(expectedActions); // do wed
-  //   expect(mockAxios.post).toHaveBeenCalled();
+  //   expect(store.getActions()).toEqual(expectedActions);
+  //   // expect(mockAxios.post).toHaveBeenCalled();
   // });
 });

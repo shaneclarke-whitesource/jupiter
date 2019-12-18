@@ -43,7 +43,7 @@ describe('reducers/signUpReducer', () => {
       signUpReducer([], {
         type: SUBMIT_FAILURE,
         pending: false,
-        error: { error }
+        error
       })
     ).toEqual(
       {

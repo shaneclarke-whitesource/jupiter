@@ -40,10 +40,14 @@ export class SubmissionModal extends React.Component {
     return modalContent;
   };
 
+  onClose = () => {
+    this.props.hideModal();
+  };
+
   returnModal = () => {
     const message = this.responseMessage();
     return (
-      <Modal isOpen>
+      <Modal isOpen onClose={this.onClose}>
         <Modal.Header>
           <h1>{message.header}</h1>
         </Modal.Header>
@@ -55,10 +59,10 @@ export class SubmissionModal extends React.Component {
   };
 
   render() {
-    const { wasSubmitted, success, error } = this.props;
+    const { openModal, success, error } = this.props;
     return (
       <div className="submission-modal">
-        {wasSubmitted && (success || error) ? this.returnModal() : null}
+        {openModal && (success || error !== {}) ? this.returnModal() : null}
       </div>
     );
   }
@@ -76,14 +80,15 @@ const mapStateToProps = (state) => {
 
 SubmissionModal.propTypes = {
   success: PropTypes.bool,
-  wasSubmitted: PropTypes.bool,
+  openModal: PropTypes.bool,
   username: PropTypes.string,
   error: PropTypes.shape({
     message: PropTypes.string,
     name: PropTypes.string,
     code: PropTypes.number
   }),
-  t: PropTypes.func.isRequired
+  t: PropTypes.func.isRequired,
+  hideModal: PropTypes.func
 };
 
 

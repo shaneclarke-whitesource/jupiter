@@ -31,7 +31,7 @@ export default function fetchReducer(state = INITIAL_STATE, action) {
         user: null,
         pending: action.pending,
         success: false,
-        error: action.error.error
+        error: action.error
       };
     default:
       return state;

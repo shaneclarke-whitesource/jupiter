@@ -16,7 +16,7 @@ import SubmissionModal from '../../components/SignUp/SubmissionModal';
 
 export class SignUpForm extends React.Component {
   state = {
-    wasSubmitted: false
+    modalIsOpen: false
   };
 
   formatRequest = (values) => {
@@ -75,7 +75,11 @@ export class SignUpForm extends React.Component {
   handleSubmit = (values) => {
     const toSubmit = this.formatRequest(values);
     this.props.signUp(toSubmit);
-    this.setState({ wasSubmitted: true });
+    this.setState({ modalIsOpen: true });
+  };
+
+  closeModal = () => {
+    this.setState({ modalIsOpen: false });
   };
 
   render() {
@@ -104,7 +108,7 @@ export class SignUpForm extends React.Component {
             />
           </div>
         </form>
-        <SubmissionModal wasSubmitted={this.state.wasSubmitted} />
+        <SubmissionModal openModal={this.state.modalIsOpen} hideModal={this.closeModal} />
       </div>
     );
   }

@@ -1,5 +1,4 @@
 import React from 'react';
-// import { renderWithForm } from '../../../test/provider';
 import { SignUpForm } from './SignUpForm';
 import { t } from '../../../test/i18n/mocks';
 
@@ -12,17 +11,9 @@ describe('SignUpForm', () => {
     handleSubmit: jest.fn(),
     t
   };
-  test('y u do dis', () => {
-    expect(true).toEqual(true);
-  });
   beforeEach(() => {
     wrapper = shallow(<SignUpForm {...defaultProps} />);
   });
-
-  // test('it renders', () => {
-  //   const rendered = renderWithForm(SignUpForm, { ...defaultProps }).toJSON();
-  //   expect(rendered).toMatchSnapshot();
-  // });
 
   test('it has the correct headers', () => {
     expect(wrapper.find('h2').text()).toEqual('Customer Information');

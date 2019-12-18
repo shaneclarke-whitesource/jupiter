@@ -1,13 +1,13 @@
 import React from 'react';
 import { SubmissionModal } from './SubmissionModal';
 import { t } from '../../../test/i18n/mocks';
-import { renderWithForm } from '../../../test/provider';
+import renderer from 'react-test-renderer';
 
 describe('SubmissionModal', () => {
   let wrapper;
   const defaultProps = {
     success: false,
-    wasSubmitted: true,
+    openModal: true,
     error: {
       code: 400,
       message: 'Invalid Password'
@@ -17,7 +17,7 @@ describe('SubmissionModal', () => {
     username: 'user-1'
   };
   test('it renders', () => {
-    const rendered = renderWithForm(SubmissionModal, { ...defaultProps }).toJSON();
+    const rendered = renderer.create(<SubmissionModal {...defaultProps} />).toJSON();
     expect(rendered).toMatchSnapshot();
   });
 
@@ -82,7 +82,7 @@ describe('SubmissionModal', () => {
     );
   });
   test('it returns empty if pending is true', () => {
-    const wrappedError = shallow(<SubmissionModal {...defaultProps} wasSubmitted={false} />);
+    const wrappedError = shallow(<SubmissionModal {...defaultProps} openModal={false} />);
     expect(wrappedError.find('.submission-modal').text()).toEqual('');
   });
 });
