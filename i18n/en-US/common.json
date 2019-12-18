@@ -70,6 +70,9 @@
   "actions.create.username": {
     "translation": "Create Username"
   },
+  "common.status.ok": {
+    "translation": "OK"
+  },
   "create.status.success": {
     "translation": "Success!"
   },
