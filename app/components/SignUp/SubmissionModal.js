@@ -4,28 +4,28 @@ import { connect } from 'react-redux';
 import Modal from '../helix/Modal';
 import Button from '../helix/buttons/Button';
 import { withTranslation } from 'react-i18next';
-import { formValueSelector } from 'redux-form';
 
 export class SubmissionModal extends React.Component {
   responseMessage = () => {
-    const { success, error: { code, message }, t, username } = this.props;
+    const { success, errorMessage, errorCode, t, username, accountname, ddi } = this.props;
+
     const modalContent = {
       header: '',
       message: ''
     };
     if (success) {
       modalContent.header = t('common:create.status.success');
-      modalContent.message = t('common:create.status.success.message', { username });
+      modalContent.message = t('common:create.status.success.message', { username, accountname, ddi });
     } else {
       modalContent.header = t('validation:error.header');
-      switch (code) {
+      switch (errorCode) {
         case 400:
-          if (message === 'Invalid Password') {
+          if (errorMessage === 'Invalid Password') {
             modalContent.message = t('validation:error.create.password');
-          } else if (message === 'User name already in use.') {
+          } else if (errorMessage === 'User name already in use.') {
             modalContent.message = t('validation:error.create.userExists', { username });
           } else {
-            modalContent.message = message;
+            modalContent.message = errorMessage;
           }
           break;
         case 401:
@@ -35,7 +35,7 @@ export class SubmissionModal extends React.Component {
           modalContent.message = t('validation:error.serverError');
           break;
         default:
-          modalContent.message = t('validation:error.create.processing', { errorMsg: message });
+          modalContent.message = t('validation:error.create.processing', { errorMsg: errorMessage });
       }
     }
     return modalContent;
@@ -69,22 +69,21 @@ export class SubmissionModal extends React.Component {
   };
 
   render() {
-    const { openModal, success, error } = this.props;
+    const { openModal } = this.props;
     return (
       <div className="submission-modal">
-        {openModal && (success || error !== {}) ? this.returnModal() : null}
+        {openModal ? this.returnModal() : null}
       </div>
     );
   }
 }
 
-const selector = formValueSelector('signUp');
-
 const mapStateToProps = (state) => {
   return {
     success: state.signUpResponse.success,
-    error: state.signUpResponse.error,
-    username: selector(state, 'username')
+    errorMessage: state.signUpResponse.error && state.signUpResponse.error.message,
+    errorCode: state.signUpResponse.error && state.signUpResponse.error.code,
+    values: state.signUpResponse.values
   };
 };
 
@@ -92,11 +91,10 @@ SubmissionModal.propTypes = {
   success: PropTypes.bool,
   openModal: PropTypes.bool,
   username: PropTypes.string,
-  error: PropTypes.shape({
-    message: PropTypes.string,
-    name: PropTypes.string,
-    code: PropTypes.number
-  }),
+  accountname: PropTypes.string,
+  ddi: PropTypes.string,
+  errorMessage: PropTypes.string,
+  errorCode: PropTypes.number,
   hideModal: PropTypes.func,
   t: PropTypes.func.isRequired
 };

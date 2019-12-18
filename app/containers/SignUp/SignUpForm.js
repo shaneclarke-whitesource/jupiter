@@ -128,7 +128,7 @@ export const validateForm = (values, props) => {
 const mapStateToProps = (state) => {
   return {
     pending: state.signUpResponse.pending,
-    result: state.signUpResponse.result
+    result: !!(!state.signUpResponse.pending && (state.signUpResponse.success || state.signUpResponse.error))
   };
 };
 
