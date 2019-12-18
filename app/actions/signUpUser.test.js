@@ -17,7 +17,7 @@ describe('actions/signUpUser', () => {
   });
 
   test('it should create an action to fail', () => {
-    const error = { code: 400 };
+    const error = { error: { code: 400 } };
     const expectedAction = {
       type: actions.SUBMIT_FAILURE,
       pending: false,

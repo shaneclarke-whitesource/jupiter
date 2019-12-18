@@ -58,7 +58,7 @@ export class SubmissionModal extends React.Component {
     const { wasSubmitted, success, error } = this.props;
     return (
       <div className="submission-modal">
-        {wasSubmitted && (success || error !== {}) ? this.returnModal() : null}
+        {wasSubmitted && (success || error) ? this.returnModal() : null}
       </div>
     );
   }

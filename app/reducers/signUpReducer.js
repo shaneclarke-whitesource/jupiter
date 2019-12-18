@@ -12,21 +12,26 @@ export default function fetchReducer(state = INITIAL_STATE, action) {
     case SUBMIT_PENDING:
       return {
         ...state,
-        pending: action.pending
+        user: null,
+        pending: action.pending,
+        success: false,
+        error: {}
       };
     case SUBMIT_SUCCESS:
       return {
         ...state,
         user: action.data,
         pending: action.pending,
-        success: true
+        success: true,
+        error: {}
       };
     case SUBMIT_FAILURE:
       return {
         ...state,
-        error: action.error,
+        user: null,
         pending: action.pending,
-        user: null
+        success: false,
+        error: action.error.error
       };
     default:
       return state;

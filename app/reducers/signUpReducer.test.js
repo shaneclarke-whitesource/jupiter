@@ -13,7 +13,10 @@ describe('reducers/signUpReducer', () => {
       })
     ).toEqual(
       {
-        pending: true
+        pending: true,
+        error: {},
+        success: false,
+        user: null
       }
     );
   });
@@ -29,7 +32,8 @@ describe('reducers/signUpReducer', () => {
       {
         success: true,
         pending: false,
-        user: data
+        user: data,
+        error: {}
       }
     );
   });
@@ -39,13 +43,14 @@ describe('reducers/signUpReducer', () => {
       signUpReducer([], {
         type: SUBMIT_FAILURE,
         pending: false,
-        error
+        error: { error }
       })
     ).toEqual(
       {
         pending: false,
-        error: 'test error',
-        user: null
+        user: null,
+        success: false,
+        error
       }
     );
   });

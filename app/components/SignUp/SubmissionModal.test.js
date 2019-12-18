@@ -7,6 +7,7 @@ describe('SubmissionModal', () => {
   let wrapper;
   const defaultProps = {
     success: false,
+    wasSubmitted: true,
     error: {
       code: 400,
       message: 'Invalid Password'
@@ -81,7 +82,7 @@ describe('SubmissionModal', () => {
     );
   });
   test('it returns empty if pending is true', () => {
-    const wrappedError = shallow(<SubmissionModal {...defaultProps} pending />);
+    const wrappedError = shallow(<SubmissionModal {...defaultProps} wasSubmitted={false} />);
     expect(wrappedError.find('.submission-modal').text()).toEqual('');
   });
 });
