@@ -9,31 +9,31 @@ describe('reducers/signUpReducer', () => {
     expect(
       signUpReducer([], {
         type: SUBMIT_PENDING,
-        pending: true
+        pending: true,
+        username: 'bob',
+        accountname: 'ing'
       })
     ).toEqual(
       {
         pending: true,
-        error: {},
+        error: null,
         success: false,
-        user: null
+        username: 'bob',
+        accountname: 'ing'
       }
     );
   });
   test('it should handle SUBMIT_SUCCESS', () => {
-    const data = { user: 'test user' };
     expect(
       signUpReducer([], {
         type: SUBMIT_SUCCESS,
-        pending: false,
-        data
+        ddi: 'test_ddi'
       })
     ).toEqual(
       {
-        success: true,
+        ddi: 'test_ddi',
         pending: false,
-        user: data,
-        error: {}
+        success: true
       }
     );
   });
@@ -42,14 +42,11 @@ describe('reducers/signUpReducer', () => {
     expect(
       signUpReducer([], {
         type: SUBMIT_FAILURE,
-        pending: false,
         error
       })
     ).toEqual(
       {
         pending: false,
-        user: null,
-        success: false,
         error
       }
     );
