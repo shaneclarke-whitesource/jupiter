@@ -83,7 +83,9 @@ const mapStateToProps = (state) => {
     success: state.signUpResponse.success,
     errorMessage: state.signUpResponse.error && state.signUpResponse.error.message,
     errorCode: state.signUpResponse.error && state.signUpResponse.error.code,
-    values: state.signUpResponse.values
+    values: state.signUpResponse.values,
+    accountname: state.signUpResponse.accountname,
+    username: state.signUpResponse.username
   };
 };
 

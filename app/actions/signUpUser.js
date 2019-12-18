@@ -45,7 +45,7 @@ export function submitUserData(values) {
   const accountName = _.get(values, ['accountName']);
 
   return (dispatch) => {
-    dispatch(submitPending(username, accountName));
+    dispatch(submitPending(values, username, accountName));
     axios.post(
       '/api/signup/v1/signups/invoice',
       { ...values },
@@ -59,7 +59,7 @@ export function submitUserData(values) {
       }
     )
       .then((response) => {
-        dispatch(submitSuccess(response.data.ddi));
+        dispatch(submitSuccess(response.data.id));
         dispatch(reset('signUp'));
       })
       .catch((error) => {

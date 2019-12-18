@@ -49,7 +49,7 @@ describe('async submit action', () => {
 
   test('axios calls pending, submit and reset on successful submit', async () => {
     const mockData = {
-      'ddi': 123
+      'id': '123'
     };
     mockAxios.post.mockImplementationOnce(() => Promise.resolve({ data: mockData }));
     const expectedActions = [
@@ -60,7 +60,7 @@ describe('async submit action', () => {
       },
       {
         type: actions.SUBMIT_SUCCESS,
-        ddi: 123
+        ddi: '123'
       },
       {
         meta: {
