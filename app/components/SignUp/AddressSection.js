@@ -7,7 +7,7 @@ import Input from '../helix/inputTypes/Input';
 import CountrySelect from './AddressSelectors/CountrySelect';
 import StateSelect from './AddressSelectors/StateSelect';
 
-class AddressSection extends React.Component {
+export class AddressSection extends React.Component {
   render() {
     const { t, country } = this.props;
     return (

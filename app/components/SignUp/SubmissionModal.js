@@ -55,10 +55,10 @@ export class SubmissionModal extends React.Component {
   };
 
   render() {
-    const { pending, success, error } = this.props;
+    const { wasSubmitted, success, error } = this.props;
     return (
       <div className="submission-modal">
-        {!pending && (success || error) ? this.returnModal() : null}
+        {wasSubmitted && (success || error !== {}) ? this.returnModal() : null}
       </div>
     );
   }
@@ -70,14 +70,13 @@ const mapStateToProps = (state) => {
   return {
     success: state.signUpResponse.success,
     error: state.signUpResponse.error,
-    pending: state.signUpResponse.pending,
     username: selector(state, 'username')
   };
 };
 
 SubmissionModal.propTypes = {
   success: PropTypes.bool,
-  pending: PropTypes.bool,
+  wasSubmitted: PropTypes.bool,
   username: PropTypes.string,
   error: PropTypes.shape({
     message: PropTypes.string,

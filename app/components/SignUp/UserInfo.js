@@ -5,7 +5,7 @@ import Input from '../helix/inputTypes/Input';
 import PhoneField from '../helix/inputTypes/PhoneField';
 import PasswordInput from '../helix/inputTypes/PasswordInput';
 
-const UserInfo = () => {
+export const UserInfo = () => {
   const { t } = useTranslation();
   return (
     <section className="Input-section">

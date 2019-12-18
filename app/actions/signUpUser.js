@@ -24,7 +24,7 @@ export const submitFailure = (error) => {
   return {
     type: SUBMIT_FAILURE,
     pending: false,
-    error: { error }
+    error
   };
 };
 

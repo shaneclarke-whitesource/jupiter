@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AddressSection it renders 1`] = `
+exports[`UserInfo it renders 1`] = `
 <section
   className="Input-section"
 >

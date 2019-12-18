@@ -1,43 +1,44 @@
-import { mountWithForm, renderWithForm } from '../../../test/provider';
+import React from 'react';
+import { renderWithForm, mountWithForm } from '../../../test/provider';
 import { t } from '../../../test/i18n/mocks';
-import AddressSection from './AddressSection';
+import AddressSectionForm, { AddressSection } from './AddressSection';
 
 describe('AddressSection', () => {
   let wrapper;
   const defaultProps = {
+    t,
     setCountry: jest.fn(),
-    country: 'US',
-    t
+    country: 'US'
   };
 
   beforeEach(() => {
-    wrapper = mountWithForm(AddressSection, defaultProps);
+    wrapper = shallow(<AddressSection {...defaultProps} />);
   });
 
   test('it renders', () => {
-    const rendered = renderWithForm(AddressSection, { defaultProps }).toJSON();
+    const rendered = renderWithForm(AddressSection, defaultProps).toJSON();
     expect(rendered).toMatchSnapshot();
   });
 
-  test('it renders five fields', () => {
-    expect(wrapper.find('.InputField').length).toEqual(5);
+  test('it renders correct labels', () => {
+    const labels = wrapper.find('Field').map((field) => field.prop('label'));
+    expect(labels).toEqual([
+      'City',
+      'Street',
+      'Zipcode',
+      'Country',
+      'State'
+    ]);
   });
 
-  // ['city', 'street', 'zipcode', 'country', 'state'].forEach((item, index) => {
-  //   test(`it renders ${item} label`, () => {
-  //     const label = wrapper.find(`label[htmlFor="${item}"]`);
-  //     expect(label.text()).toEqual(
-  //       item.charAt(0).toUpperCase() + item.slice(1)
-  //     );
-  //   });
-  // });
   test('it changes the country state when onChange is invoked', () => {
+    const mounted = mountWithForm(AddressSectionForm, defaultProps);
     const event = {
       target: {
         value: 'AF'
       }
     };
-    wrapper.find('CountryDropdown').simulate('change', event);
-    expect(wrapper.find('CountryDropdown').props().value).toEqual('AF');
+    mounted.find('CountryDropdown').simulate('change', event);
+    expect(mounted.find('CountryDropdown').props().value).toEqual('AF');
   });
 });
