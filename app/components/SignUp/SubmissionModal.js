@@ -85,7 +85,8 @@ const mapStateToProps = (state) => {
     errorCode: state.signUpResponse.error && state.signUpResponse.error.code,
     values: state.signUpResponse.values,
     accountname: state.signUpResponse.accountname,
-    username: state.signUpResponse.username
+    username: state.signUpResponse.username,
+    ddi: state.signUpResponse.ddi
   };
 };
 
