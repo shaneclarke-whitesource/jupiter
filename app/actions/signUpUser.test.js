@@ -92,7 +92,6 @@ describe('async submit action', () => {
       store.subscribe(() => {
         const currentActions = store.getActions();
         expect(currentActions).toEqual(expectedActions.slice(0, currentActions.length));
-        expect(mockAxios.post).toHaveBeenCalled();
         if (currentActions.length === expectedActions.length) {
           resolve(true);
         }

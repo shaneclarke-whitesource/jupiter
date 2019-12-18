@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import { FormSection, reduxForm } from 'redux-form';
-import { validateUser, validateAddress } from '../../validators';
+import { validateUser } from '../../validators';
 import { submitUserData } from '../../actions/signUpUser';
 import _ from 'lodash';
 import { CUSTOMER_SIGNUP_REQUEST } from '../../signupReqFormat/customer';
@@ -123,8 +123,7 @@ SignUpForm.propTypes = {
 
 export const validateForm = (values, props) => {
   return {
-    ...validateUser(values, props),
-    ...validateAddress(values, props)
+    ...validateUser(values, props)
   };
 };
 

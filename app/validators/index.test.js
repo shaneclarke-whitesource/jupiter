@@ -125,4 +125,33 @@ describe('validators', () => {
         .toEqual({ passwordValidate: ['Passwords do not match'] });
     });
   });
+  describe('validateAddress', () => {
+    const defaultAddressProps = {
+      address: {
+        country: 'US',
+        street: 'Tree Ln.',
+        state: 'CO',
+        city: 'Leaf City',
+        zipcode: '12345'
+      }
+    };
+    const validateAddressMock = (props) => {
+      return validators.validateAddress(props, defaultProps);
+    };
+
+    test('it passes with valid input', () => {
+      expect(validateAddressMock({ ...defaultAddressProps })).toEqual({});
+    });
+
+    ['country', 'street', 'state', 'city', 'zipcode'].forEach((field) => {
+      test(`returns required when ${field} is empty`, () => {
+        const result = validateAddressMock({ address: { field: '' } });
+        expect([].concat(result.address[field])).toEqual(['Required']);
+      });
+      test(`returns required when ${field} is empty string`, () => {
+        const result = validateAddressMock({ address: { [field]: '     ' } });
+        expect([].concat(result.address[field])).toEqual(['Required']);
+      });
+    });
+  });
 });

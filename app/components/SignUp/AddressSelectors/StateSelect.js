@@ -6,7 +6,7 @@ import { change, formValueSelector } from 'redux-form';
 
 export class StateSelect extends React.Component {
   render() {
-    const { input, country, label, region } = this.props;
+    const { input, country, label, region, meta: { touched, error } } = this.props;
     return (
       <div className="InputField">
         <hx-select-control>
@@ -24,6 +24,11 @@ export class StateSelect extends React.Component {
             <span className="InputField-label">{label}</span>
           </label>
         </hx-select-control>
+        {touched && error && (
+          <hx-error>
+            <small>{error[0] || error}</small>
+          </hx-error>
+        )}
       </div>
     );
   }
@@ -36,7 +41,15 @@ StateSelect.propTypes = {
     name: PropTypes.string.isRequired
   }).isRequired,
   setRegion: PropTypes.func,
-  region: PropTypes.string
+  region: PropTypes.string,
+  meta: PropTypes.shape({
+    touched: PropTypes.bool,
+    warning: PropTypes.bool,
+    error: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.array
+    ])
+  })
 };
 
 StateSelect.defaultProps = {
