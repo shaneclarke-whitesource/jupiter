@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import Error from '../Error';
 const Input = (props) => {
   const {
     input,
@@ -8,7 +8,7 @@ const Input = (props) => {
     required,
     type,
     tooltip,
-    meta: { touched, error },
+    meta,
     children,
     hxClassNames,
     autoComplete
@@ -21,7 +21,7 @@ const Input = (props) => {
           className="hxTextCtrl"
           type={type}
           name={input.name}
-          required={required}
+          required={meta.touched ? required : false}
           autoComplete={autoComplete}
         />
         <label htmlFor={input.name}>
@@ -30,11 +30,7 @@ const Input = (props) => {
         </label>
         {children}
       </hx-text-control>
-      {touched && error && (
-        <hx-error>
-          <small>{error[0] || error}</small>
-        </hx-error>
-      )}
+      <Error meta={meta} />
     </div>
   );
 };
@@ -50,7 +46,6 @@ Input.propTypes = {
   autoComplete: PropTypes.string,
   meta: PropTypes.shape({
     touched: PropTypes.bool,
-    warning: PropTypes.bool,
     error: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.array
@@ -65,7 +60,8 @@ Input.defaultProps = {
   required: false,
   type: 'text',
   autoComplete: 'on',
-  hxClassNames: ''
+  hxClassNames: '',
+  meta: {}
 };
 
 export default Input;

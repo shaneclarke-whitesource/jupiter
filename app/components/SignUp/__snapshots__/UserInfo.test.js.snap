@@ -25,7 +25,7 @@ exports[`UserInfo it renders 1`] = `
             onDragStart={[Function]}
             onDrop={[Function]}
             onFocus={[Function]}
-            required={true}
+            required={false}
             type="text"
             value=""
           />
@@ -39,6 +39,9 @@ exports[`UserInfo it renders 1`] = `
             </span>
           </label>
         </hx-text-control>
+        <div
+          className="error"
+        />
       </div>
     </div>
     <div
@@ -56,7 +59,7 @@ exports[`UserInfo it renders 1`] = `
             onDragStart={[Function]}
             onDrop={[Function]}
             onFocus={[Function]}
-            required={true}
+            required={false}
             type="text"
             value=""
           />
@@ -70,6 +73,9 @@ exports[`UserInfo it renders 1`] = `
             </span>
           </label>
         </hx-text-control>
+        <div
+          className="error"
+        />
       </div>
     </div>
   </div>
@@ -102,6 +108,9 @@ exports[`UserInfo it renders 1`] = `
           </span>
         </label>
       </hx-text-control>
+      <div
+        className="error"
+      />
     </div>
   </div>
   <div
@@ -119,7 +128,7 @@ exports[`UserInfo it renders 1`] = `
           onDragStart={[Function]}
           onDrop={[Function]}
           onFocus={[Function]}
-          required={true}
+          required={false}
           type="text"
           value=""
         />
@@ -133,6 +142,9 @@ exports[`UserInfo it renders 1`] = `
           </span>
         </label>
       </hx-text-control>
+      <div
+        className="error"
+      />
     </div>
   </div>
   <div
@@ -6564,6 +6576,9 @@ exports[`UserInfo it renders 1`] = `
           value=""
         />
       </div>
+      <div
+        className="error"
+      />
     </div>
   </div>
   <div
@@ -6581,7 +6596,7 @@ exports[`UserInfo it renders 1`] = `
           onDragStart={[Function]}
           onDrop={[Function]}
           onFocus={[Function]}
-          required={true}
+          required={false}
           type="text"
           value=""
         />
@@ -6595,6 +6610,9 @@ exports[`UserInfo it renders 1`] = `
           </span>
         </label>
       </hx-text-control>
+      <div
+        className="error"
+      />
     </div>
   </div>
   <div
@@ -6612,7 +6630,7 @@ exports[`UserInfo it renders 1`] = `
           onDragStart={[Function]}
           onDrop={[Function]}
           onFocus={[Function]}
-          required={true}
+          required={false}
           type="text"
           value=""
         />
@@ -6626,6 +6644,9 @@ exports[`UserInfo it renders 1`] = `
           </span>
         </label>
       </hx-text-control>
+      <div
+        className="error"
+      />
     </div>
   </div>
   <div
@@ -6646,7 +6667,7 @@ exports[`UserInfo it renders 1`] = `
           onDragStart={[Function]}
           onDrop={[Function]}
           onFocus={[Function]}
-          required={true}
+          required={false}
           type="password"
           value=""
         />
@@ -6693,6 +6714,9 @@ exports[`UserInfo it renders 1`] = `
           Show
         </button>
       </hx-text-control>
+      <div
+        className="error"
+      />
     </div>
   </div>
   <div
@@ -6713,7 +6737,7 @@ exports[`UserInfo it renders 1`] = `
           onDragStart={[Function]}
           onDrop={[Function]}
           onFocus={[Function]}
-          required={true}
+          required={false}
           type="password"
           value=""
         />
@@ -6735,6 +6759,9 @@ exports[`UserInfo it renders 1`] = `
           Show
         </button>
       </hx-text-control>
+      <div
+        className="error"
+      />
     </div>
   </div>
 </section>

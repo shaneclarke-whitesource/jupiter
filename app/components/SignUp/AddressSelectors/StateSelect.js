@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { RegionDropdown } from 'react-country-region-selector';
 import { change, formValueSelector } from 'redux-form';
+import Error from '../../helix/Error';
 
 export class StateSelect extends React.Component {
   render() {
-    const { input, country, label, region, meta: { touched, error } } = this.props;
+    const { input, country, label, region, meta } = this.props;
     return (
       <div className="InputField">
         <hx-select-control>
@@ -24,11 +25,7 @@ export class StateSelect extends React.Component {
             <span className="InputField-label">{label}</span>
           </label>
         </hx-select-control>
-        {touched && error && (
-          <hx-error>
-            <small>{error[0] || error}</small>
-          </hx-error>
-        )}
+        <Error meta={meta} />
       </div>
     );
   }
@@ -54,7 +51,8 @@ StateSelect.propTypes = {
 
 StateSelect.defaultProps = {
   country: '',
-  region: ''
+  region: '',
+  meta: {}
 };
 
 const mapStateToProps = (state) => {

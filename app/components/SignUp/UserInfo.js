@@ -80,6 +80,7 @@ export const UserInfo = () => {
           component={PasswordInput}
           label={t('common:actions.create.password')}
           tooltip
+          required
         />
       </div>
       <div className="hxCol hxSpan-12">
@@ -87,6 +88,7 @@ export const UserInfo = () => {
           name="passwordValidate"
           component={PasswordInput}
           label={t('common:actions.confirm.password')}
+          required
         />
       </div>
     </section>

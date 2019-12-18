@@ -21,6 +21,7 @@ class PasswordInput extends React.Component {
       label,
       meta,
       tooltip,
+      required,
       t
     } = this.props;
     const passwordTooltip = (
@@ -43,7 +44,7 @@ class PasswordInput extends React.Component {
         autoComplete="new-password"
         hxClassNames={isInvalid}
         tooltip={tooltip ? passwordTooltip : null}
-        required
+        required={meta.touched ? required : false}
       >
         <Button
           classNames="hxSuffix hxSecondary"
@@ -70,11 +71,13 @@ PasswordInput.propTypes = {
     name: PropTypes.string.isRequired,
     value: PropTypes.string
   }),
-  t: PropTypes.func.isRequired
+  t: PropTypes.func.isRequired,
+  required: PropTypes.bool
 };
 
 Input.defaultProps = {
-  required: false
+  required: false,
+  meta: {}
 };
 
 export default withTranslation()(PasswordInput);

@@ -24,5 +24,8 @@ exports[`Input it renders with correct props 1`] = `
       </span>
     </label>
   </hx-text-control>
+  <div
+    className="error"
+  />
 </div>
 `;
