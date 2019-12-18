@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import { FormSection, reduxForm } from 'redux-form';
 import { validateUser, validateAddress } from '../../validators';
-import { submitUserData } from '../../actions/signUpUser';
+import { clearResult, submitUserData } from '../../actions/signUpUser';
 import _ from 'lodash';
 import { CUSTOMER_SIGNUP_REQUEST } from '../../signupReqFormat/customer';
 import { RBU_SIGNUP_REQUEST } from '../../signupReqFormat/rbuCustomer';
@@ -15,10 +15,6 @@ import CustomerType from '../../components/SignUp/CustomerType';
 import SubmissionModal from '../../components/SignUp/SubmissionModal';
 
 export class SignUpForm extends React.Component {
-  state = {
-    modalIsOpen: false
-  };
-
   formatRequest = (values) => {
     const template = (
       _.get(values, ['userInfo', 'customerType', 'isRbu'])
@@ -75,15 +71,14 @@ export class SignUpForm extends React.Component {
   handleSubmit = (values) => {
     const toSubmit = this.formatRequest(values);
     this.props.signUp(toSubmit);
-    this.setState({ modalIsOpen: true });
   };
 
   closeModal = () => {
-    this.setState({ modalIsOpen: false });
+    this.props.clearResult();
   };
 
   render() {
-    const { t, handleSubmit, pending } = this.props;
+    const { t, handleSubmit, result, pending } = this.props;
 
     return (
       <div className="SignUp-form">
@@ -108,7 +103,7 @@ export class SignUpForm extends React.Component {
             />
           </div>
         </form>
-        <SubmissionModal openModal={this.state.modalIsOpen} hideModal={this.closeModal} />
+        <SubmissionModal openModal={result} hideModal={this.closeModal} />
       </div>
     );
   }
@@ -118,7 +113,9 @@ SignUpForm.propTypes = {
   t: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   signUp: PropTypes.func.isRequired,
-  pending: PropTypes.bool.isRequired
+  pending: PropTypes.bool.isRequired,
+  clearResult: PropTypes.func.isRequired,
+  result: PropTypes.bool.isRequired
 };
 
 export const validateForm = (values, props) => {
@@ -130,7 +127,8 @@ export const validateForm = (values, props) => {
 
 const mapStateToProps = (state) => {
   return {
-    pending: state.signUpResponse.pending
+    pending: state.signUpResponse.pending,
+    result: state.signUpResponse.result
   };
 };
 
@@ -138,6 +136,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     signUp: (value) => {
       dispatch(submitUserData(value));
+    },
+    clearResult: (value) => {
+      dispatch(clearResult(value));
     }
   };
 };
