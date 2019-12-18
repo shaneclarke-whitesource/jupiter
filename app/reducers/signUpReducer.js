@@ -1,8 +1,10 @@
 import { SUBMIT_PENDING, SUBMIT_SUCCESS, SUBMIT_FAILURE } from '../actions/signUpUser';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   user: null,
-  pending: false
+  pending: false,
+  success: false,
+  error: {}
 };
 
 export default function fetchReducer(state = INITIAL_STATE, action) {
@@ -29,7 +31,7 @@ export default function fetchReducer(state = INITIAL_STATE, action) {
         user: null,
         pending: action.pending,
         success: false,
-        error: action.error.error
+        error: action.error
       };
     default:
       return state;

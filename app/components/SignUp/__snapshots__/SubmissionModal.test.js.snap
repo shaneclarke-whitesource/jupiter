@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubmissionModal it renders 1`] = `
+<div
+  className="submission-modal"
+>
+  <hx-modal
+    class="Modal undefined medium"
+    open={true}
+  >
+    <hx-modalhead>
+      <h1>
+        Error
+      </h1>
+    </hx-modalhead>
+    <hx-modalbody
+      class="Body"
+    >
+      <p>
+        Invalid Password. Please try using a more secure password.
+      </p>
+    </hx-modalbody>
+  </hx-modal>
+</div>
+`;

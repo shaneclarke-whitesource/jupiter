@@ -15,6 +15,10 @@ import CustomerType from '../../components/SignUp/CustomerType';
 import SubmissionModal from '../../components/SignUp/SubmissionModal';
 
 export class SignUpForm extends React.Component {
+  state = {
+    modalIsOpen: false
+  };
+
   formatRequest = (values) => {
     const template = (
       _.get(values, ['userInfo', 'customerType', 'isRbu'])
@@ -71,6 +75,11 @@ export class SignUpForm extends React.Component {
   handleSubmit = (values) => {
     const toSubmit = this.formatRequest(values);
     this.props.signUp(toSubmit);
+    this.setState({ modalIsOpen: true });
+  };
+
+  closeModal = () => {
+    this.setState({ modalIsOpen: false });
   };
 
   render() {
@@ -99,7 +108,7 @@ export class SignUpForm extends React.Component {
             />
           </div>
         </form>
-        <SubmissionModal />
+        <SubmissionModal openModal={this.state.modalIsOpen} hideModal={this.closeModal} />
       </div>
     );
   }
