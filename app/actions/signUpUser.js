@@ -1,4 +1,5 @@
 import axios from 'axios';
+import _ from 'lodash';
 import { reset } from 'redux-form';
 
 export const SUBMIT_PENDING = 'SUBMIT_PENDING';
@@ -34,7 +35,7 @@ export const submitFailure = (errorResponse) => {
 export function clearResult() {
   return (dispatch) => {
     dispatch({
-      type: CLEAR_RESULT,
+      type: CLEAR_RESULT
     });
   };
 }
