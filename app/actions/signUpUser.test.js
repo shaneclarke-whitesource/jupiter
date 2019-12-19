@@ -8,21 +8,21 @@ const mockStore = configureMockStore(middleware);
 
 describe('actions/signUpUser', () => {
   test('it should create an action to succeed', () => {
-    const data = { user: 'test user' };
     const expectedAction = {
       type: actions.SUBMIT_SUCCESS,
-      pending: false,
-      data
+      ddi: 'test_user'
     };
-    expect(actions.submitSuccess(data)).toEqual(expectedAction);
+    expect(actions.submitSuccess('test_user')).toEqual(expectedAction);
   });
 
   test('it should create an action to fail', () => {
-    const error = { error: { code: 400 } };
+    const error = { status: 400, data: {} };
     const expectedAction = {
       type: actions.SUBMIT_FAILURE,
-      pending: false,
-      error
+      error: {
+        code: 400,
+        message: undefined
+      }
     };
     expect(actions.submitFailure(error)).toEqual(expectedAction);
   });
@@ -30,9 +30,10 @@ describe('actions/signUpUser', () => {
   test('it should create an action for pending', () => {
     const expectedAction = {
       type: actions.SUBMIT_PENDING,
-      pending: true
+      accountname: 'acct',
+      username: 'usrname'
     };
-    expect(actions.submitPending()).toEqual(expectedAction);
+    expect(actions.submitPending({}, 'usrname', 'acct')).toEqual(expectedAction);
   });
 });
 
@@ -48,18 +49,18 @@ describe('async submit action', () => {
 
   test('axios calls pending, submit and reset on successful submit', async () => {
     const mockData = {
-      'data': 123
+      'id': '123'
     };
     mockAxios.post.mockImplementationOnce(() => Promise.resolve({ data: mockData }));
     const expectedActions = [
       {
         type: actions.SUBMIT_PENDING,
-        pending: true
+        accountname: undefined,
+        username: undefined
       },
       {
         type: actions.SUBMIT_SUCCESS,
-        pending: false,
-        data: mockData
+        ddi: '123'
       },
       {
         meta: {
@@ -73,17 +74,18 @@ describe('async submit action', () => {
     expect(mockAxios.post).toHaveBeenCalled();
   });
   test('axios calls submit failure', async () => {
-    const error = { response: { data: { message: 'An error has occurred' } } };
+    const error = { response: { status: 401, data: { message: 'An error has occurred' } } };
     mockAxios.post.mockImplementationOnce(() => Promise.reject(error));
     const expectedActions = [
       {
         type: actions.SUBMIT_PENDING,
-        pending: true
+        accountname: undefined,
+        username: undefined
       },
       {
         type: actions.SUBMIT_FAILURE,
-        pending: false,
         error: {
+          code: 401,
           message: 'An error has occurred'
         }
       }
