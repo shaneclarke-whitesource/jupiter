@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import IntlTelInput from 'react-intl-tel-input';
 import 'react-intl-tel-input/dist/main.css';
 import _ from 'lodash';
+import Error from '../Error';
 
 class PhoneField extends React.Component {
   onChange = (...args) => {
@@ -22,7 +23,7 @@ class PhoneField extends React.Component {
   };
 
   render() {
-    const { name, id, label, meta: { touched, error } } = this.props;
+    const { name, id, label, meta } = this.props;
     return (
       <div className="InputField">
         <label htmlFor={name}>
@@ -40,11 +41,7 @@ class PhoneField extends React.Component {
           utilsScript="libphonenumber.js"
           nationalMode={false}
         />
-        {touched && error && (
-          <hx-error>
-            <small>{error[0] || error}</small>
-          </hx-error>
-        )}
+        <Error meta={meta} />
       </div>
     );
   }

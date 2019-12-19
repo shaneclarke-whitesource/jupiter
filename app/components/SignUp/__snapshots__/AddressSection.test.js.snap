@@ -23,7 +23,7 @@ exports[`AddressSection it renders 1`] = `
           onDragStart={[Function]}
           onDrop={[Function]}
           onFocus={[Function]}
-          required={true}
+          required={false}
           type="text"
           value=""
         />
@@ -37,6 +37,9 @@ exports[`AddressSection it renders 1`] = `
           </span>
         </label>
       </hx-text-control>
+      <div
+        className="error"
+      />
     </div>
     <div
       className="InputField"
@@ -53,7 +56,7 @@ exports[`AddressSection it renders 1`] = `
           onDragStart={[Function]}
           onDrop={[Function]}
           onFocus={[Function]}
-          required={true}
+          required={false}
           type="text"
           value=""
         />
@@ -67,6 +70,9 @@ exports[`AddressSection it renders 1`] = `
           </span>
         </label>
       </hx-text-control>
+      <div
+        className="error"
+      />
     </div>
     <div
       className="InputField"
@@ -83,7 +89,7 @@ exports[`AddressSection it renders 1`] = `
           onDragStart={[Function]}
           onDrop={[Function]}
           onFocus={[Function]}
-          required={true}
+          required={false}
           type="text"
           value=""
         />
@@ -97,6 +103,9 @@ exports[`AddressSection it renders 1`] = `
           </span>
         </label>
       </hx-text-control>
+      <div
+        className="error"
+      />
     </div>
     <div
       className="hxRow"
@@ -1376,6 +1385,9 @@ exports[`AddressSection it renders 1`] = `
               </span>
             </label>
           </hx-select-control>
+          <div
+            className="error"
+          />
         </div>
       </div>
       <div
@@ -1723,6 +1735,9 @@ exports[`AddressSection it renders 1`] = `
               </span>
             </label>
           </hx-select-control>
+          <div
+            className="error"
+          />
         </div>
       </div>
     </div>

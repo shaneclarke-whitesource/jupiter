@@ -6,7 +6,7 @@ import { withTranslation } from 'react-i18next';
 import { ADDRESS_FIELDS } from '../../actions/constants/address';
 import Checkbox from '../helix/inputTypes/Checkbox';
 
-class CustomerType extends React.Component {
+export class CustomerType extends React.Component {
   handleChange = (e) => {
     if (e.target.checked) {
       this.populateAddressFields();

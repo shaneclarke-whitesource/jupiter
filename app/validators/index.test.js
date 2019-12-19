@@ -17,7 +17,14 @@ describe('validators', () => {
         email: 'email@company.com',
         password: 'Password123!',
         passwordValidate: 'Password123!',
-        phoneNumber: '1231232'
+        phoneNumber: '1231232',
+        address: {
+          country: 'US',
+          street: 'Tree Ln.',
+          state: 'CO',
+          city: 'Leaf City',
+          zipcode: '12345'
+        }
       }
     };
     test('it passes if all values are valid', () => {
@@ -123,6 +130,41 @@ describe('validators', () => {
       };
       expect(validatePasswords(invalid))
         .toEqual({ passwordValidate: ['Passwords do not match'] });
+    });
+  });
+  describe('validateAddress', () => {
+    const defaultAddressProps = {
+      address: {
+        country: 'US',
+        street: 'Tree Ln.',
+        state: 'CO',
+        city: 'Leaf City',
+        zipcode: '12345'
+      }
+    };
+    const validateAddressMock = (props) => {
+      return validators.validateAddress(props, defaultProps);
+    };
+
+    test('it passes with valid input', () => {
+      expect(validateAddressMock({ ...defaultAddressProps })).toEqual({});
+    });
+
+    ['country', 'street', 'state', 'city', 'zipcode'].forEach((field) => {
+      test(`returns required when ${field} is empty`, () => {
+        const result = validateAddressMock({ address: { field: '' } });
+        expect([].concat(result.address[field])).toEqual(['Required']);
+      });
+      test(`returns required when ${field} is empty string`, () => {
+        const result = validateAddressMock({ address: { [field]: '     ' } });
+        expect([].concat(result.address[field])).toEqual(['Required']);
+      });
+    });
+
+    test('zipcode sends correct message if it is too long', () => {
+      const longZip = _.fill(Array(21), 'c').join('');
+      const result = validateAddressMock({ address: { zipcode: longZip } });
+      expect(result.address.zipcode).toEqual(['Must be less than 20 characters long']);
     });
   });
 });

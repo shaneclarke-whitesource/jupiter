@@ -91,6 +91,47 @@ export const validatePhoneNumber = (values, { t = i18nT() }) => {
   return errors;
 };
 
+export const validateAddress = (values, { t = i18nT() }) => {
+  translateDefaultValidators(t);
+  const address = _.get(values, 'address', {});
+  const errors = validate(address, {
+    country: {
+      presence: {
+        allowEmpty: false
+      }
+    },
+    street: {
+      presence: {
+        allowEmpty: false
+      }
+    },
+    state: {
+      presence: {
+        allowEmpty: false
+      }
+    },
+    city: {
+      presence: {
+        allowEmpty: false,
+        message: t('validation:input.required')
+      }
+    },
+    zipcode: {
+      presence: {
+        allowEmpty: false
+      },
+      length: {
+        maximum: 20,
+        tooLong: t('validation:input.maxLength', {
+          content: undefined,
+          characterCount: '%{count}'
+        })
+      }
+    }
+  }, { fullMessages: false });
+  return errors ? { address: errors } : {};
+};
+
 export const validateUser = (values, { t = i18nT() }) => {
   const userInfo = _.get(values, 'userInfo');
   translateDefaultValidators(t);
@@ -149,37 +190,8 @@ export const validateUser = (values, { t = i18nT() }) => {
       ...errors,
       ...validateEmail(userInfo, t),
       ...validatePassword(userInfo, t),
-      ...validatePhoneNumber(userInfo, t)
+      ...validatePhoneNumber(userInfo, t),
+      ...validateAddress(userInfo, t)
     }
   };
-};
-
-export const validateAddress = (values, { t = i18nT() }) => {
-  const address = _.get(values, 'address', {});
-  const errors = validate(address, {
-    country: {
-      presence: true
-    },
-    street: {
-      presence: true
-    },
-    state: {
-      presence: true
-    },
-    city: {
-      presence: true
-    },
-    zipcode: {
-      presence: true,
-      length: {
-        maximum: 20,
-        tooLong: t('validation:input.maxLength', {
-          content: undefined,
-          characterCount: '%{count}'
-        })
-      }
-    }
-  }, { fullMessages: false });
-
-  return errors ? { address: errors } : {};
 };

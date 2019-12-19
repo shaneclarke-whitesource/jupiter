@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { CountryDropdown } from 'react-country-region-selector';
+import Error from '../../helix/Error';
 
 class CountrySelect extends React.Component {
   render() {
-    const { input, country, label, onCountryChange } = this.props;
+    const { input, country, label, onCountryChange, meta } = this.props;
     return (
       <div className="InputField">
         <hx-select-control>
@@ -21,6 +22,7 @@ class CountrySelect extends React.Component {
             <span className="InputField-label">{label}</span>
           </label>
         </hx-select-control>
+        <Error meta={meta} />
       </div>
     );
   }
@@ -33,11 +35,20 @@ CountrySelect.propTypes = {
   input: PropTypes.shape({
     onChange: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired
-  }).isRequired
+  }).isRequired,
+  meta: PropTypes.shape({
+    touched: PropTypes.bool,
+    warning: PropTypes.bool,
+    error: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.array
+    ])
+  })
 };
 
 CountrySelect.defaultProps = {
-  country: ''
+  country: '',
+  meta: {}
 };
 
 

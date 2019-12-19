@@ -1270,5 +1270,8 @@ exports[`CountrySelect it renders 1`] = `
       </span>
     </label>
   </hx-select-control>
+  <div
+    className="error"
+  />
 </div>
 `;

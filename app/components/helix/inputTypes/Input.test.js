@@ -39,7 +39,7 @@ describe('Input', () => {
       }
     };
     const wrapper = shallow(<Input {...props} />);
-    expect(wrapper.find('hx-error').length).toBe(1);
-    expect(wrapper.find('hx-error').text()).toEqual('Errors Ahoy!');
+    expect(wrapper.find('Error').length).toBe(1);
+    expect(wrapper.find('Error').dive().text()).toEqual('Errors Ahoy!');
   });
 });
