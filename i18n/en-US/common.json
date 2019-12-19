@@ -70,11 +70,14 @@
   "actions.create.username": {
     "translation": "Create Username"
   },
+  "common.status.ok": {
+    "translation": "OK"
+  },
   "create.status.success": {
     "translation": "Success!"
   },
   "create.status.success.message": {
-    "translation": "User {username} has been created"
+    "translation": "User {username} has been created in account {accountname} with a domain ID of {ddi}."
   },
   "footer.content.company": {
     "translation": "{year} Rackspace US, Inc."

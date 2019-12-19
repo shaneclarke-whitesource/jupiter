@@ -7,8 +7,10 @@ describe('SignUpForm', () => {
   const defaultProps = {
     success: false,
     signUp: jest.fn(),
+    clearResult: jest.fn(),
     pending: false,
     handleSubmit: jest.fn(),
+    result: false,
     t
   };
   beforeEach(() => {

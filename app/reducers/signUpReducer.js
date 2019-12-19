@@ -1,10 +1,11 @@
-import { SUBMIT_PENDING, SUBMIT_SUCCESS, SUBMIT_FAILURE } from '../actions/signUpUser';
+import { SUBMIT_PENDING, SUBMIT_SUCCESS, SUBMIT_FAILURE, CLEAR_RESULT } from '../actions/signUpUser';
 
 export const INITIAL_STATE = {
-  user: null,
+  username: null,
+  accountname: null,
   pending: false,
   success: false,
-  error: {}
+  error: null
 };
 
 export default function fetchReducer(state = INITIAL_STATE, action) {
@@ -12,26 +13,33 @@ export default function fetchReducer(state = INITIAL_STATE, action) {
     case SUBMIT_PENDING:
       return {
         ...state,
-        user: null,
-        pending: action.pending,
+        username: action.username,
+        accountname: action.accountname,
+        pending: true,
         success: false,
-        error: {}
+        error: null
       };
     case SUBMIT_SUCCESS:
       return {
         ...state,
-        user: action.data,
-        pending: action.pending,
-        success: true,
-        error: {}
+        ddi: action.ddi,
+        pending: false,
+        success: true
       };
     case SUBMIT_FAILURE:
       return {
         ...state,
-        user: null,
-        pending: action.pending,
-        success: false,
+        pending: false,
         error: action.error
+      };
+    case CLEAR_RESULT:
+      return {
+        ...state,
+        username: null,
+        accountname: null,
+        pending: false,
+        success: false,
+        error: null
       };
     default:
       return state;

@@ -20,6 +20,15 @@ exports[`SubmissionModal it renders 1`] = `
         Invalid Password. Please try using a more secure password.
       </p>
     </hx-modalbody>
+    <hx-modalfoot>
+      <button
+        className="hxBtn hxPrimary"
+        disabled={false}
+        type="button"
+      >
+        OK
+      </button>
+    </hx-modalfoot>
   </hx-modal>
 </div>
 `;
