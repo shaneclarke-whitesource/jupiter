@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal renders with props and default props 1`] = `
+<hx-modal
+  class="Modal  medium"
+  id="fooId"
+  open={null}
+/>
+`;

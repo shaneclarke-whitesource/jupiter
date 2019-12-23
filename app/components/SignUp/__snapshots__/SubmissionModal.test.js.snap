@@ -5,7 +5,7 @@ exports[`SubmissionModal it renders 1`] = `
   className="submission-modal"
 >
   <hx-modal
-    class="Modal undefined medium"
+    class="Modal  medium"
     open={true}
   >
     <hx-modalhead>

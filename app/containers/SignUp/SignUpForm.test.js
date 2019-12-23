@@ -24,7 +24,7 @@ describe('SignUpForm', () => {
   test('it renders all Form Sections', () => {
     expect(wrapper.find('FormSection').length).toEqual(2);
   });
-  //
+
   test('renders both the Submit button text', () => {
     expect(wrapper.find('Submit').prop('label')).toEqual('Submit');
   });

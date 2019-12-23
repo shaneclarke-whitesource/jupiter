@@ -42,7 +42,7 @@ class Modal extends Component {
 
 Modal.propTypes = {
   id: PropTypes.string,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   className: PropTypes.string,
   isOpen: PropTypes.bool,
   onClose: PropTypes.func,
@@ -52,7 +52,8 @@ Modal.propTypes = {
 
 Modal.defaultProps = {
   size: 'medium',
-  isOpen: false
+  isOpen: false,
+  className: ''
 };
 
 Modal.Header = Header;

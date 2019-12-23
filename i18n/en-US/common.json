@@ -7,12 +7,6 @@
       "path": "*/translation"
     }
   },
-  "account.actions.product.choose": {
-    "translation": "Choose Product"
-  },
-  "account.actions.product.select": {
-    "translation": "Select Product"
-  },
   "account.customer.info": {
     "translation": "Customer Information"
   },
@@ -28,29 +22,11 @@
   "account.header.userInfo": {
     "translation": "User Information"
   },
-  "account.product.aviator": {
-    "translation": "Aviator"
-  },
-  "account.product.header": {
-    "translation": "Account Product"
-  },
-  "account.product.navigator": {
-    "translation": "Navigator"
-  },
   "account.product.none": {
     "translation": "None"
   },
-  "account.product.purchasingArchitectAndDeploy": {
-    "translation": "Is customer purchasing Architect & Deploy?"
-  },
-  "account.product.purchasingManageAndOperate": {
-    "translation": "Is customer purchasing Manage & Operate?"
-  },
   "account.product.select": {
     "translation": "-- Please Select --"
-  },
-  "account.product.serviceBlocks": {
-    "translation": "Service Blocks"
   },
   "actions.basic.hide": {
     "translation": "Hide"
