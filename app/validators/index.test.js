@@ -77,6 +77,29 @@ describe('validators', () => {
     });
   });
 
+  describe('validatePhoneNumber', () => {
+    test('it returns required when it is an empty string', () => {
+      const values = { phoneNumber: { number: '       ' } };
+      expect(validators.validatePhoneNumber(values, t)).toEqual(
+        { phoneNumber: ['Required'] }
+      );
+    });
+
+    test('it returns required when it is empty', () => {
+      const values = { phoneNumber: { number: '' } };
+      expect(validators.validatePhoneNumber(values, t)).toEqual(
+        { phoneNumber: ['Required'] }
+      );
+    });
+
+    test('it returns correct error if number is not valid', () => {
+      const values = { phoneNumber: { number: 'abcd' } };
+      expect(validators.validatePhoneNumber(values, t)).toEqual(
+        { phoneNumber: ['Must be a valid phone number'] }
+      );
+    });
+  });
+
   describe('validatePassword', () => {
     const validatePasswords = (props) => {
       return validators.validatePassword(props, defaultProps);

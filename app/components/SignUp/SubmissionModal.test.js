@@ -16,6 +16,7 @@ describe('SubmissionModal', () => {
     accountname: 'acct-1',
     ddi: '1234'
   };
+
   test('it renders', () => {
     const rendered = renderer.create(<SubmissionModal {...defaultProps} />).toJSON();
     expect(rendered).toMatchSnapshot();
@@ -27,6 +28,7 @@ describe('SubmissionModal', () => {
     expect(wrapper.find('p').text())
       .toEqual('User user-1 has been created in account acct-1 with a domain ID of 1234.');
   });
+
   test('it returns invalid password error when message is "Invalid Password"', () => {
     const wrappedError = shallow(<SubmissionModal {...defaultProps} />);
     expect(wrappedError.find('h1').text()).toEqual('Error');
@@ -47,6 +49,18 @@ describe('SubmissionModal', () => {
       'The username user-1 is already taken. Please try a different one.'
     );
   });
+
+  it('returns errorMessage property when error is 400 and Password and Username are valid', () => {
+    const props = {
+      errorCode: 400,
+      errorMessage: 'Testing Error'
+    };
+    const wrappedError = shallow(<SubmissionModal {...defaultProps} {...props} />);
+    expect(wrappedError.find('p').text()).toEqual(
+      'Testing Error'
+    );
+  });
+
   test('it returns correct 401 message', () => {
     const props = {
       errorCode: 401
@@ -57,6 +71,7 @@ describe('SubmissionModal', () => {
       'Not Authorized'
     );
   });
+
   test('it returns correct 500 message', () => {
     const props = {
       errorCode: 500
@@ -67,6 +82,7 @@ describe('SubmissionModal', () => {
       'Error connecting to server'
     );
   });
+
   test('it returns correct default message', () => {
     const props = {
       errorCode: 501,
@@ -77,8 +93,16 @@ describe('SubmissionModal', () => {
       'There was an error processing your request: test message'
     );
   });
+
   test('it returns empty if pending is true', () => {
     const wrappedError = shallow(<SubmissionModal {...defaultProps} openModal={false} />);
     expect(wrappedError.find('.submission-modal').text()).toEqual('');
+  });
+
+  test('onClose successfully calls the hideModal prop', () => {
+    const hideMock = jest.fn();
+    wrapper = shallow(<SubmissionModal {...defaultProps} hideModal={hideMock} />);
+    wrapper.instance().onClose();
+    expect(hideMock).toHaveBeenCalled();
   });
 });

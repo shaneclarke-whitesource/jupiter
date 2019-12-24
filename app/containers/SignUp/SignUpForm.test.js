@@ -1,15 +1,19 @@
 import React from 'react';
 import { SignUpForm } from './SignUpForm';
 import { t } from '../../../test/i18n/mocks';
+import { mountWithForm } from '../../../test/provider';
 
 describe('SignUpForm', () => {
   let wrapper;
+  const clearResultMock = jest.fn();
+  const signUpMock = jest.fn();
+  const handleSubmitMock = jest.fn();
   const defaultProps = {
     success: false,
-    signUp: jest.fn(),
-    clearResult: jest.fn(),
+    signUp: signUpMock,
+    clearResult: clearResultMock,
     pending: false,
-    handleSubmit: jest.fn(),
+    handleSubmit: handleSubmitMock,
     result: false,
     t
   };
@@ -27,5 +31,11 @@ describe('SignUpForm', () => {
 
   test('renders both the Submit button text', () => {
     expect(wrapper.find('Submit').prop('label')).toEqual('Submit');
+  });
+
+  test('it calls handleSubmit when submit is invoked', () => {
+    const mounted = mountWithForm(SignUpForm, defaultProps);
+    mounted.find('form').simulate('submit');
+    expect(handleSubmitMock).toHaveBeenCalled();
   });
 });
