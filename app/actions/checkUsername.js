@@ -42,7 +42,7 @@ export function checkUsername(username) {
     dispatch(checkUsernamePending());
     changeIfExists(username, true);
     axios.get(
-      'api/signup/v1/cloud-username-check',
+      '/api/signup/v1/cloud-username-check',
       {
         params: { username },
         headers: {
