@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Input from '../helix/inputTypes/Input';
 import PhoneField from '../helix/inputTypes/PhoneField';
 import PasswordInput from '../helix/inputTypes/PasswordInput';
+import UserName from './UserName';
 
 export const UserInfo = () => {
   const { t } = useTranslation();
@@ -38,6 +39,16 @@ export const UserInfo = () => {
           label={t('common:user.details.title')}
         />
       </div>
+      <UserName />
+      <div className="hxCol hxSpan-12">
+        <Field
+          name="accountName"
+          component={Input}
+          type="text"
+          label={t('common:user.details.accountName')}
+          required
+        />
+      </div>
       <div className="hxCol hxSpan-12">
         <Field
           name="email"
@@ -53,24 +64,6 @@ export const UserInfo = () => {
           id="phoneNumber"
           component={PhoneField}
           label={t('common:user.details.phoneNumber')}
-          required
-        />
-      </div>
-      <div className="hxCol hxSpan-12">
-        <Field
-          name="accountName"
-          component={Input}
-          type="text"
-          label={t('common:user.details.accountName')}
-          required
-        />
-      </div>
-      <div className="hxCol hxSpan-12">
-        <Field
-          name="username"
-          component={Input}
-          type="text"
-          label={t('common:actions.create.username')}
           required
         />
       </div>
