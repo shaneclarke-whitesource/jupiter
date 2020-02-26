@@ -40,7 +40,6 @@ const changeIfExists = (username, exists) => {
 export function checkUsername(username) {
   return (dispatch) => {
     dispatch(checkUsernamePending());
-    changeIfExists(username, true);
     axios.get(
       '/api/signup/v1/cloud-username-check',
       {
@@ -55,7 +54,7 @@ export function checkUsername(username) {
     )
       .then((response) => {
         const newUsername = changeIfExists(username, response.data.exist);
-        dispatch(checkUsernameSuccess(newUsername, response.data.exist));
+        dispatch(checkUsernameSuccess(newUsername));
       })
       .catch((error) => {
         dispatch(checkUsernameFailure(error.response));

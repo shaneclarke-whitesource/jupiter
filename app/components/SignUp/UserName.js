@@ -11,23 +11,24 @@ class UserName extends React.Component {
     const { firstName, lastName } = this.props;
     if (firstName !== nextProps.firstName || lastName !== nextProps.lastName) {
       this.returnUsername();
+      return true;
     }
     return false;
   }
 
   returnUsername = () => {
-    const { firstName, lastName, formMeta, setUsername, username, checkIfExists } = this.props;
+    const { firstName, lastName, formMeta, checkIfExists } = this.props;
     const concatUsername = firstName && lastName ? (`${firstName}.${lastName}`).toLowerCase() : '';
     if (concatUsername) {
       if (!formMeta.userInfo.firstName.active && !formMeta.userInfo.lastName.active) {
         checkIfExists(concatUsername);
       }
     }
-    setUsername(username);
   };
 
   render() {
-    const { t } = this.props;
+    const { t, setUsername, username, exists } = this.props;
+    if (!exists) setUsername(username);
     return (
       <div className="hxCol hxSpan-12">
         <Field
@@ -53,6 +54,7 @@ UserName.propTypes = {
       lastName: PropTypes.object
     })
   }),
+  exists: PropTypes.bool,
   username: PropTypes.string,
   t: PropTypes.func.isRequired
 };
@@ -62,7 +64,8 @@ const mapStateToProps = (state) => {
     firstName: formValueSelector('signUp')(state, 'userInfo.firstName'),
     lastName: formValueSelector('signUp')(state, 'userInfo.lastName'),
     formMeta: getFormMeta('signUp')(state),
-    username: state.username.username
+    username: state.username.username,
+    exists: state.username.exists
   };
 };
 
