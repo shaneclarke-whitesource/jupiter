@@ -37,7 +37,7 @@ class UserName extends React.Component {
 
   render() {
     const { t, username, setUsername, exists } = this.props;
-    if (exists) this.generateUsername(username);
+    if (exists && username) this.generateUsername(username);
     if (!exists) setUsername(username);
     return (
       <div className="hxCol hxSpan-12">
