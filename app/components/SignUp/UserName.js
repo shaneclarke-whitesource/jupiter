@@ -7,20 +7,27 @@ import { checkUsername } from '../../actions/checkUsername';
 import Input from '../helix/inputTypes/Input';
 
 class UserName extends React.Component {
+  shouldComponentUpdate(nextProps) {
+    const { firstName, lastName } = this.props;
+    if (firstName !== nextProps.firstName || lastName !== nextProps.lastName) {
+      this.returnUsername();
+    }
+    return false;
+  }
+
   returnUsername = () => {
     const { firstName, lastName, formMeta, setUsername, username, checkIfExists } = this.props;
     const concatUsername = firstName && lastName ? (`${firstName}.${lastName}`).toLowerCase() : '';
     if (concatUsername) {
       if (!formMeta.userInfo.firstName.active && !formMeta.userInfo.lastName.active) {
         checkIfExists(concatUsername);
-        setUsername(username);
       }
     }
+    setUsername(username);
   };
 
   render() {
     const { t } = this.props;
-    this.returnUsername();
     return (
       <div className="hxCol hxSpan-12">
         <Field
