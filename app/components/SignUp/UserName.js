@@ -7,33 +7,44 @@ import { checkUsername } from '../../actions/checkUsername';
 import Input from '../helix/inputTypes/Input';
 
 class UserName extends React.Component {
-  shouldComponentUpdate(nextProps) {
+  componentDidUpdate(prevProps) {
     const { firstName, lastName } = this.props;
-    if (firstName !== nextProps.firstName || lastName !== nextProps.lastName) {
-      this.returnUsername();
-      return true;
+    if (!firstName || !lastName) return;
+    if (prevProps.firstName !== firstName || lastName !== prevProps.lastName) {
+      this.returnUsername(firstName, lastName);
     }
-    return false;
   }
 
-  returnUsername = () => {
-    const { firstName, lastName, formMeta, checkIfExists } = this.props;
+  returnUsername = (firstName, lastName) => {
+    const { checkIfExists } = this.props;
     const concatUsername = firstName && lastName ? (`${firstName}.${lastName}`).toLowerCase() : '';
     if (concatUsername) {
-      if (!formMeta.userInfo.firstName.active && !formMeta.userInfo.lastName.active) {
-        checkIfExists(concatUsername);
-      }
+      checkIfExists(concatUsername);
     }
   };
 
+  generateUsername = (username) => {
+    const { checkIfExists } = this.props;
+    const num = Math.floor(Math.random() * 10000);
+    const newUsername = username + num.toString();
+    checkIfExists(newUsername);
+  };
+
+  usernameChanged = (e) => {
+    e.preventDefault();
+    this.props.checkIfExists(e.target.value);
+  };
+
   render() {
-    const { t, setUsername, username, exists } = this.props;
+    const { t, username, setUsername, exists } = this.props;
+    if (exists) this.generateUsername(username);
     if (!exists) setUsername(username);
     return (
       <div className="hxCol hxSpan-12">
         <Field
           name="username"
           component={Input}
+          onBlur={this.usernameChanged}
           type="text"
           label={t('common:actions.create.username')}
           required

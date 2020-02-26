@@ -2,8 +2,8 @@ import { CHECK_USERNAME_FAILURE, CHECK_USERNAME_SUCCESS, CHECK_USERNAME_PENDING 
 
 export const INITIAL_STATE = {
   username: '',
-  exists: false,
   pending: false,
+  exists: false,
   success: false,
   error: true
 };
@@ -21,7 +21,7 @@ export default function checkUsernameReducer(state = INITIAL_STATE, action) {
         ...state,
         pending: false,
         success: true,
-        exists: action.exists,
+        exists: true,
         username: action.username
       };
     case CHECK_USERNAME_FAILURE:

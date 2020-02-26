@@ -4,6 +4,7 @@ export const CHECK_USERNAME_PENDING = 'CHECK_USERNAME_PENDING';
 export const CHECK_USERNAME_SUCCESS = 'CHECK_USERNAME_SUCCESS';
 export const CHECK_USERNAME_FAILURE = 'CHECK_USERNAME_FAILURE';
 
+
 export const checkUsernamePending = (username) => {
   return {
     type: CHECK_USERNAME_PENDING,
@@ -29,14 +30,6 @@ export const checkUsernameFailure = (errorResponse) => {
   };
 };
 
-const changeIfExists = (username, exists) => {
-  if (exists) {
-    const num = username.match(/(\d+)/) + 1;
-    return username + num.toString();
-  }
-  return username;
-};
-
 export function checkUsername(username) {
   return (dispatch) => {
     dispatch(checkUsernamePending());
@@ -53,8 +46,7 @@ export function checkUsername(username) {
       }
     )
       .then((response) => {
-        const newUsername = changeIfExists(username, response.data.exist);
-        dispatch(checkUsernameSuccess(newUsername));
+        dispatch(checkUsernameSuccess(username, response.data.exist));
       })
       .catch((error) => {
         dispatch(checkUsernameFailure(error.response));
