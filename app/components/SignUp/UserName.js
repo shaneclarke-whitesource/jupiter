@@ -20,8 +20,8 @@ class UserName extends React.Component {
   };
 
   render() {
-    const { t, username, setUsername, exists } = this.props;
-    if (username && exists) this.generateAltUsername(username);
+    const { t, username, setUsername, exists, error } = this.props;
+    if (username && exists && !error) this.generateAltUsername(username);
     if (!exists) setUsername(username);
     return (
       <div className="hxCol hxSpan-12">
@@ -49,7 +49,7 @@ UserName.propTypes = {
   }),
   exists: PropTypes.bool,
   username: PropTypes.string,
-  // error: PropTypes.string,
+  error: PropTypes.string,
   t: PropTypes.func.isRequired
 };
 
