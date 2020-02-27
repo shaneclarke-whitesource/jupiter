@@ -4,7 +4,6 @@ export const CHECK_USERNAME_PENDING = 'CHECK_USERNAME_PENDING';
 export const CHECK_USERNAME_SUCCESS = 'CHECK_USERNAME_SUCCESS';
 export const CHECK_USERNAME_FAILURE = 'CHECK_USERNAME_FAILURE';
 
-
 export const checkUsernamePending = (username) => {
   return {
     type: CHECK_USERNAME_PENDING,
@@ -32,7 +31,6 @@ export const checkUsernameFailure = (errorResponse) => {
 
 export function checkUsername(username) {
   return (dispatch) => {
-    dispatch(checkUsernamePending());
     axios.get(
       '/api/signup/v1/cloud-username-check',
       {

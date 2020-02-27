@@ -1,31 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { change, Field, formValueSelector, getFormMeta } from 'redux-form';
+import { change, Field } from 'redux-form';
 import { withTranslation } from 'react-i18next';
 import { checkUsername } from '../../actions/checkUsername';
 import Input from '../helix/inputTypes/Input';
+import Error from '../helix/Error';
 
 class UserName extends React.Component {
-  componentDidUpdate(prevProps) {
-    const { firstName, lastName } = this.props;
-    if (!firstName || !lastName) return;
-    if (prevProps.firstName !== firstName || lastName !== prevProps.lastName) {
-      this.returnUsername(firstName, lastName);
-    }
-  }
-
-  returnUsername = (firstName, lastName) => {
+  generateAltUsername = (username) => {
     const { checkIfExists } = this.props;
-    const concatUsername = firstName && lastName ? (`${firstName}.${lastName}`).toLowerCase() : '';
-    if (concatUsername) {
-      checkIfExists(concatUsername);
-    }
-  };
-
-  generateUsername = (username) => {
-    const { checkIfExists } = this.props;
-    const num = Math.floor(Math.random() * 10000);
+    const num = Math.floor(1000 + Math.random() * 9000);
     const newUsername = username + num.toString();
     checkIfExists(newUsername);
   };
@@ -37,7 +22,7 @@ class UserName extends React.Component {
 
   render() {
     const { t, username, setUsername, exists } = this.props;
-    if (exists && username) this.generateUsername(username);
+    if (username && exists) this.generateAltUsername(username);
     if (!exists) setUsername(username);
     return (
       <div className="hxCol hxSpan-12">
@@ -55,8 +40,6 @@ class UserName extends React.Component {
 }
 
 UserName.propTypes = {
-  firstName: PropTypes.string,
-  lastName: PropTypes.string,
   setUsername: PropTypes.func.isRequired,
   checkIfExists: PropTypes.func.isRequired,
   formMeta: PropTypes.shape({
@@ -67,16 +50,15 @@ UserName.propTypes = {
   }),
   exists: PropTypes.bool,
   username: PropTypes.string,
+  // error: PropTypes.string,
   t: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => {
   return {
-    firstName: formValueSelector('signUp')(state, 'userInfo.firstName'),
-    lastName: formValueSelector('signUp')(state, 'userInfo.lastName'),
-    formMeta: getFormMeta('signUp')(state),
     username: state.username.username,
-    exists: state.username.exists
+    exists: state.username.exists,
+    error: state.username.error
   };
 };
 

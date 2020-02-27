@@ -21,7 +21,7 @@ export default function checkUsernameReducer(state = INITIAL_STATE, action) {
         ...state,
         pending: false,
         success: true,
-        exists: true,
+        exists: action.exists,
         username: action.username
       };
     case CHECK_USERNAME_FAILURE:
