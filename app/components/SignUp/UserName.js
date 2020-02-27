@@ -5,7 +5,6 @@ import { change, Field } from 'redux-form';
 import { withTranslation } from 'react-i18next';
 import { checkUsername } from '../../actions/checkUsername';
 import Input from '../helix/inputTypes/Input';
-import Error from '../helix/Error';
 
 class UserName extends React.Component {
   generateAltUsername = (username) => {
