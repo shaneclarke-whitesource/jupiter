@@ -48,5 +48,8 @@
   },
   "phone.mustBeAValidNumber": {
     "translation": "有効な電話番号を入力してください"
+  },
+  "username.exists": {
+    "translation": "__NOT_TRANSLATED__"
   }
 }
