@@ -1,37 +1,53 @@
-// import React from 'react';
-// import { renderWithForm } from '../../../test/provider';
-// import { t } from '../../../test/i18n/mocks';
-// import { UserInfo } from './UserInfo';
+import React from 'react';
+import { t } from '../../../test/i18n/mocks';
+import { UserInfo } from './UserInfo';
 
 describe('UserInfo', () => {
-  // let wrapper;
-  // beforeEach(() => {
-  //   wrapper = shallow(<UserInfo t={t} />);
-  // });
+  let wrapper;
+  const checkIfExistsMock = jest.fn();
+  const defaultProps = {
+    checkIfExists: checkIfExistsMock,
+    firstName: 'John',
+    lastName: 'Doe',
+    t
+  };
+  beforeEach(() => {
+    wrapper = shallow(<UserInfo {...defaultProps} />);
+  });
 
-  // test('it renders', () => {
-  //   const rendered = renderWithForm(UserInfo, { t }).toJSON();
-  //   expect(rendered).toMatchSnapshot();
-  // });
+  afterEach(() => {
+    checkIfExistsMock.mockRestore();
+  });
 
-  // test('it renders 7 input fields', () => {
-  //   expect(wrapper.find('Field').length).toEqual(8);
-  // });
+  test('it renders 7 input fields', () => {
+    expect(wrapper.find('Field').length).toEqual(8);
+  });
 
-  // test('it renders correct labels', () => {
-  //   const labels = wrapper.find('Field').map((field) => field.prop('label'));
-  //   expect(labels).toEqual([
-  //     'First Name',
-  //     'Last Name',
-  //     'Title (optional)',
-  //     'Create Account Name',
-  //     'Email Address',
-  //     'Phone Number',
-  //     'Create Password',
-  //     'Confirm Password'
-  //   ]);
-  // });
-  test('please build', () => {
-    expect(true).toBe(true);
+  test('it renders correct labels', () => {
+    const labels = wrapper.find('Field').map((field) => field.prop('label'));
+    expect(labels).toEqual([
+      'First Name',
+      'Last Name',
+      'Title (optional)',
+      'Create Account Name',
+      'Email Address',
+      'Phone Number',
+      'Create Password',
+      'Confirm Password'
+    ]);
+  });
+
+  test('it invokes checkIfExists when onBlur is invoked on firstName field', () => {
+    const field = wrapper.find('Field').at(0);
+    expect(checkIfExistsMock).toBeCalledTimes(0);
+    field.simulate('blur');
+    expect(checkIfExistsMock).toBeCalledTimes(1);
+  });
+
+  test('it invokes checkIfExists when onBlur is invoked on lastName field', () => {
+    const field = wrapper.find('Field').at(1);
+    expect(checkIfExistsMock).toBeCalledTimes(0);
+    field.simulate('blur');
+    expect(checkIfExistsMock).toBeCalledTimes(1);
   });
 });

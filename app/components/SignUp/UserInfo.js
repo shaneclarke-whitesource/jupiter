@@ -10,14 +10,17 @@ import UserName from './UserName';
 import { checkUsername } from '../../actions/checkUsername';
 
 export class UserInfo extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.generateUsername = this.generateUsername.bind(this);
   }
 
   generateUsername() {
     const { firstName, lastName, checkIfExists } = this.props;
-    const concatUsername = firstName && lastName ? (`${firstName}.${lastName}`).toLowerCase() : '';
+    // combine their first name, last name and generate some random string suffix
+    const concatUsername = firstName && lastName
+      ? `${(`${firstName.trim()}.${lastName.trim()}`)
+        .toLowerCase()}.${(Math.random() + 1).toString(36).slice(2).substring(0, 4)}` : '';
     if (concatUsername) {
       checkIfExists(concatUsername);
     }

@@ -5,7 +5,7 @@ export const INITIAL_STATE = {
   pending: false,
   exists: false,
   success: false,
-  error: true
+  error: false
 };
 
 export default function checkUsernameReducer(state = INITIAL_STATE, action) {
@@ -13,7 +13,6 @@ export default function checkUsernameReducer(state = INITIAL_STATE, action) {
     case CHECK_USERNAME_PENDING:
       return {
         ...state,
-        username: action.username,
         pending: true
       };
     case CHECK_USERNAME_SUCCESS:

@@ -48,5 +48,8 @@
   },
   "phone.mustBeAValidNumber": {
     "translation": "Must be a valid phone number"
+  },
+  "username.exists": {
+    "translation": "This username already exists. Please choose another one."
   }
 }

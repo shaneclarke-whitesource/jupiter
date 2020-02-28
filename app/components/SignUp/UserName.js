@@ -6,22 +6,14 @@ import { withTranslation } from 'react-i18next';
 import { checkUsername } from '../../actions/checkUsername';
 import Input from '../helix/inputTypes/Input';
 
-class UserName extends React.Component {
-  generateAltUsername = (username) => {
-    const { checkIfExists } = this.props;
-    const num = Math.floor(1000 + Math.random() * 9000);
-    const newUsername = username + num.toString();
-    checkIfExists(newUsername);
-  };
-
+export class UserName extends React.Component {
   usernameChanged = (e) => {
     e.preventDefault();
     this.props.checkIfExists(e.target.value);
   };
 
   render() {
-    const { t, username, setUsername, exists, error } = this.props;
-    if (username && exists && !error) this.generateAltUsername(username);
+    const { t, username, setUsername, exists } = this.props;
     if (!exists) setUsername(username);
     return (
       <div className="hxCol hxSpan-12">
@@ -33,6 +25,13 @@ class UserName extends React.Component {
           label={t('common:actions.create.username')}
           required
         />
+        <div className="error">
+          {username && exists && (
+            <hx-error>
+              <small>{t('validation:username.exists')}</small>
+            </hx-error>
+          )}
+        </div>
       </div>
     );
   }
@@ -49,7 +48,6 @@ UserName.propTypes = {
   }),
   exists: PropTypes.bool,
   username: PropTypes.string,
-  error: PropTypes.string,
   t: PropTypes.func.isRequired
 };
 
