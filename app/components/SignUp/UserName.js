@@ -14,7 +14,7 @@ export class UserName extends React.Component {
 
   render() {
     const { t, username, setUsername, exists } = this.props;
-    if (!exists) setUsername(username);
+    if (!exists || username) { setUsername(username); }
     return (
       <div className="hxCol hxSpan-12 UsernameField">
         <Field

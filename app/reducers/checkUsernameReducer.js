@@ -13,7 +13,8 @@ export default function checkUsernameReducer(state = INITIAL_STATE, action) {
     case CHECK_USERNAME_PENDING:
       return {
         ...state,
-        pending: true
+        pending: true,
+        success: false
       };
     case CHECK_USERNAME_SUCCESS:
       return {
@@ -26,6 +27,7 @@ export default function checkUsernameReducer(state = INITIAL_STATE, action) {
     case CHECK_USERNAME_FAILURE:
       return {
         ...state,
+        success: false,
         error: action.error
       };
     default:

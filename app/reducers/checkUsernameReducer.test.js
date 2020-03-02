@@ -12,7 +12,8 @@ describe('reducers/checkUsernameReducer', () => {
         type: CHECK_USERNAME_PENDING
       })
     ).toEqual({
-      pending: true
+      pending: true,
+      success: false
     });
   });
 
@@ -38,7 +39,8 @@ describe('reducers/checkUsernameReducer', () => {
         error: 'oh noes!'
       })
     ).toEqual({
-      error: 'oh noes!'
+      error: 'oh noes!',
+      success: false
     });
   });
 });
