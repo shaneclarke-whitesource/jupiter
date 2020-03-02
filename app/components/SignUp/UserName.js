@@ -9,24 +9,25 @@ import Input from '../helix/inputTypes/Input';
 export class UserName extends React.Component {
   usernameChanged = (e) => {
     e.preventDefault();
-    this.props.checkIfExists(e.target.value);
+    if (e.target.value) { this.props.checkIfExists(e.target.value); }
   };
 
   render() {
     const { t, username, setUsername, exists } = this.props;
-    if (!exists || username) { setUsername(username); }
+    setUsername(username);
     return (
       <div className="hxCol hxSpan-12 UsernameField">
         <Field
           name="username"
           component={Input}
+          onChange={(e) => setUsername(e.target.value)}
           onBlur={this.usernameChanged}
           type="text"
           label={t('common:actions.create.username')}
           required
         />
         <div className="error">
-          {username && exists && (
+          {(username && exists) && (
             <hx-error>
               <small>{t('validation:username.exists')}</small>
             </hx-error>

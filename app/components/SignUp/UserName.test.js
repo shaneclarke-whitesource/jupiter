@@ -35,8 +35,8 @@ describe('UserName', () => {
     expect(checkIfExistsMock).toHaveBeenCalledTimes(1);
   });
 
-  test('setUsername to be called if the username does not exist', () => {
-    shallow(<UserName {...defaultProps} exists={false} />);
+  test('setUsername to be called', () => {
+    shallow(<UserName {...defaultProps} />);
     expect(setUsernameMock).toHaveBeenCalled();
   });
 
