@@ -36,11 +36,13 @@ describe('reducers/checkUsernameReducer', () => {
     expect(
       checkUsernameReducer([], {
         type: CHECK_USERNAME_FAILURE,
-        error: 'oh noes!'
+        error: 'oh noes!',
+        username: 'john.doe'
       })
     ).toEqual({
       error: 'oh noes!',
-      success: false
+      success: false,
+      username: 'john.doe'
     });
   });
 });

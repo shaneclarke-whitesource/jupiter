@@ -70,6 +70,9 @@
   "actions.create.username": {
     "translation": "Create Username"
   },
+  "actions.generate.username": {
+    "translation": "If your first name or last name is changed, a new username will be automatically generated for you."
+  },
   "common.status.ok": {
     "translation": "OK"
   },

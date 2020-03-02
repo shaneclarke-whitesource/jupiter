@@ -79,7 +79,6 @@ export class SignUpForm extends React.Component {
 
   render() {
     const { t, handleSubmit, result, pending } = this.props;
-
     return (
       <div className="SignUp-form">
         <form onSubmit={handleSubmit(this.handleSubmit)}>

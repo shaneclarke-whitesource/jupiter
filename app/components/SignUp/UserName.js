@@ -5,6 +5,7 @@ import { change, Field } from 'redux-form';
 import { withTranslation } from 'react-i18next';
 import { checkUsername } from '../../actions/checkUsername';
 import Input from '../helix/inputTypes/Input';
+import Tooltip from '../helix/Tooltip';
 
 export class UserName extends React.Component {
   usernameChanged = (e) => {
@@ -15,12 +16,15 @@ export class UserName extends React.Component {
   render() {
     const { t, username, setUsername, exists } = this.props;
     setUsername(username);
+    const tooltip = (
+      <Tooltip id="username-tooltip">{t('common:actions.generate.username')}</Tooltip>
+    );
     return (
       <div className="hxCol hxSpan-12 UsernameField">
         <Field
           name="username"
           component={Input}
-          onChange={(e) => setUsername(e.target.value)}
+          tooltip={tooltip}
           onBlur={this.usernameChanged}
           type="text"
           label={t('common:actions.create.username')}

@@ -28,6 +28,7 @@ export default function checkUsernameReducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         success: false,
+        username: action.username,
         error: action.error
       };
     default:

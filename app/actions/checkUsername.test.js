@@ -27,12 +27,13 @@ describe('actions/checkUsername', () => {
     const errorCode = { status: 400, data: { message: 'oh noes!' } };
     const expectedAction = {
       type: actions.CHECK_USERNAME_FAILURE,
+      username: 'test.user.1234',
       error: {
         code: 400,
         message: 'oh noes!'
       }
     };
-    expect(actions.checkUsernameFailure(errorCode)).toEqual(expectedAction);
+    expect(actions.checkUsernameFailure('test.user.1234', errorCode)).toEqual(expectedAction);
   });
   describe('async checkUsername action', () => {
     let store;
@@ -73,6 +74,7 @@ describe('actions/checkUsername', () => {
         },
         {
           type: actions.CHECK_USERNAME_FAILURE,
+          username: 'test.user.1234',
           error: {
             code: 401,
             message: 'oh noes!'

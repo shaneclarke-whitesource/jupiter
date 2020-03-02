@@ -18,9 +18,10 @@ export const checkUsernameSuccess = (username, exists) => {
   };
 };
 
-export const checkUsernameFailure = (errorResponse) => {
+export const checkUsernameFailure = (username, errorResponse) => {
   return {
     type: CHECK_USERNAME_FAILURE,
+    username,
     error: {
       code: errorResponse.status,
       message: errorResponse.data.message
@@ -47,7 +48,9 @@ export function checkUsername(username) {
         dispatch(checkUsernameSuccess(username, response.data.exist));
       })
       .catch((error) => {
-        dispatch(checkUsernameFailure(error.response));
+        // Username must also be passed in failure in order to maintain user field input
+        // This avoids reverting the field back to the username generated and set in state on successful call
+        dispatch(checkUsernameFailure(username, error.response));
         throw (error);
       });
   };

@@ -70,6 +70,9 @@
   "actions.create.username": {
     "translation": "ユーザー名を作成する"
   },
+  "actions.generate.username": {
+    "translation": "__NOT_TRANSLATED__"
+  },
   "common.status.ok": {
     "translation": "OK"
   },
