@@ -165,7 +165,7 @@ export const validateUser = (values, { t = i18nT() }) => {
         allowEmpty: false
       },
       length: {
-        maximum: 255,
+        maximum: 16,
         tooLong: t('validation:input.maxLength', {
           content: 'Username',
           characterCount: '%{count}'

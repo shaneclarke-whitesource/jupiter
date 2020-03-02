@@ -18,9 +18,11 @@ export class UserInfo extends React.Component {
   generateUsername() {
     const { firstName, lastName, checkIfExists } = this.props;
     // combine their first name, last name and generate some random string suffix
+    const first = firstName.trim().substring(0, 2);
+    const last = lastName.trim().substring(0, 2);
+    const suffix = (Math.random() + 1).toString(36).slice(2).substring(0, 5);
     const concatUsername = firstName && lastName
-      ? `${(`${firstName.trim()}.${lastName.trim()}`)
-        .toLowerCase()}.${(Math.random() + 1).toString(36).slice(2).substring(0, 4)}` : '';
+      ? `${(`${first}${last}`).toLowerCase()}.${suffix}` : '';
     if (concatUsername) {
       checkIfExists(concatUsername);
     }

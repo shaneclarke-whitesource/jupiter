@@ -17,11 +17,9 @@ describe('UserName', () => {
 
   beforeEach(() => {
     wrapper = shallow(<UserName {...defaultProps} />);
-    jest.spyOn(global.Math, 'random').mockReturnValue(12345678);
   });
 
   afterEach(() => {
-    global.Math.random.mockRestore();
     checkIfExistsMock.mockRestore();
   });
 

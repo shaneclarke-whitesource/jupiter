@@ -46,7 +46,7 @@ describe('validators', () => {
     test('it fails if username is longer than 10 characters', () => {
       const longName = _.fill(Array(256), 'c').join('');
       const result = validateUserInfo({ userInfo: { username: longName } });
-      expect(result.userInfo.username).toEqual(['Username must be less than 255 characters long']);
+      expect(result.userInfo.username).toEqual(['Username must be less than 16 characters long']);
     });
 
     ['firstName', 'lastName', 'username'].forEach((field) => {
