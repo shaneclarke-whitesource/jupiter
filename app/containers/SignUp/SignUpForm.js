@@ -142,7 +142,8 @@ const mapDispatchToProps = (dispatch) => {
 };
 const SignUpReduxForm = reduxForm({
   form: 'signUp',
-  validate: validateForm
+  validate: validateForm,
+  touchOnChange: true
 })(withTranslation()(SignUpForm));
 
 
