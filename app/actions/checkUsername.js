@@ -32,7 +32,7 @@ export const checkUsernameFailure = (username, errorResponse) => {
 export function checkUsername(username) {
   return (dispatch) => {
     dispatch(checkUsernamePending());
-    axios.get(
+    return axios.get(
       '/api/signup/v1/cloud-username-check',
       {
         params: { username },
