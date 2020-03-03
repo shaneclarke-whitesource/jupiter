@@ -207,5 +207,5 @@ export const asyncValidate = (values, dispatch, { t = i18nT() }) => {
           resolve();
         }
       });
-  }, 3000);
+  });
 };

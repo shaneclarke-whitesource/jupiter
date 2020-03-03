@@ -144,7 +144,7 @@ const SignUpReduxForm = reduxForm({
   form: 'signUp',
   validate: validateForm,
   asyncValidate,
-  asyncChangeFields: ['userInfo.username'],
+  asyncBlurFields: ['userInfo.username'],
   touchOnChange: true
 })(withTranslation()(SignUpForm));
 

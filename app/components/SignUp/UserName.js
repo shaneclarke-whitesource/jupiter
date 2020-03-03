@@ -9,7 +9,7 @@ import Tooltip from '../helix/Tooltip';
 
 export class UserName extends React.Component {
   render() {
-    const { t, username, setUsername, exists } = this.props;
+    const { t, username, setUsername } = this.props;
     setUsername(username);
     const tooltip = (
       <Tooltip id="username-tooltip">{t('common:actions.generate.username')}</Tooltip>
@@ -24,13 +24,6 @@ export class UserName extends React.Component {
           label={t('common:actions.create.username')}
           required
         />
-        <div className="error">
-          {(username && exists) && (
-            <hx-error>
-              <small>{t('validation:username.exists')}</small>
-            </hx-error>
-          )}
-        </div>
       </div>
     );
   }
@@ -38,16 +31,13 @@ export class UserName extends React.Component {
 
 UserName.propTypes = {
   setUsername: PropTypes.func.isRequired,
-  exists: PropTypes.bool,
   username: PropTypes.string,
   t: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => {
   return {
-    username: state.username.username,
-    exists: state.username.exists,
-    error: state.username.error
+    username: state.username.username
   };
 };
 
