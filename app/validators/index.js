@@ -198,16 +198,14 @@ export const validateUser = (values, { t = i18nT() }) => {
 };
 export const asyncValidate = (values, dispatch, { t = i18nT() }) => {
   return new Promise((resolve, reject) => {
-    return setTimeout(() => {
-      dispatch(checkUsername(values.userInfo.username))
-        .then((response) => {
-          if (response.exist) {
-            // eslint-disable-next-line prefer-promise-reject-errors
-            reject({ userInfo: { username: [t('validation:username.exists')] } });
-          } else {
-            resolve();
-          }
-        });
-    }, 3000);
-  });
+    dispatch(checkUsername(values.userInfo.username))
+      .then((response) => {
+        if (response.exist) {
+          // eslint-disable-next-line prefer-promise-reject-errors
+          reject({ userInfo: { username: [t('validation:username.exists')] } });
+        } else {
+          resolve();
+        }
+      });
+  }, 3000);
 };
