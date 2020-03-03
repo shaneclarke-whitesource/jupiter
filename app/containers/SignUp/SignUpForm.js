@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import { FormSection, reduxForm } from 'redux-form';
-import { validateUser } from '../../validators';
+import { validateUser, asyncValidate } from '../../validators';
 import { clearResult, submitUserData } from '../../actions/signUpUser';
 import _ from 'lodash';
 import { CUSTOMER_SIGNUP_REQUEST } from '../../signupReqFormat/customer';
@@ -143,6 +143,8 @@ const mapDispatchToProps = (dispatch) => {
 const SignUpReduxForm = reduxForm({
   form: 'signUp',
   validate: validateForm,
+  asyncValidate,
+  asyncChangeFields: ['userInfo.username'],
   touchOnChange: true
 })(withTranslation()(SignUpForm));
 

@@ -8,11 +8,6 @@ import Input from '../helix/inputTypes/Input';
 import Tooltip from '../helix/Tooltip';
 
 export class UserName extends React.Component {
-  usernameChanged = (e) => {
-    e.preventDefault();
-    if (e.target.value) { this.props.checkIfExists(e.target.value); }
-  };
-
   render() {
     const { t, username, setUsername, exists } = this.props;
     setUsername(username);
@@ -25,7 +20,6 @@ export class UserName extends React.Component {
           name="username"
           component={Input}
           tooltip={tooltip}
-          onBlur={this.usernameChanged}
           type="text"
           label={t('common:actions.create.username')}
           required
@@ -44,13 +38,6 @@ export class UserName extends React.Component {
 
 UserName.propTypes = {
   setUsername: PropTypes.func.isRequired,
-  checkIfExists: PropTypes.func.isRequired,
-  formMeta: PropTypes.shape({
-    userInfo: PropTypes.shape({
-      firstName: PropTypes.object,
-      lastName: PropTypes.object
-    })
-  }),
   exists: PropTypes.bool,
   username: PropTypes.string,
   t: PropTypes.func.isRequired

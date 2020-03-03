@@ -3,7 +3,6 @@ import { t } from '../../../test/i18n/mocks';
 import { UserName } from './UserName';
 
 describe('UserName', () => {
-  let wrapper;
   const checkIfExistsMock = jest.fn();
   const setUsernameMock = jest.fn();
   const defaultProps = {
@@ -15,24 +14,8 @@ describe('UserName', () => {
     t
   };
 
-  beforeEach(() => {
-    wrapper = shallow(<UserName {...defaultProps} />);
-  });
-
   afterEach(() => {
     checkIfExistsMock.mockRestore();
-  });
-
-  test('it calls usernameChanged when onBlur is invoked', () => {
-    const event = {
-      target: {
-        value: 'user.name.abc'
-      },
-      preventDefault: jest.fn()
-    };
-    expect(checkIfExistsMock).toHaveBeenCalledTimes(0);
-    wrapper.find('Field').simulate('blur', event);
-    expect(checkIfExistsMock).toHaveBeenCalledTimes(1);
   });
 
   test('setUsername to be called', () => {
