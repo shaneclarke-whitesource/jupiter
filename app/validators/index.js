@@ -200,7 +200,7 @@ export const asyncValidate = (values, dispatch, { t = i18nT() }) => {
   return new Promise((resolve, reject) => {
     dispatch(checkUsername(values.userInfo.username))
       .then((response) => {
-        if (response.data.exist) {
+        if (response.exist) {
           // eslint-disable-next-line prefer-promise-reject-errors
           reject({ userInfo: { username: [t('validation:username.exists')] } });
         } else {
