@@ -22,10 +22,4 @@ describe('UserName', () => {
     shallow(<UserName {...defaultProps} />);
     expect(setUsernameMock).toHaveBeenCalled();
   });
-
-  test('it renders an error message if the username exists', () => {
-    const errorWrap = shallow(<UserName {...defaultProps} exists />);
-    expect(errorWrap.find('hx-error small').text())
-      .toEqual('This username already exists. Please choose another one.');
-  });
 });
