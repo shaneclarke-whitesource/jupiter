@@ -1,7 +1,7 @@
 import i18n from '../i18n';
 import _ from 'lodash';
 import validate from 'validate.js';
-import { checkUsername } from '../actions/checkUsername';
+import { callUsernameCheck } from '../actions/checkUsername';
 
 function translateDefaultValidators(t) {
   validate.validators.presence.message = t('validation:input.required');
@@ -197,15 +197,14 @@ export const validateUser = (values, { t = i18nT() }) => {
   };
 };
 export const asyncValidate = (values, dispatch, { t = i18nT() }) => {
+  const { username } = values.userInfo;
   return new Promise((resolve, reject) => {
-    dispatch(checkUsername(values.userInfo.username))
+    callUsernameCheck(username)
       .then((response) => {
-        if (response.exist) {
+        if (response.data.exist) {
           // eslint-disable-next-line prefer-promise-reject-errors
           reject({ userInfo: { username: [t('validation:username.exists')] } });
-        } else {
-          resolve();
-        }
+        } else { resolve(); }
       });
   });
 };

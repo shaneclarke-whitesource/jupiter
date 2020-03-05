@@ -29,21 +29,25 @@ export const checkUsernameFailure = (username, errorResponse) => {
   };
 };
 
+export const callUsernameCheck = (username) => {
+  return axios.get(
+    '/api/signup/v1/cloud-username-check',
+    {
+      params: { username },
+      headers: {
+        'Access-Control-Allow-Credentials': true,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json; charset=UTF-8'
+      },
+      withCredentials: true
+    }
+  );
+};
+
 export function checkUsername(username) {
   return (dispatch) => {
     dispatch(checkUsernamePending());
-    return axios.get(
-      '/api/signup/v1/cloud-username-check',
-      {
-        params: { username },
-        headers: {
-          'Access-Control-Allow-Credentials': true,
-          'Accept': 'application/json',
-          'Content-Type': 'application/json; charset=UTF-8'
-        },
-        withCredentials: true
-      }
-    )
+    return callUsernameCheck(username)
       .then((response) => {
         dispatch(checkUsernameSuccess(username, response.data.exist));
       })
