@@ -16,7 +16,7 @@ const DropDown = (props) => {
   return (
     <hx-select-control>
       <select id={props.id} onChange={props.input.onChange}>
-        <option value="none">
+        <option value="notSelected">
           {t('common:account.product.select')}
         </option>
         {options}

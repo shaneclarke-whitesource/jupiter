@@ -4,13 +4,11 @@ import { Field } from 'redux-form';
 import { withTranslation } from 'react-i18next';
 import Popover from '../helix/popover/Popover';
 import DropDown from '../helix/inputTypes/Dropdown';
-import Radio from '../helix/radio/Radio';
-import RadioGroup from '../helix/radio/RadioGroup';
 
 export class Product extends React.Component {
   state = {
     isOpen: null,
-    product: 'none',
+    product: 'notSelected',
     touched: false,
     error: false
   };
@@ -20,56 +18,33 @@ export class Product extends React.Component {
       product: e.target.value,
       isOpen: null,
       touched: true,
-      error: e.target.value === 'none'
+      error: e.target.value === 'notSelected'
     });
-  };
-
-  ifServiceBlocks = () => {
-    const { t } = this.props;
-    if (this.state.product === 'serviceBlocks') {
-      return (
-        <div className="hxOffset-2">
-          <RadioGroup>
-            <Radio
-              fieldName="serviceBlocksType"
-              options={[
-                {
-                  id: 'manage',
-                  value: 'manageAndOperate',
-                  label: t('common:account.product.purchasingManageAndOperate')
-                },
-                {
-                  id: 'architect',
-                  value: 'architectAndDeploy',
-                  label: t('common:account.product.purchasingArchitectAndDeploy')
-                }
-              ]}
-            />
-          </RadioGroup>
-        </div>
-      );
-    }
   };
 
   render() {
     const { t } = this.props;
     const dropdownData = [
       {
-        label: t('common:account.product.aviator'),
-        value: 'aviator'
+        label: t('common:account.product.aws'),
+        value: 'aws'
       },
       {
-        label: t('common:account.product.navigator'),
-        value: 'navigator'
+        label: t('common:account.product.gcc'),
+        value: 'gcc'
       },
       {
-        label: t('common:account.product.serviceBlocks'),
-        value: 'serviceBlocks'
+        label: t('common:account.product.azureV1'),
+        value: 'azureV1'
+      },
+      {
+        label: t('common:account.product.azureV2'),
+        value: 'azureV2'
       }
     ];
     return (
       <div className="Input-section">
-        <h2>{t('common:account.customer.info')}</h2>
+        <h2>{t('common:account.product.type')}</h2>
         <Popover
           title={t('common:account.product.header')}
           id="product-popover"
@@ -83,7 +58,7 @@ export class Product extends React.Component {
           <Popover.Header>{t('common:account.actions.product.choose')}</Popover.Header>
           <Popover.Body>
             <Field
-              name="serviceLevel"
+              name="productType"
               component={DropDown}
               options={dropdownData}
               valueField="value"
@@ -94,7 +69,6 @@ export class Product extends React.Component {
             />
           </Popover.Body>
         </Popover>
-        {this.ifServiceBlocks()}
       </div>
     );
   }

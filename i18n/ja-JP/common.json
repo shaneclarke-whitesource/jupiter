@@ -1,130 +1,133 @@
 {
-  "smartling" : {
-    "string_format" : "icu",
-    "translate_paths" : {
-      "instruction" : "*/instruction",
-      "key" : "{*}/translation",
-      "path" : "*/translation"
+  "smartling": {
+    "string_format": "icu",
+    "translate_paths": {
+      "instruction": "*/instruction",
+      "key": "{*}/translation",
+      "path": "*/translation"
     }
   },
-  "account.actions.product.choose" : {
-    "translation" : "製品を選択してください"
+  "account.actions.product.choose": {
+    "translation": "製品を選択してください"
   },
-  "account.actions.product.select" : {
-    "translation" : "製品を選択"
+  "account.actions.product.select": {
+    "translation": "製品を選択"
   },
-  "account.customer.info" : {
-    "translation" : "顧客情報"
+  "account.customer.info": {
+    "translation": "顧客情報"
   },
-  "account.customer.isRbu" : {
-    "translation" : "これはRBUのお客様向けですか？"
+  "account.customer.isRbu": {
+    "translation": "これはRBUのお客様向けですか？"
   },
-  "account.customer.type" : {
-    "translation" : "顧客"
+  "account.customer.type": {
+    "translation": "顧客"
   },
-  "account.header.address" : {
-    "translation" : "住所"
+  "account.header.address": {
+    "translation": "住所"
   },
-  "account.header.userInfo" : {
-    "translation" : "ユーザー情報"
+  "account.header.userInfo": {
+    "translation": "ユーザー情報"
   },
-  "account.product.aviator" : {
-    "translation" : "Aviator"
+  "account.product.aws": {
+    "translation": "__NOT_TRANSLATED__"
   },
-  "account.product.header" : {
-    "translation" : "アカウント製品"
+  "account.product.azureV1": {
+    "translation": "__NOT_TRANSLATED__"
   },
-  "account.product.navigator" : {
-    "translation" : "Navigator"
+  "account.product.azureV2": {
+    "translation": "__NOT_TRANSLATED__"
   },
-  "account.product.none" : {
-    "translation" : "なし"
+  "account.product.gcc": {
+    "translation": "__NOT_TRANSLATED__"
   },
-  "account.product.purchasingArchitectAndDeploy" : {
-    "translation" : "顧客はArchitect & Deployを購入していますか？"
+  "account.product.header": {
+    "translation": "アカウント製品"
   },
-  "account.product.purchasingManageAndOperate" : {
-    "translation" : "顧客はManage & Operateを購入していますか？"
+  "account.product.none": {
+    "translation": "なし"
   },
-  "account.product.select" : {
-    "translation" : "-- 選択してください --"
+  "account.product.notSelected": {
+    "translation": "__NOT_TRANSLATED__"
   },
-  "account.product.serviceBlocks" : {
-    "translation" : "Service Blocks"
+  "account.product.select": {
+    "translation": "-- 選択してください --"
   },
-  "actions.basic.hide" : {
-    "translation" : "隠す"
+  "account.product.type": {
+    "translation": "__NOT_TRANSLATED__"
   },
-  "actions.basic.show" : {
-    "translation" : "表示する"
+  "actions.basic.hide": {
+    "translation": "隠す"
   },
-  "actions.basic.submit" : {
-    "translation" : "送信"
+  "actions.basic.show": {
+    "translation": "表示する"
   },
-  "actions.confirm.password" : {
-    "translation" : "パスワードを確認する"
+  "actions.basic.submit": {
+    "translation": "送信"
   },
-  "actions.create.password" : {
-    "translation" : "パスワードを作成する"
+  "actions.confirm.password": {
+    "translation": "パスワードを確認する"
   },
-  "actions.create.username" : {
-    "translation" : "ユーザー名を作成する"
+  "actions.create.password": {
+    "translation": "パスワードを作成する"
   },
-  "common.status.ok" : {
-    "translation" : "OK"
+  "actions.create.username": {
+    "translation": "ユーザー名を作成する"
   },
-  "create.status.success" : {
-    "translation" : "成功しました！"
+  "common.status.ok": {
+    "translation": "OK"
   },
-  "create.status.success.message" : {
-    "translation" : "アカウント「{accountname}」、ドメインID「{ddi}」のユーザー「{username}」が作成されました。"
+  "create.status.success": {
+    "translation": "成功しました！"
   },
-  "footer.content.company" : {
-    "translation" : "{year} Rackspace US, Inc."
+  "create.status.success.message": {
+    "translation": "アカウント「{accountname}」、ドメインID「{ddi}」のユーザー「{username}」が作成されました。"
   },
-  "footer.content.policy" : {
-    "translation" : "個人情報保護方針"
+  "footer.content.company": {
+    "translation": "{year} Rackspace US, Inc."
   },
-  "footer.content.terms" : {
-    "translation" : "Webサイト利用規約"
+  "footer.content.policy": {
+    "translation": "個人情報保護方針"
   },
-  "headers.main.signUp" : {
-    "translation" : "Rackspace Invoiceのサインアップ"
+  "footer.content.terms": {
+    "translation": "Webサイト利用規約"
   },
-  "signUp.headers.main" : {
-    "translation" : "Rackspace Invoice Cartにサインアップする"
+  "headers.main.signUp": {
+    "translation": "Rackspace Invoiceのサインアップ"
   },
-  "user.details.accountName" : {
-    "translation" : "アカウント名を作成する"
+  "signUp.headers.main": {
+    "translation": "Rackspace Invoice Cartにサインアップする"
   },
-  "user.details.email" : {
-    "translation" : "メールアドレス"
+  "user.details.accountName": {
+    "translation": "アカウント名を作成する"
   },
-  "user.details.firstName" : {
-    "translation" : "名"
+  "user.details.email": {
+    "translation": "メールアドレス"
   },
-  "user.details.lastName" : {
-    "translation" : "姓"
+  "user.details.firstName": {
+    "translation": "名"
   },
-  "user.details.phoneNumber" : {
-    "translation" : "電話番号"
+  "user.details.lastName": {
+    "translation": "姓"
   },
-  "user.details.title" : {
-    "translation" : "タイトル（省略可）"
+  "user.details.phoneNumber": {
+    "translation": "電話番号"
   },
-  "user.location.city" : {
-    "translation" : "都市"
+  "user.details.title": {
+    "translation": "タイトル（省略可）"
   },
-  "user.location.country" : {
-    "translation" : "国"
+  "user.location.city": {
+    "translation": "都市"
   },
-  "user.location.state" : {
-    "translation" : "州"
+  "user.location.country": {
+    "translation": "国"
   },
-  "user.location.street" : {
-    "translation" : "番地"
+  "user.location.state": {
+    "translation": "州"
   },
-  "user.location.zipcode" : {
-    "translation" : "郵便番号"
+  "user.location.street": {
+    "translation": "番地"
+  },
+  "user.location.zipcode": {
+    "translation": "郵便番号"
   }
 }
