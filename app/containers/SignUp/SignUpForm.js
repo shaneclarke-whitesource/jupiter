@@ -13,6 +13,7 @@ import Submit from '../../components/helix/buttons/Submit';
 import UserInfo from '../../components/SignUp/UserInfo';
 import CustomerType from '../../components/SignUp/CustomerType';
 import SubmissionModal from '../../components/SignUp/SubmissionModal';
+import Product from '../../components/SignUp/Product';
 
 export class SignUpForm extends React.Component {
   formatRequest = (values) => {
@@ -87,6 +88,7 @@ export class SignUpForm extends React.Component {
             <FormSection name="userInfo">
               <UserInfo />
               <hr />
+              <Product />
               <h2>{t('common:account.customer.info')}</h2>
               <FormSection name="customerType">
                 <CustomerType />

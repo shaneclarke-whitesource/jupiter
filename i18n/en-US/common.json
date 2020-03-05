@@ -37,8 +37,26 @@
   "account.product.navigator": {
     "translation": "Navigator"
   },
+  "account.product.type": {
+    "translation": "Product"
+  },
   "account.product.none": {
     "translation": "None"
+  },
+  "account.product.notSelected": {
+    "translation": "--"
+  },
+  "account.product.azureV1": {
+    "translation": "Azure V1"
+  },
+  "account.product.azureV2": {
+    "translation": "Azure V2"
+  },
+  "account.product.aws": {
+    "translation": "Amazon Web Services"
+  },
+  "account.product.gcc": {
+    "translation": "Managed Google Compute Cloud"
   },
   "account.product.purchasingArchitectAndDeploy": {
     "translation": "Is customer purchasing Architect & Deploy?"
