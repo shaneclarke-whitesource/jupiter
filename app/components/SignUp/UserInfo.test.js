@@ -1,21 +1,26 @@
 import React from 'react';
-import { renderWithForm } from '../../../test/provider';
 import { t } from '../../../test/i18n/mocks';
 import { UserInfo } from './UserInfo';
 
 describe('UserInfo', () => {
   let wrapper;
+  const checkIfExistsMock = jest.fn();
+  const defaultProps = {
+    checkIfExists: checkIfExistsMock,
+    firstName: 'John',
+    lastName: 'Doe',
+    t
+  };
   beforeEach(() => {
-    wrapper = shallow(<UserInfo t={t} />);
+    wrapper = shallow(<UserInfo {...defaultProps} />);
   });
 
-  test('it renders', () => {
-    const rendered = renderWithForm(UserInfo, { t }).toJSON();
-    expect(rendered).toMatchSnapshot();
+  afterEach(() => {
+    checkIfExistsMock.mockRestore();
   });
 
   test('it renders 7 input fields', () => {
-    expect(wrapper.find('Field').length).toEqual(9);
+    expect(wrapper.find('Field').length).toEqual(8);
   });
 
   test('it renders correct labels', () => {
@@ -24,12 +29,33 @@ describe('UserInfo', () => {
       'First Name',
       'Last Name',
       'Title (optional)',
+      'Create Account Name',
       'Email Address',
       'Phone Number',
-      'Create Account Name',
-      'Create Username',
       'Create Password',
       'Confirm Password'
     ]);
+  });
+
+  test('username must grab only first two characters of firstName and lastName', () => {
+    global.Math.random = () => '314315654';
+    const field = wrapper.find('Field').at(0);
+    expect(checkIfExistsMock).toBeCalledTimes(0);
+    field.simulate('blur');
+    expect(checkIfExistsMock).toBeCalledWith('jodo.4315');
+  });
+
+  test('it invokes checkIfExists when onBlur is invoked on firstName field', () => {
+    const field = wrapper.find('Field').at(0);
+    expect(checkIfExistsMock).toBeCalledTimes(0);
+    field.simulate('blur');
+    expect(checkIfExistsMock).toBeCalledTimes(1);
+  });
+
+  test('it invokes checkIfExists when onBlur is invoked on lastName field', () => {
+    const field = wrapper.find('Field').at(1);
+    expect(checkIfExistsMock).toBeCalledTimes(0);
+    field.simulate('blur');
+    expect(checkIfExistsMock).toBeCalledTimes(1);
   });
 });

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Error from '../Error';
+
 const Input = (props) => {
   const {
     input,
@@ -14,7 +15,7 @@ const Input = (props) => {
     autoComplete
   } = props;
   return (
-    <div className="InputField">
+    <div className={`${meta.asyncValidating ? 'async-validating' : ''} InputField`}>
       <hx-text-control class={hxClassNames}>
         <input
           {...input}
@@ -49,7 +50,8 @@ Input.propTypes = {
     error: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.array
-    ])
+    ]),
+    asyncValidating: PropTypes.bool
   }),
   input: PropTypes.shape({
     name: PropTypes.string.isRequired

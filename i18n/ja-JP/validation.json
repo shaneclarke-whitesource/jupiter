@@ -11,13 +11,13 @@
     "translation": "メールドメインは有効な形式でなければなりません"
   },
   "error.create.password": {
-    "translation": "無効なパスワード。より安全なパスワードを使用してみてください。"
+    "translation": "無効なパスワードです。より安全なパスワードを検討してください。"
   },
   "error.create.processing": {
-    "translation": "リクエストの処理中にエラーが発生しました"
+    "translation": "リクエストの処理中にエラーが発生しました：{errorMsg}"
   },
   "error.create.userExists": {
-    "translation": "ユーザー名は既に使用されています。別の方法を試してください。"
+    "translation": "ユーザー名「{username}」は既に使用されています。別のユーザー名を検討してください。"
   },
   "error.header": {
     "translation": "エラー"
@@ -27,6 +27,9 @@
   },
   "error.serverError": {
     "translation": "サーバー接続エラー"
+  },
+  "input.lessOrEqual": {
+    "translation": "__NOT_TRANSLATED__"
   },
   "input.maxLength": {
     "translation": "{content, select, undefined {{characterCount}文字未満である必要があります} other {{content}は{characterCount}文字未満である必要があります}}"
@@ -48,5 +51,11 @@
   },
   "phone.mustBeAValidNumber": {
     "translation": "有効な電話番号を入力してください"
+  },
+  "username.exists": {
+    "translation": "このユーザー名は既に存在します。別のユーザー名を選択してください。"
+  },
+  "username.symbolRestriction": {
+    "translation": "__NOT_TRANSLATED__"
   }
 }
