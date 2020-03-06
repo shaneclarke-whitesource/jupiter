@@ -49,7 +49,7 @@ describe('validators', () => {
       expect(result.userInfo.username).toEqual(['Username must be less than or equal to 15 characters long']);
     });
 
-    ['firstName', 'lastName', 'username'].forEach((field) => {
+    ['firstName', 'lastName'].forEach((field) => {
       test(`returns required when ${field} is empty`, () => {
         const result = validateUserInfo({ userInfo: { [field]: '' } });
         expect([].concat(result.userInfo[field])).toEqual(['Required']);
@@ -58,6 +58,28 @@ describe('validators', () => {
         const result = validateUserInfo({ userInfo: { [field]: '     ' } });
         expect([].concat(result.userInfo[field])).toEqual(['Required']);
       });
+    });
+
+    test('username returns required and minimum length when empty', () => {
+      const result = validateUserInfo({ userInfo: { username: '' } });
+      expect([].concat(result.userInfo.username)).toEqual([
+        'Required',
+        'Username must be at least 8 characters long'
+      ]);
+    });
+    test('username returns required and minimum length when empty string', () => {
+      const result = validateUserInfo({ userInfo: { username: '    ' } });
+      expect([].concat(result.userInfo.username)).toEqual([
+        'Required',
+        'Username must be at least 8 characters long'
+      ]);
+    });
+
+    test('username returns minimum length when it is less than 8 characters', () => {
+      const result = validateUserInfo({ userInfo: { username: 'user' } });
+      expect([].concat(result.userInfo.username)).toEqual([
+        'Username must be at least 8 characters long'
+      ]);
     });
   });
   describe('validateEmail', () => {
