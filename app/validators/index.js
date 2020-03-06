@@ -170,6 +170,11 @@ export const validateUser = (values, { t = i18nT() }) => {
         tooLong: t('validation:input.lessOrEqual', {
           content: 'Username',
           characterCount: '%{count}'
+        }),
+        minimum: 8,
+        tooShort: t('validation:input.minLength', {
+          content: 'Username',
+          characterCount: '%{count}'
         })
       }
     },
@@ -196,15 +201,23 @@ export const validateUser = (values, { t = i18nT() }) => {
     }
   };
 };
+
 export const asyncValidate = (values, dispatch, { t = i18nT() }) => {
   const { username } = values.userInfo;
   return new Promise((resolve, reject) => {
-    callUsernameCheck(username)
-      .then((response) => {
-        if (response.data.exist) {
-          // eslint-disable-next-line prefer-promise-reject-errors
-          reject({ userInfo: { username: [t('validation:username.exists')] } });
-        } else { resolve(); }
-      });
+    if (username.includes('%')) {
+      // eslint-disable-next-line prefer-promise-reject-errors
+      reject({ userInfo: { username: [t('validation:username.symbolRestriction')] } });
+    } else {
+      callUsernameCheck(username)
+        .then((response) => {
+          if (response.data.exist) {
+            // eslint-disable-next-line prefer-promise-reject-errors
+            reject({ userInfo: { username: [t('validation:username.exists')] } });
+          } else {
+            resolve();
+          }
+        });
+    }
   });
 };

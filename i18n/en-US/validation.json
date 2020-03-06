@@ -54,5 +54,8 @@
   },
   "username.exists": {
     "translation": "This username already exists. Please choose another one."
+  },
+  "username.symbolRestriction": {
+    "translation": "Username must not include these special character: %"
   }
 }

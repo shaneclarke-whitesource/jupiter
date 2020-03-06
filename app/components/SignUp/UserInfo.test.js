@@ -38,11 +38,11 @@ describe('UserInfo', () => {
   });
 
   test('username must grab only first two characters of firstName and lastName', () => {
-    global.Math.random = () => '3abc15654';
+    global.Math.random = () => '314315654';
     const field = wrapper.find('Field').at(0);
     expect(checkIfExistsMock).toBeCalledTimes(0);
     field.simulate('blur');
-    expect(checkIfExistsMock).toBeCalledWith('jodo.bc156');
+    expect(checkIfExistsMock).toBeCalledWith('jodo.4315');
   });
 
   test('it invokes checkIfExists when onBlur is invoked on firstName field', () => {

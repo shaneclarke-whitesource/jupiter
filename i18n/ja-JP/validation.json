@@ -54,5 +54,8 @@
   },
   "username.exists": {
     "translation": "このユーザー名は既に存在します。別のユーザー名を選択してください。"
+  },
+  "username.symbolRestriction": {
+    "translation": "__NOT_TRANSLATED__"
   }
 }
