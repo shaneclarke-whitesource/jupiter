@@ -8,7 +8,7 @@ exports[`Footer it renders 1`] = `
   © 
    
    
-  2019 Rackspace US, Inc.
+  2020 Rackspace US, Inc.
   <nav>
     <a
       href="https://www.rackspace.com/information/legal/websiteterms"

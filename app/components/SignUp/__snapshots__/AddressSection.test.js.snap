@@ -9,7 +9,7 @@ exports[`AddressSection it renders 1`] = `
   </h2>
   <div>
     <div
-      className="InputField"
+      className=" InputField"
     >
       <hx-text-control
         class=""
@@ -42,7 +42,7 @@ exports[`AddressSection it renders 1`] = `
       />
     </div>
     <div
-      className="InputField"
+      className=" InputField"
     >
       <hx-text-control
         class=""
@@ -75,7 +75,7 @@ exports[`AddressSection it renders 1`] = `
       />
     </div>
     <div
-      className="InputField"
+      className=" InputField"
     >
       <hx-text-control
         class=""

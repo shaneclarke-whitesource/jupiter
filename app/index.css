@@ -78,7 +78,13 @@ html, body {
     font-size: 1.2rem;
 }
 
+.UsernameField .InputField {
+    margin-bottom: 0;
+}
 
+.UsernameField .error {
+    margin-bottom: 10px;
+}
 /*Input*/
 /*Needed as override for helix text input*/
 hx-text-control > input[type="password"] {

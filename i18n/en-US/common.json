@@ -41,7 +41,7 @@
     "translation": "Managed Google Compute Cloud"
   },
   "account.product.header": {
-    "translation": "__NOT_TRANSLATED__"
+    "translation": "Account Product"
   },
   "account.product.none": {
     "translation": "None"
@@ -51,9 +51,6 @@
   },
   "account.product.select": {
     "translation": "-- Please Select --"
-  },
-  "account.product.type": {
-    "translation": "Product"
   },
   "actions.basic.hide": {
     "translation": "Hide"
@@ -72,6 +69,9 @@
   },
   "actions.create.username": {
     "translation": "Create Username"
+  },
+  "actions.generate.username": {
+    "translation": "If your first name or last name is changed, a new username will be automatically generated for you."
   },
   "common.status.ok": {
     "translation": "OK"

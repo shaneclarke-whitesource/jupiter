@@ -52,9 +52,6 @@
   "account.product.select": {
     "translation": "-- 選択してください --"
   },
-  "account.product.type": {
-    "translation": "__NOT_TRANSLATED__"
-  },
   "actions.basic.hide": {
     "translation": "隠す"
   },
@@ -72,6 +69,25 @@
   },
   "actions.create.username": {
     "translation": "ユーザー名を作成する"
+  },
+  "account.product.aviator": {
+    "translation": "Aviator"
+  },
+
+  "account.product.navigator": {
+    "translation": "Navigator"
+  },
+  "account.product.purchasingArchitectAndDeploy": {
+    "translation": "顧客はArchitect & Deployを購入していますか？"
+  },
+  "account.product.purchasingManageAndOperate": {
+    "translation": "顧客はManage & Operateを購入していますか？"
+  },
+  "account.product.serviceBlocks": {
+    "translation": "Service Blocks"
+  },
+  "actions.generate.username": {
+    "translation": "__NOT_TRANSLATED__"
   },
   "common.status.ok": {
     "translation": "OK"

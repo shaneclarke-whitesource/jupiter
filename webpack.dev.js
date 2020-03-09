@@ -36,8 +36,8 @@ module.exports = merge(common, {
           proxyReq.setHeader('Cookie', `__Secure-portal_sessionid=${portalSessionId}`);
         },
         bypass: (req, res) => {
-          if (req.headers && req.headers.referer) {
-            req.headers.referer = req.headers.referer.replace('https://localhost:3000', 'https://staging.portal.rackspace.com');
+          if (req.headers) {
+            req.headers.referer = `${PORTAL_URL}racker/jupiter/`;
           }
         },
         secure: true
