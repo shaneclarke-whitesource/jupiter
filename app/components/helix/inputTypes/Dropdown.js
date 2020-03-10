@@ -12,17 +12,20 @@ const DropDown = (props) => {
       </option>
     );
   });
-
   return (
     <hx-select-control>
-      <select id={props.id} onChange={props.input.onChange}>
+      <select
+        id={props.id}
+        onChange={props.input.onChange}
+        {...props.required ? props.required : null}
+      >
         <option value="notSelected">
           {t('common:account.product.select')}
         </option>
         {options}
       </select>
       <hx-select />
-      <label htmlFor={props.id}>
+      <label htmlFor={props.id} className={props.required ? 'hxRequired' : null}>
         {props.label}
       </label>
     </hx-select-control>
@@ -34,8 +37,10 @@ DropDown.propTypes = {
   id: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.object),
   input: PropTypes.shape({
-    onChange: PropTypes.func
-  })
+    onChange: PropTypes.func,
+    onBlur: PropTypes.func
+  }),
+  required: PropTypes.bool
 };
 
 export default DropDown;

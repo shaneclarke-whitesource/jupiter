@@ -25,6 +25,7 @@ export class SignUpForm extends React.Component {
     return {
       ...template,
       accountName: values.userInfo.accountName,
+      externalId: (values.userInfo.productType).toUpperCase(),
       serviceLevel: 'MANAGED',
       contacts: {
         contact: [
@@ -142,11 +143,13 @@ const mapDispatchToProps = (dispatch) => {
     }
   };
 };
+
 const SignUpReduxForm = reduxForm({
   form: 'signUp',
   validate: validateForm,
   asyncValidate,
   asyncBlurFields: ['userInfo.username'],
+  enableReinitialize: true,
   touchOnChange: true
 })(withTranslation()(SignUpForm));
 

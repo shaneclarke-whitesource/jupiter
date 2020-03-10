@@ -31,17 +31,17 @@
   "account.product.aws": {
     "translation": "__NOT_TRANSLATED__"
   },
-  "account.product.azureV1": {
-    "translation": "__NOT_TRANSLATED__"
-  },
-  "account.product.azureV2": {
-    "translation": "__NOT_TRANSLATED__"
-  },
-  "account.product.gcc": {
+  "account.product.azure": {
     "translation": "__NOT_TRANSLATED__"
   },
   "account.product.header": {
     "translation": "アカウント製品"
+  },
+  "account.product.managed_gcp": {
+    "translation": "__NOT_TRANSLATED__"
+  },
+  "account.product.managed_vmc": {
+    "translation": "__NOT_TRANSLATED__"
   },
   "account.product.none": {
     "translation": "なし"
@@ -49,8 +49,14 @@
   "account.product.notSelected": {
     "translation": "__NOT_TRANSLATED__"
   },
+  "account.product.rpc_v": {
+    "translation": "__NOT_TRANSLATED__"
+  },
   "account.product.select": {
     "translation": "-- 選択してください --"
+  },
+  "account.product.type": {
+    "translation": "__NOT_TRANSLATED__"
   },
   "actions.basic.hide": {
     "translation": "隠す"
@@ -69,22 +75,6 @@
   },
   "actions.create.username": {
     "translation": "ユーザー名を作成する"
-  },
-  "account.product.aviator": {
-    "translation": "Aviator"
-  },
-
-  "account.product.navigator": {
-    "translation": "Navigator"
-  },
-  "account.product.purchasingArchitectAndDeploy": {
-    "translation": "顧客はArchitect & Deployを購入していますか？"
-  },
-  "account.product.purchasingManageAndOperate": {
-    "translation": "顧客はManage & Operateを購入していますか？"
-  },
-  "account.product.serviceBlocks": {
-    "translation": "Service Blocks"
   },
   "actions.generate.username": {
     "translation": "__NOT_TRANSLATED__"

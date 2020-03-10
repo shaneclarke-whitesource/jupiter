@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Field } from 'redux-form';
+import { change, Field } from 'redux-form';
 import { withTranslation } from 'react-i18next';
 import Popover from '../helix/popover/Popover';
 import DropDown from '../helix/inputTypes/Dropdown';
+import { connect } from 'react-redux';
 
 export class Product extends React.Component {
   state = {
@@ -14,6 +15,9 @@ export class Product extends React.Component {
   };
 
   handleChange = (e) => {
+    if (e.target.value !== 'aws') {
+      this.props.clearRbu();
+    }
     this.setState({
       product: e.target.value,
       isOpen: null,
@@ -30,23 +34,27 @@ export class Product extends React.Component {
         value: 'aws'
       },
       {
-        label: t('common:account.product.gcc'),
-        value: 'gcc'
+        label: t('common:account.product.managed_gcp'),
+        value: 'managed_gcp'
       },
       {
-        label: t('common:account.product.azureV1'),
-        value: 'azureV1'
+        label: t('common:account.product.azure'),
+        value: 'azure'
       },
       {
-        label: t('common:account.product.azureV2'),
-        value: 'azureV2'
+        label: t('common:account.product.managed_vmc'),
+        value: 'managed_vmc'
+      },
+      {
+        label: t('common:account.product.rpc_v'),
+        value: 'rpc_v'
       }
     ];
     return (
       <div className="Input-section">
-        <h2>{t('common:account.product.type')}</h2>
+        <h2>{t('common:account.product.header')}</h2>
         <Popover
-          title={t('common:account.product.header')}
+          title={t('common:account.product.type')}
           id="product-popover"
           product={t(`common:account.product.${this.state.product}`)}
           isOpen={this.state.isOpen}
@@ -65,7 +73,9 @@ export class Product extends React.Component {
               textField="label"
               label={t('common:account.actions.product.select')}
               id="product-select-popover"
-              onChange={this.handleChange}
+              // onChange={this.handleChange}
+              onBlur={this.handleChange}
+              required
             />
           </Popover.Body>
         </Popover>
@@ -75,7 +85,16 @@ export class Product extends React.Component {
 }
 
 Product.propTypes = {
-  t: PropTypes.func.isRequired
+  t: PropTypes.func.isRequired,
+  clearRbu: PropTypes.func.isRequired,
 };
 
-export default withTranslation()(Product);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    clearRbu: () => {
+      dispatch(change('signUp', 'userInfo.customerType.isRbu', false));
+    }
+  };
+};
+
+export default connect(null, mapDispatchToProps)(withTranslation()(Product));

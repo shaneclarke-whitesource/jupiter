@@ -31,17 +31,17 @@
   "account.product.aws": {
     "translation": "Amazon Web Services"
   },
-  "account.product.azureV1": {
-    "translation": "Azure V1"
-  },
-  "account.product.azureV2": {
-    "translation": "Azure V2"
-  },
-  "account.product.gcc": {
-    "translation": "Managed Google Compute Cloud"
+  "account.product.azure": {
+    "translation": "Azure"
   },
   "account.product.header": {
     "translation": "Account Product"
+  },
+  "account.product.managed_gcp": {
+    "translation": "Google Cloud Platform"
+  },
+  "account.product.managed_vmc": {
+    "translation": "Virtual Managed Cloud"
   },
   "account.product.none": {
     "translation": "None"
@@ -49,8 +49,14 @@
   "account.product.notSelected": {
     "translation": "--"
   },
+  "account.product.rpc_v": {
+    "translation": "VMware"
+  },
   "account.product.select": {
     "translation": "-- Please Select --"
+  },
+  "account.product.type": {
+    "translation": "Product"
   },
   "actions.basic.hide": {
     "translation": "Hide"
