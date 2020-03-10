@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { change, Field } from 'redux-form';
+import { change, Field, formValueSelector } from 'redux-form';
 import { withTranslation } from 'react-i18next';
 import Popover from '../helix/popover/Popover';
 import DropDown from '../helix/inputTypes/Dropdown';
@@ -50,13 +50,16 @@ export class Product extends React.Component {
         value: 'rpc_v'
       }
     ];
+    // after resetting the form onChange and onBlur is not triggered by form reset,
+    // therefore the local state is not updated to the form state -- review needed
+    const product = !this.props.formProductType ? 'notSelected' : this.state.product;
     return (
       <div className="Input-section">
         <h2>{t('common:account.product.header')}</h2>
         <Popover
           title={t('common:account.product.type')}
           id="product-popover"
-          product={t(`common:account.product.${this.state.product}`)}
+          product={t(`common:account.product.${product}`)}
           isOpen={this.state.isOpen}
           classNames="hxRequired customer-info-header"
           touched={this.state.touched}
@@ -73,8 +76,7 @@ export class Product extends React.Component {
               textField="label"
               label={t('common:account.actions.product.select')}
               id="product-select-popover"
-              // onChange={this.handleChange}
-              onBlur={this.handleChange}
+              onChange={this.handleChange}
               required
             />
           </Popover.Body>
@@ -87,6 +89,13 @@ export class Product extends React.Component {
 Product.propTypes = {
   t: PropTypes.func.isRequired,
   clearRbu: PropTypes.func.isRequired,
+  formProductType: PropTypes.string
+};
+
+const mapStateToProps = (state) => {
+  return {
+    formProductType: formValueSelector('signUp')(state, 'userInfo.productType')
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -97,4 +106,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(withTranslation()(Product));
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(Product));

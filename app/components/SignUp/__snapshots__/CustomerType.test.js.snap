@@ -11,7 +11,7 @@ exports[`CustomerType it renders 1`] = `
       className="hxCol hxSpan-4 hxOffset-1"
     >
       <span
-        className="InputField-label customer-info-header hxRequired"
+        className="InputField-label customer-info-header"
       >
         Customer
       </span>
@@ -21,6 +21,8 @@ exports[`CustomerType it renders 1`] = `
     >
       <hx-checkbox-control>
         <input
+          checked={false}
+          disabled={true}
           id="customer-type"
           onChange={[Function]}
           type="checkbox"

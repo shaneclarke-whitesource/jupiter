@@ -33,7 +33,7 @@ export class CustomerType extends React.Component {
       <div className="customer-type-section">
         <div className="hxRow">
           <div className="hxCol hxSpan-4 hxOffset-1">
-            <span className="InputField-label customer-info-header hxRequired">
+            <span className="InputField-label customer-info-header">
               {t('common:account.customer.type')}
             </span>
           </div>

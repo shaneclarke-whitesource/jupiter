@@ -7,7 +7,7 @@ exports[`Dropdown it renders with appropriate props 1`] = `
     onChange={[MockFunction]}
   >
     <option
-      value="none"
+      value="notSelected"
     >
       -- Please Select --
     </option>
@@ -24,6 +24,7 @@ exports[`Dropdown it renders with appropriate props 1`] = `
   </select>
   <hx-select />
   <label
+    className={null}
     htmlFor="dropdown-id"
   >
     Dropdown Label
