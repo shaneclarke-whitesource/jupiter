@@ -48,7 +48,7 @@ DropDown.propTypes = {
     error: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.array
-    ]),
+    ])
   }),
   required: PropTypes.bool
 };
