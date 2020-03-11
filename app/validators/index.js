@@ -95,6 +95,10 @@ export const validatePhoneNumber = (values, { t = i18nT() }) => {
 export const validateProductType = (values, { t = i18nT() }) => {
   return validate(values, {
     productType: {
+      presence: {
+        allowEmpty: false,
+        message: t('validation:input.required')
+      },
       exclusion: {
         within: ['notSelected'],
         message: t('validation:input.required')

@@ -162,6 +162,9 @@ describe('validators', () => {
     test('it passes with valid input', () => {
       expect(validateProductType({ productType: 'product' })).toEqual(undefined);
     });
+    test('it fails with empty input', () => {
+      expect(validateProductType({ productType: '' })).toEqual({ productType: ['Required'] });
+    });
     test('it fails when notSelected is chosen', () => {
       expect(validators.validateProductType({ productType: 'notSelected' }, defaultProps))
         .toEqual({ productType: ['Required'] });
