@@ -37,8 +37,7 @@ DropDown.propTypes = {
   id: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.object),
   input: PropTypes.shape({
-    onChange: PropTypes.func,
-    onBlur: PropTypes.func
+    onChange: PropTypes.func
   }),
   required: PropTypes.bool
 };

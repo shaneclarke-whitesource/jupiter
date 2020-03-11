@@ -51,7 +51,8 @@ export class Product extends React.Component {
       }
     ];
     // after resetting the form onChange and onBlur is not triggered by form reset,
-    // therefore the local state is not updated to the form state -- review needed
+    // therefore the local state is not updated to the form state -- review needed,
+    // formProductType will always be updated to the selected product based on the
     const product = !this.props.formProductType ? 'notSelected' : this.state.product;
     return (
       <div className="Input-section">
