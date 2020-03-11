@@ -24,7 +24,8 @@ describe('validators', () => {
           state: 'CO',
           city: 'Leaf City',
           zipcode: '12345'
-        }
+        },
+        productType: 'product'
       }
     };
     test('it passes if all values are valid', () => {
@@ -164,10 +165,6 @@ describe('validators', () => {
     });
     test('it fails with empty input', () => {
       expect(validateProductType({ productType: '' })).toEqual({ productType: ['Required'] });
-    });
-    test('it fails when notSelected is chosen', () => {
-      expect(validators.validateProductType({ productType: 'notSelected' }, defaultProps))
-        .toEqual({ productType: ['Required'] });
     });
   });
   describe('validateAddress', () => {

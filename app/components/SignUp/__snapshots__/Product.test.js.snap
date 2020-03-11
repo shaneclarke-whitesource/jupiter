@@ -16,7 +16,7 @@ exports[`Product it renders 1`] = `
         onChange={[Function]}
       >
         <option
-          value="notSelected"
+          value=""
         >
           -- Please Select --
         </option>

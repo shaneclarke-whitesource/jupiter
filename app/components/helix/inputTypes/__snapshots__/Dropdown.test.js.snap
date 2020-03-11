@@ -10,7 +10,7 @@ exports[`Dropdown it renders with appropriate props 1`] = `
       onChange={[MockFunction]}
     >
       <option
-        value="notSelected"
+        value=""
       >
         -- Please Select --
       </option>

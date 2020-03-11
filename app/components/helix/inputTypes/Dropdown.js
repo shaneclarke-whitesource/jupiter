@@ -22,7 +22,7 @@ const DropDown = (props) => {
           onChange={props.input.onChange}
           {...props.required ? props.required : null}
         >
-          <option value="notSelected">
+          <option value="">
             {t('common:account.product.select')}
           </option>
           {options}

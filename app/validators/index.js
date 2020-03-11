@@ -98,10 +98,6 @@ export const validateProductType = (values, { t = i18nT() }) => {
       presence: {
         allowEmpty: false,
         message: t('validation:input.required')
-      },
-      exclusion: {
-        within: ['notSelected'],
-        message: t('validation:input.required')
       }
     }
   }, { fullMessages: false });
