@@ -154,6 +154,19 @@ describe('validators', () => {
         .toEqual({ passwordValidate: ['Passwords do not match'] });
     });
   });
+
+  describe('validateProductType', () => {
+    const validateProductType = (props) => {
+      return validators.validateProductType(props, defaultProps);
+    };
+    test('it passes with valid input', () => {
+      expect(validateProductType({ productType: 'product' })).toEqual(undefined);
+    });
+    test('it fails when notSelected is chosen', () => {
+      expect(validators.validateProductType({ productType: 'notSelected' }, defaultProps))
+        .toEqual({ productType: ['Required'] });
+    });
+  });
   describe('validateAddress', () => {
     const defaultAddressProps = {
       address: {

@@ -7,49 +7,56 @@ exports[`Product it renders 1`] = `
   <h2>
     Account Product
   </h2>
-  <hx-select-control>
-    <select
-      id="product-select-popover"
-      onChange={[Function]}
-    >
-      <option
-        value="notSelected"
+  <div
+    className="Dropdown"
+  >
+    <hx-select-control>
+      <select
+        id="product-select-popover"
+        onChange={[Function]}
       >
-        -- Please Select --
-      </option>
-      <option
-        value="aws"
+        <option
+          value="notSelected"
+        >
+          -- Please Select --
+        </option>
+        <option
+          value="aws"
+        >
+          Amazon Web Services
+        </option>
+        <option
+          value="managed_gcp"
+        >
+          Google Cloud Platform
+        </option>
+        <option
+          value="azure"
+        >
+          Azure
+        </option>
+        <option
+          value="managed_vmc"
+        >
+          Virtual Managed Cloud
+        </option>
+        <option
+          value="rpc_v"
+        >
+          VMware
+        </option>
+      </select>
+      <hx-select />
+      <label
+        className="hxRequired"
+        htmlFor="product-select-popover"
       >
-        Amazon Web Services
-      </option>
-      <option
-        value="managed_gcp"
-      >
-        Google Cloud Platform
-      </option>
-      <option
-        value="azure"
-      >
-        Azure
-      </option>
-      <option
-        value="managed_vmc"
-      >
-        Virtual Managed Cloud
-      </option>
-      <option
-        value="rpc_v"
-      >
-        VMware
-      </option>
-    </select>
-    <hx-select />
-    <label
-      className="hxRequired"
-      htmlFor="product-select-popover"
-    >
-      Select Product
-    </label>
-  </hx-select-control>
+        Select Product
+      </label>
+    </hx-select-control>
+    <div
+      className="error"
+    />
+  </div>
 </div>
 `;
