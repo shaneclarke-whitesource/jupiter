@@ -27,7 +27,6 @@ describe('Product', () => {
       }
     };
     wrapper.find('option[value="aws"]').simulate('change', event);
-    expect(wrapper.find('.product').text()).toEqual('Amazon Web Services');
     expect(clearRbuMock).toHaveBeenCalledTimes(0);
   });
 
@@ -39,23 +38,6 @@ describe('Product', () => {
       }
     };
     wrapper.find('option[value="managed_gcp"]').simulate('change', event);
-    expect(wrapper.find('.product').text()).toEqual('Google Cloud Platform');
     expect(clearRbuMock).toHaveBeenCalled();
-  });
-
-  test('it shows the notSelected if formProductType is an empty string', () => {
-    const wrapper = mounted({ formProductType: '' });
-    expect(wrapper.find('.product').text()).toEqual('--');
-  });
-
-  test('it passes the an error if a product is not selected', () => {
-    const wrapper = mounted();
-    const event = {
-      target: {
-        value: 'notSelected'
-      }
-    };
-    wrapper.find('option[value="notSelected"]').simulate('change', event);
-    expect(wrapper.find('Popover').prop('error')).toBeTruthy();
   });
 });

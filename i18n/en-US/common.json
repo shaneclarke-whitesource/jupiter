@@ -7,9 +7,6 @@
       "path": "*/translation"
     }
   },
-  "account.actions.product.choose": {
-    "translation": "Choose Product"
-  },
   "account.actions.product.select": {
     "translation": "Select Product"
   },
@@ -54,9 +51,6 @@
   },
   "account.product.select": {
     "translation": "-- Please Select --"
-  },
-  "account.product.type": {
-    "translation": "Product"
   },
   "actions.basic.hide": {
     "translation": "Hide"

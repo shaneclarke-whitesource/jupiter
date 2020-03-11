@@ -7,94 +7,49 @@ exports[`Product it renders 1`] = `
   <h2>
     Account Product
   </h2>
-  <div
-    className="popover"
-  >
-    <div
-      className="hxRow"
+  <hx-select-control>
+    <select
+      id="product-select-popover"
+      onChange={[Function]}
     >
-      <div
-        className="hxCol hxSpan-3 hxOffset-1"
+      <option
+        value="notSelected"
       >
-        <span
-          className="InputField-label hxRequired customer-info-header"
-        >
-          Product
-          :
-        </span>
-      </div>
-      <div
-        className="hxCol hxSpan-4 product"
+        -- Please Select --
+      </option>
+      <option
+        value="aws"
       >
-        --
-      </div>
-      <div
-        className="hxCol hxSpan-1 hxSpan-2-xs"
+        Amazon Web Services
+      </option>
+      <option
+        value="managed_gcp"
       >
-        <hx-disclosure
-          aria-controls="product-popover"
-          class="hxBtn hxPrimary"
-        >
-          <hx-icon
-            type="pencil"
-          />
-        </hx-disclosure>
-        <hx-popover
-          id="product-popover"
-          position="right-middle"
-        >
-          <header>
-            Choose Product
-          </header>
-          <hx-div>
-            <hx-select-control>
-              <select
-                id="product-select-popover"
-                onChange={[Function]}
-              >
-                <option
-                  value="notSelected"
-                >
-                  -- Please Select --
-                </option>
-                <option
-                  value="aws"
-                >
-                  Amazon Web Services
-                </option>
-                <option
-                  value="managed_gcp"
-                >
-                  Google Cloud Platform
-                </option>
-                <option
-                  value="azure"
-                >
-                  Azure
-                </option>
-                <option
-                  value="managed_vmc"
-                >
-                  Virtual Managed Cloud
-                </option>
-                <option
-                  value="rpc_v"
-                >
-                  VMware
-                </option>
-              </select>
-              <hx-select />
-              <label
-                className="hxRequired"
-                htmlFor="product-select-popover"
-              >
-                Select Product
-              </label>
-            </hx-select-control>
-          </hx-div>
-        </hx-popover>
-      </div>
-    </div>
-  </div>
+        Google Cloud Platform
+      </option>
+      <option
+        value="azure"
+      >
+        Azure
+      </option>
+      <option
+        value="managed_vmc"
+      >
+        Virtual Managed Cloud
+      </option>
+      <option
+        value="rpc_v"
+      >
+        VMware
+      </option>
+    </select>
+    <hx-select />
+    <label
+      className="hxRequired"
+      htmlFor="product-select-popover"
+    >
+      Select Product
+    </label>
+  </hx-select-control>
 </div>
 `;

@@ -7,9 +7,6 @@
       "path": "*/translation"
     }
   },
-  "account.actions.product.choose": {
-    "translation": "製品を選択してください"
-  },
   "account.actions.product.select": {
     "translation": "製品を選択"
   },
@@ -54,9 +51,6 @@
   },
   "account.product.select": {
     "translation": "-- 選択してください --"
-  },
-  "account.product.type": {
-    "translation": "__NOT_TRANSLATED__"
   },
   "actions.basic.hide": {
     "translation": "隠す"
