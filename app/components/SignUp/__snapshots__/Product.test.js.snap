@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product it renders 1`] = `
+<div
+  className="Input-section"
+>
+  <h2>
+    Account Product
+  </h2>
+  <div
+    className="Dropdown"
+  >
+    <hx-select-control>
+      <select
+        id="product-select-popover"
+        onChange={[Function]}
+      >
+        <option
+          value=""
+        >
+          -- Please Select --
+        </option>
+        <option
+          value="aws"
+        >
+          Amazon Web Services
+        </option>
+        <option
+          value="managed_gcp"
+        >
+          Google Cloud Platform
+        </option>
+        <option
+          value="azure"
+        >
+          Azure
+        </option>
+        <option
+          value="managed_vmc"
+        >
+          Virtual Managed Cloud
+        </option>
+        <option
+          value="rpc_v"
+        >
+          VMware
+        </option>
+      </select>
+      <hx-select />
+      <label
+        className="hxRequired"
+        htmlFor="product-select-popover"
+      >
+        Select Product
+      </label>
+    </hx-select-control>
+    <div
+      className="error"
+    />
+  </div>
+</div>
+`;

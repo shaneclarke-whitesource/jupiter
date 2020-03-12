@@ -24,7 +24,8 @@ describe('validators', () => {
           state: 'CO',
           city: 'Leaf City',
           zipcode: '12345'
-        }
+        },
+        productType: 'product'
       }
     };
     test('it passes if all values are valid', () => {
@@ -152,6 +153,18 @@ describe('validators', () => {
       };
       expect(validatePasswords(invalid))
         .toEqual({ passwordValidate: ['Passwords do not match'] });
+    });
+  });
+
+  describe('validateProductType', () => {
+    const validateProductType = (props) => {
+      return validators.validateProductType(props, defaultProps);
+    };
+    test('it passes with valid input', () => {
+      expect(validateProductType({ productType: 'product' })).toEqual(undefined);
+    });
+    test('it fails with empty input', () => {
+      expect(validateProductType({ productType: '' })).toEqual({ productType: ['Required'] });
     });
   });
   describe('validateAddress', () => {

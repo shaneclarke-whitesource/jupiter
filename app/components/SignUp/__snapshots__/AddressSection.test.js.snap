@@ -4,9 +4,9 @@ exports[`AddressSection it renders 1`] = `
 <div
   className="Input-section"
 >
-  <h2>
+  <h3>
     Address
-  </h2>
+  </h3>
   <div>
     <div
       className=" InputField"

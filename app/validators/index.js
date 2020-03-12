@@ -92,6 +92,17 @@ export const validatePhoneNumber = (values, { t = i18nT() }) => {
   return errors;
 };
 
+export const validateProductType = (values, { t = i18nT() }) => {
+  return validate(values, {
+    productType: {
+      presence: {
+        allowEmpty: false,
+        message: t('validation:input.required')
+      }
+    }
+  }, { fullMessages: false });
+};
+
 export const validateAddress = (values, { t = i18nT() }) => {
   translateDefaultValidators(t);
   const address = _.get(values, 'address', {});
@@ -197,7 +208,8 @@ export const validateUser = (values, { t = i18nT() }) => {
       ...validateEmail(userInfo, t),
       ...validatePassword(userInfo, t),
       ...validatePhoneNumber(userInfo, t),
-      ...validateAddress(userInfo, t)
+      ...validateAddress(userInfo, t),
+      ...validateProductType(userInfo, t)
     }
   };
 };

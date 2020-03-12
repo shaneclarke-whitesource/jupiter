@@ -28,15 +28,10 @@ export class CustomerType extends React.Component {
   };
 
   render() {
-    const { t } = this.props;
+    const { t, productType } = this.props;
     return (
-      <div className="customer-type-section">
+      <div className="CustomerType-section">
         <div className="hxRow">
-          <div className="hxCol hxSpan-4 hxOffset-1">
-            <span className="InputField-label customer-info-header hxRequired">
-              {t('common:account.customer.type')}
-            </span>
-          </div>
           <div className="hxCol hxSpan-6">
             <Field
               name="isRbu"
@@ -45,6 +40,7 @@ export class CustomerType extends React.Component {
               id="customer-type"
               component={Checkbox}
               onChange={this.handleChange}
+              disabled={productType !== 'aws'}
             />
           </div>
         </div>
@@ -55,13 +51,15 @@ export class CustomerType extends React.Component {
 
 CustomerType.propTypes = {
   t: PropTypes.func.isRequired,
-  setAddress: PropTypes.func
+  setAddress: PropTypes.func,
+  productType: PropTypes.string
 };
 
 const mapStateToProps = (state) => {
   return {
     country: formValueSelector('signUp')(state, 'userInfo.address.country'),
-    stateSelected: formValueSelector('signUp')(state, 'userInfo.address.state')
+    stateSelected: formValueSelector('signUp')(state, 'userInfo.address.state'),
+    productType: formValueSelector('signUp')(state, 'userInfo.productType')
   };
 };
 

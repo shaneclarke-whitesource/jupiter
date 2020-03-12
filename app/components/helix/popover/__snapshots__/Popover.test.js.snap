@@ -8,7 +8,7 @@ exports[`Popover it renders correct props 1`] = `
     className="hxRow"
   >
     <div
-      className="hxCol hxSpan-4 hxOffset-1"
+      className="hxCol hxSpan-3 hxOffset-1"
     >
       <span
         className="InputField-label "
@@ -18,7 +18,7 @@ exports[`Popover it renders correct props 1`] = `
       </span>
     </div>
     <div
-      className="hxCol hxSpan-3 product"
+      className="hxCol hxSpan-4 product"
     />
     <div
       className="hxCol hxSpan-1 hxSpan-2-xs"

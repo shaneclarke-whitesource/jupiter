@@ -7,9 +7,6 @@
       "path": "*/translation"
     }
   },
-  "account.actions.product.choose": {
-    "translation": "製品を選択してください"
-  },
   "account.actions.product.select": {
     "translation": "製品を選択"
   },
@@ -19,38 +16,38 @@
   "account.customer.isRbu": {
     "translation": "これはRBUのお客様向けですか？"
   },
-  "account.customer.type": {
-    "translation": "顧客"
-  },
   "account.header.address": {
     "translation": "住所"
   },
   "account.header.userInfo": {
     "translation": "ユーザー情報"
   },
-  "account.product.aviator": {
-    "translation": "Aviator"
+  "account.product.aws": {
+    "translation": "Amazon Web Services"
+  },
+  "account.product.azure": {
+    "translation": "Azure"
   },
   "account.product.header": {
     "translation": "アカウント製品"
   },
-  "account.product.navigator": {
-    "translation": "Navigator"
+  "account.product.managed_gcp": {
+    "translation": "Google Cloud Platform"
+  },
+  "account.product.managed_vmc": {
+    "translation": "仮想マネージドクラウド"
   },
   "account.product.none": {
     "translation": "なし"
   },
-  "account.product.purchasingArchitectAndDeploy": {
-    "translation": "顧客はArchitect & Deployを購入していますか？"
+  "account.product.notSelected": {
+    "translation": "--"
   },
-  "account.product.purchasingManageAndOperate": {
-    "translation": "顧客はManage & Operateを購入していますか？"
+  "account.product.rpc_v": {
+    "translation": "VMware"
   },
   "account.product.select": {
     "translation": "-- 選択してください --"
-  },
-  "account.product.serviceBlocks": {
-    "translation": "Service Blocks"
   },
   "actions.basic.hide": {
     "translation": "隠す"
@@ -71,7 +68,7 @@
     "translation": "ユーザー名を作成する"
   },
   "actions.generate.username": {
-    "translation": "__NOT_TRANSLATED__"
+    "translation": "姓または名が変更されると、新しいユーザー名が自動的に生成されます。"
   },
   "common.status.ok": {
     "translation": "OK"

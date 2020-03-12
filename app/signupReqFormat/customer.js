@@ -41,6 +41,7 @@ export const CUSTOMER_SIGNUP_REQUEST = {
   'promoCode': '788',
   'vatCode': 'GB0177282',
   'defaultRegion': 'SYD',
+  'externalId': 'MANAGED_GCP',
   'serviceLevel': 'MANAGED',
   'paymentMethod': {
     'paymentInfo': {

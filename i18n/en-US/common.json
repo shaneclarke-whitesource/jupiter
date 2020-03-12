@@ -7,9 +7,6 @@
       "path": "*/translation"
     }
   },
-  "account.actions.product.choose": {
-    "translation": "Choose Product"
-  },
   "account.actions.product.select": {
     "translation": "Select Product"
   },
@@ -19,38 +16,38 @@
   "account.customer.isRbu": {
     "translation": "Is this for an RBU customer?"
   },
-  "account.customer.type": {
-    "translation": "Customer"
-  },
   "account.header.address": {
     "translation": "Address"
   },
   "account.header.userInfo": {
     "translation": "User Information"
   },
-  "account.product.aviator": {
-    "translation": "Aviator"
+  "account.product.aws": {
+    "translation": "Amazon Web Services"
+  },
+  "account.product.azure": {
+    "translation": "Azure"
   },
   "account.product.header": {
     "translation": "Account Product"
   },
-  "account.product.navigator": {
-    "translation": "Navigator"
+  "account.product.managed_gcp": {
+    "translation": "Google Cloud Platform"
+  },
+  "account.product.managed_vmc": {
+    "translation": "Virtual Managed Cloud"
   },
   "account.product.none": {
     "translation": "None"
   },
-  "account.product.purchasingArchitectAndDeploy": {
-    "translation": "Is customer purchasing Architect & Deploy?"
+  "account.product.notSelected": {
+    "translation": "--"
   },
-  "account.product.purchasingManageAndOperate": {
-    "translation": "Is customer purchasing Manage & Operate?"
+  "account.product.rpc_v": {
+    "translation": "VMware"
   },
   "account.product.select": {
     "translation": "-- Please Select --"
-  },
-  "account.product.serviceBlocks": {
-    "translation": "Service Blocks"
   },
   "actions.basic.hide": {
     "translation": "Hide"
