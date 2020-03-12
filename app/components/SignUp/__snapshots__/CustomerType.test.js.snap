@@ -2,20 +2,11 @@
 
 exports[`CustomerType it renders 1`] = `
 <div
-  className="customer-type-section"
+  className="CustomerType-section"
 >
   <div
     className="hxRow"
   >
-    <div
-      className="hxCol hxSpan-4 hxOffset-1"
-    >
-      <span
-        className="InputField-label customer-info-header"
-      >
-        Customer
-      </span>
-    </div>
     <div
       className="hxCol hxSpan-6"
     >

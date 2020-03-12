@@ -16,9 +16,6 @@
   "account.customer.isRbu": {
     "translation": "Is this for an RBU customer?"
   },
-  "account.customer.type": {
-    "translation": "Customer"
-  },
   "account.header.address": {
     "translation": "Address"
   },
