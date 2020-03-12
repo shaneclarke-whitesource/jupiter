@@ -12,7 +12,7 @@ export class AddressSection extends React.Component {
     const { t, country } = this.props;
     return (
       <div className="Input-section">
-        <h2>{t('common:account.header.address')}</h2>
+        <h3>{t('common:account.header.address')}</h3>
         <FormSection name="address">
           <Field
             name="city"

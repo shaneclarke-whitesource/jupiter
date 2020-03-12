@@ -89,11 +89,11 @@ export class SignUpForm extends React.Component {
               <UserInfo />
               <hr />
               <Product />
+              <hr />
               <h2>{t('common:account.customer.info')}</h2>
               <FormSection name="customerType">
                 <CustomerType />
               </FormSection>
-              <hr />
               <AddressSection />
             </FormSection>
           </div>
