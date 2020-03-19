@@ -10,16 +10,22 @@ import UserName from './UserName';
 import { checkUsername } from '../../actions/checkUsername';
 
 export class UserInfo extends React.Component {
+  componentDidUpdate(prevProps) {
+    if (this.props.firstName && this.props.lastName) {
+      if (this.props.firstName !== prevProps.firstName || this.props.lastName !== prevProps.lastName) {
+        this.generateUsername();
+      }
+    }
+  }
+
   generateUsername = () => {
     const { firstName, lastName, checkIfExists } = this.props;
     // combine their first name, last name and generate some random string suffix
-    if (firstName && lastName) {
-      const first = firstName.trim().substring(0, 2);
-      const last = lastName.trim().substring(0, 2);
-      const suffix = (Math.random() + 1).toString().slice(2).substring(0, 4);
-      const concatUsername = `${(`${first}${last}`).toLowerCase()}.${suffix}`;
-      checkIfExists(concatUsername);
-    }
+    const first = firstName.trim().substring(0, 2);
+    const last = lastName.trim().substring(0, 2);
+    const suffix = (Math.random() + 1).toString().slice(2).substring(0, 4);
+    const concatUsername = `${(`${first}${last}`).toLowerCase()}.${suffix}`;
+    checkIfExists(concatUsername);
   };
 
   render() {
@@ -31,7 +37,6 @@ export class UserInfo extends React.Component {
           <div className="hxCol hxSpan-6">
             <Field
               name="firstName"
-              onBlur={this.generateUsername}
               component={Input}
               type="text"
               label={t('common:user.details.firstName')}
@@ -41,7 +46,6 @@ export class UserInfo extends React.Component {
           <div className="hxCol hxSpan-6">
             <Field
               name="lastName"
-              onBlur={this.generateUsername}
               component={Input}
               type="text"
               label={t('common:user.details.lastName')}

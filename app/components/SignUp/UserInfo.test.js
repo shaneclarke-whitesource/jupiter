@@ -7,8 +7,8 @@ describe('UserInfo', () => {
   const checkIfExistsMock = jest.fn();
   const defaultProps = {
     checkIfExists: checkIfExistsMock,
-    firstName: 'John',
-    lastName: 'Doe',
+    firstName: '',
+    lastName: '',
     t
   };
   beforeEach(() => {
@@ -39,23 +39,12 @@ describe('UserInfo', () => {
 
   test('username must grab only first two characters of firstName and lastName', () => {
     global.Math.random = () => '314315654';
-    const field = wrapper.find('Field').at(0);
-    expect(checkIfExistsMock).toBeCalledTimes(0);
-    field.simulate('blur');
-    expect(checkIfExistsMock).toBeCalledWith('jodo.4315');
+    wrapper.setProps({ firstName: 'John', lastName: 'Doe' });
+    expect(wrapper.instance().props.checkIfExists).toBeCalledWith('jodo.4315');
   });
 
-  test('it invokes checkIfExists when onBlur is invoked on firstName field', () => {
-    const field = wrapper.find('Field').at(0);
-    expect(checkIfExistsMock).toBeCalledTimes(0);
-    field.simulate('blur');
-    expect(checkIfExistsMock).toBeCalledTimes(1);
-  });
-
-  test('it invokes checkIfExists when onBlur is invoked on lastName field', () => {
-    const field = wrapper.find('Field').at(1);
-    expect(checkIfExistsMock).toBeCalledTimes(0);
-    field.simulate('blur');
-    expect(checkIfExistsMock).toBeCalledTimes(1);
+  test('setUsername to be called on props update', () => {
+    wrapper.setProps({ firstName: 'John', lastName: 'Doe' });
+    expect(wrapper.instance().props.checkIfExists).toHaveBeenCalled();
   });
 });

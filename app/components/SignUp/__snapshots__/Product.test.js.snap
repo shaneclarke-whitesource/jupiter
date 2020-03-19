@@ -43,7 +43,7 @@ exports[`Product it renders 1`] = `
         <option
           value="rpc_v"
         >
-          VMware
+          RPC_V
         </option>
       </select>
       <hx-select />
