@@ -23,19 +23,19 @@
     "translation": "ユーザー情報"
   },
   "account.product.aws": {
-    "translation": "Amazon Web Services"
+    "translation": "__NOT_TRANSLATED__"
   },
   "account.product.azure": {
-    "translation": "Azure"
+    "translation": "__NOT_TRANSLATED__"
   },
   "account.product.header": {
     "translation": "アカウント製品"
   },
   "account.product.managed_gcp": {
-    "translation": "Google Cloud Platform"
+    "translation": "__NOT_TRANSLATED__"
   },
   "account.product.managed_vmc": {
-    "translation": "仮想マネージドクラウド"
+    "translation": "__NOT_TRANSLATED__"
   },
   "account.product.none": {
     "translation": "なし"
@@ -44,7 +44,7 @@
     "translation": "--"
   },
   "account.product.rpc_v": {
-    "translation": "VMware"
+    "translation": "__NOT_TRANSLATED__"
   },
   "account.product.select": {
     "translation": "-- 選択してください --"
