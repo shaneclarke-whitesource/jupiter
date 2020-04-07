@@ -33,6 +33,9 @@ yarn test -- "SomeTestFile"
 # or
 yarn test -f "SomeTestFile" -t "test description" 
 ```
+### Dependencies
+Node v12.16.1
+
 
 ### Helpful Links
 
