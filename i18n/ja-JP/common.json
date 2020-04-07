@@ -22,20 +22,20 @@
   "account.header.userInfo" : {
     "translation" : "ユーザー情報"
   },
-  "account.product.aws" : {
-    "translation" : "Amazon Web Services"
+  "account.product.aws": {
+    "translation": "マネージドAWS"
   },
-  "account.product.azure" : {
-    "translation" : "Azure"
+  "account.product.azure": {
+    "translation": "マネージドAzureクラウド"
   },
   "account.product.header" : {
     "translation" : "アカウント製品"
   },
-  "account.product.managed_gcp" : {
-    "translation" : "Google Cloud Platform"
+  "account.product.managed_gcp": {
+    "translation": "マネージドGoogle Cloud"
   },
-  "account.product.managed_vmc" : {
-    "translation" : "仮想マネージドクラウド"
+  "account.product.managed_vmc": {
+    "translation": "マネージドVMware Cloud on AWS"
   },
   "account.product.none" : {
     "translation" : "なし"
@@ -43,8 +43,8 @@
   "account.product.notSelected" : {
     "translation" : "--"
   },
-  "account.product.rpc_v" : {
-    "translation" : "RPC_V"
+  "account.product.rpc_v": {
+    "translation": "Rackspace Private Cloud - VMware"
   },
   "account.product.select" : {
     "translation" : "-- 選択してください --"

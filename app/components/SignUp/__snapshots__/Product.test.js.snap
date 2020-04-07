@@ -23,27 +23,27 @@ exports[`Product it renders 1`] = `
         <option
           value="aws"
         >
-          Amazon Web Services
+          Managed AWS
         </option>
         <option
           value="managed_gcp"
         >
-          Google Cloud Platform
+          Managed Google Cloud
         </option>
         <option
           value="azure"
         >
-          Azure
+          Managed Azure Cloud
         </option>
         <option
           value="managed_vmc"
         >
-          Virtual Managed Cloud
+          Managed VMware Cloud on AWS
         </option>
         <option
           value="rpc_v"
         >
-          RPC_V
+          Rackspace Private Cloud - VMware
         </option>
       </select>
       <hx-select />
