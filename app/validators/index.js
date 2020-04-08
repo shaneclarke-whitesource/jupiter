@@ -219,14 +219,14 @@ export const validateUser = (values, { t = i18nT() }) => {
   };
 };
 
-const checkUsername = (username, t) => {
+export const checkUsername = (username, t) => {
   const endpoint = 'cloud-username-check';
   return new Promise((resolve, reject) => {
     if (username.includes('%')) {
       // eslint-disable-next-line prefer-promise-reject-errors
       reject({ userInfo: { username: [t('validation:username.symbolRestriction')] } });
     } else {
-      callSignup(username, endpoint, 'username')
+      callSignup({ username }, endpoint)
         .then((response) => {
           if (response.data.exist) {
             // eslint-disable-next-line prefer-promise-reject-errors
@@ -238,10 +238,11 @@ const checkUsername = (username, t) => {
     }
   });
 };
-const checkPassword = async (password, t) => {
+
+export const checkPassword = (password, t) => {
   const endpoint = 'validation/password';
   return new Promise((resolve, reject) => {
-    postSignup({ password }, endpoint)
+    return postSignup({ password }, endpoint)
       .then((response) => {
         if (response.data.valid && response.data.blacklistCheck === 'FAILED') {
           // eslint-disable-next-line prefer-promise-reject-errors

@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-export const callSignup = (params, endpoint, key) => {
+export const callSignup = (params, endpoint) => {
   return axios.get(
     `/api/signup/v1/${endpoint}`,
     {
-      params: { username: params },
+      params: { ...params },
       headers: {
         'Access-Control-Allow-Credentials': true,
         'Accept': 'application/json',

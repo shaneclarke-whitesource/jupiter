@@ -15,9 +15,6 @@ module.exports = {
   testPathIgnorePatterns: [
     '/node_modules/'
   ],
-  transformIgnorePatterns: [
-    '/node_modules/'
-  ],
   unmockedModulePathPatterns: [
     'node_modules/react/',
     'node_modules/enzyme/'

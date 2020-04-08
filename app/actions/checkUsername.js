@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { callSignup } from './signupAxiosActions';
 
 export const CHECK_USERNAME_PENDING = 'CHECK_USERNAME_PENDING';
 export const CHECK_USERNAME_SUCCESS = 'CHECK_USERNAME_SUCCESS';
@@ -29,25 +29,11 @@ export const checkUsernameFailure = (username, errorResponse) => {
   };
 };
 
-export const callUsernameCheck = (username) => {
-  return axios.get(
-    '/api/signup/v1/cloud-username-check',
-    {
-      params: { username },
-      headers: {
-        'Access-Control-Allow-Credentials': true,
-        'Accept': 'application/json',
-        'Content-Type': 'application/json; charset=UTF-8'
-      },
-      withCredentials: true
-    }
-  );
-};
-
 export function checkUsername(username) {
+  const endpoint = 'cloud-username-check';
   return (dispatch) => {
     dispatch(checkUsernamePending());
-    return callUsernameCheck(username)
+    return callSignup({ username }, endpoint)
       .then((response) => {
         dispatch(checkUsernameSuccess(username, response.data.exist));
       })
