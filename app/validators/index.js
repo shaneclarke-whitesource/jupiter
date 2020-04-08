@@ -1,7 +1,7 @@
 import i18n from '../i18n';
 import _ from 'lodash';
 import validate from 'validate.js';
-import { callUsernameCheck } from '../actions/checkUsername';
+import { callSignup, postSignup } from '../actions/signupAxiosActions';
 
 function translateDefaultValidators(t) {
   validate.validators.presence.message = t('validation:input.required');
@@ -49,6 +49,11 @@ export const validatePassword = (values, { t = i18nT() }) => {
         minimum: 8,
         tooShort: t('validation:input.minLength', {
           content: 'Password',
+          characterCount: '%{count}'
+        }),
+        maximum: 100,
+        tooLong: t('validation:input.maxLength', {
+          content: undefined,
           characterCount: '%{count}'
         })
       },
@@ -214,14 +219,14 @@ export const validateUser = (values, { t = i18nT() }) => {
   };
 };
 
-export const asyncValidate = (values, dispatch, { t = i18nT() }) => {
-  const { username } = values.userInfo;
+const checkUsername = (username, t) => {
+  const endpoint = 'cloud-username-check';
   return new Promise((resolve, reject) => {
     if (username.includes('%')) {
       // eslint-disable-next-line prefer-promise-reject-errors
       reject({ userInfo: { username: [t('validation:username.symbolRestriction')] } });
     } else {
-      callUsernameCheck(username)
+      callSignup(username, endpoint, 'username')
         .then((response) => {
           if (response.data.exist) {
             // eslint-disable-next-line prefer-promise-reject-errors
@@ -232,4 +237,24 @@ export const asyncValidate = (values, dispatch, { t = i18nT() }) => {
         });
     }
   });
+};
+const checkPassword = async (password, t) => {
+  const endpoint = 'validation/password';
+  return new Promise((resolve, reject) => {
+    postSignup({ password }, endpoint)
+      .then((response) => {
+        if (response.data.valid && response.data.blacklistCheck === 'FAILED') {
+          // eslint-disable-next-line prefer-promise-reject-errors
+          reject({ userInfo: { password: [t('validation:password.notComplicated')] } });
+        } else {
+          resolve();
+        }
+      });
+  });
+};
+
+
+export const asyncValidate = (values, dispatch, { t = i18nT() }) => {
+  const { username, password } = values.userInfo;
+  return username ? checkUsername(username, t) : checkPassword(password, t);
 };

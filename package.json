@@ -7,7 +7,8 @@
   "repository": "git@github.com:racker/jupiter.git",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.dev.js --watch",
+    "watch": "webpack-dev-server --config ./webpack.dev.js --watch --staging",
+    "start": "webpack-dev-server --config ./webpack.dev.js --watch --prod",
     "build": "webpack --config ./webpack.prod.js",
     "test": "jest",
     "test:coverage": "jest --coverage",
