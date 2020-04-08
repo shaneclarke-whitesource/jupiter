@@ -242,7 +242,7 @@ export const checkUsername = (username, t) => {
 export const checkPassword = (password, t) => {
   const endpoint = 'validation/password';
   return new Promise((resolve, reject) => {
-    return postSignup({ password }, endpoint)
+    postSignup({ password }, endpoint)
       .then((response) => {
         if (response.data.valid && response.data.blacklistCheck === 'FAILED') {
           // eslint-disable-next-line prefer-promise-reject-errors
