@@ -26,7 +26,7 @@ export class UserInfo extends React.Component {
     const suffix = (Math.random() + 1).toString().slice(2).substring(0, 4);
     const concatUsername = `${(`${first}${last}`).toLowerCase()}.${suffix}`;
     checkIfExists(concatUsername);
-  };
+  }
 
   render() {
     const { t } = this.props;
