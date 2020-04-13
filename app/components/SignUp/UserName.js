@@ -37,7 +37,6 @@ export class UserName extends React.Component {
         <Field
           name="username"
           component={Input}
-          // onBlur={this.debounceOnBlur}
           tooltip={tooltip}
           type="text"
           label={t('common:actions.create.username')}
