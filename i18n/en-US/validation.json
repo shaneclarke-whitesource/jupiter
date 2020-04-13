@@ -1,61 +1,61 @@
 {
-  "smartling": {
-    "string_format": "icu",
-    "translate_paths": {
-      "instruction": "*/instruction",
-      "key": "{*}/translation",
-      "path": "*/translation"
+  "smartling" : {
+    "string_format" : "icu",
+    "translate_paths" : {
+      "instruction" : "*/instruction",
+      "key" : "{*}/translation",
+      "path" : "*/translation"
     }
   },
-  "email.invalidFormat": {
-    "translation": "Email domain must be in valid format"
+  "email.invalidFormat" : {
+    "translation" : "Email domain must be in valid format"
   },
-  "error.create.password": {
-    "translation": "Invalid Password. Please try using a more secure password."
+  "error.create.password" : {
+    "translation" : "Invalid Password. Please try using a more secure password."
   },
-  "error.create.processing": {
-    "translation": "There was an error processing your request: {errorMsg}"
+  "error.create.processing" : {
+    "translation" : "There was an error processing your request: {errorMsg}"
   },
-  "error.create.userExists": {
-    "translation": "The username {username} is already taken. Please try a different one."
+  "error.create.userExists" : {
+    "translation" : "The username {username} is already taken. Please try a different one."
   },
-  "error.header": {
-    "translation": "Error"
+  "error.header" : {
+    "translation" : "Error"
   },
-  "error.notAuthorized": {
-    "translation": "Not Authorized"
+  "error.notAuthorized" : {
+    "translation" : "Not Authorized"
   },
-  "error.serverError": {
-    "translation": "Error connecting to server"
+  "error.serverError" : {
+    "translation" : "Error connecting to server"
   },
-  "input.lessOrEqual": {
-    "translation": "{content} must be less than or equal to {characterCount} characters long"
+  "input.lessOrEqual" : {
+    "translation" : "{content} must be less than or equal to {characterCount} characters long"
   },
-  "input.maxLength": {
-    "translation": "{content, select, undefined{Must} other {{content} must} } be less than {characterCount} characters long"
+  "input.maxLength" : {
+    "translation" : "{content, select, undefined{Must} other {{content} must} } be less than {characterCount} characters long"
   },
-  "input.minLength": {
-    "translation": "{content} must be at least {characterCount} characters long"
+  "input.minLength" : {
+    "translation" : "{content} must be at least {characterCount} characters long"
   },
-  "input.required": {
-    "translation": "Required"
+  "input.required" : {
+    "translation" : "Required"
   },
-  "password.allowedSpecialChars": {
-    "translation": "Special characters can be any of the following: <br/> <0>@ $ ! % * # ? &</0>"
+  "password.allowedSpecialChars" : {
+    "translation" : "Special characters can be any of the following: <br/> <0>@ $ ! % * # ? &</0>"
   },
-  "password.charRestrictions": {
-    "translation": "Password must contain at least one uppercase letter, one numeric digit, and one special character."
+  "password.charRestrictions" : {
+    "translation" : "Password must contain at least one uppercase letter, one numeric digit, and one special character."
   },
-  "password.mustMatch": {
-    "translation": "Passwords do not match"
+  "password.mustMatch" : {
+    "translation" : "Passwords do not match"
   },
-  "phone.mustBeAValidNumber": {
-    "translation": "Must be a valid phone number"
+  "phone.mustBeAValidNumber" : {
+    "translation" : "Must be a valid phone number"
   },
-  "username.exists": {
-    "translation": "This username already exists. Please choose another one."
+  "username.exists" : {
+    "translation" : "This username already exists. Please choose another one."
   },
-  "username.symbolRestriction": {
-    "translation": "Username must not include these special character: %"
+  "username.symbolRestriction" : {
+    "translation" : "Username must not include these special character: %"
   }
 }

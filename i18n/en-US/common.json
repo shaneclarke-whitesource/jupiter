@@ -1,130 +1,130 @@
 {
-  "smartling": {
-    "string_format": "icu",
-    "translate_paths": {
-      "instruction": "*/instruction",
-      "key": "{*}/translation",
-      "path": "*/translation"
+  "smartling" : {
+    "string_format" : "icu",
+    "translate_paths" : {
+      "instruction" : "*/instruction",
+      "key" : "{*}/translation",
+      "path" : "*/translation"
     }
   },
-  "account.actions.product.select": {
-    "translation": "Select Product"
+  "account.actions.product.select" : {
+    "translation" : "Select Product"
   },
-  "account.customer.info": {
-    "translation": "Customer Information"
+  "account.customer.info" : {
+    "translation" : "Customer Information"
   },
-  "account.customer.isRbu": {
-    "translation": "Is this for an RBU customer?"
+  "account.customer.isRbu" : {
+    "translation" : "Is this for an RBU customer?"
   },
-  "account.header.address": {
-    "translation": "Address"
+  "account.header.address" : {
+    "translation" : "Address"
   },
-  "account.header.userInfo": {
-    "translation": "User Information"
+  "account.header.userInfo" : {
+    "translation" : "User Information"
   },
-  "account.product.aws": {
-    "translation": "Managed AWS"
+  "account.product.aws" : {
+    "translation" : "Managed AWS"
   },
-  "account.product.azure": {
-    "translation": "Managed Azure Cloud"
+  "account.product.azure" : {
+    "translation" : "Managed Azure Cloud"
   },
-  "account.product.header": {
-    "translation": "Account Product"
+  "account.product.header" : {
+    "translation" : "Account Product"
   },
-  "account.product.managed_gcp": {
-    "translation": "Managed Google Cloud"
+  "account.product.managed_gcp" : {
+    "translation" : "Managed Google Cloud"
   },
-  "account.product.managed_vmc": {
-    "translation": "Managed VMware Cloud on AWS"
+  "account.product.managed_vmc" : {
+    "translation" : "Managed VMware Cloud on AWS"
   },
-  "account.product.none": {
-    "translation": "None"
+  "account.product.none" : {
+    "translation" : "None"
   },
-  "account.product.notSelected": {
-    "translation": "--"
+  "account.product.notSelected" : {
+    "translation" : "--"
   },
-  "account.product.rpc_v": {
-    "translation": "Rackspace Private Cloud - VMware"
+  "account.product.rpc_v" : {
+    "translation" : "Rackspace Private Cloud - VMware"
   },
-  "account.product.select": {
-    "translation": "-- Please Select --"
+  "account.product.select" : {
+    "translation" : "-- Please Select --"
   },
-  "actions.basic.hide": {
-    "translation": "Hide"
+  "actions.basic.hide" : {
+    "translation" : "Hide"
   },
-  "actions.basic.show": {
-    "translation": "Show"
+  "actions.basic.show" : {
+    "translation" : "Show"
   },
-  "actions.basic.submit": {
-    "translation": "Submit"
+  "actions.basic.submit" : {
+    "translation" : "Submit"
   },
-  "actions.confirm.password": {
-    "translation": "Confirm Password"
+  "actions.confirm.password" : {
+    "translation" : "Confirm Password"
   },
-  "actions.create.password": {
-    "translation": "Create Password"
+  "actions.create.password" : {
+    "translation" : "Create Password"
   },
-  "actions.create.username": {
-    "translation": "Create Username"
+  "actions.create.username" : {
+    "translation" : "Create Username"
   },
-  "actions.generate.username": {
-    "translation": "If your first name or last name is changed, a new username will be automatically generated for you."
+  "actions.generate.username" : {
+    "translation" : "If your first name or last name is changed, a new username will be automatically generated for you."
   },
-  "common.status.ok": {
-    "translation": "OK"
+  "common.status.ok" : {
+    "translation" : "OK"
   },
-  "create.status.success": {
-    "translation": "Success!"
+  "create.status.success" : {
+    "translation" : "Success!"
   },
-  "create.status.success.message": {
-    "translation": "User {username} has been created in account {accountname} with a domain ID of {ddi}."
+  "create.status.success.message" : {
+    "translation" : "User {username} has been created in account {accountname} with a domain ID of {ddi}."
   },
-  "footer.content.company": {
-    "translation": "{year} Rackspace US, Inc."
+  "footer.content.company" : {
+    "translation" : "{year} Rackspace US, Inc."
   },
-  "footer.content.policy": {
-    "translation": "Privacy Policy"
+  "footer.content.policy" : {
+    "translation" : "Privacy Policy"
   },
-  "footer.content.terms": {
-    "translation": "Website Terms"
+  "footer.content.terms" : {
+    "translation" : "Website Terms"
   },
-  "headers.main.signUp": {
-    "translation": "Rackspace Invoice Sign Up"
+  "headers.main.signUp" : {
+    "translation" : "Rackspace Invoice Sign Up"
   },
-  "signUp.headers.main": {
-    "translation": "Sign Up for Rackspace Invoice Cart"
+  "signUp.headers.main" : {
+    "translation" : "Sign Up for Rackspace Invoice Cart"
   },
-  "user.details.accountName": {
-    "translation": "Create Account Name"
+  "user.details.accountName" : {
+    "translation" : "Create Account Name"
   },
-  "user.details.email": {
-    "translation": "Email Address"
+  "user.details.email" : {
+    "translation" : "Email Address"
   },
-  "user.details.firstName": {
-    "translation": "First Name"
+  "user.details.firstName" : {
+    "translation" : "First Name"
   },
-  "user.details.lastName": {
-    "translation": "Last Name"
+  "user.details.lastName" : {
+    "translation" : "Last Name"
   },
-  "user.details.phoneNumber": {
-    "translation": "Phone Number"
+  "user.details.phoneNumber" : {
+    "translation" : "Phone Number"
   },
-  "user.details.title": {
-    "translation": "Title (optional)"
+  "user.details.title" : {
+    "translation" : "Title (optional)"
   },
-  "user.location.city": {
-    "translation": "City"
+  "user.location.city" : {
+    "translation" : "City"
   },
-  "user.location.country": {
-    "translation": "Country"
+  "user.location.country" : {
+    "translation" : "Country"
   },
-  "user.location.state": {
-    "translation": "State"
+  "user.location.state" : {
+    "translation" : "State"
   },
-  "user.location.street": {
-    "translation": "Street"
+  "user.location.street" : {
+    "translation" : "Street"
   },
-  "user.location.zipcode": {
-    "translation": "Zipcode"
+  "user.location.zipcode" : {
+    "translation" : "Zipcode"
   }
 }
