@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Field, formValueSelector } from 'redux-form';
+import _ from 'lodash';
 import { withTranslation } from 'react-i18next';
 import Input from '../helix/inputTypes/Input';
 import PhoneField from '../helix/inputTypes/PhoneField';
@@ -10,15 +11,7 @@ import UserName from './UserName';
 import { checkUsername } from '../../actions/checkUsername';
 
 export class UserInfo extends React.Component {
-  componentDidUpdate(prevProps) {
-    if (this.props.firstName && this.props.lastName) {
-      if (this.props.firstName !== prevProps.firstName || this.props.lastName !== prevProps.lastName) {
-        this.generateUsername();
-      }
-    }
-  }
-
-  generateUsername = () => {
+  generateUsername = _.debounce(() => {
     const { firstName, lastName, checkIfExists } = this.props;
     // combine their first name, last name and generate some random string suffix
     const first = firstName.trim().substring(0, 2);
@@ -26,6 +19,14 @@ export class UserInfo extends React.Component {
     const suffix = (Math.random() + 1).toString().slice(2).substring(0, 4);
     const concatUsername = `${(`${first}${last}`).toLowerCase()}.${suffix}`;
     checkIfExists(concatUsername);
+  }, 100);
+
+  componentDidUpdate(prevProps) {
+    if (this.props.firstName && this.props.lastName) {
+      if (this.props.firstName !== prevProps.firstName || this.props.lastName !== prevProps.lastName) {
+        this.generateUsername();
+      }
+    }
   }
 
   render() {

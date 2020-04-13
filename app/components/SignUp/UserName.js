@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { change, Field, getFormSyncErrors } from 'redux-form';
 import { withTranslation } from 'react-i18next';
-import { checkUsername } from '../../actions/checkUsername';
 import Input from '../helix/inputTypes/Input';
 import Tooltip from '../helix/Tooltip';
 
@@ -27,6 +26,10 @@ export class UserName extends React.Component {
     }
   };
 
+  debounceOnBlur = (e) => {
+    e.preventDefault();
+  }
+
 
   render() {
     const { t, syncErrors: { userInfo }, username } = this.props;
@@ -39,6 +42,7 @@ export class UserName extends React.Component {
         <Field
           name="username"
           component={Input}
+          // onBlur={this.debounceOnBlur}
           tooltip={tooltip}
           type="text"
           label={t('common:actions.create.username')}
@@ -79,9 +83,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setUsername: (username) => {
       dispatch(change('signUp', 'userInfo.username', username));
-    },
-    checkIfExists: (username) => {
-      dispatch(checkUsername(username));
     }
   };
 };
