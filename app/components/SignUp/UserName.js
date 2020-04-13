@@ -26,11 +26,6 @@ export class UserName extends React.Component {
     }
   };
 
-  debounceOnBlur = (e) => {
-    e.preventDefault();
-  }
-
-
   render() {
     const { t, syncErrors: { userInfo }, username } = this.props;
     const tooltip = (
