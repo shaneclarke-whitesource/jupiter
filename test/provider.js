@@ -2,8 +2,9 @@ import * as enzyme from 'enzyme';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
-import { reducer as formReducer, Field, reduxForm } from 'redux-form';
+import { reducer as formReducer, reduxForm } from 'redux-form';
 import renderer from 'react-test-renderer';
+import rootReducer from '../app/reducers/rootReducer';
 
 export function mountWithProvider(Component, props = {}) {
   const store = createStore(combineReducers({ form: formReducer }));
@@ -14,21 +15,9 @@ export function mountWithProvider(Component, props = {}) {
   ));
 }
 
-function BaseFieldHOC(Component) {
-  return (props) => {
-    return (
-      <Field
-        component={Component}
-        name="test"
-        {...props}
-      />
-    );
-  };
-}
-
 function withForm(Component, props = {}, method) {
-  const FormWrapper = reduxForm({ form: 'testForm' })(BaseFieldHOC(Component));
-  const store = createStore(combineReducers({ form: formReducer }));
+  const FormWrapper = reduxForm({ form: 'testForm' })(Component);
+  const store = createStore(rootReducer);
   const func = method === 'create' ? renderer.create : enzyme[method];
   return func((
     <Provider store={store}>

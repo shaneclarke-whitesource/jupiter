@@ -1,14 +1,19 @@
 import React from 'react';
 import { t } from '../../../test/i18n/mocks';
 import { UserInfo } from './UserInfo';
+import debounce from 'lodash/debounce';
+jest.useFakeTimers();
+
+jest.mock('lodash/debounce', () => jest.fn((fn) => fn));
 
 describe('UserInfo', () => {
   let wrapper;
-  const checkIfExistsMock = jest.fn();
+  const mock = jest.fn();
+  const checkIfExistsMock = debounce(mock, 150);
   const defaultProps = {
     checkIfExists: checkIfExistsMock,
-    firstName: 'John',
-    lastName: 'Doe',
+    firstName: '',
+    lastName: '',
     t
   };
   beforeEach(() => {
@@ -39,23 +44,14 @@ describe('UserInfo', () => {
 
   test('username must grab only first two characters of firstName and lastName', () => {
     global.Math.random = () => '314315654';
-    const field = wrapper.find('Field').at(0);
-    expect(checkIfExistsMock).toBeCalledTimes(0);
-    field.simulate('blur');
-    expect(checkIfExistsMock).toBeCalledWith('jodo.4315');
+    wrapper.setProps({ firstName: 'John', lastName: 'Doe' });
+    jest.runAllTimers();
+    expect(wrapper.instance().props.checkIfExists).toBeCalledWith('jodo.4315');
   });
 
-  test('it invokes checkIfExists when onBlur is invoked on firstName field', () => {
-    const field = wrapper.find('Field').at(0);
-    expect(checkIfExistsMock).toBeCalledTimes(0);
-    field.simulate('blur');
-    expect(checkIfExistsMock).toBeCalledTimes(1);
-  });
-
-  test('it invokes checkIfExists when onBlur is invoked on lastName field', () => {
-    const field = wrapper.find('Field').at(1);
-    expect(checkIfExistsMock).toBeCalledTimes(0);
-    field.simulate('blur');
-    expect(checkIfExistsMock).toBeCalledTimes(1);
+  test('setUsername to be called on props update', () => {
+    wrapper.setProps({ firstName: 'John', lastName: 'Doe' });
+    jest.runAllTimers();
+    expect(wrapper.instance().props.checkIfExists).toHaveBeenCalled();
   });
 });
