@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserName it renders 1`] = `
+<div
+  className="hxCol hxSpan-12 UsernameField"
+>
+  <div
+    className=" InputField"
+  >
+    <hx-text-control
+      class=""
+    >
+      <input
+        autoComplete="on"
+        className="hxTextCtrl"
+        name="username"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        onFocus={[Function]}
+        required={false}
+        type="text"
+        value=""
+      />
+      <label
+        htmlFor="username"
+      >
+        <span
+          className="InputField-label"
+        >
+          Create Username
+        </span>
+        <div
+          className="tooltip"
+        >
+          <hx-icon
+            id="username-tooltip"
+            type="help-circle"
+          />
+          <hx-tooltip
+            for="username-tooltip"
+            position="right-middle"
+          >
+            If your first name or last name is changed, a new username will be automatically generated for you.
+          </hx-tooltip>
+        </div>
+      </label>
+      
+    </hx-text-control>
+    <div
+      className="error"
+    />
+  </div>
+</div>
+`;

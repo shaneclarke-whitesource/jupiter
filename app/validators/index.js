@@ -1,7 +1,7 @@
 import i18n from '../i18n';
 import _ from 'lodash';
 import validate from 'validate.js';
-import { callUsernameCheck } from '../actions/checkUsername';
+import { callUsernameCheck, checkUsernameSuccess } from '../actions/checkUsername';
 
 function translateDefaultValidators(t) {
   validate.validators.presence.message = t('validation:input.required');
@@ -229,6 +229,7 @@ export const asyncValidate = (values, dispatch, { t = i18nT() }) => {
           } else {
             resolve();
           }
+          dispatch(checkUsernameSuccess(username, response.data.exist));
         });
     }
   });
