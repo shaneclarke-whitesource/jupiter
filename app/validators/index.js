@@ -1,7 +1,7 @@
 import i18n from '../i18n';
 import _ from 'lodash';
 import validate from 'validate.js';
-import { callUsernameCheck, checkUsernameSuccess } from '../actions/checkUsername';
+import { asyncValidateUsername, asyncValidatePassword } from './utils';
 
 function translateDefaultValidators(t) {
   validate.validators.presence.message = t('validation:input.required');
@@ -49,6 +49,11 @@ export const validatePassword = (values, { t = i18nT() }) => {
         minimum: 8,
         tooShort: t('validation:input.minLength', {
           content: 'Password',
+          characterCount: '%{count}'
+        }),
+        maximum: 100,
+        tooLong: t('validation:input.maxLength', {
+          content: undefined,
           characterCount: '%{count}'
         })
       },
@@ -214,23 +219,8 @@ export const validateUser = (values, { t = i18nT() }) => {
   };
 };
 
-export const asyncValidate = (values, dispatch, { t = i18nT() }) => {
-  const { username } = values.userInfo;
-  return new Promise((resolve, reject) => {
-    if (username.includes('%')) {
-      // eslint-disable-next-line prefer-promise-reject-errors
-      reject({ userInfo: { username: [t('validation:username.symbolRestriction')] } });
-    } else {
-      callUsernameCheck(username)
-        .then((response) => {
-          if (response.data.exist) {
-            // eslint-disable-next-line prefer-promise-reject-errors
-            reject({ userInfo: { username: [t('validation:username.exists')] } });
-          } else {
-            resolve();
-          }
-          dispatch(checkUsernameSuccess(username, response.data.exist));
-        });
-    }
-  });
+export const asyncValidate = (values, dispatch, { t = i18nT() }, field) => {
+  const { username, password } = values.userInfo;
+  return field === 'userInfo.username'
+    ? asyncValidateUsername(username, dispatch, t) : asyncValidatePassword(password, t);
 };

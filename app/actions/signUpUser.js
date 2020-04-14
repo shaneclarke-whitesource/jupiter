@@ -1,6 +1,6 @@
-import axios from 'axios';
 import _ from 'lodash';
 import { reset } from 'redux-form';
+import { postSignup } from '../../lib/axios/signupActions';
 
 export const SUBMIT_PENDING = 'SUBMIT_PENDING';
 export const SUBMIT_SUCCESS = 'SUBMIT_SUCCESS';
@@ -46,18 +46,8 @@ export function submitUserData(values) {
 
   return (dispatch) => {
     dispatch(submitPending(values, username, accountName));
-    axios.post(
-      '/api/signup/v1/signups/invoice',
-      { ...values },
-      {
-        headers: {
-          'Access-Control-Allow-Credentials': true,
-          'Accept': 'application/json',
-          'Content-Type': 'application/json; charset=UTF-8'
-        },
-        withCredentials: true
-      }
-    )
+    const endpoint = 'signups/invoice';
+    postSignup(values, endpoint)
       .then((response) => {
         dispatch(submitSuccess(response.data.id));
         dispatch(reset('signUp'));

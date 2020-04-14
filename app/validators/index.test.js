@@ -1,6 +1,10 @@
 import _ from 'lodash';
 import * as validators from './index';
 import { t } from '../../test/i18n/mocks';
+import * as axiosActions from '../../lib/axios/signupActions';
+
+import axios from 'axios';
+jest.mock('axios');
 
 describe('validators', () => {
   const defaultProps = { t };
@@ -146,6 +150,15 @@ describe('validators', () => {
       expect(validatePasswords(invalid))
         .toEqual({ password: ['Password must be at least 8 characters long'] });
     });
+    test('it fails if password is more than 100 characters', () => {
+      const invalidPassword = _.fill(Array(21), 'Pas1!').join('');
+      const invalid = {
+        password: invalidPassword,
+        passwordValidate: invalidPassword
+      };
+      expect(validatePasswords(invalid))
+        .toEqual({ password: ['Must be less than 100 characters long'] });
+    });
     test('it fails if passwords do not match', () => {
       const invalid = {
         password: 'Password123!',
@@ -200,6 +213,40 @@ describe('validators', () => {
       const longZip = _.fill(Array(21), 'c').join('');
       const result = validateAddressMock({ address: { zipcode: longZip } });
       expect(result.address.zipcode).toEqual(['Must be less than 20 characters long']);
+    });
+  });
+
+  describe('asyncValidate', () => {
+    const asyncValidateMock = (props, field) => {
+      return validators.asyncValidate(props, jest.fn(), defaultProps, field);
+    };
+    test('returns a resolved promise if data passes', () => {
+      const getSignupData = { data: { exist: false } };
+      axios.get.mockImplementationOnce(() => Promise.resolve(getSignupData));
+      const asyncReturn = asyncValidateMock({ userInfo: { username: 'user1' } }, 'userInfo.username');
+      expect(asyncReturn).toEqual(Promise.resolve({}));
+    });
+
+    test('returns an error from checkUsername if checkUsername fails', () => {
+      const getSignupData = { data: { exist: true } };
+      axios.get.mockImplementationOnce(() => Promise.resolve(getSignupData));
+      return asyncValidateMock({ userInfo: { username: 'user1' } }, 'userInfo.username').catch((e) => {
+        expect(e).toEqual({ userInfo: { username: ['This username already exists. Please choose another one.'] } });
+      });
+    });
+
+    test('calls checkUsername if field equals username key', () => {
+      const getSignupData = { data: { exist: false } };
+      const spy = jest.spyOn(axiosActions, 'getSignup').mockResolvedValue(getSignupData);
+      asyncValidateMock({ userInfo: { username: 'user1' } }, 'userInfo.username');
+      expect(spy).toHaveBeenCalledWith({ username: 'user1' }, 'cloud-username-check');
+    });
+
+    test('calls checkPassword if field equals password key', () => {
+      const postSignupData = { data: { valid: false, blacklistCheck: 'PASSED' } };
+      const spy = jest.spyOn(axiosActions, 'postSignup').mockResolvedValue(postSignupData);
+      asyncValidateMock({ userInfo: { password: 'Password123!' } }, 'userInfo.password');
+      expect(spy).toHaveBeenCalledWith({ password: 'Password123!' }, 'validation/password');
     });
   });
 });

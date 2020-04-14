@@ -148,7 +148,7 @@ const SignUpReduxForm = reduxForm({
   form: 'signUp',
   validate: validateForm,
   asyncValidate,
-  asyncBlurFields: ['userInfo.username'],
+  asyncBlurFields: ['userInfo.username', 'userInfo.password'],
   enableReinitialize: true,
   touchOnBlur: false,
   touchOnChange: true

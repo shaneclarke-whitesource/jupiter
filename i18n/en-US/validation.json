@@ -49,6 +49,9 @@
   "password.mustMatch" : {
     "translation" : "Passwords do not match"
   },
+  "password.notComplicated" : {
+    "translation" : "This password is too easy to guess. Please choose another password."
+  },
   "phone.mustBeAValidNumber" : {
     "translation" : "Must be a valid phone number"
   },
