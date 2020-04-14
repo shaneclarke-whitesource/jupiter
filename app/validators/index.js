@@ -257,7 +257,7 @@ export const checkPassword = (password, t) => {
 };
 
 
-export const asyncValidate = (values, dispatch, { t = i18nT() }) => {
+export const asyncValidate = (values, dispatch, { t = i18nT() }, field) => {
   const { username, password } = values.userInfo;
-  return username ? checkUsername(username, t) : checkPassword(password, t);
+  return field === 'userInfo.username' ? checkUsername(username, dispatch, t) : checkPassword(password, t);
 };
