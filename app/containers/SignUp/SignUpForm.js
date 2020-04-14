@@ -150,6 +150,7 @@ const SignUpReduxForm = reduxForm({
   asyncValidate,
   asyncBlurFields: ['userInfo.username', 'userInfo.password'],
   enableReinitialize: true,
+  touchOnBlur: false,
   touchOnChange: true
 })(withTranslation()(SignUpForm));
 

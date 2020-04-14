@@ -2,6 +2,7 @@ import i18n from '../i18n';
 import _ from 'lodash';
 import validate from 'validate.js';
 import { callSignup, postSignup } from '../actions/signupAxiosActions';
+import { checkUsernameSuccess } from '../actions/checkUsername';
 
 function translateDefaultValidators(t) {
   validate.validators.presence.message = t('validation:input.required');
@@ -219,7 +220,7 @@ export const validateUser = (values, { t = i18nT() }) => {
   };
 };
 
-export const checkUsername = (username, t) => {
+export const checkUsername = (username, dispatch, t) => {
   const endpoint = 'cloud-username-check';
   return new Promise((resolve, reject) => {
     if (username.includes('%')) {
@@ -234,6 +235,7 @@ export const checkUsername = (username, t) => {
           } else {
             resolve();
           }
+          dispatch(checkUsernameSuccess(username, response.data.exist));
         });
     }
   });

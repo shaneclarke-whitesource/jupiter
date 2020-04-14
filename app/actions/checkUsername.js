@@ -1,5 +1,4 @@
 import { callSignup } from './signupAxiosActions';
-
 export const CHECK_USERNAME_PENDING = 'CHECK_USERNAME_PENDING';
 export const CHECK_USERNAME_SUCCESS = 'CHECK_USERNAME_SUCCESS';
 export const CHECK_USERNAME_FAILURE = 'CHECK_USERNAME_FAILURE';

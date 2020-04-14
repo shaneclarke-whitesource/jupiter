@@ -2,6 +2,7 @@
 // https://jestjs.io/docs/en/configuration.html
 
 module.exports = {
+  moduleFileExtensions: ['js', 'jsx', 'json'],
   coveragePathIgnorePatterns: [
     '/node_modules/'
   ],
@@ -14,6 +15,9 @@ module.exports = {
   ],
   testPathIgnorePatterns: [
     '/node_modules/'
+  ],
+  transformIgnorePatterns: [
+    '<rootDir>/node_modules/'
   ],
   unmockedModulePathPatterns: [
     'node_modules/react/',
