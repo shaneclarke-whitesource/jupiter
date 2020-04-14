@@ -1,8 +1,7 @@
 import i18n from '../i18n';
 import _ from 'lodash';
 import validate from 'validate.js';
-import { callSignup, postSignup } from '../actions/signupAxiosActions';
-import { checkUsernameSuccess } from '../actions/checkUsername';
+import { asyncValidateUsername, asyncValidatePassword } from './utils';
 
 function translateDefaultValidators(t) {
   validate.validators.presence.message = t('validation:input.required');
@@ -220,44 +219,8 @@ export const validateUser = (values, { t = i18nT() }) => {
   };
 };
 
-export const checkUsername = (username, dispatch, t) => {
-  const endpoint = 'cloud-username-check';
-  return new Promise((resolve, reject) => {
-    if (username.includes('%')) {
-      // eslint-disable-next-line prefer-promise-reject-errors
-      reject({ userInfo: { username: [t('validation:username.symbolRestriction')] } });
-    } else {
-      callSignup({ username }, endpoint)
-        .then((response) => {
-          if (response.data.exist) {
-            // eslint-disable-next-line prefer-promise-reject-errors
-            reject({ userInfo: { username: [t('validation:username.exists')] } });
-          } else {
-            resolve();
-          }
-          dispatch(checkUsernameSuccess(username, response.data.exist));
-        });
-    }
-  });
-};
-
-export const checkPassword = (password, t) => {
-  const endpoint = 'validation/password';
-  return new Promise((resolve, reject) => {
-    postSignup({ password }, endpoint)
-      .then((response) => {
-        if (response.data.valid && response.data.blacklistCheck === 'FAILED') {
-          // eslint-disable-next-line prefer-promise-reject-errors
-          reject({ userInfo: { password: [t('validation:password.notComplicated')] } });
-        } else {
-          resolve();
-        }
-      });
-  });
-};
-
-
 export const asyncValidate = (values, dispatch, { t = i18nT() }, field) => {
   const { username, password } = values.userInfo;
-  return field === 'userInfo.username' ? checkUsername(username, dispatch, t) : checkPassword(password, t);
+  return field === 'userInfo.username'
+    ? asyncValidateUsername(username, dispatch, t) : asyncValidatePassword(password, t);
 };

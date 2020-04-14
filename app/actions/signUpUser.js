@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { reset } from 'redux-form';
-import { postSignup } from './signupAxiosActions';
+import { postSignup } from '../../lib/axios/signupActions';
 
 export const SUBMIT_PENDING = 'SUBMIT_PENDING';
 export const SUBMIT_SUCCESS = 'SUBMIT_SUCCESS';

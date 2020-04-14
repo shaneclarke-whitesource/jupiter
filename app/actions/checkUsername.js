@@ -1,4 +1,4 @@
-import { callSignup } from './signupAxiosActions';
+import { getSignup } from '../../lib/axios/signupActions';
 export const CHECK_USERNAME_PENDING = 'CHECK_USERNAME_PENDING';
 export const CHECK_USERNAME_SUCCESS = 'CHECK_USERNAME_SUCCESS';
 export const CHECK_USERNAME_FAILURE = 'CHECK_USERNAME_FAILURE';
@@ -32,7 +32,7 @@ export function checkUsername(username) {
   const endpoint = 'cloud-username-check';
   return (dispatch) => {
     dispatch(checkUsernamePending());
-    return callSignup({ username }, endpoint)
+    return getSignup({ username }, endpoint)
       .then((response) => {
         dispatch(checkUsernameSuccess(username, response.data.exist));
       })
