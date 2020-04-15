@@ -49,6 +49,9 @@
   "password.mustMatch" : {
     "translation" : "パスワードが一致しません"
   },
+  "password.notComplicated" : {
+    "translation" : "このパスワードは簡単に推測できます。別のパスワードを選択してください。"
+  },
   "phone.mustBeAValidNumber" : {
     "translation" : "有効な電話番号を入力してください"
   },
