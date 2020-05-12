@@ -11,6 +11,10 @@ html, body {
     margin-top: 25px;
 }
 
+.BreadCrumb {
+    font-size: 14px;
+}
+
 /* Signup Container */
 .SignUp-container {
     background: white;
@@ -145,6 +149,5 @@ hx-text-control[hx-dirty] > input[type="password"]:enabled:invalid, hx-text-cont
 .Modal h1 {
     text-align: center;
 }
-
 
 

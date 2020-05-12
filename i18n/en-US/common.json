@@ -19,6 +19,9 @@
   "account.header.address" : {
     "translation" : "Address"
   },
+  "account.header.detail" : {
+    "translation" : "Account Details"
+  },
   "account.header.userInfo" : {
     "translation" : "User Information"
   },

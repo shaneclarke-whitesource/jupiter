@@ -4,16 +4,14 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from './store';
+import Routes from './router';
 import HelixUI from 'helix-ui';
-import App from './containers/App';
 import './i18n';
 
 const initializeJupiter = () => {
   const content = (
     <Provider store={configureStore()}>
-      <div id="jupiter-wrapper">
-        <App />
-      </div>
+      <Routes />
     </Provider>
   );
   render(content, document.getElementById('jupiter'));
