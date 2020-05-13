@@ -21,8 +21,8 @@ yarn start
 Upon startup you will be prompted for the cookie value for "__Secure-portal_sessionid"
 1. Follow the link provided in the terminal
     * I.E. 
-      * `yarn watch` direct to [staging](https://staging.portal.rackspace.com/racker)
-      * `yarn start` direct to [prod](https://portal.rackspace.com/racker/home)
+      * `yarn watch` direct to [staging](https://staging.portal.rackspace.com/jupiter)
+      * `yarn start` direct to [prod](https://portal.rackspace.com/racker/jupiter)
 2. Open browser developer tools and navigate cookie storage:
     * ex. On Chrome it is under the "Application" tab
 3. Copy the cookie value for "__Secure-portal_sessionid" and paste into the terminal
