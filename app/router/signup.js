@@ -4,7 +4,7 @@ import UserInfo from '../components/SignUp/UserInfo';
 import AddressSection from '../components/SignUp/AddressSection';
 import Product from '../components/SignUp/Product';
 
-const Routes = () => (
+const SignupRoutes = () => (
   <div>
     <Switch>
       <Route exact path="/" component={Product} />
@@ -14,4 +14,4 @@ const Routes = () => (
   </div>
 );
 
-export default Routes;
+export default SignupRoutes;

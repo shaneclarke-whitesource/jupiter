@@ -14,33 +14,37 @@ export class App extends React.Component {
   render() {
     const { t } = this.props;
     return (
-      <div id="app">
-        <div className="jupiter-content">
-          <main role="main" id="content" className="main-body">
-            <div className="SignUp-container hxSpan-7-lg hxSpan-9-sm hxSpan-11-xs">
-              <div className="SignUp-header">
-                <h1>{t('common:signUp.headers.main')}</h1>
-                <hr />
-              </div>
-              <div className="hx-row">
-                <div className="hxCol hxSpan-10 hxOffset-1 hxSpan-10-xs">
-                  <Breadcrumb
-                    breadcrumb={[
-                      { [t('common:account.header.detail')]: '/' },
-                      { [t('common:account.header.address')]: '/address' },
-                      { [t('common:account.header.userInfo')]: '/user-detail' }
-                    ]}
-                  />
-                  <div className="hxCol hxCol hxSpan-11 hxSpan-11-xs">
-                    <SignUpForm />
+      <>
+        <div id="app" className="u-flex-grow">
+          <div id="stage" className="jupiter-content">
+            <main role="main" id="content" className="main-body">
+              <div className="SignUp-container hxSpan-7-lg hxSpan-9-sm hxSpan-11-xs">
+                <div className="SignUp-header">
+                  <h1>{t('common:signUp.headers.main')}</h1>
+                  <hr />
+                </div>
+                <div className="hx-row">
+                  <div className="hxCol hxSpan-10 hxOffset-1 hxSpan-10-xs">
+                    <Breadcrumb
+                      location={location}
+                      match={match}
+                      breadcrumb={[
+                        { [t('common:account.header.detail')]: '/' },
+                        { [t('common:account.header.address')]: '/address' },
+                        { [t('common:account.header.userInfo')]: '/user-detail' }
+                      ]}
+                    />
+                    <div className="hxCol hxCol hxSpan-11 hxSpan-11-xs">
+                      <SignUpForm />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </main>
-          <Footer />
+            </main>
+          </div>
         </div>
-      </div>
+        <Footer />
+      </>
     );
   }
 }

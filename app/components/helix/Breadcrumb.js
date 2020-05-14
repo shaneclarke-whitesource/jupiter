@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Breadcrumb = ({ breadcrumb }) => {
   if (breadcrumb.length === 0) return null;
-
   const crumbs = breadcrumb
     .map((o) => Object.entries(o)[0])
     .map(([title, url], index) => {
       return [
-        <Link to={url} key={title} className="BreadCrumb">{title}</Link>,
+        <NavLink exact to={url} key={title} className="crumb" activeClassName="active">{title}</NavLink>,
         index < (breadcrumb.length - 1) && <hx-icon key={`${title}-icon`} class="delimiter" type="angle-right" />
       ];
     });

@@ -10,7 +10,7 @@ import { CUSTOMER_SIGNUP_REQUEST } from '../../signupReqFormat/customer';
 import { RBU_SIGNUP_REQUEST } from '../../signupReqFormat/rbuCustomer';
 import Submit from '../../components/helix/buttons/Submit';
 import SubmissionModal from '../../components/SignUp/SubmissionModal';
-import Routes from '../../router';
+import SignupRoutes from '../../router/signup';
 
 export class SignUpForm extends React.Component {
   formatRequest = (values) => {
@@ -83,10 +83,7 @@ export class SignUpForm extends React.Component {
         <form onSubmit={handleSubmit(this.handleSubmit)}>
           <div className="InputField-content">
             <FormSection name="userInfo">
-              <Routes />
-              {/* <FormSection name="customerType"> */}
-              {/*  <CustomerType /> */}
-              {/* </FormSection> */}
+              <SignupRoutes />
             </FormSection>
           </div>
           <div className="SignUp-buttons">

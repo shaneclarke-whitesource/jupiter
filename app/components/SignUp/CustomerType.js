@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Field, change, formValueSelector } from 'redux-form';
+import { Field, change, formValueSelector, reduxForm } from 'redux-form';
 import { withTranslation } from 'react-i18next';
 import { ADDRESS_FIELDS } from '../../actions/constants/address';
 import Checkbox from '../helix/inputTypes/Checkbox';
@@ -72,4 +72,10 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(CustomerType));
+const CustomerTypeReduxForm = reduxForm({
+  form: 'signUp',
+  destroyOnUnmount: false,
+  forceUnregisterOnUnmount: true
+})(withTranslation()(CustomerType));
+
+export default connect(mapStateToProps, mapDispatchToProps)(CustomerTypeReduxForm);

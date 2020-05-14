@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { change, Field, reduxForm } from 'redux-form';
+import { change, Field, FormSection, reduxForm } from 'redux-form';
 import { withTranslation } from 'react-i18next';
 import DropDown from '../helix/inputTypes/Dropdown';
 import { connect } from 'react-redux';
+import { CustomerType } from './CustomerType';
 
 export class Product extends React.Component {
   handleChange = (e) => {
@@ -50,6 +51,9 @@ export class Product extends React.Component {
           onChange={this.handleChange}
           required
         />
+        {/*<FormSection name="customerType">*/}
+        {/*  <CustomerType />*/}
+        {/*</FormSection>*/}
       </div>
     );
   }
