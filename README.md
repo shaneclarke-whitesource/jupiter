@@ -18,6 +18,17 @@ To use portal prod flag for `portal.rackspace.com/api`
 yarn start
 ```
 
+Upon startup you will be prompted for the cookie value for "__Secure-portal_sessionid"
+1. Follow the link provided in the terminal
+    * I.E. 
+      * `yarn watch` direct to [staging](https://staging.portal.rackspace.com/jupiter)
+      * `yarn start` direct to [prod](https://portal.rackspace.com/racker/jupiter)
+2. Open browser developer tools and navigate cookie storage:
+    * ex. On Chrome it is under the "Application" tab
+3. Copy the cookie value for "__Secure-portal_sessionid" and paste into the terminal
+
+Note: The cookie expires, when it does you must restart server and enter the latest cookie value.      
+
 ### Production
 To run a production build run `yarn build`.
 
@@ -39,7 +50,7 @@ yarn test -- "SomeTestFile"
 yarn test -f "SomeTestFile" -t "test description" 
 ```
 ### Dependencies
-Node v12.16.1
+Node v12.16.x
 
 
 ### Helpful Links
