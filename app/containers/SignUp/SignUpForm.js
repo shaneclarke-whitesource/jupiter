@@ -8,12 +8,9 @@ import { clearResult, submitUserData } from '../../actions/signUpUser';
 import _ from 'lodash';
 import { CUSTOMER_SIGNUP_REQUEST } from '../../signupReqFormat/customer';
 import { RBU_SIGNUP_REQUEST } from '../../signupReqFormat/rbuCustomer';
-import AddressSection from '../../components/SignUp/AddressSection';
 import Submit from '../../components/helix/buttons/Submit';
-import UserInfo from '../../components/SignUp/UserInfo';
-import CustomerType from '../../components/SignUp/CustomerType';
 import SubmissionModal from '../../components/SignUp/SubmissionModal';
-import Product from '../../components/SignUp/Product';
+import Routes from '../../router';
 
 export class SignUpForm extends React.Component {
   formatRequest = (values) => {
@@ -86,15 +83,10 @@ export class SignUpForm extends React.Component {
         <form onSubmit={handleSubmit(this.handleSubmit)}>
           <div className="InputField-content">
             <FormSection name="userInfo">
-              <UserInfo />
-              <hr />
-              <Product />
-              <hr />
-              <h2>{t('common:account.customer.info')}</h2>
-              <FormSection name="customerType">
-                <CustomerType />
-              </FormSection>
-              <AddressSection />
+              <Routes />
+              {/* <FormSection name="customerType"> */}
+              {/*  <CustomerType /> */}
+              {/* </FormSection> */}
             </FormSection>
           </div>
           <div className="SignUp-buttons">
@@ -153,6 +145,5 @@ const SignUpReduxForm = reduxForm({
   touchOnBlur: false,
   touchOnChange: true
 })(withTranslation()(SignUpForm));
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpReduxForm);

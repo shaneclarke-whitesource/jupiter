@@ -1,16 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import App from '../containers/App';
-import AddressSection from '../components/SignUp/AddressSection';
+import { Route, Switch } from 'react-router-dom';
 import UserInfo from '../components/SignUp/UserInfo';
+import AddressSection from '../components/SignUp/AddressSection';
+import Product from '../components/SignUp/Product';
 
 const Routes = () => (
-  <div className="jupiter-wrapper">
-    <Router>
-      <Route path="/" component={App} />
+  <div>
+    <Switch>
+      <Route exact path="/" component={Product} />
       <Route path="/address" component={AddressSection} />
       <Route path="/user-detail" component={UserInfo} />
-    </Router>
+    </Switch>
   </div>
 );
 

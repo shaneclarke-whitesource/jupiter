@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { change, Field, formValueSelector, FormSection } from 'redux-form';
+import { change, Field, formValueSelector, FormSection, reduxForm } from 'redux-form';
 import { withTranslation } from 'react-i18next';
 import Input from '../helix/inputTypes/Input';
 import CountrySelect from './AddressSelectors/CountrySelect';
@@ -90,4 +90,10 @@ AddressSection.defaultProps = {
   country: ''
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(AddressSection));
+const AddressSectionReduxForm = reduxForm({
+  form: 'signUp',
+  destroyOnUnmount: false,
+  forceUnregisterOnUnmount: true // <------ unregister fields on unmount
+})(withTranslation()(AddressSection));
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddressSectionReduxForm);

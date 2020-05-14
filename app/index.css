@@ -7,12 +7,23 @@ html, body {
     height: 100%;
 }
 
-.main-body {
-    margin-top: 25px;
-}
-
 .BreadCrumb {
     font-size: 14px;
+    font-weight: 500;
+}
+
+.hxBreadcrumb > a:last-of-type {
+    color: #0d74d1;
+    font-weight: 500;
+    pointer-events: auto;
+}
+
+.Breadcrumb-nav {
+    margin-right: 0.5rem;
+    text-transform: capitalize;
+    background-color: transparent;
+    color: #0d74d1;
+    text-decoration: none;
 }
 
 /* Signup Container */

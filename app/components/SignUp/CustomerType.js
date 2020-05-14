@@ -31,6 +31,7 @@ export class CustomerType extends React.Component {
     const { t, productType } = this.props;
     return (
       <div className="CustomerType-section">
+        <h2>{t('common:account.customer.info')}</h2>
         <div className="hxRow">
           <div className="hxCol hxSpan-6">
             <Field

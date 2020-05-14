@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Field, formValueSelector } from 'redux-form';
+import { Field, formValueSelector, reduxForm } from 'redux-form';
 import _ from 'lodash';
 import { withTranslation } from 'react-i18next';
 import Input from '../helix/inputTypes/Input';
@@ -134,5 +134,10 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
+const UserInfoReduxForm = reduxForm({
+  form: 'signUp',
+  destroyOnUnmount: false,
+  forceUnregisterOnUnmount: true
+})(withTranslation()(UserInfo));
 
-export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(UserInfo));
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(UserInfoReduxForm));

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { change, Field } from 'redux-form';
+import { change, Field, reduxForm } from 'redux-form';
 import { withTranslation } from 'react-i18next';
 import DropDown from '../helix/inputTypes/Dropdown';
 import { connect } from 'react-redux';
@@ -68,4 +68,10 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(withTranslation()(Product));
+const ProductReduxForm = reduxForm({
+  form: 'signUp',
+  destroyOnUnmount: false,
+  forceUnregisterOnUnmount: true
+})(withTranslation()(Product));
+
+export default connect(null, mapDispatchToProps)(ProductReduxForm);
