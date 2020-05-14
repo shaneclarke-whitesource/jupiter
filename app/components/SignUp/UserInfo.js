@@ -9,6 +9,7 @@ import PhoneField from '../helix/inputTypes/PhoneField';
 import PasswordInput from '../helix/inputTypes/PasswordInput';
 import UserName from './UserName';
 import { checkUsername } from '../../actions/checkUsername';
+import { validateUser, asyncValidate } from '../../validators';
 
 export class UserInfo extends React.Component {
   generateUsername = _.debounce(() => {
@@ -134,8 +135,19 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
+export const validateForm = (values, props) => {
+  return {
+    ...validateUser(values, props)
+  };
+};
+
 const UserInfoReduxForm = reduxForm({
   form: 'signUp',
+  validate: validateForm,
+  asyncValidate,
+  asyncBlurFields: ['username', 'password'],
+  touchOnBlur: false,
+  touchOnChange: true,
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true
 })(withTranslation()(UserInfo));

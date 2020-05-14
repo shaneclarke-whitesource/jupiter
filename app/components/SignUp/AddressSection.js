@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { change, Field, formValueSelector, FormSection, reduxForm } from 'redux-form';
 import { withTranslation } from 'react-i18next';
+import { validateAddress } from '../../validators';
 import Input from '../helix/inputTypes/Input';
 import CountrySelect from './AddressSelectors/CountrySelect';
 import StateSelect from './AddressSelectors/StateSelect';
@@ -90,8 +91,15 @@ AddressSection.defaultProps = {
   country: ''
 };
 
+const validate = (values, props) => {
+  return {
+    ...validateAddress(values, props)
+  };
+};
+
 const AddressSectionReduxForm = reduxForm({
   form: 'signUp',
+  validate,
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true // <------ unregister fields on unmount
 })(withTranslation()(AddressSection));
