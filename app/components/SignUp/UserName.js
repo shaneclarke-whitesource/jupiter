@@ -76,7 +76,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setUsername: (username) => {
-      dispatch(change('signUp', 'userInfo.username', username));
+      dispatch(change('signUp', 'username', username));
     }
   };
 };

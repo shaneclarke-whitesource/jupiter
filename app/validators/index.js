@@ -221,6 +221,6 @@ export const validateUser = (values, { t = i18nT() }) => {
 
 export const asyncValidate = (values, dispatch, { t = i18nT() }, field) => {
   const { username, password } = values.userInfo;
-  return field === 'userInfo.username'
+  return field === 'username'
     ? asyncValidateUsername(username, dispatch, t) : asyncValidatePassword(password, t);
 };

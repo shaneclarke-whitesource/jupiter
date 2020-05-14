@@ -57,14 +57,14 @@ StateSelect.defaultProps = {
 
 const mapStateToProps = (state) => {
   return {
-    region: formValueSelector('signUp')(state, 'userInfo.address.state')
+    region: formValueSelector('signUp')(state, 'address.state')
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     setRegion: (region) => {
-      dispatch(change('signUp', 'userInfo.address.state', region));
+      dispatch(change('signUp', 'address.state', region));
     }
   };
 };

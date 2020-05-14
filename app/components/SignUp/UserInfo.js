@@ -121,8 +121,8 @@ UserInfo.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    firstName: formValueSelector('signUp')(state, 'userInfo.firstName'),
-    lastName: formValueSelector('signUp')(state, 'userInfo.lastName')
+    firstName: formValueSelector('signUp')(state, 'firstName'),
+    lastName: formValueSelector('signUp')(state, 'lastName')
   };
 };
 

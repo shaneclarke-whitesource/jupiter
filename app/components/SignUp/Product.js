@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { change, Field, FormSection, reduxForm } from 'redux-form';
+import { change, Field, reduxForm } from 'redux-form';
 import { withTranslation } from 'react-i18next';
 import DropDown from '../helix/inputTypes/Dropdown';
 import { connect } from 'react-redux';
-import { CustomerType } from './CustomerType';
+import CustomerType from './CustomerType';
 
 export class Product extends React.Component {
   handleChange = (e) => {
@@ -51,9 +51,7 @@ export class Product extends React.Component {
           onChange={this.handleChange}
           required
         />
-        <FormSection name="customerType">
-          <CustomerType t={t} />
-        </FormSection>
+        <CustomerType />
       </div>
     );
   }
@@ -67,15 +65,14 @@ Product.propTypes = {
 const mapDispatchToProps = (dispatch) => {
   return {
     clearRbu: () => {
-      dispatch(change('signUp', 'userInfo.customerType.isRbu', false));
+      dispatch(change('signUp', 'customerType.isRbu', false));
     }
   };
 };
 
 const ProductReduxForm = reduxForm({
   form: 'signUp',
-  destroyOnUnmount: false,
-  forceUnregisterOnUnmount: true
+  destroyOnUnmount: false
 })(withTranslation()(Product));
 
 export default connect(null, mapDispatchToProps)(ProductReduxForm);

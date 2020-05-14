@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
-import { FormSection, reduxForm } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import { validateUser, asyncValidate } from '../../validators';
 import { clearResult, submitUserData } from '../../actions/signUpUser';
 import _ from 'lodash';
@@ -21,19 +21,19 @@ export class SignUpForm extends React.Component {
     );
     return {
       ...template,
-      accountName: values.userInfo.accountName,
-      externalId: (values.userInfo.productType).toUpperCase(),
+      accountName: values.accountName,
+      externalId: (values.productType).toUpperCase(),
       serviceLevel: 'MANAGED',
       contacts: {
         contact: [
           {
-            firstName: values.userInfo.firstName,
-            lastName: values.userInfo.lastName,
-            title: values.userInfo.title,
+            firstName: values.firstName,
+            lastName: values.lastName,
+            title: values.title,
             addresses: {
               address: [
                 {
-                  ...values.userInfo.address,
+                  ...values.address,
                   primary: true
                 }
               ]
@@ -41,7 +41,7 @@ export class SignUpForm extends React.Component {
             emailAddresses: {
               emailAddress: [
                 {
-                  address: values.userInfo.email,
+                  address: values.email,
                   primary: true
                 }
               ]
@@ -49,16 +49,16 @@ export class SignUpForm extends React.Component {
             phoneNumbers: {
               phoneNumber: [
                 {
-                  country: values.userInfo.address.country,
-                  number: values.userInfo.phoneNumber.number,
+                  country: values.address.country,
+                  number: values.phoneNumber.number,
                   category: 'HOME',
                   primary: true
                 }
               ]
             },
             user: {
-              username: values.userInfo.username,
-              password: values.userInfo.password
+              username: values.username,
+              password: values.password
             },
             roles: template.contacts.contact[0].roles
           }
@@ -82,9 +82,7 @@ export class SignUpForm extends React.Component {
       <div className="SignUp-form">
         <form onSubmit={handleSubmit(this.handleSubmit)}>
           <div className="InputField-content">
-            <FormSection name="userInfo">
-              <SignupRoutes />
-            </FormSection>
+            <SignupRoutes />
           </div>
           <div className="SignUp-buttons">
             <Submit
@@ -137,7 +135,7 @@ const SignUpReduxForm = reduxForm({
   form: 'signUp',
   validate: validateForm,
   asyncValidate,
-  asyncBlurFields: ['userInfo.username', 'userInfo.password'],
+  asyncBlurFields: ['username', 'password'],
   enableReinitialize: true,
   touchOnBlur: false,
   touchOnChange: true
