@@ -72,7 +72,8 @@ const mapDispatchToProps = (dispatch) => {
 
 const ProductReduxForm = reduxForm({
   form: 'signUp',
-  destroyOnUnmount: false
+  destroyOnUnmount: false,
+  forceUnregisterOnUnmount: true // <------ unregister fields on unmount
 })(withTranslation()(Product));
 
 export default connect(null, mapDispatchToProps)(ProductReduxForm);
