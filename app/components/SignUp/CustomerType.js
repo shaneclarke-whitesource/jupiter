@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Field, change, formValueSelector, reduxForm } from 'redux-form';
-import { withTranslation } from 'react-i18next';
+import { Field, change, formValueSelector } from 'redux-form';
 import { ADDRESS_FIELDS } from '../../actions/constants/address';
 import Checkbox from '../helix/inputTypes/Checkbox';
 
@@ -31,7 +30,6 @@ export class CustomerType extends React.Component {
     const { t, productType } = this.props;
     return (
       <div className="CustomerType-section">
-        <h2>{t('common:account.customer.info')}</h2>
         <div className="hxRow">
           <div className="hxCol hxSpan-6">
             <Field
@@ -72,10 +70,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const CustomerTypeReduxForm = reduxForm({
-  form: 'signUp',
-  destroyOnUnmount: false,
-  forceUnregisterOnUnmount: true
-})(withTranslation()(CustomerType));
-
-export default connect(mapStateToProps, mapDispatchToProps)(CustomerTypeReduxForm);
+export default connect(mapStateToProps, mapDispatchToProps)(CustomerType);

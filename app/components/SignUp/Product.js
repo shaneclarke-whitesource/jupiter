@@ -51,9 +51,9 @@ export class Product extends React.Component {
           onChange={this.handleChange}
           required
         />
-        {/*<FormSection name="customerType">*/}
-        {/*  <CustomerType />*/}
-        {/*</FormSection>*/}
+        <FormSection name="customerType">
+          <CustomerType t={t} />
+        </FormSection>
       </div>
     );
   }

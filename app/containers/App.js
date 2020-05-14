@@ -26,8 +26,6 @@ export class App extends React.Component {
                 <div className="hx-row">
                   <div className="hxCol hxSpan-10 hxOffset-1 hxSpan-10-xs">
                     <Breadcrumb
-                      location={location}
-                      match={match}
                       breadcrumb={[
                         { [t('common:account.header.detail')]: '/' },
                         { [t('common:account.header.address')]: '/address' },
