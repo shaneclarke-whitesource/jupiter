@@ -27,8 +27,7 @@ Upon startup you will be prompted for the cookie value for "__Secure-portal_sess
     * ex. On Chrome it is under the "Application" tab
 3. Copy the cookie value for "__Secure-portal_sessionid" and paste into the terminal
 
-Note: This cookie value expires and you must restart with the latest cookie value
-      
+Note: The cookie expires, when it does you must restart server and enter the latest cookie value.      
 
 ### Production
 To run a production build run `yarn build`.
