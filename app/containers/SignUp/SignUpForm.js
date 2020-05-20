@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import { reduxForm } from 'redux-form';
-import { validateUser, asyncValidate } from '../../validators';
 import { clearResult, submitUserData } from '../../actions/signUpUser';
 import _ from 'lodash';
 import { CUSTOMER_SIGNUP_REQUEST } from '../../signupReqFormat/customer';
@@ -107,12 +106,6 @@ SignUpForm.propTypes = {
   result: PropTypes.bool.isRequired
 };
 
-export const validateForm = (values, props) => {
-  return {
-    ...validateUser(values, props)
-  };
-};
-
 const mapStateToProps = (state) => {
   return {
     pending: state.signUpResponse.pending,
@@ -133,12 +126,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const SignUpReduxForm = reduxForm({
   form: 'signUp',
-  validate: validateForm,
-  asyncValidate,
-  asyncBlurFields: ['username', 'password'],
-  enableReinitialize: true,
-  touchOnBlur: false,
-  touchOnChange: true
+  enableReinitialize: true
 })(withTranslation()(SignUpForm));
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpReduxForm);

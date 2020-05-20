@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { change, Field, reduxForm } from 'redux-form';
 import { withTranslation } from 'react-i18next';
+import { validateProductType } from '../../validators';
 import DropDown from '../helix/inputTypes/Dropdown';
 import { connect } from 'react-redux';
 import CustomerType from './CustomerType';
@@ -70,8 +71,15 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
+const validate = (values, props) => {
+  return {
+    ...validateProductType(values, props)
+  };
+};
+
 const ProductReduxForm = reduxForm({
   form: 'signUp',
+  validate,
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true // <------ unregister fields on unmount
 })(withTranslation()(Product));
