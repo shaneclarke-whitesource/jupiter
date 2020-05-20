@@ -53,20 +53,20 @@
   "account.product.select" : {
     "translation" : "-- Please Select --"
   },
+  "actions.basic.back" : {
+    "translation" : "Back"
+  },
   "actions.basic.hide" : {
     "translation" : "Hide"
+  },
+  "actions.basic.next" : {
+    "translation" : "Next"
   },
   "actions.basic.show" : {
     "translation" : "Show"
   },
   "actions.basic.submit" : {
     "translation" : "Submit"
-  },
-  "actions.basic.next" : {
-    "translation": "Next"
-  },
-  "actions.basic.back" : {
-    "translation": "Back"
   },
   "actions.confirm.password" : {
     "translation" : "Confirm Password"

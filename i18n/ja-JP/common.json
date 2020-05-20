@@ -52,8 +52,14 @@
   "account.product.select" : {
     "translation" : "-- 選択してください --"
   },
+  "actions.basic.back" : {
+    "translation" : "__NOT_TRANSLATED__"
+  },
   "actions.basic.hide" : {
     "translation" : "隠す"
+  },
+  "actions.basic.next" : {
+    "translation" : "__NOT_TRANSLATED__"
   },
   "actions.basic.show" : {
     "translation" : "表示する"
