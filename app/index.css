@@ -86,6 +86,18 @@ html, body {
     width: 100px;
 }
 
+.btn-wide {
+    width: 100px;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.align-left {
+    text-align: left;
+}
+
 .cancel-btn {
     margin-left: 15px;
 }

@@ -6,6 +6,8 @@ import { validateProductType } from '../../validators';
 import DropDown from '../helix/inputTypes/Dropdown';
 import { connect } from 'react-redux';
 import CustomerType from './CustomerType';
+import Button from '../helix/buttons/Button';
+import { Context } from '../../containers/Context';
 
 export class Product extends React.Component {
   handleChange = (e) => {
@@ -16,6 +18,7 @@ export class Product extends React.Component {
 
   render() {
     const { t } = this.props;
+    const { history } = this.context;
     const dropdownData = [
       {
         label: t('common:account.product.aws'),
@@ -53,6 +56,17 @@ export class Product extends React.Component {
           required
         />
         <CustomerType />
+        <div className="NavButtons">
+          <div className="hxRow">
+            <div className="hxCol hxSpan-12 align-right">
+              <Button
+                classNames="btn-wide"
+                onClick={() => history.push('/address')}
+                label={t('common:actions.basic.next')}
+              />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -63,6 +77,7 @@ Product.propTypes = {
   clearRbu: PropTypes.func.isRequired
 };
 
+Product.contextType = Context;
 const mapDispatchToProps = (dispatch) => {
   return {
     clearRbu: () => {

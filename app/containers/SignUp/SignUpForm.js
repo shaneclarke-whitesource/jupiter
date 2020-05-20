@@ -10,6 +10,8 @@ import { RBU_SIGNUP_REQUEST } from '../../signupReqFormat/rbuCustomer';
 import Submit from '../../components/helix/buttons/Submit';
 import SubmissionModal from '../../components/SignUp/SubmissionModal';
 import SignupRoutes from '../../router/signup';
+import { validateUser } from '../../validators';
+import { Context } from '../Context';
 
 export class SignUpForm extends React.Component {
   formatRequest = (values) => {
@@ -106,6 +108,14 @@ SignUpForm.propTypes = {
   result: PropTypes.bool.isRequired
 };
 
+SignUpForm.contextType = Context;
+
+export const validateForm = (values, props) => {
+  return {
+    ...validateUser(values, props)
+  };
+};
+
 const mapStateToProps = (state) => {
   return {
     pending: state.signUpResponse.pending,
@@ -126,7 +136,8 @@ const mapDispatchToProps = (dispatch) => {
 
 const SignUpReduxForm = reduxForm({
   form: 'signUp',
-  enableReinitialize: true
+  enableReinitialize: true,
+  validate: validateForm
 })(withTranslation()(SignUpForm));
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpReduxForm);
