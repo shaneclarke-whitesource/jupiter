@@ -5,13 +5,11 @@ import AddressSection from '../components/SignUp/AddressSection';
 import Product from '../components/SignUp/Product';
 
 const SignupRoutes = () => (
-  <div>
-    <Switch>
-      <Route exact path="/" component={Product} />
-      <Route path="/address" component={AddressSection} />
-      <Route path="/user-detail" component={UserInfo} />
-    </Switch>
-  </div>
+  <Switch>
+    <Route exact path="/" component={Product} />
+    <Route path="/address" component={AddressSection} />
+    <Route path="/user-detail" component={UserInfo} />
+  </Switch>
 );
 
 export default SignupRoutes;

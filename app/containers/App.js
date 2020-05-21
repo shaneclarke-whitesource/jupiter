@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import Footer from '../components/helix/Footer';
-import SignUpForm from './SignUp/SignUpForm';
 import Breadcrumb from '../components/helix/Breadcrumb';
+import SignupRoutes from '../router/signup';
 
 export class App extends React.Component {
   componentDidMount() {
@@ -33,7 +33,7 @@ export class App extends React.Component {
                       ]}
                     />
                     <div className="hxCol hxCol hxSpan-11 hxSpan-11-xs">
-                      <SignUpForm />
+                      <SignupRoutes />
                     </div>
                   </div>
                 </div>

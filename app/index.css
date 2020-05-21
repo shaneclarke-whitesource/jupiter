@@ -29,7 +29,7 @@ html, body {
     font-weight: 500;
 }
 
-.active {
+.u-active {
     color: #9e9e9e!important;
     font-weight: 300!important;
     pointer-events: none;

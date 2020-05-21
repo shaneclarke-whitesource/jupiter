@@ -9,6 +9,10 @@ import PhoneField from '../helix/inputTypes/PhoneField';
 import PasswordInput from '../helix/inputTypes/PasswordInput';
 import UserName from './UserName';
 import { checkUsername } from '../../actions/checkUsername';
+import SubmissionModal from './SubmissionModal';
+import Submit from '../helix/buttons/Submit';
+import { asyncValidate, validateUser } from '../../validators';
+import { clearResult, submitUserData } from '../../actions/signUpUser';
 
 export class UserInfo extends React.Component {
   generateUsername = _.debounce(() => {
@@ -29,85 +33,102 @@ export class UserInfo extends React.Component {
     }
   }
 
+  handleSubmit = (values) => {
+    const toSubmit = this.formatRequest(values);
+    this.props.signUp(toSubmit);
+  };
+
+  closeModal = () => {
+    this.props.clearResult();
+  };
+
   render() {
-    const { t } = this.props;
+    const { t, handleSubmit, result, pending } = this.props;
     return (
-      <section className="Input-section">
-        <h2>{t('common:account.header.userInfo')}</h2>
-        <div className="hxRow">
-          <div className="hxCol hxSpan-6">
+      <div className="Input-section">
+        <form onSubmit={handleSubmit(this.handleSubmit)}>
+          <h2>{t('common:account.header.userInfo')}</h2>
+          <div className="hxRow">
+            <div className="hxCol hxSpan-6">
+              <Field
+                name="firstName"
+                component={Input}
+                type="text"
+                label={t('common:user.details.firstName')}
+                required
+              />
+            </div>
+            <div className="hxCol hxSpan-6">
+              <Field
+                name="lastName"
+                component={Input}
+                type="text"
+                label={t('common:user.details.lastName')}
+                required
+              />
+            </div>
+          </div>
+          <div className="hxCol hxSpan-12">
             <Field
-              name="firstName"
+              name="title"
               component={Input}
               type="text"
-              label={t('common:user.details.firstName')}
+              label={t('common:user.details.title')}
+            />
+          </div>
+          <UserName />
+          <div className="hxCol hxSpan-12">
+            <Field
+              name="accountName"
+              component={Input}
+              type="text"
+              label={t('common:user.details.accountName')}
               required
             />
           </div>
-          <div className="hxCol hxSpan-6">
+          <div className="hxCol hxSpan-12">
             <Field
-              name="lastName"
+              name="email"
               component={Input}
               type="text"
-              label={t('common:user.details.lastName')}
+              label={t('common:user.details.email')}
               required
             />
           </div>
-        </div>
-        <div className="hxCol hxSpan-12">
-          <Field
-            name="title"
-            component={Input}
-            type="text"
-            label={t('common:user.details.title')}
+          <div className="hxCol hxSpan-12">
+            <Field
+              name="phoneNumber"
+              id="phoneNumber"
+              component={PhoneField}
+              label={t('common:user.details.phoneNumber')}
+              required
+            />
+          </div>
+          <div className="hxCol hxSpan-12">
+            <Field
+              name="password"
+              component={PasswordInput}
+              label={t('common:actions.create.password')}
+              tooltip
+              required
+            />
+          </div>
+          <div className="hxCol hxSpan-12">
+            <Field
+              name="passwordValidate"
+              component={PasswordInput}
+              label={t('common:actions.confirm.password')}
+              required
+            />
+          </div>
+          <Submit
+            label={t('common:actions.basic.submit')}
+            disabled={pending}
+            processing={pending}
           />
-        </div>
-        <UserName />
-        <div className="hxCol hxSpan-12">
-          <Field
-            name="accountName"
-            component={Input}
-            type="text"
-            label={t('common:user.details.accountName')}
-            required
-          />
-        </div>
-        <div className="hxCol hxSpan-12">
-          <Field
-            name="email"
-            component={Input}
-            type="text"
-            label={t('common:user.details.email')}
-            required
-          />
-        </div>
-        <div className="hxCol hxSpan-12">
-          <Field
-            name="phoneNumber"
-            id="phoneNumber"
-            component={PhoneField}
-            label={t('common:user.details.phoneNumber')}
-            required
-          />
-        </div>
-        <div className="hxCol hxSpan-12">
-          <Field
-            name="password"
-            component={PasswordInput}
-            label={t('common:actions.create.password')}
-            tooltip
-            required
-          />
-        </div>
-        <div className="hxCol hxSpan-12">
-          <Field
-            name="passwordValidate"
-            component={PasswordInput}
-            label={t('common:actions.confirm.password')}
-            required
-          />
-        </div>
-      </section>
+        </form>
+        <SubmissionModal openModal={result} hideModal={this.closeModal} />
+      </div>
     );
   }
 }
@@ -116,7 +137,12 @@ UserInfo.propTypes = {
   t: PropTypes.func.isRequired,
   checkIfExists: PropTypes.func.isRequired,
   firstName: PropTypes.string,
-  lastName: PropTypes.string
+  lastName: PropTypes.string,
+  handleSubmit: PropTypes.func.isRequired,
+  clearResult: PropTypes.func.isRequired,
+  signUp: PropTypes.func.isRequired,
+  result: PropTypes.bool,
+  pending: PropTypes.bool
 };
 
 const mapStateToProps = (state) => {
@@ -130,12 +156,30 @@ const mapDispatchToProps = (dispatch) => {
   return {
     checkIfExists: (username) => {
       dispatch(checkUsername(username));
+    },
+    signUp: (value) => {
+      dispatch(submitUserData(value));
+    },
+    clearResult: (value) => {
+      dispatch(clearResult(value));
     }
+  };
+};
+
+export const validate = (values, props) => {
+  return {
+    ...validateUser(values, props)
   };
 };
 
 const UserInfoReduxForm = reduxForm({
   form: 'signUp',
+  validate,
+  asyncValidate,
+  asyncBlurFields: ['username', 'password'],
+  touchOnBlur: false,
+  touchOnChange: true,
+  enableReinitialize: true,
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true
 })(withTranslation()(UserInfo));
