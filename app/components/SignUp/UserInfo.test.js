@@ -14,6 +14,7 @@ describe('UserInfo', () => {
     checkIfExists: checkIfExistsMock,
     firstName: '',
     lastName: '',
+    handleSubmit: jest.fn(),
     t
   };
   beforeEach(() => {

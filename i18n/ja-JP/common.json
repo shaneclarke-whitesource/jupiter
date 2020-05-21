@@ -19,6 +19,9 @@
   "account.header.address" : {
     "translation" : "住所"
   },
+  "account.header.detail" : {
+    "translation" : "アカウント詳細"
+  },
   "account.header.userInfo" : {
     "translation" : "ユーザー情報"
   },

@@ -15,7 +15,8 @@ export const validateEmail = (values, { t = i18nT() }) => {
   return validate(values, {
     email: {
       presence: {
-        allowEmpty: false
+        allowEmpty: false,
+        message: t('validation:input.required')
       },
       email: {
         message: t('validation:email.invalidFormat')
@@ -150,9 +151,8 @@ export const validateAddress = (values, { t = i18nT() }) => {
 };
 
 export const validateUser = (values, { t = i18nT() }) => {
-  const userInfo = _.get(values, 'userInfo');
   translateDefaultValidators(t);
-  const errors = validate(userInfo, {
+  const errors = validate(values, {
     firstName: {
       presence: {
         allowEmpty: false
@@ -208,19 +208,15 @@ export const validateUser = (values, { t = i18nT() }) => {
     }
   }, { fullMessages: false }) || {};
   return {
-    userInfo: {
-      ...errors,
-      ...validateEmail(userInfo, t),
-      ...validatePassword(userInfo, t),
-      ...validatePhoneNumber(userInfo, t),
-      ...validateAddress(userInfo, t),
-      ...validateProductType(userInfo, t)
-    }
+    ...errors,
+    ...validateEmail(values, t),
+    ...validatePassword(values, t),
+    ...validatePhoneNumber(values, t)
   };
 };
 
 export const asyncValidate = (values, dispatch, { t = i18nT() }, field) => {
-  const { username, password } = values.userInfo;
-  return field === 'userInfo.username'
+  const { username, password } = values;
+  return field === 'username'
     ? asyncValidateUsername(username, dispatch, t) : asyncValidatePassword(password, t);
 };
