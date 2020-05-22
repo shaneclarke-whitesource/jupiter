@@ -16,9 +16,12 @@ export class Product extends React.Component {
     }
   };
 
+  handleNext = () => {
+    this.context.history.push('/address');
+  }
+
   render() {
-    const { t } = this.props;
-    const { history } = this.context;
+    const { t, handleSubmit, valid } = this.props;
     const dropdownData = [
       {
         label: t('common:account.product.aws'),
@@ -42,39 +45,43 @@ export class Product extends React.Component {
       }
     ];
     return (
-      <div className="Input-section">
-        <h2>{t('common:account.product.header')}</h2>
-        <Field
-          name="productType"
-          component={DropDown}
-          options={dropdownData}
-          valueField="value"
-          textField="label"
-          label={t('common:account.actions.product.select')}
-          id="product-select-popover"
-          onChange={this.handleChange}
-          required
-        />
-        <CustomerType />
-        <div className="NavButtons">
-          <div className="hxRow">
-            <div className="hxCol hxSpan-12 align-right">
-              <Button
-                classNames="btn-wide"
-                onClick={() => history.push('/address')}
-                label={t('common:actions.basic.next')}
-              />
+      <form onSubmit={handleSubmit(this.handleNext)}>
+        <div className="Input-section u-form">
+          <h2>{t('common:account.product.header')}</h2>
+          <Field
+            name="productType"
+            component={DropDown}
+            options={dropdownData}
+            valueField="value"
+            textField="label"
+            label={t('common:account.actions.product.select')}
+            id="product-select-popover"
+            required
+          />
+          <CustomerType />
+          <div className="NavButtons">
+            <div className="hxRow">
+              <div className="hxCol hxSpan-12 align-right">
+                <Button
+                  classNames="btn-wide"
+                  label={t('common:actions.basic.next')}
+                  disabled={!valid}
+                  submit
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </form>
     );
   }
 }
 
 Product.propTypes = {
   t: PropTypes.func.isRequired,
-  clearRbu: PropTypes.func.isRequired
+  clearRbu: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  valid: PropTypes.bool
 };
 
 Product.contextType = Context;
@@ -96,6 +103,7 @@ const ProductReduxForm = reduxForm({
   form: 'signUp',
   validate,
   destroyOnUnmount: false,
+  touchOnChange: true,
   forceUnregisterOnUnmount: true // <------ unregister fields on unmount
 })(withTranslation()(Product));
 

@@ -8,7 +8,7 @@ const Breadcrumb = ({ breadcrumb }) => {
     .map((o) => Object.entries(o)[0])
     .map(([title, url], index) => {
       return [
-        <NavLink exact to={url} key={title} className="crumb" activeClassName="active">{title}</NavLink>,
+        <NavLink exact to={url} key={title} className="crumb" activeClassName="u-active">{title}</NavLink>,
         index < (breadcrumb.length - 1) && <hx-icon key={`${title}-icon`} class="delimiter" type="angle-right" />
       ];
     });

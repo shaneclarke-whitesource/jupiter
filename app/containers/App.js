@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import Footer from '../components/helix/Footer';
-import SignUpForm from './SignUp/SignUpForm';
-import Breadcrumb from '../components/helix/Breadcrumb';
 import { Context } from './Context';
+import SignUpSection from './SignUpSection';
 
 export class App extends React.Component {
   componentDidMount() {
@@ -24,20 +23,7 @@ export class App extends React.Component {
                   <h1>{t('common:signUp.headers.main')}</h1>
                   <hr />
                 </div>
-                <div className="hx-row">
-                  <div className="hxCol hxSpan-10 hxOffset-1 hxSpan-10-xs">
-                    <Breadcrumb
-                      breadcrumb={[
-                        { [t('common:account.header.detail')]: '/' },
-                        { [t('common:account.header.address')]: '/address' },
-                        { [t('common:account.header.userInfo')]: '/user-detail' }
-                      ]}
-                    />
-                    <div className="hxCol hxCol hxSpan-11 hxSpan-11-xs">
-                      <SignUpForm />
-                    </div>
-                  </div>
-                </div>
+                <SignUpSection />
               </div>
             </main>
           </div>

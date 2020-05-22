@@ -1,62 +1,94 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Product it renders 1`] = `
-<div
-  className="Input-section"
+<form
+  onSubmit={[Function]}
 >
-  <h2>
-    Account Product
-  </h2>
   <div
-    className="Dropdown"
+    className="Input-section u-form"
   >
-    <hx-select-control>
-      <select
-        id="product-select-popover"
-        onChange={[Function]}
-      >
-        <option
-          value=""
-        >
-          -- Please Select --
-        </option>
-        <option
-          value="aws"
-        >
-          Managed AWS
-        </option>
-        <option
-          value="managed_gcp"
-        >
-          Managed Google Cloud
-        </option>
-        <option
-          value="azure"
-        >
-          Managed Azure Cloud
-        </option>
-        <option
-          value="managed_vmc"
-        >
-          Managed VMware Cloud on AWS
-        </option>
-        <option
-          value="rpc_v"
-        >
-          Rackspace Private Cloud - VMware
-        </option>
-      </select>
-      <hx-select />
-      <label
-        className="hxRequired"
-        htmlFor="product-select-popover"
-      >
-        Select Product
-      </label>
-    </hx-select-control>
+    <h2>
+      Account Product
+    </h2>
     <div
-      className="error"
-    />
+      className="Dropdown"
+    >
+      <hx-select-control>
+        <select
+          id="product-select-popover"
+          onChange={[Function]}
+        >
+          <option
+            value=""
+          >
+            -- Please Select --
+          </option>
+          <option
+            value="aws"
+          >
+            Managed AWS
+          </option>
+          <option
+            value="managed_gcp"
+          >
+            Managed Google Cloud
+          </option>
+          <option
+            value="azure"
+          >
+            Managed Azure Cloud
+          </option>
+          <option
+            value="managed_vmc"
+          >
+            Managed VMware Cloud on AWS
+          </option>
+          <option
+            value="rpc_v"
+          >
+            Rackspace Private Cloud - VMware
+          </option>
+        </select>
+        <hx-select />
+        <label
+          className="hxRequired"
+          htmlFor="product-select-popover"
+        >
+          Select Product
+        </label>
+      </hx-select-control>
+      <div
+        className="error"
+      />
+    </div>
+    <div
+      className="CustomerType-section"
+    >
+      <div
+        className="hxRow"
+      >
+        <div
+          className="hxCol hxSpan-6"
+        >
+          <hx-checkbox-control>
+            <input
+              checked={false}
+              disabled={true}
+              id="customer-type"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              className="disallow-user-select"
+              htmlFor="customer-type"
+            >
+              <hx-checkbox />
+              Is this for an RBU customer?
+            </label>
+          </hx-checkbox-control>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</form>
 `;

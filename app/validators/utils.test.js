@@ -12,7 +12,7 @@ describe('validators/utils', () => {
       const getSignupData = { data: { exist: false } };
       axios.get.mockImplementationOnce(() => Promise.resolve(getSignupData));
       return asyncValidateUsernameMock('user1%').catch((e) => {
-        expect(e.userInfo.username).toEqual(['Username must not include these special character: %']);
+        expect(e.username).toEqual(['Username must not include these special character: %']);
       });
     });
 
@@ -20,7 +20,7 @@ describe('validators/utils', () => {
       const getSignupData = { data: { exist: true } };
       axios.get.mockImplementationOnce(() => Promise.resolve(getSignupData));
       return asyncValidateUsernameMock('user1').catch((e) => {
-        expect(e.userInfo.username).toEqual(['This username already exists. Please choose another one.']);
+        expect(e.username).toEqual(['This username already exists. Please choose another one.']);
       });
     });
 
@@ -39,7 +39,7 @@ describe('validators/utils', () => {
       const postSignupData = { data: { valid: 'FALSE', blacklistCheck: 'FAILED' } };
       axios.post.mockImplementationOnce(() => Promise.resolve(postSignupData));
       return asyncValidatePasswordMock({ password: 'Password123!' }).catch((e) => {
-        expect(e.userInfo.password).toEqual(['This password is too easy to guess. Please choose another password.']);
+        expect(e.password).toEqual(['This password is too easy to guess. Please choose another password.']);
       });
     });
 
@@ -47,7 +47,7 @@ describe('validators/utils', () => {
       const postSignupData = { data: { valid: 'TRUE', blacklistCheck: 'FAILED' } };
       axios.post.mockImplementationOnce(() => Promise.resolve(postSignupData));
       return asyncValidatePasswordMock({ password: 'Password123!' }).catch((e) => {
-        expect(e.userInfo.password).toEqual(['This password is too easy to guess. Please choose another password.']);
+        expect(e.password).toEqual(['This password is too easy to guess. Please choose another password.']);
       });
     });
 

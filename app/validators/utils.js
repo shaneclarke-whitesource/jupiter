@@ -6,7 +6,7 @@ export const asyncValidateUsername = (username, dispatch, t) => {
   return new Promise((resolve, reject) => {
     if (username.includes('%')) {
       // eslint-disable-next-line prefer-promise-reject-errors
-      reject({ userInfo: { username: [t('validation:username.symbolRestriction')] } });
+      reject({ username: [t('validation:username.symbolRestriction')] });
     } else {
       getSignup({ username }, endpoint)
         .then((response) => {

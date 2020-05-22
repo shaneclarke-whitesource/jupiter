@@ -11,81 +11,86 @@ import { Context } from '../../containers/Context';
 import Button from '../helix/buttons/Button';
 
 export class AddressSection extends React.Component {
+  handleNext = () => {
+    this.context.history.push('/user-detail');
+  };
+
   render() {
-    const { t, country } = this.props;
+    const { t, country, handleSubmit, valid } = this.props;
     const { history } = this.context;
     return (
-      <div className="Input-section">
-        <h3>{t('common:account.header.address')}</h3>
-        <FormSection name="address">
-          <Field
-            name="city"
-            type="text"
-            label={t('common:user.location.city')}
-            component={Input}
-            required
-          />
-          <Field
-            name="street"
-            type="text"
-            label={t('common:user.location.street')}
-            component={Input}
-            required
-          />
-          <Field
-            name="zipcode"
-            type="text"
-            label={t('common:user.location.zipcode')}
-            component={Input}
-            required
-          />
-          <div className="hxRow">
-            <div className="hxCol hxSpan-6">
-              <Field
-                name="country"
-                component={CountrySelect}
-                valueField="value"
-                textField="label"
-                label={t('common:user.location.country')}
-                id="country-select-dropdown"
-                country={country}
-                onCountryChange={this.props.setCountry}
-              />
+      <form onSubmit={handleSubmit(this.handleNext)}>
+        <div className="Input-section">
+          <h3>{t('common:account.header.address')}</h3>
+          <FormSection name="address">
+            <Field
+              name="city"
+              type="text"
+              label={t('common:user.location.city')}
+              component={Input}
+              required
+            />
+            <Field
+              name="street"
+              type="text"
+              label={t('common:user.location.street')}
+              component={Input}
+              required
+            />
+            <Field
+              name="zipcode"
+              type="text"
+              label={t('common:user.location.zipcode')}
+              component={Input}
+              required
+            />
+            <div className="hxRow">
+              <div className="hxCol hxSpan-6">
+                <Field
+                  name="country"
+                  component={CountrySelect}
+                  valueField="value"
+                  textField="label"
+                  label={t('common:user.location.country')}
+                  id="country-select-dropdown"
+                  country={country}
+                  onCountryChange={this.props.setCountry}
+                />
+              </div>
+              <div className="hxCol hxSpan-6">
+                <Field
+                  name="state"
+                  component={StateSelect}
+                  valueField="value"
+                  textField="label"
+                  label={t('common:user.location.state')}
+                  id="state-select-dropdown"
+                  country={country}
+                />
+              </div>
             </div>
-            <div className="hxCol hxSpan-6">
-              <Field
-                name="state"
-                component={StateSelect}
-                valueField="value"
-                textField="label"
-                label={t('common:user.location.state')}
-                id="state-select-dropdown"
-                country={country}
-              />
-            </div>
-          </div>
-        </FormSection>
+          </FormSection>
+        </div>
         <div className="NavButtons">
           <div className="hxRow">
             <div className="hxCol hxSpan-6">
               <Button
                 classNames="btn-wide"
-                onClick={() => history.push('/')}
-                type="submit"
                 label={t('common:actions.basic.back')}
+                onClick={() => history.push('/')}
               />
             </div>
             <div className="hxCol hxSpan-6 align-right">
               <Button
                 classNames="btn-wide"
-                type="submit"
-                onClick={() => history.push('/address')}
                 label={t('common:actions.basic.next')}
+                disabled={!valid}
+                submit
               />
             </div>
           </div>
         </div>
-      </div>
+      </form>
     );
   }
 }
@@ -107,7 +112,9 @@ const mapDispatchToProps = (dispatch) => {
 AddressSection.propTypes = {
   t: PropTypes.func.isRequired,
   country: PropTypes.string,
-  setCountry: PropTypes.func
+  setCountry: PropTypes.func,
+  handleSubmit: PropTypes.func.isRequired,
+  valid: PropTypes.bool.isRequired
 };
 
 AddressSection.defaultProps = {
