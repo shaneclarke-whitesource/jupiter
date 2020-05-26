@@ -10,12 +10,11 @@ describe('Product', () => {
     t
   };
   const mounted = (props) => {
-    const newProps = { ...defaultProps, ...props };
-    return mountWithForm(Product, { ...newProps });
+    return mountWithForm(Product, { defaultProps, props, withRouter: true });
   };
 
   test('it renders', () => {
-    const rendered = renderWithForm(Product, { ...defaultProps }).toJSON();
+    const rendered = renderWithForm(Product, { defaultProps }).toJSON();
     expect(rendered).toMatchSnapshot();
   });
 

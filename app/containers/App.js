@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import Footer from '../components/helix/Footer';
-import { Context } from './Context';
 import SignUpSection from './SignUpSection';
 
 export class App extends React.Component {
@@ -12,9 +11,9 @@ export class App extends React.Component {
   }
 
   render() {
-    const { t, history, location, match } = this.props;
+    const { t } = this.props;
     return (
-      <Context.Provider value={{ history, location, match }}>
+      <>
         <div id="app" className="u-flex-grow">
           <div id="stage" className="jupiter-content">
             <main role="main" id="content" className="main-body">
@@ -29,22 +28,13 @@ export class App extends React.Component {
           </div>
         </div>
         <Footer />
-      </Context.Provider>
+      </>
     );
   }
 }
 
 App.propTypes = {
-  t: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired,
-  location: PropTypes.object.isRequired,
-  match: PropTypes.object.isRequired
-};
-
-App.contextTypes = {
-  location: PropTypes.object,
-  history: PropTypes.object,
-  match: PropTypes.object
+  t: PropTypes.func.isRequired
 };
 
 export default withTranslation()(App);

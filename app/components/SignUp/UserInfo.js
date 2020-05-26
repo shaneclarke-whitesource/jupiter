@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { Field, formValueSelector, reduxForm } from 'redux-form';
 import _ from 'lodash';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import { withTranslation } from 'react-i18next';
+import { Field, formValueSelector, reduxForm } from 'redux-form';
 import Input from '../helix/inputTypes/Input';
 import PhoneField from '../helix/inputTypes/PhoneField';
 import PasswordInput from '../helix/inputTypes/PasswordInput';
@@ -14,7 +15,6 @@ import SubmissionModal from './SubmissionModal';
 import Submit from '../helix/buttons/Submit';
 import { clearResult, submitUserData } from '../../actions/signUpUser';
 import Button from '../helix/buttons/Button';
-import { Context } from '../../containers/Context';
 
 export class UserInfo extends React.Component {
   generateUsername = _.debounce(() => {
@@ -45,8 +45,7 @@ export class UserInfo extends React.Component {
   };
 
   render() {
-    const { t, handleSubmit, result, pending, pristine, valid } = this.props;
-    const { history } = this.context;
+    const { t, handleSubmit, result, pending, pristine, valid, history } = this.props;
     return (
       <div className="Input-section">
         <form onSubmit={handleSubmit(this.handleSubmit)}>
@@ -160,10 +159,11 @@ UserInfo.propTypes = {
   result: PropTypes.bool,
   pending: PropTypes.bool,
   pristine: PropTypes.bool.isRequired,
-  valid: PropTypes.bool.isRequired
+  valid: PropTypes.bool.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  })
 };
-
-UserInfo.contextType = Context;
 
 const mapStateToProps = (state) => {
   return {
@@ -204,4 +204,4 @@ const UserInfoReduxForm = reduxForm({
   forceUnregisterOnUnmount: true
 })(withTranslation()(UserInfo));
 
-export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(UserInfoReduxForm));
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(withRouter(UserInfoReduxForm)));

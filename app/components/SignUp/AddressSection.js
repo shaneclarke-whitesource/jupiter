@@ -1,23 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import { change, Field, formValueSelector, FormSection, reduxForm } from 'redux-form';
 import { withTranslation } from 'react-i18next';
 import { validateAddress } from '../../validators';
 import Input from '../helix/inputTypes/Input';
 import CountrySelect from './AddressSelectors/CountrySelect';
 import StateSelect from './AddressSelectors/StateSelect';
-import { Context } from '../../containers/Context';
 import Button from '../helix/buttons/Button';
 
 export class AddressSection extends React.Component {
   handleNext = () => {
-    this.context.history.push('/user-detail');
+    this.props.history.push('/user-detail');
   };
 
   render() {
-    const { t, country, handleSubmit, valid } = this.props;
-    const { history } = this.context;
+    const { t, country, handleSubmit, valid, history } = this.props;
     return (
       <form onSubmit={handleSubmit(this.handleNext)}>
         <div className="Input-section">
@@ -114,14 +113,15 @@ AddressSection.propTypes = {
   country: PropTypes.string,
   setCountry: PropTypes.func,
   handleSubmit: PropTypes.func.isRequired,
-  valid: PropTypes.bool.isRequired
+  valid: PropTypes.bool.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  })
 };
 
 AddressSection.defaultProps = {
   country: ''
 };
-
-AddressSection.contextType = Context;
 
 const validate = (values, props) => {
   return {
@@ -136,4 +136,4 @@ const AddressSectionReduxForm = reduxForm({
   forceUnregisterOnUnmount: true // <------ unregister fields on unmount
 })(withTranslation()(AddressSection));
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddressSectionReduxForm);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AddressSectionReduxForm));

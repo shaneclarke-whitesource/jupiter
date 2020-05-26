@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderWithForm, mountWithForm } from '../../../test/provider';
+import { mountWithForm } from '../../../test/provider';
 import { t } from '../../../test/i18n/mocks';
 import AddressSectionForm, { AddressSection } from './AddressSection';
 
@@ -8,16 +8,16 @@ describe('AddressSection', () => {
   const defaultProps = {
     t,
     setCountry: jest.fn(),
-    country: 'US'
+    country: 'US',
+    handleSubmit: jest.fn(),
+    valid: true,
+    history: {
+      push: jest.fn()
+    }
   };
 
   beforeEach(() => {
     wrapper = shallow(<AddressSection {...defaultProps} />);
-  });
-
-  test('it renders', () => {
-    const rendered = renderWithForm(AddressSection, defaultProps).toJSON();
-    expect(rendered).toMatchSnapshot();
   });
 
   test('it renders correct labels', () => {
@@ -32,7 +32,7 @@ describe('AddressSection', () => {
   });
 
   test('it changes the country state when onChange is invoked', () => {
-    const mounted = mountWithForm(AddressSectionForm, defaultProps);
+    const mounted = mountWithForm(AddressSectionForm, { defaultProps, withRouter: true });
     const event = {
       target: {
         value: 'AF'

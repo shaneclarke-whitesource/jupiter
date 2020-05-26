@@ -15,6 +15,10 @@ describe('UserInfo', () => {
     firstName: '',
     lastName: '',
     handleSubmit: jest.fn(),
+    clearResult: jest.fn(),
+    signUp: jest.fn(),
+    pristine: true,
+    valid: false,
     t
   };
   beforeEach(() => {

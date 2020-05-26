@@ -19,7 +19,7 @@ exports[`Product it renders 1`] = `
           onChange={[Function]}
         >
           <option
-            value=""
+            value={Array []}
           >
             -- Please Select --
           </option>
@@ -86,6 +86,25 @@ exports[`Product it renders 1`] = `
               Is this for an RBU customer?
             </label>
           </hx-checkbox-control>
+        </div>
+      </div>
+    </div>
+    <div
+      className="NavButtons"
+    >
+      <div
+        className="hxRow"
+      >
+        <div
+          className="hxCol hxSpan-12 align-right"
+        >
+          <button
+            className="hxBtn btn-wide"
+            disabled={false}
+            type="submit"
+          >
+            Next
+          </button>
         </div>
       </div>
     </div>

@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { change, Field, reduxForm } from 'redux-form';
 import { withTranslation } from 'react-i18next';
 import { validateProductType } from '../../validators';
+import { withRouter } from 'react-router';
 import DropDown from '../helix/inputTypes/Dropdown';
-import { connect } from 'react-redux';
 import CustomerType from './CustomerType';
 import Button from '../helix/buttons/Button';
-import { Context } from '../../containers/Context';
 
 export class Product extends React.Component {
   handleChange = (e) => {
@@ -17,7 +17,7 @@ export class Product extends React.Component {
   };
 
   handleNext = () => {
-    this.context.history.push('/address');
+    this.props.history.push('/address');
   }
 
   render() {
@@ -56,6 +56,7 @@ export class Product extends React.Component {
             textField="label"
             label={t('common:account.actions.product.select')}
             id="product-select-popover"
+            onChange={this.handleChange}
             required
           />
           <CustomerType />
@@ -81,10 +82,12 @@ Product.propTypes = {
   t: PropTypes.func.isRequired,
   clearRbu: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  valid: PropTypes.bool
+  valid: PropTypes.bool,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  })
 };
 
-Product.contextType = Context;
 const mapDispatchToProps = (dispatch) => {
   return {
     clearRbu: () => {
@@ -107,4 +110,4 @@ const ProductReduxForm = reduxForm({
   forceUnregisterOnUnmount: true // <------ unregister fields on unmount
 })(withTranslation()(Product));
 
-export default connect(null, mapDispatchToProps)(ProductReduxForm);
+export default withRouter(connect(null, mapDispatchToProps)(ProductReduxForm));
