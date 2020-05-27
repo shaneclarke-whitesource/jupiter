@@ -6,7 +6,7 @@ export class SignUpSection extends React.Component {
     return (
       <div className="hx-row">
         <div className="hxCol hxSpan-10 hxOffset-1 hxSpan-10-xs">
-          <div className="hxCol hxCol hxSpan-11 hxSpan-11-xs">
+          <div className="hxCol hxSpan-11 hxSpan-11-xs">
             {this.props.children}
           </div>
         </div>
