@@ -7,15 +7,14 @@
       "path" : "*/translation"
     }
   },
-
   "account.actions.product.select" : {
     "translation" : "Select Product"
   },
-  "account.customer.info" : {
-    "translation" : "Customer Information"
-  },
   "account.customer.isRbu" : {
     "translation" : "Is this for an RBU customer?"
+  },
+  "account.customer.info" : {
+    "translation" : "Customer Information"
   },
   "account.header.address" : {
     "translation" : "Address"

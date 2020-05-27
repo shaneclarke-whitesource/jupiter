@@ -10,11 +10,11 @@
   "account.actions.product.select" : {
     "translation" : "製品を選択"
   },
-  "account.customer.info" : {
-    "translation" : "顧客情報"
-  },
   "account.customer.isRbu" : {
     "translation" : "これはRBUのお客様向けですか？"
+  },
+  "account.customer.info" : {
+    "translation" : "顧客情報"
   },
   "account.header.address" : {
     "translation" : "住所"

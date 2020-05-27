@@ -43,7 +43,7 @@ export class Product extends React.Component {
     return (
       <form onSubmit={handleSubmit}>
         <div className="Input-section u-form">
-          <h2>{t('common:account.product.header')}</h2>
+          <h2>{t('common:account.customer.info')}</h2>
           <Field
             name="productType"
             component={DropDown}
