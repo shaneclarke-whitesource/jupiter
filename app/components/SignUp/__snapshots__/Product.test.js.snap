@@ -99,7 +99,7 @@ exports[`Product it renders 1`] = `
           className="hxCol hxSpan-12 align-right"
         >
           <button
-            className="hxBtn btn-wide"
+            className="hxBtn btn-wide hxBtn hxPrimary"
             disabled={false}
             onClick={[Function]}
             type="submit"

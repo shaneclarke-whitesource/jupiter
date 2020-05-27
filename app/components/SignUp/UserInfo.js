@@ -134,6 +134,7 @@ export class UserInfo extends React.Component {
               </div>
               <div className="hxCol hxSpan-6 align-right">
                 <Submit
+                  classNames="hxBtn hxPrimary"
                   label={t('common:actions.basic.submit')}
                   disabled={pending || !valid}
                   processing={pending}

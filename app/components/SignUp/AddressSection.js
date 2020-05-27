@@ -78,7 +78,7 @@ export class AddressSection extends React.Component {
             </div>
             <div className="hxCol hxSpan-6 align-right">
               <Submit
-                classNames="btn-wide"
+                classNames="btn-wide hxBtn hxPrimary"
                 label={t('common:actions.basic.next')}
                 onClick={() => this.props.history.push('/user-detail')}
                 disabled={!valid}

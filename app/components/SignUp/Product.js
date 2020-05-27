@@ -60,7 +60,7 @@ export class Product extends React.Component {
             <div className="hxRow">
               <div className="hxCol hxSpan-12 align-right">
                 <Button
-                  classNames="btn-wide"
+                  classNames="btn-wide hxBtn hxPrimary"
                   label={t('common:actions.basic.next')}
                   disabled={!valid}
                   onClick={() => this.props.history.push('/address')}

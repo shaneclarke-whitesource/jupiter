@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import Footer from '../components/helix/Footer';
 import SignUpSection from './SignUpSection';
+import SignupRoutes from '../router/signup';
 
 export class App extends React.Component {
   componentDidMount() {
@@ -22,7 +23,9 @@ export class App extends React.Component {
                   <h1>{t('common:signUp.headers.main')}</h1>
                   <hr />
                 </div>
-                <SignUpSection />
+                <SignUpSection>
+                  <SignupRoutes />
+                </SignUpSection>
               </div>
             </main>
           </div>
