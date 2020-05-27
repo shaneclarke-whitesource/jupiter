@@ -8,7 +8,7 @@ exports[`Product it renders 1`] = `
     className="Input-section u-form"
   >
     <h2>
-      Account Product
+      Customer Information
     </h2>
     <div
       className="Dropdown"
