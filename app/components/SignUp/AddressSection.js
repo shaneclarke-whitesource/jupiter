@@ -1,16 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import { change, Field, formValueSelector, FormSection, reduxForm } from 'redux-form';
 import { withTranslation } from 'react-i18next';
-import Input from '../helix/inputTypes/Input';
 import { validateAddress } from '../../validators';
+import Input from '../helix/inputTypes/Input';
 import CountrySelect from './AddressSelectors/CountrySelect';
 import StateSelect from './AddressSelectors/StateSelect';
+import Button from '../helix/buttons/Button';
+import Submit from '../helix/buttons/Submit';
 
 export class AddressSection extends React.Component {
   render() {
-    const { t, country, handleSubmit } = this.props;
+    const { t, country, handleSubmit, valid, history } = this.props;
     return (
       <form onSubmit={handleSubmit}>
         <div className="Input-section">
@@ -64,6 +67,26 @@ export class AddressSection extends React.Component {
             </div>
           </FormSection>
         </div>
+        <div className="NavButtons">
+          <div className="hxRow">
+            <div className="hxCol hxSpan-6">
+              <Button
+                classNames="btn-wide"
+                label={t('common:actions.basic.back')}
+                onClick={() => history.push('/')}
+              />
+            </div>
+            <div className="hxCol hxSpan-6 align-right">
+              <Submit
+                classNames="btn-wide hxBtn hxPrimary"
+                label={t('common:actions.basic.next')}
+                onClick={() => this.props.history.push('/user-detail')}
+                disabled={!valid}
+                submit
+              />
+            </div>
+          </div>
+        </div>
       </form>
     );
   }
@@ -87,7 +110,11 @@ AddressSection.propTypes = {
   t: PropTypes.func.isRequired,
   country: PropTypes.string,
   setCountry: PropTypes.func,
-  handleSubmit: PropTypes.func.isRequired
+  handleSubmit: PropTypes.func.isRequired,
+  valid: PropTypes.bool.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  })
 };
 
 AddressSection.defaultProps = {
@@ -107,4 +134,4 @@ const AddressSectionReduxForm = reduxForm({
   forceUnregisterOnUnmount: true // <------ unregister fields on unmount
 })(withTranslation()(AddressSection));
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddressSectionReduxForm);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AddressSectionReduxForm));

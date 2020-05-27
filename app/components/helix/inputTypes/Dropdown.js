@@ -13,7 +13,6 @@ const DropDown = (props) => {
       </option>
     );
   });
-
   return (
     <div className="Dropdown">
       <hx-select-control>
@@ -22,7 +21,7 @@ const DropDown = (props) => {
           onChange={props.input.onChange}
           {...props.required ? props.required : null}
         >
-          <option value="">
+          <option value={[]}>
             {t('common:account.product.select')}
           </option>
           {options}

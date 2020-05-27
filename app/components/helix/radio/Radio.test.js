@@ -19,11 +19,11 @@ describe('Radio', () => {
     ]
   };
   beforeEach(() => {
-    wrapper = mountWithForm(Radio, { ...props });
+    wrapper = mountWithForm(Radio, { props });
   });
 
   test('renders with appropriate props', () => {
-    const component = renderWithForm(Radio, { ...props }).toJSON();
+    const component = renderWithForm(Radio, { props }).toJSON();
     expect(component).toMatchSnapshot();
   });
 

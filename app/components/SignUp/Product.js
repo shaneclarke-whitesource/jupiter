@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { change, Field, reduxForm } from 'redux-form';
 import { withTranslation } from 'react-i18next';
-import DropDown from '../helix/inputTypes/Dropdown';
-import { connect } from 'react-redux';
-import CustomerType from './CustomerType';
 import { validateProductType } from '../../validators';
+import { withRouter } from 'react-router';
+import DropDown from '../helix/inputTypes/Dropdown';
+import CustomerType from './CustomerType';
+import Button from '../helix/buttons/Button';
 
 export class Product extends React.Component {
   handleChange = (e) => {
@@ -15,7 +17,7 @@ export class Product extends React.Component {
   };
 
   render() {
-    const { t, handleSubmit } = this.props;
+    const { t, handleSubmit, valid } = this.props;
     const dropdownData = [
       {
         label: t('common:account.product.aws'),
@@ -41,7 +43,7 @@ export class Product extends React.Component {
     return (
       <form onSubmit={handleSubmit}>
         <div className="Input-section u-form">
-          <h2>{t('common:account.product.header')}</h2>
+          <h2>{t('common:account.customer.info')}</h2>
           <Field
             name="productType"
             component={DropDown}
@@ -54,6 +56,19 @@ export class Product extends React.Component {
             required
           />
           <CustomerType />
+          <div className="NavButtons">
+            <div className="hxRow">
+              <div className="hxCol hxSpan-12 align-right">
+                <Button
+                  classNames="btn-wide hxBtn hxPrimary"
+                  label={t('common:actions.basic.next')}
+                  disabled={!valid}
+                  onClick={() => this.props.history.push('/address')}
+                  submit
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </form>
     );
@@ -63,7 +78,11 @@ export class Product extends React.Component {
 Product.propTypes = {
   t: PropTypes.func.isRequired,
   clearRbu: PropTypes.func.isRequired,
-  handleSubmit: PropTypes.func.isRequired
+  handleSubmit: PropTypes.func.isRequired,
+  valid: PropTypes.bool,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  })
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -84,7 +103,8 @@ const ProductReduxForm = reduxForm({
   form: 'signUp',
   validate,
   destroyOnUnmount: false,
+  touchOnChange: true,
   forceUnregisterOnUnmount: true // <------ unregister fields on unmount
 })(withTranslation()(Product));
 
-export default connect(null, mapDispatchToProps)(ProductReduxForm);
+export default withRouter(connect(null, mapDispatchToProps)(ProductReduxForm));

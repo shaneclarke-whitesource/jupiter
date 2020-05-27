@@ -10,11 +10,11 @@
   "account.actions.product.select" : {
     "translation" : "製品を選択"
   },
-  "account.customer.info" : {
-    "translation" : "顧客情報"
-  },
   "account.customer.isRbu" : {
     "translation" : "これはRBUのお客様向けですか？"
+  },
+  "account.customer.info" : {
+    "translation" : "顧客情報"
   },
   "account.header.address" : {
     "translation" : "住所"
@@ -52,8 +52,14 @@
   "account.product.select" : {
     "translation" : "-- 選択してください --"
   },
+  "actions.basic.back" : {
+    "translation" : "__NOT_TRANSLATED__"
+  },
   "actions.basic.hide" : {
     "translation" : "隠す"
+  },
+  "actions.basic.next" : {
+    "translation" : "__NOT_TRANSLATED__"
   },
   "actions.basic.show" : {
     "translation" : "表示する"

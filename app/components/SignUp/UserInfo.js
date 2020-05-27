@@ -1,18 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { Field, formValueSelector, reduxForm } from 'redux-form';
 import _ from 'lodash';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import { withTranslation } from 'react-i18next';
+import { Field, formValueSelector, reduxForm } from 'redux-form';
 import Input from '../helix/inputTypes/Input';
 import PhoneField from '../helix/inputTypes/PhoneField';
 import PasswordInput from '../helix/inputTypes/PasswordInput';
 import UserName from './UserName';
 import { checkUsername } from '../../actions/checkUsername';
+import { validateUser, asyncValidate } from '../../validators';
 import SubmissionModal from './SubmissionModal';
 import Submit from '../helix/buttons/Submit';
-import { asyncValidate, validateUser } from '../../validators';
 import { clearResult, submitUserData } from '../../actions/signUpUser';
+import Button from '../helix/buttons/Button';
 
 export class UserInfo extends React.Component {
   generateUsername = _.debounce(() => {
@@ -43,7 +45,7 @@ export class UserInfo extends React.Component {
   };
 
   render() {
-    const { t, handleSubmit, result, pending } = this.props;
+    const { t, handleSubmit, result, pending, valid, history } = this.props;
     return (
       <div className="Input-section">
         <form onSubmit={handleSubmit(this.handleSubmit)}>
@@ -121,11 +123,25 @@ export class UserInfo extends React.Component {
               required
             />
           </div>
-          <Submit
-            label={t('common:actions.basic.submit')}
-            disabled={pending}
-            processing={pending}
-          />
+          <div className="NavButtons">
+            <div className="hxRow">
+              <div className="hxCol hxSpan-6 align-left">
+                <Button
+                  classNames="btn-wide"
+                  onClick={() => history.push('/address')}
+                  label={t('common:actions.basic.back')}
+                />
+              </div>
+              <div className="hxCol hxSpan-6 align-right">
+                <Submit
+                  classNames="hxBtn hxPrimary"
+                  label={t('common:actions.basic.submit')}
+                  disabled={pending || !valid}
+                  processing={pending}
+                />
+              </div>
+            </div>
+          </div>
         </form>
         <SubmissionModal openModal={result} hideModal={this.closeModal} />
       </div>
@@ -142,7 +158,11 @@ UserInfo.propTypes = {
   clearResult: PropTypes.func.isRequired,
   signUp: PropTypes.func.isRequired,
   result: PropTypes.bool,
-  pending: PropTypes.bool
+  pending: PropTypes.bool,
+  valid: PropTypes.bool.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  })
 };
 
 const mapStateToProps = (state) => {
@@ -184,4 +204,4 @@ const UserInfoReduxForm = reduxForm({
   forceUnregisterOnUnmount: true
 })(withTranslation()(UserInfo));
 
-export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(UserInfoReduxForm));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withTranslation()(UserInfoReduxForm)));
