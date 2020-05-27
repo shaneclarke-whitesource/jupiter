@@ -9,16 +9,13 @@ import Input from '../helix/inputTypes/Input';
 import CountrySelect from './AddressSelectors/CountrySelect';
 import StateSelect from './AddressSelectors/StateSelect';
 import Button from '../helix/buttons/Button';
+import Submit from '../helix/buttons/Submit';
 
 export class AddressSection extends React.Component {
-  handleNext = () => {
-    this.props.history.push('/user-detail');
-  };
-
   render() {
     const { t, country, handleSubmit, valid, history } = this.props;
     return (
-      <form onSubmit={handleSubmit(this.handleNext)}>
+      <form onSubmit={handleSubmit}>
         <div className="Input-section">
           <h3>{t('common:account.header.address')}</h3>
           <FormSection name="address">
@@ -80,9 +77,10 @@ export class AddressSection extends React.Component {
               />
             </div>
             <div className="hxCol hxSpan-6 align-right">
-              <Button
+              <Submit
                 classNames="btn-wide"
                 label={t('common:actions.basic.next')}
+                onClick={() => this.props.history.push('/user-detail')}
                 disabled={!valid}
                 submit
               />

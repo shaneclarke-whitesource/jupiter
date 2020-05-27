@@ -16,10 +16,6 @@ export class Product extends React.Component {
     }
   };
 
-  handleNext = () => {
-    this.props.history.push('/address');
-  }
-
   render() {
     const { t, handleSubmit, valid } = this.props;
     const dropdownData = [
@@ -45,7 +41,7 @@ export class Product extends React.Component {
       }
     ];
     return (
-      <form onSubmit={handleSubmit(this.handleNext)}>
+      <form onSubmit={handleSubmit}>
         <div className="Input-section u-form">
           <h2>{t('common:account.product.header')}</h2>
           <Field
@@ -67,6 +63,7 @@ export class Product extends React.Component {
                   classNames="btn-wide"
                   label={t('common:actions.basic.next')}
                   disabled={!valid}
+                  onClick={() => this.props.history.push('/address')}
                   submit
                 />
               </div>

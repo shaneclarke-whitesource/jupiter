@@ -45,7 +45,7 @@ export class UserInfo extends React.Component {
   };
 
   render() {
-    const { t, handleSubmit, result, pending, pristine, valid, history } = this.props;
+    const { t, handleSubmit, result, pending, valid, history } = this.props;
     return (
       <div className="Input-section">
         <form onSubmit={handleSubmit(this.handleSubmit)}>
@@ -135,7 +135,7 @@ export class UserInfo extends React.Component {
               <div className="hxCol hxSpan-6 align-right">
                 <Submit
                   label={t('common:actions.basic.submit')}
-                  disabled={pending || pristine || !valid}
+                  disabled={pending || !valid}
                   processing={pending}
                 />
               </div>
@@ -158,7 +158,6 @@ UserInfo.propTypes = {
   signUp: PropTypes.func.isRequired,
   result: PropTypes.bool,
   pending: PropTypes.bool,
-  pristine: PropTypes.bool.isRequired,
   valid: PropTypes.bool.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
@@ -204,4 +203,4 @@ const UserInfoReduxForm = reduxForm({
   forceUnregisterOnUnmount: true
 })(withTranslation()(UserInfo));
 
-export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(withRouter(UserInfoReduxForm)));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withTranslation()(UserInfoReduxForm)));

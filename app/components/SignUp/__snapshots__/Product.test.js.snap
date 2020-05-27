@@ -2,7 +2,7 @@
 
 exports[`Product it renders 1`] = `
 <form
-  onSubmit={[Function]}
+  onSubmit={[MockFunction]}
 >
   <div
     className="Input-section u-form"
@@ -101,6 +101,7 @@ exports[`Product it renders 1`] = `
           <button
             className="hxBtn btn-wide"
             disabled={false}
+            onClick={[Function]}
             type="submit"
           >
             Next
