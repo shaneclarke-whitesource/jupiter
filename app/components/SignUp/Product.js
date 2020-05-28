@@ -48,6 +48,7 @@ export class Product extends React.Component {
             name="productType"
             component={DropDown}
             options={dropdownData}
+            defaultValue=""
             valueField="value"
             textField="label"
             label={t('common:account.actions.product.select')}

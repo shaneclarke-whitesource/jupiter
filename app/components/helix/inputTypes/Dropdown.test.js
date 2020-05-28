@@ -1,6 +1,5 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
 import DropDown from './Dropdown';
 import { t } from '../../../../test/i18n/mocks';
 
@@ -12,6 +11,7 @@ describe('Dropdown', () => {
     label: 'Dropdown Label',
     id: 'dropdown-id',
     input: { onChange: onChangeHandler },
+    value: 'option-1',
     options: [{
       value: 'option-1',
       label: 'First Choice'

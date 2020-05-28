@@ -17,9 +17,10 @@ exports[`Product it renders 1`] = `
         <select
           id="product-select-popover"
           onChange={[Function]}
+          value=""
         >
           <option
-            value={Array []}
+            value=""
           >
             -- Please Select --
           </option>
