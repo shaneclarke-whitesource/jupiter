@@ -47,6 +47,18 @@ describe('Product', () => {
     expect(clearRbuMock).toHaveBeenCalled();
   });
 
+  test('dropdown reflects change in value', () => {
+    const wrapper = mounted();
+    expect(wrapper.find('select').prop('value')).toEqual('');
+    const event = {
+      target: {
+        value: 'managed_gcp'
+      }
+    };
+    wrapper.find('option[value="managed_gcp"]').simulate('change', event);
+    expect(wrapper.find('select').prop('value')).toEqual('managed_gcp');
+  });
+
   test('back button navigates to address page onClick', () => {
     const push = jest.fn();
     const wrapper = shallow({ history: { push } });
