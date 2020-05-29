@@ -5,15 +5,16 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { withTranslation } from 'react-i18next';
 import { Field, formValueSelector, reduxForm } from 'redux-form';
+import { clearResult, submitUserData } from '../../actions/signUpUser';
+import { formatRequest } from '../../../utils/signup';
+import { checkUsername } from '../../actions/checkUsername';
+import { validateUser, asyncValidate } from '../../validators';
 import Input from '../helix/inputTypes/Input';
 import PhoneField from '../helix/inputTypes/PhoneField';
 import PasswordInput from '../helix/inputTypes/PasswordInput';
 import UserName from './UserName';
-import { checkUsername } from '../../actions/checkUsername';
-import { validateUser, asyncValidate } from '../../validators';
 import SubmissionModal from './SubmissionModal';
 import Submit from '../helix/buttons/Submit';
-import { clearResult, submitUserData } from '../../actions/signUpUser';
 import Button from '../helix/buttons/Button';
 
 export class UserInfo extends React.Component {
@@ -36,12 +37,13 @@ export class UserInfo extends React.Component {
   }
 
   handleSubmit = (values) => {
-    const toSubmit = this.formatRequest(values);
+    const toSubmit = formatRequest(values);
     this.props.signUp(toSubmit);
   };
 
   closeModal = () => {
     this.props.clearResult();
+    this.props.history.push('/');
   };
 
   render() {
@@ -157,8 +159,8 @@ UserInfo.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   clearResult: PropTypes.func.isRequired,
   signUp: PropTypes.func.isRequired,
-  result: PropTypes.bool,
-  pending: PropTypes.bool,
+  result: PropTypes.bool.isRequired,
+  pending: PropTypes.bool.isRequired,
   valid: PropTypes.bool.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
@@ -168,7 +170,9 @@ UserInfo.propTypes = {
 const mapStateToProps = (state) => {
   return {
     firstName: formValueSelector('signUp')(state, 'firstName'),
-    lastName: formValueSelector('signUp')(state, 'lastName')
+    lastName: formValueSelector('signUp')(state, 'lastName'),
+    result: !!(!state.signUpResponse.pending && (state.signUpResponse.success || state.signUpResponse.error)),
+    pending: state.signUpResponse.pending
   };
 };
 
