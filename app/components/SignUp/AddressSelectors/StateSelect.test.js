@@ -14,11 +14,11 @@ describe('StateSelect', () => {
     }
   };
   beforeEach(() => {
-    wrapper = mountWithProvider(StateSelect, defaultProps);
+    wrapper = mountWithProvider(StateSelect, { defaultProps });
   });
 
   test('it renders', () => {
-    const component = renderWithForm(StateSelect, defaultProps).toJSON();
+    const component = renderWithForm(StateSelect, { defaultProps }).toJSON();
     expect(component).toMatchSnapshot();
   });
 

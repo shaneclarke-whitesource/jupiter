@@ -1,7 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import CountrySelect from './CountrySelect';
-import { shallow } from 'enzyme';
 
 describe('CountrySelect', () => {
   let wrapper;

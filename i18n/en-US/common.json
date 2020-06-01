@@ -10,14 +10,17 @@
   "account.actions.product.select" : {
     "translation" : "Select Product"
   },
-  "account.customer.info" : {
-    "translation" : "Customer Information"
-  },
   "account.customer.isRbu" : {
     "translation" : "Is this for an RBU customer?"
   },
+  "account.customer.info" : {
+    "translation" : "Customer Information"
+  },
   "account.header.address" : {
     "translation" : "Address"
+  },
+  "account.header.detail" : {
+    "translation" : "Account Details"
   },
   "account.header.userInfo" : {
     "translation" : "User Information"
@@ -49,8 +52,14 @@
   "account.product.select" : {
     "translation" : "-- Please Select --"
   },
+  "actions.basic.back" : {
+    "translation" : "Back"
+  },
   "actions.basic.hide" : {
     "translation" : "Hide"
+  },
+  "actions.basic.next" : {
+    "translation" : "Next"
   },
   "actions.basic.show" : {
     "translation" : "Show"

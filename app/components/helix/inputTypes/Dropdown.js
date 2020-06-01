@@ -20,6 +20,7 @@ const DropDown = (props) => {
         <select
           id={props.id}
           onChange={props.input.onChange}
+          value={props.input.value}
           {...props.required ? props.required : null}
         >
           <option value="">
@@ -42,7 +43,8 @@ DropDown.propTypes = {
   id: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.object),
   input: PropTypes.shape({
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    value: PropTypes.string
   }),
   meta: PropTypes.shape({
     error: PropTypes.oneOfType([

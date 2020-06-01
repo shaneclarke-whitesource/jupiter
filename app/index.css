@@ -7,8 +7,32 @@ html, body {
     height: 100%;
 }
 
-.main-body {
-    margin-top: 25px;
+.u-flex-grow {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+.u-input-stretch {
+    width: 100%;
+}
+
+.crumb {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.hxBreadcrumb > a:last-of-type {
+    pointer-events: auto;
+    color: #0d74d1;
+    font-weight: 500;
+}
+
+.u-active {
+    color: #9e9e9e!important;
+    font-weight: 300!important;
+    pointer-events: none;
 }
 
 /* Signup Container */
@@ -60,6 +84,18 @@ html, body {
 .submit-btn {
     margin-right: 15px;
     width: 100px;
+}
+
+.btn-wide {
+    width: 100px;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.align-left {
+    text-align: left;
 }
 
 .cancel-btn {
@@ -132,10 +168,6 @@ hx-text-control[hx-dirty] > input[type="password"]:enabled:invalid, hx-text-cont
     text-align: center;
 }
 
-.u-input-stretch {
-    width: 100%;
-}
-
 /*Submission Modal*/
 
 .Modal .Body {
@@ -145,6 +177,5 @@ hx-text-control[hx-dirty] > input[type="password"]:enabled:invalid, hx-text-cont
 .Modal h1 {
     text-align: center;
 }
-
 
 
