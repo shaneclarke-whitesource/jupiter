@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { change, Field, getFormSyncErrors } from 'redux-form';
 import { withTranslation } from 'react-i18next';
-import Input from '../helix/inputTypes/Input';
-import Tooltip from '../helix/Tooltip';
+import Input from '../../helix/inputTypes/Input';
+import Tooltip from '../../helix/Tooltip';
 
 export class UserName extends React.Component {
   componentDidUpdate(prevProps) {

@@ -11,8 +11,8 @@
  */
 
 export const ADDRESS_FIELDS = {
-  city: 'Minato-ku',
   street: 'Toranomon Hills Mori Tower 7th Floor Toranomon 1-23-1',
+  city: 'Minato-ku',
   zipcode: '106-6155',
   country: 'JP',
   state: 'Tokyo'

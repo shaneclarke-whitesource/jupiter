@@ -16,6 +16,15 @@
   "account.customer.info" : {
     "translation" : "Customer Information"
   },
+  "account.actions.currency.select" : {
+    "translation": "Select Currency"
+  },
+  "account.currency.usd" : {
+    "translation" : "USD"
+  },
+  "account.currency.cad" : {
+    "translation" : "CAD"
+  },
   "account.customer.type.onica" : {
     "translation" : "Onica"
   },
@@ -27,6 +36,9 @@
   },
   "account.header.address" : {
     "translation" : "Address"
+  },
+  "account.header.billingInfo" : {
+    "translation" : "Billing Information"
   },
   "account.header.userInfo" : {
     "translation" : "User Information"

@@ -1,6 +1,6 @@
 import React from 'react';
-import { mountWithForm } from '../../../test/provider';
-import { t } from '../../../test/i18n/mocks';
+import { mountWithForm } from '../../../../test/provider';
+import { t } from '../../../../test/i18n/mocks';
 import AddressSectionForm, { AddressSection } from './AddressSection';
 import enzyme from 'enzyme';
 

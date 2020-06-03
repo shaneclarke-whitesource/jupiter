@@ -54,7 +54,7 @@ describe('CustomerInformation', () => {
     const push = jest.fn();
     const wrapper = shallow({ history: { push } });
     wrapper.find('Button').simulate('click');
-    expect(push).toBeCalledWith('/address');
+    expect(push).toBeCalledWith('/billing');
   });
 
   test('next button is disabled if form is not valid', () => {

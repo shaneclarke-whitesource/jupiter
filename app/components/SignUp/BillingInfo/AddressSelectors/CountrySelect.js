@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { CountryDropdown } from 'react-country-region-selector';
-import Error from '../../helix/Error';
+import Error from '../../../helix/Error';
 
 class CountrySelect extends React.Component {
   render() {

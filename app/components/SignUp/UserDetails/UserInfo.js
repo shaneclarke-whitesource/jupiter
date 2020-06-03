@@ -5,17 +5,17 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { withTranslation } from 'react-i18next';
 import { Field, formValueSelector, reduxForm } from 'redux-form';
-import { clearResult, submitUserData } from '../../actions/signUpUser';
-import { formatRequest } from '../../../utils/signup';
-import { checkUsername } from '../../actions/checkUsername';
-import { validateUser, asyncValidate } from '../../validators';
-import Input from '../helix/inputTypes/Input';
-import PhoneField from '../helix/inputTypes/PhoneField';
-import PasswordInput from '../helix/inputTypes/PasswordInput';
+import { clearResult, submitUserData } from '../../../actions/signUpUser';
+import { formatRequest } from '../../../../utils/signup';
+import { checkUsername } from '../../../actions/checkUsername';
+import { validateUser, asyncValidate } from '../../../validators';
+import Input from '../../helix/inputTypes/Input';
+import PhoneField from '../../helix/inputTypes/PhoneField';
+import PasswordInput from '../../helix/inputTypes/PasswordInput';
 import UserName from './UserName';
-import SubmissionModal from './SubmissionModal';
-import Submit from '../helix/buttons/Submit';
-import Button from '../helix/buttons/Button';
+import SubmissionModal from '../SubmissionModal';
+import Submit from '../../helix/buttons/Submit';
+import Button from '../../helix/buttons/Button';
 
 export class UserInfo extends React.Component {
   generateUsername = _.debounce(() => {
@@ -130,7 +130,7 @@ export class UserInfo extends React.Component {
               <div className="hxCol hxSpan-6 align-left">
                 <Button
                   classNames="btn-wide"
-                  onClick={() => history.push('/address')}
+                  onClick={() => history.push('/billing')}
                   label={t('common:actions.basic.back')}
                 />
               </div>

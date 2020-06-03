@@ -6,8 +6,8 @@ import { createStore } from 'redux';
 import rootReducer from '../reducers/rootReducer';
 import { Provider } from 'react-redux';
 import { Product } from '../components/SignUp/CustomerInfo/Product';
-import { AddressSection } from '../components/SignUp/AddressSection';
-import { UserInfo } from '../components/SignUp/UserInfo';
+import { AddressSection } from '../components/SignUp/BillingInfo/AddressSection';
+import { UserInfo } from '../components/SignUp/UserDetails/UserInfo';
 
 const store = createStore(rootReducer);
 
@@ -29,8 +29,8 @@ describe('routes/signup', () => {
     expect(wrapper.find(UserInfo)).toHaveLength(0);
   });
 
-  it('path /address routes to Address', () => {
-    const wrapper = mounted('/address');
+  it('path /billing routes to Address', () => {
+    const wrapper = mounted('/billing');
     expect(wrapper.find(Product)).toHaveLength(0);
     expect(wrapper.find(AddressSection)).toHaveLength(1);
     expect(wrapper.find(UserInfo)).toHaveLength(0);
