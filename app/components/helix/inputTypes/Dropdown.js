@@ -8,7 +8,7 @@ const DropDown = (props) => {
   const { t } = useTranslation();
   const options = _.map(props.options, (item, index) => {
     return (
-      <option key={index + 1} value={item.value}>
+      <option key={index + 1} value={item.value} disabled={item.disabled}>
         {item.label}
       </option>
     );
@@ -21,6 +21,7 @@ const DropDown = (props) => {
           id={props.id}
           onChange={props.input.onChange}
           value={props.input.value}
+          disabled={props.disabled}
           {...props.required ? props.required : null}
         >
           <option value="">
@@ -42,6 +43,7 @@ DropDown.propTypes = {
   label: PropTypes.string,
   id: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.object),
+  disabled: PropTypes.bool,
   input: PropTypes.shape({
     onChange: PropTypes.func,
     value: PropTypes.string

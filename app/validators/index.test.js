@@ -24,7 +24,7 @@ describe('validators', () => {
       phoneNumber: '1231232'
     };
     test('it passes if all values are valid', () => {
-      expect(validateUserInfo({ ...valid })).toEqual({ });
+      expect(validateUserInfo({ ...valid })).toEqual({});
     });
 
     test('it fails if firstName is longer than 32 characters', () => {
@@ -160,15 +160,30 @@ describe('validators', () => {
     });
   });
 
-  describe('validateProductType', () => {
-    const validateProductType = (props) => {
-      return validators.validateProductType(props, defaultProps);
+  describe('validateCustomerInfo', () => {
+    const validateCustomerInfo = (props) => {
+      return validators.validateCustomerInformation(props, defaultProps);
     };
     test('it passes with valid input', () => {
-      expect(validateProductType({ productType: 'product' })).toEqual(undefined);
+      expect(validateCustomerInfo({
+        customerInfo: {
+          customerType: 'type',
+          productType: 'product'
+        }
+      })).toEqual({});
     });
+
     test('it fails with empty input', () => {
-      expect(validateProductType({ productType: '' })).toEqual({ productType: ['Required'] });
+      expect(validateCustomerInfo({
+        customerInfo: {
+          customerType: '',
+          productType: ''
+        }
+      })).toEqual({
+        customerInfo: {
+          productType: ['Required'],
+          customerType: ['Required']
+        } });
     });
   });
   describe('validateAddress', () => {

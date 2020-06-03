@@ -7,20 +7,26 @@
       "path" : "*/translation"
     }
   },
+  "account.actions.customer.select" : {
+    "translation" : "Select Customer Type"
+  },
   "account.actions.product.select" : {
     "translation" : "Select Product"
-  },
-  "account.customer.isRbu" : {
-    "translation" : "Is this for an RBU customer?"
   },
   "account.customer.info" : {
     "translation" : "Customer Information"
   },
+  "account.customer.type.onica" : {
+    "translation" : "Onica"
+  },
+  "account.customer.type.rackspace" : {
+    "translation" : "Rackspace"
+  },
+  "account.customer.type.rbu" : {
+    "translation" : "RBU"
+  },
   "account.header.address" : {
     "translation" : "Address"
-  },
-  "account.header.detail" : {
-    "translation" : "Account Details"
   },
   "account.header.userInfo" : {
     "translation" : "User Information"
@@ -30,9 +36,6 @@
   },
   "account.product.azure" : {
     "translation" : "Managed Azure Cloud"
-  },
-  "account.product.header" : {
-    "translation" : "Account Product"
   },
   "account.product.managed_gcp" : {
     "translation" : "Managed Google Cloud"

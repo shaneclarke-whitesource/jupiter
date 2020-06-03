@@ -5,7 +5,7 @@ import { t } from '../../test/i18n/mocks';
 import { createStore } from 'redux';
 import rootReducer from '../reducers/rootReducer';
 import { Provider } from 'react-redux';
-import { Product } from '../components/SignUp/Product';
+import { Product } from '../components/SignUp/CustomerInfo/Product';
 import { AddressSection } from '../components/SignUp/AddressSection';
 import { UserInfo } from '../components/SignUp/UserInfo';
 

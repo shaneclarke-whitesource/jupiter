@@ -63,12 +63,13 @@ html, body {
     margin-bottom: 10px;
 }
 
-.Input-section {
+.NavButtons {
     margin: 25px 0 30px 0;
 }
 
 .CustomerType-section {
     margin-top: 25px;
+    margin-bottom: 15px;
 }
 
 .Input-section h2, .Input-section h3 {

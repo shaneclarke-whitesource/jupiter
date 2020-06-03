@@ -98,15 +98,23 @@ export const validatePhoneNumber = (values, { t = i18nT() }) => {
   return errors;
 };
 
-export const validateProductType = (values, { t = i18nT() }) => {
-  return validate(values, {
+export const validateCustomerInformation = (values, { t = i18nT() }) => {
+  const customerInfo = _.get(values, 'customerInfo', {});
+  const errors = validate(customerInfo, {
     productType: {
+      presence: {
+        allowEmpty: false,
+        message: t('validation:input.required')
+      }
+    },
+    customerType: {
       presence: {
         allowEmpty: false,
         message: t('validation:input.required')
       }
     }
   }, { fullMessages: false });
+  return errors ? { customerInfo: errors } : {};
 };
 
 export const validateAddress = (values, { t = i18nT() }) => {
