@@ -6,7 +6,7 @@ Rackspace Signup page for Invoice Cart
 ### Starting up
 To start up Jupiter locally, run:
 ```
-yarn install && yarn start
+yarn install
 ```
 To use portal staging API end-points: `staging.portal.rackspace.com/api/`
 ```
@@ -62,3 +62,5 @@ Signup is the API use to create accounts. Some details related to nodes can be f
 Admin Api [documentation](https://github.rackspace.com/portal/session/wiki/Admin-API)
 
 Signup Developer guide [documentation](https://pages.github.rackspace.com/IX/internal-docs-signup/api-docs/api-reference/index.html)
+
+Portal Onboarding Resources [documentation](https://etherpad.rax.io/p/portal-onboarding-resources)

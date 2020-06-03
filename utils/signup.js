@@ -3,15 +3,16 @@ import { RBU_SIGNUP_REQUEST } from '../app/signupReqFormat/rbuCustomer';
 import { CUSTOMER_SIGNUP_REQUEST } from '../app/signupReqFormat/customer';
 
 export const formatRequest = (values) => {
+  console.log(values);
   const template = (
-    _.get(values, ['userInfo', 'customerType', 'isRbu'])
+    _.get(values, ['customerInfo', 'customerType']) === 'rbu'
       ? RBU_SIGNUP_REQUEST
       : CUSTOMER_SIGNUP_REQUEST
   );
   return {
     ...template,
     accountName: values.accountName,
-    externalId: (values.productType).toUpperCase(),
+    externalId: (values.customerInfo.productType).toUpperCase(),
     serviceLevel: 'MANAGED',
     contacts: {
       contact: [
