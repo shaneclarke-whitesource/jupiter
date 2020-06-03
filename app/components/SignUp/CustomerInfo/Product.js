@@ -40,8 +40,6 @@ export const Product = ({ customerType }) => {
       component={DropDown}
       options={dropdownData}
       defaultValue=""
-      valueField="value"
-      textField="label"
       label={t('common:account.actions.product.select')}
       id="product-select-popover"
       disabled={!customerType}

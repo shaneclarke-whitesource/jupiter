@@ -3,7 +3,6 @@ import { RBU_SIGNUP_REQUEST } from '../app/signupReqFormat/rbuCustomer';
 import { CUSTOMER_SIGNUP_REQUEST } from '../app/signupReqFormat/customer';
 
 export const formatRequest = (values) => {
-  console.log(values);
   const template = (
     _.get(values, ['customerInfo', 'customerType']) === 'rbu'
       ? RBU_SIGNUP_REQUEST
