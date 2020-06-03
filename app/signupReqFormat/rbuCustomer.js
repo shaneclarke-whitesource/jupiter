@@ -15,11 +15,11 @@ export const RBU_SIGNUP_REQUEST = {
         'key': 'deviceFingerPrint'
       },
       {
-        'value': 'false',
+        'value': 'true',
         'key': 'skipCloudWelcomeEmail'
       },
       {
-        'value': 'RBU',
+        'value': 'RBU', // goes to ONICA
         'key': 'Business_Unit'
       }
     ]

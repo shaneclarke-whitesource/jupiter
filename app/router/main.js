@@ -4,7 +4,7 @@ import App from '../containers/App';
 
 const Routes = () => (
   <div className="jupiter-wrapper u-flex-grow">
-    <Router>
+    <Router basename="/racker/jupiter">
       <Route path="/" component={App} />
     </Router>
   </div>

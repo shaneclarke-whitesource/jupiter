@@ -8,20 +8,23 @@ const DropDown = (props) => {
   const { t } = useTranslation();
   const options = _.map(props.options, (item, index) => {
     return (
-      <option key={index + 1} value={item.value}>
+      <option key={index + 1} value={item.value} disabled={item.disabled}>
         {item.label}
       </option>
     );
   });
+
   return (
     <div className="Dropdown">
       <hx-select-control>
         <select
           id={props.id}
           onChange={props.input.onChange}
+          value={props.input.value}
+          disabled={props.disabled}
           {...props.required ? props.required : null}
         >
-          <option value={[]}>
+          <option value="">
             {t('common:account.product.select')}
           </option>
           {options}
@@ -40,8 +43,10 @@ DropDown.propTypes = {
   label: PropTypes.string,
   id: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.object),
+  disabled: PropTypes.bool,
   input: PropTypes.shape({
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    value: PropTypes.string
   }),
   meta: PropTypes.shape({
     error: PropTypes.oneOfType([

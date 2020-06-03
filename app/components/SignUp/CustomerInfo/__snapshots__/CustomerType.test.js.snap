@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomerType it renders 1`] = `
+<div
+  className="CustomerType-section"
+>
+  <div
+    className="hxRow"
+  >
+    <div
+      className="hxCol hxSpan-12"
+    >
+      <div
+        className="Dropdown"
+      >
+        <hx-select-control>
+          <select
+            id="customer-select-popover"
+            onChange={[Function]}
+            value=""
+          >
+            <option
+              value=""
+            >
+              -- Please Select --
+            </option>
+            <option
+              value="rackspace"
+            >
+              Rackspace
+            </option>
+            <option
+              value="rbu"
+            >
+              RBU
+            </option>
+            <option
+              value="onica"
+            >
+              Onica
+            </option>
+          </select>
+          <hx-select />
+          <label
+            className="hxRequired"
+            htmlFor="customer-select-popover"
+          >
+            Select Customer Type
+          </label>
+        </hx-select-control>
+        <div
+          className="error"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
