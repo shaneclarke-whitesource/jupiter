@@ -7,11 +7,20 @@
       "path" : "*/translation"
     }
   },
+  "account.actions.currency.select" : {
+    "translation" : "__NOT_TRANSLATED__"
+  },
   "account.actions.customer.select" : {
     "translation" : "__NOT_TRANSLATED__"
   },
   "account.actions.product.select" : {
     "translation" : "製品を選択"
+  },
+  "account.currency.cad" : {
+    "translation" : "__NOT_TRANSLATED__"
+  },
+  "account.currency.usd" : {
+    "translation" : "__NOT_TRANSLATED__"
   },
   "account.customer.info" : {
     "translation" : "顧客情報"
@@ -25,8 +34,8 @@
   "account.customer.type.rbu" : {
     "translation" : "__NOT_TRANSLATED__"
   },
-  "account.header.address" : {
-    "translation" : "住所"
+  "account.header.billingInfo" : {
+    "translation" : "__NOT_TRANSLATED__"
   },
   "account.header.userInfo" : {
     "translation" : "ユーザー情報"

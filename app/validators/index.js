@@ -158,6 +158,28 @@ export const validateAddress = (values, { t = i18nT() }) => {
   return errors ? { address: errors } : {};
 };
 
+export const validateCurrency = (values) => {
+  const errors = validate(values, {
+    currency: {
+      presence: {
+        allowEmpty: false
+      }
+    }
+  }, { fullMessages: false });
+  return errors || {};
+};
+
+export const validateBilling = (values, { t = i18nT() }) => {
+  translateDefaultValidators(t);
+  const billing = _.get(values, 'billingInfo', {});
+  return {
+    billingInfo: {
+      ...validateAddress(billing, t),
+      ...validateCurrency(billing, t)
+    }
+  };
+};
+
 export const validateUser = (values, { t = i18nT() }) => {
   translateDefaultValidators(t);
   const errors = validate(values, {

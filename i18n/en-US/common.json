@@ -7,23 +7,23 @@
       "path" : "*/translation"
     }
   },
+  "account.actions.currency.select" : {
+    "translation" : "Select Currency"
+  },
   "account.actions.customer.select" : {
     "translation" : "Select Customer Type"
   },
   "account.actions.product.select" : {
     "translation" : "Select Product"
   },
-  "account.customer.info" : {
-    "translation" : "Customer Information"
-  },
-  "account.actions.currency.select" : {
-    "translation": "Select Currency"
+  "account.currency.cad" : {
+    "translation" : "CAD"
   },
   "account.currency.usd" : {
     "translation" : "USD"
   },
-  "account.currency.cad" : {
-    "translation" : "CAD"
+  "account.customer.info" : {
+    "translation" : "Customer Information"
   },
   "account.customer.type.onica" : {
     "translation" : "Onica"
@@ -33,9 +33,6 @@
   },
   "account.customer.type.rbu" : {
     "translation" : "RBU"
-  },
-  "account.header.address" : {
-    "translation" : "Address"
   },
   "account.header.billingInfo" : {
     "translation" : "Billing Information"

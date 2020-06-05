@@ -1,20 +1,19 @@
 import React from 'react';
+import enzyme from 'enzyme';
 import { mountWithForm } from '../../../../test/provider';
 import { t } from '../../../../test/i18n/mocks';
-import AddressSectionForm, { AddressSection } from './AddressSection';
-import enzyme from 'enzyme';
+import { AddressSection } from './AddressSection';
 
 describe('AddressSection', () => {
-  const submit = jest.fn();
+  const setCountry = jest.fn();
   const defaultProps = {
-    t,
-    setCountry: jest.fn(),
+    setCountry,
     country: 'US',
-    handleSubmit: submit,
-    valid: true,
-    history: {
-      push: jest.fn()
-    }
+    t
+  };
+
+  const mounted = (props) => {
+    return mountWithForm(AddressSection, { defaultProps, props });
   };
 
   const shallow = (props) => {
@@ -24,41 +23,23 @@ describe('AddressSection', () => {
   test('it renders correct labels', () => {
     const labels = shallow().find('Field').map((field) => field.prop('label'));
     expect(labels).toEqual([
-      'City',
       'Street',
+      'City',
       'Zipcode',
       'Country',
       'State'
     ]);
   });
 
-  test('it changes the country state when onChange is invoked', () => {
-    const mounted = mountWithForm(AddressSectionForm, { defaultProps, withRouter: true });
+  test('it calls setCountry with the correct input', () => {
+    const wrapper = mounted();
     const event = {
       target: {
         value: 'AF'
       }
     };
-    mounted.find('CountryDropdown').simulate('change', event);
-    expect(mounted.find('CountryDropdown').props().value).toEqual('AF');
-  });
-
-  test('back button navigates to address page onClick', () => {
-    const push = jest.fn();
-    const wrapper = shallow({ history: { push } });
-    wrapper.find('Button').first().simulate('click');
-    expect(push).toBeCalledWith('/');
-  });
-
-  test('next button navigates to address page onClick', () => {
-    const push = jest.fn();
-    const wrapper = shallow({ history: { push } });
-    wrapper.find('form').simulate('submit');
-    expect(submit).toBeCalled();
-  });
-
-  test('next button is disabled if form is not valid', () => {
-    const wrapper = shallow({ valid: false }).find('Submit').last();
-    expect(wrapper.prop('disabled')).toBeTruthy();
+    wrapper.find('CountryDropdown').simulate('change', event);
+    wrapper.update();
+    expect(setCountry.mock.calls[0][0]).toBe('AF');
   });
 });

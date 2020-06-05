@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { formValueSelector, reduxForm, FormSection } from 'redux-form';
 import { withTranslation } from 'react-i18next';
-import { validateAddress } from '../../../validators';
+import { validateBilling } from '../../../validators';
 import AddressSection from './AddressSection';
 import Button from '../../helix/buttons/Button';
 import Submit from '../../helix/buttons/Submit';
@@ -39,7 +39,6 @@ export class BillingSection extends React.Component {
                   label={t('common:actions.basic.next')}
                   onClick={() => this.props.history.push('/user-detail')}
                   disabled={!valid}
-                  submit
                 />
               </div>
             </div>
@@ -70,7 +69,7 @@ const mapStateToProps = (state) => {
 
 const validate = (values, props) => {
   return {
-    ...validateAddress(values, props)
+    ...validateBilling(values, props)
   };
 };
 

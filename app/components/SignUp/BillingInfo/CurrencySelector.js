@@ -16,7 +16,7 @@ export class CurrencySelector extends React.Component {
       {
         value: 'cad',
         label: t('common:account.currency.cad'),
-        disabled: customerType !== 'onica' && (country !== 'US' || country !== 'CA')
+        disabled: customerType !== 'onica' || (country !== 'US' && country !== 'CA')
       }
     ];
     return (
@@ -28,7 +28,6 @@ export class CurrencySelector extends React.Component {
           options={options}
           defaultValue="usd"
           label={t('common:account.actions.currency.select')}
-          disabled={!country}
           required
         />
       </div>
