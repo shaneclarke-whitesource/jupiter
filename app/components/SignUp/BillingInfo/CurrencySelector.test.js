@@ -36,7 +36,7 @@ describe('CurrencySelector', () => {
     expect(options[1].disabled).toBeTruthy();
   });
 
-  test('it disables cad currency if customerType is onica but country is not US or CA', () => {
+  test('it disables cad currency if customerType is onica but country is not CA', () => {
     const wrapper = mount({
       customerType: 'onica',
       country: 'JP'
@@ -44,16 +44,6 @@ describe('CurrencySelector', () => {
     const { options } = wrapper.find('SelectorStrip').props();
     expect(options[1].value).toBe('cad');
     expect(options[1].disabled).toBeTruthy();
-  });
-
-  test('it allows cad currency if customer type is onica and country is US', () => {
-    const wrapper = mount({
-      customerType: 'onica',
-      country: 'US'
-    });
-    const { options } = wrapper.find('SelectorStrip').props();
-    expect(options[1].value).toBe('cad');
-    expect(options[1].disabled).toBeFalsy();
   });
 
   test('it allows cad currency if customer type is onica and country is CA', () => {
