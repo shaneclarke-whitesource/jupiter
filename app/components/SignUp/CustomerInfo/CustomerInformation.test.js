@@ -17,7 +17,11 @@ describe('CustomerInformation', () => {
   };
 
   const mounted = (props) => {
-    return mountWithForm(CustomerInformation, { defaultProps, props, withRouter: true });
+    return mountWithForm(CustomerInformation, {
+      defaultProps,
+      props,
+      withRouter: true
+    });
   };
 
   const shallow = (props) => {
@@ -34,7 +38,9 @@ describe('CustomerInformation', () => {
     wrapper.find('CustomerType').props().handleChange(event);
     wrapper.update();
     expect(clearProductMock).toHaveBeenCalledTimes(1);
-    expect(setAddressMock).toHaveBeenNthCalledWith(1, 'city', 'Minato-ku');
+    expect(setAddressMock).toHaveBeenNthCalledWith(
+      1, 'street', 'Toranomon Hills Mori Tower 7th Floor Toranomon 1-23-1'
+    );
   });
 
   it('it calls setAddress with empty field if value is not rbu', () => {
@@ -54,7 +60,7 @@ describe('CustomerInformation', () => {
     const push = jest.fn();
     const wrapper = shallow({ history: { push } });
     wrapper.find('Button').simulate('click');
-    expect(push).toBeCalledWith('/address');
+    expect(push).toBeCalledWith('/billing');
   });
 
   test('next button is disabled if form is not valid', () => {

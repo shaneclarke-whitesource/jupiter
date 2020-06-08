@@ -49,7 +49,7 @@ export class CustomerInformation extends React.Component {
                   classNames="btn-wide hxBtn hxPrimary"
                   label={t('common:actions.basic.next')}
                   disabled={!valid}
-                  onClick={() => this.props.history.push('/address')}
+                  onClick={() => this.props.history.push('/billing')}
                   submit
                 />
               </div>
@@ -79,7 +79,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(change('signUp', 'customerInfo.productType', ''));
     },
     setAddress: (field, value) => {
-      dispatch(change('signUp', `address.${field}`, value));
+      dispatch(change('signUp', `billingInfo.address.${field}`, value));
     }
   };
 };

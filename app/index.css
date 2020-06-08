@@ -72,6 +72,11 @@ html, body {
     margin-bottom: 15px;
 }
 
+.CurrencySelector-section {
+    margin-top: 15px;
+    padding-left: 13px;
+}
+
 .Input-section h2, .Input-section h3 {
     margin-bottom: 15px;
 }

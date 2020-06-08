@@ -1,5 +1,5 @@
 import React from 'react';
-import { t } from '../../../test/i18n/mocks';
+import { t } from '../../../../test/i18n/mocks';
 import enzyme from 'enzyme';
 import { UserInfo } from './UserInfo';
 import debounce from 'lodash/debounce';
@@ -64,7 +64,7 @@ describe('UserInfo', () => {
     const push = jest.fn();
     const wrapper = shallow({ history: { push } });
     wrapper.find('Button').simulate('click');
-    expect(push).toBeCalledWith('/address');
+    expect(push).toBeCalledWith('/billing');
   });
 
   test('submit button is disabled if pending is true', () => {

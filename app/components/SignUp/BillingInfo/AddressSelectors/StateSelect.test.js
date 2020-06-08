@@ -1,4 +1,4 @@
-import { renderWithForm, mountWithProvider } from '../../../../test/provider';
+import { renderWithForm, mountWithProvider } from '../../../../../test/provider';
 import { StateSelect } from './StateSelect';
 
 describe('StateSelect', () => {
