@@ -22,7 +22,7 @@ export const formatRequest = (values) => {
           addresses: {
             address: [
               {
-                ...values.address,
+                ...values.billingInfo.address,
                 primary: true
               }
             ]
@@ -38,7 +38,7 @@ export const formatRequest = (values) => {
           phoneNumbers: {
             phoneNumber: [
               {
-                country: values.address.country,
+                country: values.billingInfo.address.country,
                 number: values.phoneNumber.number,
                 category: 'HOME',
                 primary: true
