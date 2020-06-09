@@ -1,10 +1,10 @@
 import React from 'react';
 import { mountWithForm } from '../../../../test/provider';
 import { t } from '../../../../test/i18n/mocks';
-import { CustomerInformation } from './CustomerInformation';
+import { CustomerInfoForm } from './CustomerInfoForm';
 import enzyme from 'enzyme';
 
-describe('CustomerInformation', () => {
+describe('CustomerInfoForm', () => {
   const setAddressMock = jest.fn();
   const clearProductMock = jest.fn();
   const defaultProps = {
@@ -17,7 +17,7 @@ describe('CustomerInformation', () => {
   };
 
   const mounted = (props) => {
-    return mountWithForm(CustomerInformation, {
+    return mountWithForm(CustomerInfoForm, {
       defaultProps,
       props,
       withRouter: true
@@ -25,7 +25,7 @@ describe('CustomerInformation', () => {
   };
 
   const shallow = (props) => {
-    return enzyme.shallow(<CustomerInformation {...defaultProps} {...props} />);
+    return enzyme.shallow(<CustomerInfoForm {...defaultProps} {...props} />);
   };
 
   it('calls setAddress and clearProduct if target value is rbu', () => {

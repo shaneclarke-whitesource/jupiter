@@ -144,7 +144,12 @@ export const validateAddress = (values, { t = i18nT() }) => {
     },
     zipcode: {
       presence: {
-        allowEmpty: false
+        allowEmpty: false,
+        maximum: 32,
+        tooLong: t('validation:input.maxLength', {
+          content: undefined,
+          characterCount: '%{count}'
+        })
       },
       length: {
         maximum: 20,
@@ -181,8 +186,9 @@ export const validateBilling = (values, { t = i18nT() }) => {
 };
 
 export const validateUser = (values, { t = i18nT() }) => {
+  const userInfo = _.get(values, 'userInfo', {});
   translateDefaultValidators(t);
-  const errors = validate(values, {
+  const errors = validate(userInfo, {
     firstName: {
       presence: {
         allowEmpty: false
@@ -238,15 +244,17 @@ export const validateUser = (values, { t = i18nT() }) => {
     }
   }, { fullMessages: false }) || {};
   return {
-    ...errors,
-    ...validateEmail(values, t),
-    ...validatePassword(values, t),
-    ...validatePhoneNumber(values, t)
+    userInfo: {
+      ...errors,
+      ...validateEmail(userInfo, t),
+      ...validatePassword(userInfo, t),
+      ...validatePhoneNumber(userInfo, t)
+    }
   };
 };
 
 export const asyncValidate = (values, dispatch, { t = i18nT() }, field) => {
-  const { username, password } = values;
-  return field === 'username'
+  const { userInfo: { username, password } } = values;
+  return field === 'userInfo.username'
     ? asyncValidateUsername(username, dispatch, t) : asyncValidatePassword(password, t);
 };

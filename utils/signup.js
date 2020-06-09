@@ -2,13 +2,13 @@ import _ from 'lodash';
 import { ALT_CUSTOMER_SIGNUP_REQUEST } from '../app/signupReqFormat/altCustomer';
 import { RACK_CUSTOMER_SIGNUP_REQUEST } from '../app/signupReqFormat/rackspaceCustomer';
 
-const formatAltCustomer = (type, values) => {
+export const formatAltCustomer = (type, values) => {
   ALT_CUSTOMER_SIGNUP_REQUEST.metadata.property.forEach((obj) => {
     if (obj.key === 'Business_Unit') {
       obj.value = type;
     }
   });
-  const address = _.get(values, ['contacts', 'contact', 'addresses', 'address']);
+  const address = _.get(values, ['billingInfo', 'address', 'country']);
   if (address.country === 'US') {
     // change to John Nunnington info on how to connect address to correct defaultRegion/country
     ALT_CUSTOMER_SIGNUP_REQUEST.geography = values.billingInfo.address.country;
@@ -32,15 +32,16 @@ export const formatRequest = (values) => {
   );
   return {
     ...template,
-    accountName: values.accountName,
+    accountName: values.userInfo.accountName,
     externalId: (values.customerInfo.productType).toUpperCase(),
     serviceLevel: 'MANAGED',
     currencyCode: values.billingInfo.currency.toUpperCase(),
+    description: `A Karate (${type.toUpperCase()}) cloud signup request from the retail site.`,
     contacts: {
       contact: [
         {
-          firstName: values.firstName,
-          lastName: values.lastName,
+          firstName: values.userInfo.firstName,
+          lastName: values.userInfo.lastName,
           title: values.title,
           addresses: {
             address: [
@@ -53,7 +54,7 @@ export const formatRequest = (values) => {
           emailAddresses: {
             emailAddress: [
               {
-                address: values.email,
+                address: values.userInfo.email,
                 primary: true
               }
             ]
@@ -61,16 +62,16 @@ export const formatRequest = (values) => {
           phoneNumbers: {
             phoneNumber: [
               {
-                country: values.billingInfo.address.country,
-                number: values.phoneNumber.number,
+                country: values.userInfo.phoneNumber.countryCode,
+                number: values.userInfo.phoneNumber.number,
                 category: 'HOME',
                 primary: true
               }
             ]
           },
           user: {
-            username: values.username,
-            password: values.password
+            username: values.userInfo.username,
+            password: values.userInfo.password
           },
           roles: template.contacts.contact[0].roles
         }

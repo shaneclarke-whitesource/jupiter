@@ -10,7 +10,7 @@ import CustomerType from './CustomerType';
 import Product from './Product';
 import { ADDRESS_FIELDS } from '../../../actions/constants/address';
 
-export class CustomerInformation extends React.Component {
+export class CustomerInfoForm extends React.Component {
   handleChange = (e) => {
     if (e.target.value === 'rbu') {
       this.populateAddressFields();
@@ -61,7 +61,7 @@ export class CustomerInformation extends React.Component {
   }
 }
 
-CustomerInformation.propTypes = {
+CustomerInfoForm.propTypes = {
   t: PropTypes.func.isRequired,
   clearProduct: PropTypes.func.isRequired,
   setAddress: PropTypes.func.isRequired,
@@ -102,6 +102,6 @@ const CustomerInformationReduxForm = reduxForm({
   destroyOnUnmount: false,
   touchOnChange: true,
   forceUnregisterOnUnmount: true // <------ unregister fields on unmount
-})(withTranslation()(CustomerInformation));
+})(withTranslation()(CustomerInfoForm));
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CustomerInformationReduxForm));

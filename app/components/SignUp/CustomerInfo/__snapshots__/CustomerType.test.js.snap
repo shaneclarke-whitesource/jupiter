@@ -45,7 +45,11 @@ exports[`CustomerType it renders 1`] = `
             className="hxRequired"
             htmlFor="customer-select-popover"
           >
-            Select Customer Type
+            <span
+              className="InputField-label"
+            >
+              Select Customer Type
+            </span>
           </label>
         </hx-select-control>
         <div

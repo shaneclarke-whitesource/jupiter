@@ -27,11 +27,11 @@ export class UserName extends React.Component {
   };
 
   render() {
-    const { t, syncErrors, username } = this.props;
+    const { t, syncErrors: { userInfo }, username } = this.props;
     const tooltip = (
       <Tooltip id="username">{t('common:actions.generate.username')}</Tooltip>
     );
-    const suffix = username && this.returnSuffix(syncErrors.username);
+    const suffix = username && this.returnSuffix(userInfo.username);
     return (
       <div className="hxCol hxSpan-12 UsernameField">
         <Field
@@ -57,7 +57,9 @@ UserName.propTypes = {
   exists: PropTypes.bool,
   loading: PropTypes.bool,
   syncErrors: PropTypes.shape({
-    username: PropTypes.array
+    userInfo: PropTypes.shape({
+      username: PropTypes.array
+    })
   })
 };
 
@@ -74,7 +76,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setUsername: (username) => {
-      dispatch(change('signUp', 'username', username));
+      dispatch(change('signUp', 'userInfo.username', username));
     }
   };
 };
