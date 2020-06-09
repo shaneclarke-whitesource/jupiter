@@ -1,6 +1,6 @@
 import React from 'react';
 import enzyme from 'enzyme';
-import { renderWithForm } from '../../../../test/provider';
+import { renderWithForm, mountWithForm } from '../../../../test/provider';
 import { t } from '../../../../test/i18n/mocks';
 import { Product } from './Product';
 
@@ -51,5 +51,11 @@ describe('Product', () => {
   test('dropdown is disabled if customer type has a value', () => {
     const wrapperProps = shallow({ customerType: 'aws' }).props();
     expect(wrapperProps.disabled).toBeFalsy();
+  });
+
+  test('tooltip prop is rendered', () => {
+    const mounted = mountWithForm(Product, { defaultProps });
+    expect(mounted.find('hx-tooltip').length).toEqual(1);
+    expect(mounted.find('hx-tooltip').text()).toEqual('Currently RBU customers only have access to Managed AWS');
   });
 });

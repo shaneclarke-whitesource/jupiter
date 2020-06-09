@@ -1,4 +1,4 @@
-export const CUSTOMER_SIGNUP_REQUEST = {
+export const RACK_CUSTOMER_SIGNUP_REQUEST = {
   'serviceType': 'SYSOPS',
   'metadata': {
     'property': [
@@ -29,7 +29,7 @@ export const CUSTOMER_SIGNUP_REQUEST = {
     ]
   },
   'accountName': '',
-  'description': 'A Karate (RBU) cloud signup request from the retail site.',
+  'description': 'A Karate cloud signup request from the retail site.',
   'type': 'CLOUD',
   'termsAndConditions': 'US',
   'acceptTermsAndConditions': true,
@@ -39,9 +39,8 @@ export const CUSTOMER_SIGNUP_REQUEST = {
     'type': 'BRC'
   },
   'promoCode': '788',
-  'vatCode': 'GB0177282',
   'defaultRegion': 'SYD',
-  'externalId': 'MANAGED_GCP',
+  'externalId': '',
   'serviceLevel': 'MANAGED',
   'paymentMethod': {
     'paymentInfo': {
@@ -51,7 +50,7 @@ export const CUSTOMER_SIGNUP_REQUEST = {
     }
   },
   'businessType': 'BUSINESS',
-  'currencyCode': 'USD',
+  'currencyCode': '',
   'contacts': {
     'contact': [
       {
@@ -72,7 +71,7 @@ export const CUSTOMER_SIGNUP_REQUEST = {
         'emailAddresses': {
           'emailAddress': [
             {
-              'address': 'me@rackspace.com',
+              'address': '',
               'primary': true
             }
           ]
@@ -86,15 +85,15 @@ export const CUSTOMER_SIGNUP_REQUEST = {
         'title': '',
         'suffix': '',
         'user': {
-          'password': 'juv%UBWg@6pS',
+          'password': '',
           'username': ''
         },
         'phoneNumbers': {
           'phoneNumber': [
             {
-              'country': 'US',
-              'number': '1234567890',
-              'category': 'HOME',
+              'country': '',
+              'number': '',
+              'category': '',
               'primary': true
             }
           ]

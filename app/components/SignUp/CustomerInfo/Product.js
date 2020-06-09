@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
 import { useTranslation } from 'react-i18next';
 import DropDown from '../../helix/inputTypes/Dropdown';
+import Tooltip from '../../helix/Tooltip';
 
 export const Product = ({ customerType }) => {
   const { t } = useTranslation();
@@ -34,6 +35,9 @@ export const Product = ({ customerType }) => {
       disabled: customerType === 'rbu'
     }
   ];
+  const tooltip = (
+    <Tooltip id="product-restriction">{t('common:account.customer.rbu.productRestriction')}</Tooltip>
+  );
   return (
     <Field
       name="productType"
@@ -43,6 +47,7 @@ export const Product = ({ customerType }) => {
       label={t('common:account.actions.product.select')}
       id="product-select-popover"
       disabled={!customerType}
+      tooltip={tooltip}
       required
     />
   );

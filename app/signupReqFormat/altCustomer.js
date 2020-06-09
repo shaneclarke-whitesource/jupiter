@@ -1,4 +1,4 @@
-export const RBU_SIGNUP_REQUEST = {
+export const ALT_CUSTOMER_SIGNUP_REQUEST = {
   'serviceType': 'SYSOPS',
   'metadata': {
     'property': [
@@ -19,13 +19,13 @@ export const RBU_SIGNUP_REQUEST = {
         'key': 'skipCloudWelcomeEmail'
       },
       {
-        'value': 'RBU', // goes to ONICA
+        'value': '',
         'key': 'Business_Unit'
       }
     ]
   },
   'accountName': '',
-  'description': 'A Karate (RBU) cloud signup request from the retail site.',
+  'description': '',
   'skipFraudCheck': true,
   'type': 'CLOUD',
   'termsAndConditions': 'US',
@@ -36,8 +36,8 @@ export const RBU_SIGNUP_REQUEST = {
     'type': 'BRC'
   },
   'promoCode': '788',
-  'defaultRegion': 'SYD',
-  'externalId': 'AWS',
+  'defaultRegion': '',
+  'externalId': '',
   'serviceLevel': 'MANAGED',
   'paymentMethod': {
     'paymentInfo': {
@@ -47,12 +47,12 @@ export const RBU_SIGNUP_REQUEST = {
     }
   },
   'businessType': 'BUSINESS',
-  'currencyCode': 'USD',
+  'currencyCode': '',
   'contacts': {
     'contact': [
       {
-        'firstName': 'John',
-        'lastName': 'Doe',
+        'firstName': '',
+        'lastName': '',
         'addresses': {
           'address': [
             {
@@ -68,7 +68,7 @@ export const RBU_SIGNUP_REQUEST = {
         'emailAddresses': {
           'emailAddress': [
             {
-              'address': 'demo@example.com',
+              'address': '',
               'primary': true
             }
           ]
@@ -79,22 +79,22 @@ export const RBU_SIGNUP_REQUEST = {
             'PRIMARY'
           ]
         },
-        'suffix': 'Senior',
-        'title': 'Mr',
+        'suffix': '',
+        'title': '',
         'user': {
-          'password': 'juv%UBWg@6pS',
+          'password': '',
           'secretQA': {
-            'answer': 'Clay',
-            'question': 'What is my name?'
+            'answer': '',
+            'question': ''
           },
           'username': ''
         },
         'phoneNumbers': {
           'phoneNumber': [
             {
-              'country': 'US',
-              'number': '6758783848',
-              'category': 'HOME',
+              'country': '',
+              'number': '',
+              'category': '',
               'primary': true
             }
           ]

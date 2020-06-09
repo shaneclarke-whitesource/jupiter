@@ -25,6 +25,9 @@
   "account.customer.info" : {
     "translation" : "Customer Information"
   },
+  "account.customer.rbu.productRestriction" : {
+    "translation" : "Currently RBU customers only have access to Managed AWS"
+  },
   "account.customer.type.onica" : {
     "translation" : "Onica"
   },
