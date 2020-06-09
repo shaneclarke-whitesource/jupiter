@@ -36,7 +36,6 @@ export const ALT_CUSTOMER_SIGNUP_REQUEST = {
     'type': 'BRC'
   },
   'promoCode': '788',
-  'defaultRegion': '',
   'externalId': '',
   'serviceLevel': 'MANAGED',
   'paymentMethod': {

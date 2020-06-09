@@ -39,7 +39,6 @@ export const RACK_CUSTOMER_SIGNUP_REQUEST = {
     'type': 'BRC'
   },
   'promoCode': '788',
-  'defaultRegion': 'SYD',
   'externalId': '',
   'serviceLevel': 'MANAGED',
   'paymentMethod': {
