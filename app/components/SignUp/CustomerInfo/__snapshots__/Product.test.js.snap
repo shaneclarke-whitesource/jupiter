@@ -52,7 +52,25 @@ exports[`Product it renders 1`] = `
       className="hxRequired"
       htmlFor="product-select-popover"
     >
-      Select Product
+      <span
+        className="InputField-label"
+      >
+        Select Product
+      </span>
+      <div
+        className="tooltip"
+      >
+        <hx-icon
+          id="product-restriction-tooltip"
+          type="help-circle"
+        />
+        <hx-tooltip
+          for="product-restriction-tooltip"
+          position="right-middle"
+        >
+          Currently RBU customers only have access to Managed AWS
+        </hx-tooltip>
+      </div>
     </label>
   </hx-select-control>
   <div

@@ -10,7 +10,7 @@ import Button from '../../helix/buttons/Button';
 import Submit from '../../helix/buttons/Submit';
 import CurrencySelector from './CurrencySelector';
 
-export class BillingSection extends React.Component {
+export class BillingInfoForm extends React.Component {
   render() {
     const { t, handleSubmit, history, valid, customerType, country } = this.props;
     return (
@@ -49,7 +49,7 @@ export class BillingSection extends React.Component {
   }
 }
 
-BillingSection.propTypes = {
+BillingInfoForm.propTypes = {
   t: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   valid: PropTypes.bool.isRequired,
@@ -78,6 +78,6 @@ const BillingReduxForm = reduxForm({
   validate,
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true // <------ unregister fields on unmount
-})(withTranslation()(BillingSection));
+})(withTranslation()(BillingInfoForm));
 
 export default withRouter(connect(mapStateToProps, null)(BillingReduxForm));

@@ -2,9 +2,9 @@ import React from 'react';
 import { t } from '../../../../test/i18n/mocks';
 import enzyme from 'enzyme';
 import { mountWithForm } from '../../../../test/provider';
-import { BillingSection } from './BillingSection';
+import { BillingInfoForm } from './BillingInfoForm';
 
-describe('BillingSection', () => {
+describe('BillingInfoForm', () => {
   const submitMock = jest.fn();
   const pushMock = jest.fn();
   const defaultProps = {
@@ -19,11 +19,11 @@ describe('BillingSection', () => {
   };
 
   const mounted = (props) => {
-    return mountWithForm(BillingSection, { defaultProps, props, withRouter: true });
+    return mountWithForm(BillingInfoForm, { defaultProps, props, withRouter: true });
   };
 
   const shallow = (props) => {
-    return enzyme.shallow(<BillingSection {...defaultProps} {...props} />);
+    return enzyme.shallow(<BillingInfoForm {...defaultProps} {...props} />);
   };
 
   test('it passes correct props to AddressSection and CurrencySelector', () => {

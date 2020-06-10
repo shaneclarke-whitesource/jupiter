@@ -25,6 +25,9 @@
   "account.customer.info" : {
     "translation" : "顧客情報"
   },
+  "account.customer.rbu.productRestriction" : {
+    "translation" : "__NOT_TRANSLATED__"
+  },
   "account.customer.type.onica" : {
     "translation" : "__NOT_TRANSLATED__"
   },
