@@ -26,7 +26,6 @@ export const ALT_CUSTOMER_SIGNUP_REQUEST = {
   },
   'accountName': '',
   'description': '',
-  'skipFraudCheck': true,
   'type': 'CLOUD',
   'termsAndConditions': 'US',
   'acceptTermsAndConditions': true,
