@@ -1,0 +1,58 @@
+{
+  "smartling" : {
+    "string_format" : "icu",
+    "translate_paths" : {
+      "instruction" : "*/instruction",
+      "key" : "{*}/translation",
+      "path" : "*/translation"
+    }
+  },
+  "billing.actions.currency.select": {
+    "translation" : "Select Currency"
+  },
+  "billing.header.info" : {
+    "translation" : "Billing Information"
+  },
+  "customer.actions.select" : {
+    "translation" : "Select Customer Type"
+  },
+  "customer.header.info" : {
+    "translation" : "Customer Information"
+  },
+  "customer.type.onica": {
+    "translation" : "Onica"
+  },
+  "customer.type.rackspace" : {
+    "translation" : "Rackspace"
+  },
+  "customer.type.rbu": {
+    "translation" : "RBU"
+  },
+  "customer.tips.rbu.productRestriction" : {
+    "translation" : "Currently RBU customers only have access to Managed AWS"
+  },
+  "product.actions.select" : {
+    "translation" : "Select Product"
+  },
+  "product.type.aws" : {
+    "translation" : "Managed AWS"
+  },
+  "product.type.azure" : {
+    "translation" : "Managed Azure Cloud"
+  },
+  "product.type.managed_gcp" : {
+    "translation" : "Managed Google Cloud"
+  },
+  "product.type.managed_vmc" : {
+    "translation" : "Managed VMware Cloud on AWS"
+  },
+  "billing.currency.cad" : {
+    "translation" : "CAD"
+  },
+  "billing.currency.usd" : {
+    "translation" : "USD"
+  },
+  "user.details.header.info" : {
+    "translation" : "User Information"
+  }
+}
