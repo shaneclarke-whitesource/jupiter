@@ -7,20 +7,38 @@
       "path" : "*/translation"
     }
   },
+  "account.actions.currency.select" : {
+    "translation" : "__NOT_TRANSLATED__"
+  },
+  "account.actions.customer.select" : {
+    "translation" : "__NOT_TRANSLATED__"
+  },
   "account.actions.product.select" : {
     "translation" : "製品を選択"
   },
-  "account.customer.isRbu" : {
-    "translation" : "これはRBUのお客様向けですか？"
+  "account.currency.cad" : {
+    "translation" : "__NOT_TRANSLATED__"
+  },
+  "account.currency.usd" : {
+    "translation" : "__NOT_TRANSLATED__"
   },
   "account.customer.info" : {
     "translation" : "顧客情報"
   },
-  "account.header.address" : {
-    "translation" : "住所"
+  "account.customer.rbu.productRestriction" : {
+    "translation" : "__NOT_TRANSLATED__"
   },
-  "account.header.detail" : {
-    "translation" : "アカウント詳細"
+  "account.customer.type.onica" : {
+    "translation" : "__NOT_TRANSLATED__"
+  },
+  "account.customer.type.rackspace" : {
+    "translation" : "__NOT_TRANSLATED__"
+  },
+  "account.customer.type.rbu" : {
+    "translation" : "__NOT_TRANSLATED__"
+  },
+  "account.header.billingInfo" : {
+    "translation" : "__NOT_TRANSLATED__"
   },
   "account.header.userInfo" : {
     "translation" : "ユーザー情報"
@@ -30,9 +48,6 @@
   },
   "account.product.azure" : {
     "translation" : "マネージドAzureクラウド"
-  },
-  "account.product.header" : {
-    "translation" : "アカウント製品"
   },
   "account.product.managed_gcp" : {
     "translation" : "マネージドGoogle Cloud"

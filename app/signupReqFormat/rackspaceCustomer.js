@@ -1,7 +1,19 @@
-export const RBU_SIGNUP_REQUEST = {
+export const RACK_CUSTOMER_SIGNUP_REQUEST = {
   'serviceType': 'SYSOPS',
   'metadata': {
     'property': [
+      {
+        'value': 'true',
+        'key': 'cloudFilesPurchased'
+      },
+      {
+        'value': 'true',
+        'key': 'cloudServersPurchased'
+      },
+      {
+        'value': 'false',
+        'key': 'loadBalancersPurchased'
+      },
       {
         'value': '192.0.2.10',
         'key': 'ipAddress'
@@ -13,20 +25,11 @@ export const RBU_SIGNUP_REQUEST = {
       {
         'value': '134.288-8901',
         'key': 'deviceFingerPrint'
-      },
-      {
-        'value': 'false',
-        'key': 'skipCloudWelcomeEmail'
-      },
-      {
-        'value': 'RBU',
-        'key': 'Business_Unit'
       }
     ]
   },
   'accountName': '',
-  'description': 'A Karate (RBU) cloud signup request from the retail site.',
-  'skipFraudCheck': true,
+  'description': 'A Karate cloud signup request from the retail site.',
   'type': 'CLOUD',
   'termsAndConditions': 'US',
   'acceptTermsAndConditions': true,
@@ -36,8 +39,7 @@ export const RBU_SIGNUP_REQUEST = {
     'type': 'BRC'
   },
   'promoCode': '788',
-  'defaultRegion': 'SYD',
-  'externalId': 'AWS',
+  'externalId': '',
   'serviceLevel': 'MANAGED',
   'paymentMethod': {
     'paymentInfo': {
@@ -47,12 +49,12 @@ export const RBU_SIGNUP_REQUEST = {
     }
   },
   'businessType': 'BUSINESS',
-  'currencyCode': 'USD',
+  'currencyCode': '',
   'contacts': {
     'contact': [
       {
-        'firstName': 'John',
-        'lastName': 'Doe',
+        'firstName': '',
+        'lastName': '',
         'addresses': {
           'address': [
             {
@@ -68,7 +70,7 @@ export const RBU_SIGNUP_REQUEST = {
         'emailAddresses': {
           'emailAddress': [
             {
-              'address': 'demo@example.com',
+              'address': '',
               'primary': true
             }
           ]
@@ -79,22 +81,18 @@ export const RBU_SIGNUP_REQUEST = {
             'PRIMARY'
           ]
         },
-        'suffix': 'Senior',
-        'title': 'Mr',
+        'title': '',
+        'suffix': '',
         'user': {
-          'password': 'juv%UBWg@6pS',
-          'secretQA': {
-            'answer': 'Clay',
-            'question': 'What is my name?'
-          },
+          'password': '',
           'username': ''
         },
         'phoneNumbers': {
           'phoneNumber': [
             {
-              'country': 'US',
-              'number': '6758783848',
-              'category': 'HOME',
+              'country': '',
+              'number': '',
+              'category': '',
               'primary': true
             }
           ]

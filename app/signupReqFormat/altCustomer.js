@@ -1,19 +1,7 @@
-export const CUSTOMER_SIGNUP_REQUEST = {
+export const ALT_CUSTOMER_SIGNUP_REQUEST = {
   'serviceType': 'SYSOPS',
   'metadata': {
     'property': [
-      {
-        'value': 'true',
-        'key': 'cloudFilesPurchased'
-      },
-      {
-        'value': 'true',
-        'key': 'cloudServersPurchased'
-      },
-      {
-        'value': 'false',
-        'key': 'loadBalancersPurchased'
-      },
       {
         'value': '192.0.2.10',
         'key': 'ipAddress'
@@ -25,11 +13,19 @@ export const CUSTOMER_SIGNUP_REQUEST = {
       {
         'value': '134.288-8901',
         'key': 'deviceFingerPrint'
+      },
+      {
+        'value': 'true',
+        'key': 'skipCloudWelcomeEmail'
+      },
+      {
+        'value': '',
+        'key': 'Business_Unit'
       }
     ]
   },
   'accountName': '',
-  'description': 'A Karate (RBU) cloud signup request from the retail site.',
+  'description': '',
   'type': 'CLOUD',
   'termsAndConditions': 'US',
   'acceptTermsAndConditions': true,
@@ -39,9 +35,7 @@ export const CUSTOMER_SIGNUP_REQUEST = {
     'type': 'BRC'
   },
   'promoCode': '788',
-  'vatCode': 'GB0177282',
-  'defaultRegion': 'SYD',
-  'externalId': 'MANAGED_GCP',
+  'externalId': '',
   'serviceLevel': 'MANAGED',
   'paymentMethod': {
     'paymentInfo': {
@@ -51,7 +45,7 @@ export const CUSTOMER_SIGNUP_REQUEST = {
     }
   },
   'businessType': 'BUSINESS',
-  'currencyCode': 'USD',
+  'currencyCode': '',
   'contacts': {
     'contact': [
       {
@@ -72,7 +66,7 @@ export const CUSTOMER_SIGNUP_REQUEST = {
         'emailAddresses': {
           'emailAddress': [
             {
-              'address': 'me@rackspace.com',
+              'address': '',
               'primary': true
             }
           ]
@@ -83,18 +77,22 @@ export const CUSTOMER_SIGNUP_REQUEST = {
             'PRIMARY'
           ]
         },
-        'title': '',
         'suffix': '',
+        'title': '',
         'user': {
-          'password': 'juv%UBWg@6pS',
+          'password': '',
+          'secretQA': {
+            'answer': '',
+            'question': ''
+          },
           'username': ''
         },
         'phoneNumbers': {
           'phoneNumber': [
             {
-              'country': 'US',
-              'number': '1234567890',
-              'category': 'HOME',
+              'country': '',
+              'number': '',
+              'category': '',
               'primary': true
             }
           ]

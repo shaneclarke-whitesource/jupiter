@@ -7,20 +7,38 @@
       "path" : "*/translation"
     }
   },
+  "account.actions.currency.select" : {
+    "translation" : "Select Currency"
+  },
+  "account.actions.customer.select" : {
+    "translation" : "Select Customer Type"
+  },
   "account.actions.product.select" : {
     "translation" : "Select Product"
   },
-  "account.customer.isRbu" : {
-    "translation" : "Is this for an RBU customer?"
+  "account.currency.cad" : {
+    "translation" : "CAD"
+  },
+  "account.currency.usd" : {
+    "translation" : "USD"
   },
   "account.customer.info" : {
     "translation" : "Customer Information"
   },
-  "account.header.address" : {
-    "translation" : "Address"
+  "account.customer.rbu.productRestriction" : {
+    "translation" : "Currently RBU customers only have access to Managed AWS"
   },
-  "account.header.detail" : {
-    "translation" : "Account Details"
+  "account.customer.type.onica" : {
+    "translation" : "Onica"
+  },
+  "account.customer.type.rackspace" : {
+    "translation" : "Rackspace"
+  },
+  "account.customer.type.rbu" : {
+    "translation" : "RBU"
+  },
+  "account.header.billingInfo" : {
+    "translation" : "Billing Information"
   },
   "account.header.userInfo" : {
     "translation" : "User Information"
@@ -30,9 +48,6 @@
   },
   "account.product.azure" : {
     "translation" : "Managed Azure Cloud"
-  },
-  "account.product.header" : {
-    "translation" : "Account Product"
   },
   "account.product.managed_gcp" : {
     "translation" : "Managed Google Cloud"

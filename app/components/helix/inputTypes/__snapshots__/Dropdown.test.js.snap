@@ -30,7 +30,11 @@ exports[`Dropdown it renders with appropriate props 1`] = `
       className={null}
       htmlFor="dropdown-id"
     >
-      Dropdown Label
+      <span
+        className="InputField-label"
+      >
+        Dropdown Label
+      </span>
     </label>
   </hx-select-control>
   <div

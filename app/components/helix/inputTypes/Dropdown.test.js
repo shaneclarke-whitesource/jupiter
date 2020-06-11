@@ -47,6 +47,18 @@ describe('Dropdown', () => {
     ]);
   });
 
+  test('a tooltip is rendered if passed as a prop', () => {
+    const tooltip = <hx-tooltip htmlFor="test">Test</hx-tooltip>;
+    const mounted = mount(<DropDown {...defaultProps} tooltip={tooltip} />);
+    expect(mounted.find('hx-tooltip').length).toEqual(1);
+    expect(mounted.find('hx-tooltip').text()).toEqual('Test');
+  });
+
+  test('null is rendered if no tooltip is passed', () => {
+    const mounted = mount(<DropDown {...defaultProps} />);
+    expect(mounted.find('hx-tooltip').length).toEqual(0);
+  });
+
   test('it calls onChange prop when option is chosen', () => {
     expect(defaultProps.input.onChange).toHaveBeenCalledTimes(0);
     wrapper.find('select').simulate('change', '', { value: ['option-2'] });

@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product it renders 1`] = `
+<div
+  className="Dropdown"
+>
+  <hx-select-control>
+    <select
+      disabled={true}
+      id="product-select-popover"
+      onChange={[Function]}
+      value=""
+    >
+      <option
+        value=""
+      >
+        -- Please Select --
+      </option>
+      <option
+        disabled={false}
+        value="aws"
+      >
+        Managed AWS
+      </option>
+      <option
+        disabled={false}
+        value="managed_gcp"
+      >
+        Managed Google Cloud
+      </option>
+      <option
+        disabled={false}
+        value="azure"
+      >
+        Managed Azure Cloud
+      </option>
+      <option
+        disabled={false}
+        value="managed_vmc"
+      >
+        Managed VMware Cloud on AWS
+      </option>
+      <option
+        disabled={false}
+        value="rpc_v"
+      >
+        Rackspace Private Cloud - VMware
+      </option>
+    </select>
+    <hx-select />
+    <label
+      className="hxRequired"
+      htmlFor="product-select-popover"
+    >
+      <span
+        className="InputField-label"
+      >
+        Select Product
+      </span>
+      <div
+        className="tooltip"
+      >
+        <hx-icon
+          id="product-restriction-tooltip"
+          type="help-circle"
+        />
+        <hx-tooltip
+          for="product-restriction-tooltip"
+          position="right-middle"
+        >
+          Currently RBU customers only have access to Managed AWS
+        </hx-tooltip>
+      </div>
+    </label>
+  </hx-select-control>
+  <div
+    className="error"
+  />
+</div>
+`;

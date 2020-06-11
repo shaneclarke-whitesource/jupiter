@@ -98,15 +98,23 @@ export const validatePhoneNumber = (values, { t = i18nT() }) => {
   return errors;
 };
 
-export const validateProductType = (values, { t = i18nT() }) => {
-  return validate(values, {
+export const validateCustomerInformation = (values, { t = i18nT() }) => {
+  const customerInfo = _.get(values, 'customerInfo', {});
+  const errors = validate(customerInfo, {
     productType: {
+      presence: {
+        allowEmpty: false,
+        message: t('validation:input.required')
+      }
+    },
+    customerType: {
       presence: {
         allowEmpty: false,
         message: t('validation:input.required')
       }
     }
   }, { fullMessages: false });
+  return errors ? { customerInfo: errors } : {};
 };
 
 export const validateAddress = (values, { t = i18nT() }) => {
@@ -136,7 +144,12 @@ export const validateAddress = (values, { t = i18nT() }) => {
     },
     zipcode: {
       presence: {
-        allowEmpty: false
+        allowEmpty: false,
+        maximum: 32,
+        tooLong: t('validation:input.maxLength', {
+          content: undefined,
+          characterCount: '%{count}'
+        })
       },
       length: {
         maximum: 20,
@@ -150,9 +163,32 @@ export const validateAddress = (values, { t = i18nT() }) => {
   return errors ? { address: errors } : {};
 };
 
-export const validateUser = (values, { t = i18nT() }) => {
-  translateDefaultValidators(t);
+export const validateCurrency = (values) => {
   const errors = validate(values, {
+    currency: {
+      presence: {
+        allowEmpty: false
+      }
+    }
+  }, { fullMessages: false });
+  return errors || {};
+};
+
+export const validateBilling = (values, { t = i18nT() }) => {
+  translateDefaultValidators(t);
+  const billing = _.get(values, 'billingInfo', {});
+  return {
+    billingInfo: {
+      ...validateAddress(billing, t),
+      ...validateCurrency(billing, t)
+    }
+  };
+};
+
+export const validateUser = (values, { t = i18nT() }) => {
+  const userInfo = _.get(values, 'userInfo', {});
+  translateDefaultValidators(t);
+  const errors = validate(userInfo, {
     firstName: {
       presence: {
         allowEmpty: false
@@ -208,15 +244,17 @@ export const validateUser = (values, { t = i18nT() }) => {
     }
   }, { fullMessages: false }) || {};
   return {
-    ...errors,
-    ...validateEmail(values, t),
-    ...validatePassword(values, t),
-    ...validatePhoneNumber(values, t)
+    userInfo: {
+      ...errors,
+      ...validateEmail(userInfo, t),
+      ...validatePassword(userInfo, t),
+      ...validatePhoneNumber(userInfo, t)
+    }
   };
 };
 
 export const asyncValidate = (values, dispatch, { t = i18nT() }, field) => {
-  const { username, password } = values;
-  return field === 'username'
+  const { userInfo: { username, password } } = values;
+  return field === 'userInfo.username'
     ? asyncValidateUsername(username, dispatch, t) : asyncValidatePassword(password, t);
 };

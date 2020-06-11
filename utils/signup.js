@@ -1,28 +1,42 @@
 import _ from 'lodash';
-import { RBU_SIGNUP_REQUEST } from '../app/signupReqFormat/rbuCustomer';
-import { CUSTOMER_SIGNUP_REQUEST } from '../app/signupReqFormat/customer';
+import { ALT_CUSTOMER_SIGNUP_REQUEST } from '../app/signupReqFormat/altCustomer';
+import { RACK_CUSTOMER_SIGNUP_REQUEST } from '../app/signupReqFormat/rackspaceCustomer';
+
+export const formatAltCustomer = (type) => {
+  ALT_CUSTOMER_SIGNUP_REQUEST.metadata.property.forEach((obj) => {
+    if (obj.key === 'Business_Unit') {
+      obj.value = type;
+    }
+  });
+  return {
+    ...ALT_CUSTOMER_SIGNUP_REQUEST
+  };
+};
 
 export const formatRequest = (values) => {
+  const type = _.get(values, ['customerInfo', 'customerType']);
   const template = (
-    _.get(values, ['userInfo', 'customerType', 'isRbu'])
-      ? RBU_SIGNUP_REQUEST
-      : CUSTOMER_SIGNUP_REQUEST
+    type !== 'rackspace'
+      ? formatAltCustomer(type.toUpperCase())
+      : RACK_CUSTOMER_SIGNUP_REQUEST
   );
   return {
     ...template,
-    accountName: values.accountName,
-    externalId: (values.productType).toUpperCase(),
+    accountName: values.userInfo.accountName,
+    externalId: (values.customerInfo.productType).toUpperCase(),
     serviceLevel: 'MANAGED',
+    currencyCode: values.billingInfo.currency.toUpperCase(),
+    description: `A Karate (${type.toUpperCase()}) cloud signup request from the retail site.`,
     contacts: {
       contact: [
         {
-          firstName: values.firstName,
-          lastName: values.lastName,
+          firstName: values.userInfo.firstName,
+          lastName: values.userInfo.lastName,
           title: values.title,
           addresses: {
             address: [
               {
-                ...values.address,
+                ...values.billingInfo.address,
                 primary: true
               }
             ]
@@ -30,7 +44,7 @@ export const formatRequest = (values) => {
           emailAddresses: {
             emailAddress: [
               {
-                address: values.email,
+                address: values.userInfo.email,
                 primary: true
               }
             ]
@@ -38,16 +52,16 @@ export const formatRequest = (values) => {
           phoneNumbers: {
             phoneNumber: [
               {
-                country: values.address.country,
-                number: values.phoneNumber.number,
+                country: values.userInfo.phoneNumber.countryCode,
+                number: values.userInfo.phoneNumber.number,
                 category: 'HOME',
                 primary: true
               }
             ]
           },
           user: {
-            username: values.username,
-            password: values.password
+            username: values.userInfo.username,
+            password: values.userInfo.password
           },
           roles: template.contacts.contact[0].roles
         }

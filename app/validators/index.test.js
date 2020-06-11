@@ -14,66 +14,68 @@ describe('validators', () => {
       return validators.validateUser(props, defaultProps);
     };
     const valid = {
-      firstName: 'mr',
-      lastName: 'wow',
-      username: 'muchWow.1234',
-      accountName: 'newAccountName',
-      email: 'email@company.com',
-      password: 'Password123!',
-      passwordValidate: 'Password123!',
-      phoneNumber: '1231232'
+      userInfo: {
+        firstName: 'mr',
+        lastName: 'wow',
+        username: 'muchWow.1234',
+        accountName: 'newAccountName',
+        email: 'email@company.com',
+        password: 'Password123!',
+        passwordValidate: 'Password123!',
+        phoneNumber: '1231232'
+      }
     };
     test('it passes if all values are valid', () => {
-      expect(validateUserInfo({ ...valid })).toEqual({ });
+      expect(validateUserInfo({ ...valid })).toEqual({ userInfo: {} });
     });
 
     test('it fails if firstName is longer than 32 characters', () => {
       const longName = _.fill(Array(101), 'a').join('');
-      const result = validateUserInfo({ firstName: longName });
-      expect(result.firstName).toEqual(['Input must be less than 100 characters long']);
+      const result = validateUserInfo({ userInfo: { firstName: longName } });
+      expect(result.userInfo.firstName).toEqual(['Input must be less than 100 characters long']);
     });
 
     test('it fails if lastName is longer than 32 characters', () => {
       const longName = _.fill(Array(101), 'b').join('');
-      const result = validateUserInfo({ lastName: longName });
-      expect(result.lastName).toEqual(['Input must be less than 100 characters long']);
+      const result = validateUserInfo({ userInfo: { lastName: longName } });
+      expect(result.userInfo.lastName).toEqual(['Input must be less than 100 characters long']);
     });
 
     test('it fails if username is longer than 10 characters', () => {
       const longName = _.fill(Array(256), 'c').join('');
-      const result = validateUserInfo({ username: longName });
-      expect(result.username).toEqual(['Username must be less than or equal to 15 characters long']);
+      const result = validateUserInfo({ userInfo: { username: longName } });
+      expect(result.userInfo.username).toEqual(['Username must be less than or equal to 15 characters long']);
     });
 
     ['firstName', 'lastName'].forEach((field) => {
       test(`returns required when ${field} is empty`, () => {
-        const result = validateUserInfo({ [field]: '' });
-        expect([].concat(result[field])).toEqual(['Required']);
+        const result = validateUserInfo({ userInfo: { [field]: '' } });
+        expect([].concat(result.userInfo[field])).toEqual(['Required']);
       });
       test(`returns required when ${field} is empty string`, () => {
-        const result = validateUserInfo({ [field]: '     ' });
-        expect([].concat(result[field])).toEqual(['Required']);
+        const result = validateUserInfo({ userInfo: { [field]: '     ' } });
+        expect([].concat(result.userInfo[field])).toEqual(['Required']);
       });
     });
 
     test('username returns required and minimum length when empty', () => {
-      const result = validateUserInfo({ username: '' });
-      expect([].concat(result.username)).toEqual([
+      const result = validateUserInfo({ userInfo: { username: '' } });
+      expect([].concat(result.userInfo.username)).toEqual([
         'Required',
         'Username must be at least 8 characters long'
       ]);
     });
     test('username returns required and minimum length when empty string', () => {
-      const result = validateUserInfo({ username: '    ' });
-      expect([].concat(result.username)).toEqual([
+      const result = validateUserInfo({ userInfo: { username: '    ' } });
+      expect([].concat(result.userInfo.username)).toEqual([
         'Required',
         'Username must be at least 8 characters long'
       ]);
     });
 
     test('username returns minimum length when it is less than 8 characters', () => {
-      const result = validateUserInfo({ username: 'user' });
-      expect([].concat(result.username)).toEqual([
+      const result = validateUserInfo({ userInfo: { username: 'user' } });
+      expect([].concat(result.userInfo.username)).toEqual([
         'Username must be at least 8 characters long'
       ]);
     });
@@ -160,15 +162,30 @@ describe('validators', () => {
     });
   });
 
-  describe('validateProductType', () => {
-    const validateProductType = (props) => {
-      return validators.validateProductType(props, defaultProps);
+  describe('validateCustomerInfo', () => {
+    const validateCustomerInfo = (props) => {
+      return validators.validateCustomerInformation(props, defaultProps);
     };
     test('it passes with valid input', () => {
-      expect(validateProductType({ productType: 'product' })).toEqual(undefined);
+      expect(validateCustomerInfo({
+        customerInfo: {
+          customerType: 'type',
+          productType: 'product'
+        }
+      })).toEqual({});
     });
+
     test('it fails with empty input', () => {
-      expect(validateProductType({ productType: '' })).toEqual({ productType: ['Required'] });
+      expect(validateCustomerInfo({
+        customerInfo: {
+          customerType: '',
+          productType: ''
+        }
+      })).toEqual({
+        customerInfo: {
+          productType: ['Required'],
+          customerType: ['Required']
+        } });
     });
   });
   describe('validateAddress', () => {
@@ -214,22 +231,22 @@ describe('validators', () => {
     test('returns a resolved promise if data passes', () => {
       const getSignupData = { data: { exist: false } };
       axios.get.mockImplementationOnce(() => Promise.resolve(getSignupData));
-      const asyncReturn = asyncValidateMock({ username: 'user1' }, 'username');
+      const asyncReturn = asyncValidateMock({ userInfo: { username: 'user1' } }, 'username');
       expect(asyncReturn).toEqual(Promise.resolve({}));
     });
 
     test('returns an error from checkUsername if checkUsername fails', () => {
       const getSignupData = { data: { exist: true } };
       axios.get.mockImplementationOnce(() => Promise.resolve(getSignupData));
-      return asyncValidateMock({ username: 'user1' }, 'username').catch((e) => {
-        expect(e).toEqual({ username: ['This username already exists. Please choose another one.'] });
+      return asyncValidateMock({ userInfo: { username: 'user1' } }, 'userInfo.username').catch((e) => {
+        expect(e).toEqual({ userInfo: { username: ['This username already exists. Please choose another one.'] } });
       });
     });
 
     test('calls checkUsername if field equals username key', () => {
       const getSignupData = { data: { exist: false } };
       const spy = jest.spyOn(axiosActions, 'getSignup').mockResolvedValue(getSignupData);
-      asyncValidateMock({ username: 'user1' }, 'username');
+      asyncValidateMock({ userInfo: { username: 'user1' } }, 'userInfo.username');
       expect(spy).toHaveBeenCalledWith({ username: 'user1' }, 'cloud-username-check');
     });
 
@@ -241,7 +258,7 @@ describe('validators', () => {
         }
       };
       const spy = jest.spyOn(axiosActions, 'postSignup').mockResolvedValue(postSignupData);
-      asyncValidateMock({ password: 'Password123!' }, 'password');
+      asyncValidateMock({ userInfo: { password: 'Password123!' } }, 'userInfo.password');
       expect(spy).toHaveBeenCalledWith({ password: 'Password123!' }, 'validation/password');
     });
   });

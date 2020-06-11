@@ -8,7 +8,7 @@ const DropDown = (props) => {
   const { t } = useTranslation();
   const options = _.map(props.options, (item, index) => {
     return (
-      <option key={index + 1} value={item.value}>
+      <option key={index + 1} value={item.value} disabled={item.disabled}>
         {item.label}
       </option>
     );
@@ -21,6 +21,7 @@ const DropDown = (props) => {
           id={props.id}
           onChange={props.input.onChange}
           value={props.input.value}
+          disabled={props.disabled}
           {...props.required ? props.required : null}
         >
           <option value="">
@@ -30,7 +31,8 @@ const DropDown = (props) => {
         </select>
         <hx-select />
         <label htmlFor={props.id} className={props.required ? 'hxRequired' : null}>
-          {props.label}
+          <span className="InputField-label">{props.label}</span>
+          {props.tooltip || null}
         </label>
       </hx-select-control>
       <Error meta={props.meta} />
@@ -42,6 +44,7 @@ DropDown.propTypes = {
   label: PropTypes.string,
   id: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.object),
+  disabled: PropTypes.bool,
   input: PropTypes.shape({
     onChange: PropTypes.func,
     value: PropTypes.string
@@ -52,7 +55,8 @@ DropDown.propTypes = {
       PropTypes.array
     ])
   }),
-  required: PropTypes.bool
+  required: PropTypes.bool,
+  tooltip: PropTypes.node
 };
 
 export default DropDown;
