@@ -16,23 +16,23 @@ export const Product = ({ customerType }) => {
     {
       label: t('common:account.product.managed_gcp'),
       value: 'managed_gcp',
-      disabled: customerType === 'rbu'
+      disabled: customerType === 'rbu' || customerType === 'onica'
     },
     {
       label: t('common:account.product.azure'),
       value: 'azure',
-      disabled: customerType === 'rbu'
+      disabled: customerType === 'rbu' || customerType === 'onica'
 
     },
     {
       label: t('common:account.product.managed_vmc'),
       value: 'managed_vmc',
-      disabled: customerType === 'rbu'
+      disabled: customerType === 'rbu' || customerType === 'onica'
     },
     {
       label: t('common:account.product.rpc_v'),
       value: 'rpc_v',
-      disabled: customerType === 'rbu'
+      disabled: customerType === 'rbu' || customerType === 'onica'
     }
   ];
   const tooltip = (

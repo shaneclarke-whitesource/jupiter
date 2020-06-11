@@ -31,6 +31,18 @@ describe('Product', () => {
     ]);
   });
 
+  test('dropdown options are disabled if customer type is onica', () => {
+    const { options } = shallow({ customerType: 'onica' }).props();
+    const disabled = options.map((opts) => opts.disabled);
+    expect(disabled).toEqual([
+      false,
+      true,
+      true,
+      true,
+      true
+    ]);
+  });
+
   test('dropdown options are disabled if customer type is not rbu', () => {
     const { options } = shallow({ customerType: 'aws' }).props();
     const disabled = options.map((opts) => opts.disabled);
