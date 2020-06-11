@@ -7,66 +7,6 @@
       "path" : "*/translation"
     }
   },
-  "account.actions.currency.select" : {
-    "translation" : "Select Currency"
-  },
-  "account.actions.customer.select" : {
-    "translation" : "Select Customer Type"
-  },
-  "account.actions.product.select" : {
-    "translation" : "Select Product"
-  },
-  "account.currency.cad" : {
-    "translation" : "CAD"
-  },
-  "account.currency.usd" : {
-    "translation" : "USD"
-  },
-  "account.customer.info" : {
-    "translation" : "Customer Information"
-  },
-  "account.customer.rbu.productRestriction" : {
-    "translation" : "Currently RBU customers only have access to Managed AWS"
-  },
-  "account.customer.type.onica" : {
-    "translation" : "Onica"
-  },
-  "account.customer.type.rackspace" : {
-    "translation" : "Rackspace"
-  },
-  "account.customer.type.rbu" : {
-    "translation" : "RBU"
-  },
-  "account.header.billingInfo" : {
-    "translation" : "Billing Information"
-  },
-  "account.header.userInfo" : {
-    "translation" : "User Information"
-  },
-  "account.product.aws" : {
-    "translation" : "Managed AWS"
-  },
-  "account.product.azure" : {
-    "translation" : "Managed Azure Cloud"
-  },
-  "account.product.managed_gcp" : {
-    "translation" : "Managed Google Cloud"
-  },
-  "account.product.managed_vmc" : {
-    "translation" : "Managed VMware Cloud on AWS"
-  },
-  "account.product.none" : {
-    "translation" : "None"
-  },
-  "account.product.notSelected" : {
-    "translation" : "--"
-  },
-  "account.product.rpc_v" : {
-    "translation" : "Rackspace Private Cloud - VMware"
-  },
-  "account.product.select" : {
-    "translation" : "-- Please Select --"
-  },
   "actions.basic.back" : {
     "translation" : "Back"
   },
@@ -82,26 +22,17 @@
   "actions.basic.submit" : {
     "translation" : "Submit"
   },
-  "actions.confirm.password" : {
-    "translation" : "Confirm Password"
-  },
-  "actions.create.password" : {
-    "translation" : "Create Password"
-  },
-  "actions.create.username" : {
-    "translation" : "Create Username"
-  },
-  "actions.generate.username" : {
-    "translation" : "If your first name or last name is changed, a new username will be automatically generated for you."
-  },
   "common.status.ok" : {
     "translation" : "OK"
   },
   "create.status.success" : {
     "translation" : "Success!"
   },
-  "create.status.success.message" : {
-    "translation" : "User {username} has been created in account {accountname} with a domain ID of {ddi}."
+  "dropdown.label.noneSelected" : {
+    "translation" : "--"
+  },
+  "dropdown.label.select" : {
+    "translation" : "-- Please Select --"
   },
   "footer.content.company" : {
     "translation" : "{year} Rackspace US, Inc."
@@ -114,6 +45,9 @@
   },
   "headers.main.signUp" : {
     "translation" : "Rackspace Invoice Sign Up"
+  },
+  "selectorStrip.label.noneSelected" : {
+    "translation" : "__"
   },
   "signUp.headers.main" : {
     "translation" : "Sign Up for Rackspace Invoice Cart"

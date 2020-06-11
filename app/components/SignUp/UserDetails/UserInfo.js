@@ -93,7 +93,7 @@ export class UserInfo extends React.Component {
           <Field
             name="password"
             component={PasswordInput}
-            label={t('common:actions.create.password')}
+            label={t('account:user.actions.password.create')}
             tooltip
             required
           />
@@ -102,7 +102,7 @@ export class UserInfo extends React.Component {
           <Field
             name="passwordValidate"
             component={PasswordInput}
-            label={t('common:actions.confirm.password')}
+            label={t('account:user.actions.password.confirm')}
             required
           />
         </div>

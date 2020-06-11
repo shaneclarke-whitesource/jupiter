@@ -8,66 +8,66 @@
     }
   },
   "billing.currency.cad" : {
-    "translation" : "CAD"
+    "translation" : "__NOT_TRANSLATED__"
   },
   "billing.currency.usd" : {
-    "translation" : "USD"
+    "translation" : "__NOT_TRANSLATED__"
   },
   "billing.header.info" : {
-    "translation" : "Billing Information"
+    "translation" : "__NOT_TRANSLATED__"
   },
   "customer.actions.select" : {
-    "translation" : "Select Customer Type"
+    "translation" : "__NOT_TRANSLATED__"
   },
   "customer.header.info" : {
-    "translation" : "Customer Information"
+    "translation" : "__NOT_TRANSLATED__"
   },
   "customer.tips.rbu.productRestriction" : {
-    "translation" : "Currently RBU customers only have access to Managed AWS"
+    "translation" : "__NOT_TRANSLATED__"
   },
   "customer.type.onica" : {
-    "translation" : "Onica"
+    "translation" : "__NOT_TRANSLATED__"
   },
   "customer.type.rackspace" : {
-    "translation" : "Rackspace"
+    "translation" : "__NOT_TRANSLATED__"
   },
   "customer.type.rbu" : {
-    "translation" : "RBU"
+    "translation" : "__NOT_TRANSLATED__"
   },
   "product.actions.select" : {
-    "translation" : "Select Product"
+    "translation" : "製品を選択"
   },
   "product.type.aws" : {
-    "translation" : "Managed AWS"
+    "translation" : "マネージドAWS"
   },
   "product.type.azure" : {
-    "translation" : "Managed Azure Cloud"
+    "translation" : "マネージドAzureクラウド"
   },
   "product.type.managed_gcp" : {
-    "translation" : "Managed Google Cloud"
+    "translation" : "マネージドGoogle Cloud"
   },
   "product.type.managed_vmc" : {
-    "translation" : "Managed VMware Cloud on AWS"
+    "translation" : "マネージドVMware Cloud on AWS"
   },
   "product.type.none" : {
-    "translation" : "None"
+    "translation" : "なし"
   },
   "product.type.rpc_v" : {
     "translation" : "Rackspace Private Cloud - VMware"
   },
   "user.actions.password.confirm" : {
-    "translation" : "Confirm Password"
+    "translation" : "パスワードを確認する"
   },
   "user.actions.password.create" : {
-    "translation" : "Create Password"
+    "translation" : "パスワードを作成する"
   },
   "user.actions.username.create" : {
-    "translation" : "Create Username"
+    "translation" : "ユーザー名を作成する"
   },
   "user.details.header.info" : {
     "translation" : "User Information"
   },
   "user.tips.username.generate" : {
-    "translation" : "If your first name or last name is changed, a new username will be automatically generated for you."
+    "translation" : "姓または名が変更されると、新しいユーザー名が自動的に生成されます。"
   }
 }

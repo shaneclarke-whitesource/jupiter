@@ -8,15 +8,15 @@ export const CustomerType = ({ handleChange }) => {
   const { t } = useTranslation();
   const customerTypes = [
     {
-      label: t('common:account.customer.type.rackspace'),
+      label: t('account:customer.type.rackspace'),
       value: 'rackspace'
     },
     {
-      label: t('common:account.customer.type.rbu'),
+      label: t('account:customer.type.rbu'),
       value: 'rbu'
     },
     {
-      label: t('common:account.customer.type.onica'),
+      label: t('account:customer.type.onica'),
       value: 'onica'
     }
   ];
@@ -31,7 +31,7 @@ export const CustomerType = ({ handleChange }) => {
             defaultValue=""
             valueField="value"
             textField="label"
-            label={t('common:account.actions.customer.select')}
+            label={t('account:customer.actions.select')}
             id="customer-select-popover"
             onChange={handleChange}
             required

@@ -1,4 +1,4 @@
 const t = () => {};
 
-t('common:account.product.none');
-t('common:account.product.notSelected');
+t('account:product.type.none');
+t('common:dropdown.label.noneSelected');

@@ -16,7 +16,7 @@ export class BillingInfoForm extends React.Component {
     return (
       <form onSubmit={handleSubmit}>
         <div className="Input-section u-form">
-          <h2>{t('common:account.header.billingInfo')}</h2>
+          <h2>{t('account:billing.header.info')}</h2>
           <FormSection name="billingInfo">
             <AddressSection customerType={customerType} country={country} />
             <CurrencySelector
