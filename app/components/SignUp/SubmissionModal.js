@@ -15,7 +15,7 @@ export class SubmissionModal extends React.Component {
     };
     if (success) {
       modalContent.header = t('common:create.status.success');
-      modalContent.message = t('common:create.status.success.message', { username, accountname, ddi });
+      modalContent.message = t('account:user.status.create.success', { username, accountname, ddi });
     } else {
       modalContent.header = t('validation:error.header');
       switch (errorCode) {

@@ -15,21 +15,21 @@ export class AddressSection extends React.Component {
         <Field
           name="street"
           type="text"
-          label={t('common:user.location.street')}
+          label={t('account:user.location.street')}
           component={Input}
           required
         />
         <Field
           name="city"
           type="text"
-          label={t('common:user.location.city')}
+          label={t('account:user.location.city')}
           component={Input}
           required
         />
         <Field
           name="zipcode"
           type="text"
-          label={t('common:user.location.zipcode')}
+          label={t('account:user.location.zipcode')}
           component={Input}
           required
         />
@@ -40,7 +40,7 @@ export class AddressSection extends React.Component {
               component={CountrySelect}
               valueField="value"
               textField="label"
-              label={t('common:user.location.country')}
+              label={t('account:user.location.country')}
               id="country-select-dropdown"
               country={country}
               onCountryChange={this.props.setCountry}
@@ -52,7 +52,7 @@ export class AddressSection extends React.Component {
               component={StateSelect}
               valueField="value"
               textField="label"
-              label={t('common:user.location.state')}
+              label={t('account:user.location.state')}
               id="state-select-dropdown"
               country={country}
             />

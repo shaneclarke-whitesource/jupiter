@@ -55,6 +55,9 @@
   "product.type.rpc_v" : {
     "translation" : "Rackspace Private Cloud - VMware"
   },
+  "user.actions.accountName.create" : {
+    "translation" : "Create Account Name"
+  },
   "user.actions.password.confirm" : {
     "translation" : "Confirm Password"
   },
@@ -64,8 +67,41 @@
   "user.actions.username.create" : {
     "translation" : "Create Username"
   },
+  "user.details.email" : {
+    "translation" : "Email Address"
+  },
+  "user.details.firstName" : {
+    "translation" : "First Name"
+  },
   "user.details.header.info" : {
     "translation" : "User Information"
+  },
+  "user.details.lastName" : {
+    "translation" : "Last Name"
+  },
+  "user.details.phoneNumber" : {
+    "translation" : "Phone Number"
+  },
+  "user.details.title" : {
+    "translation" : "Title (optional)"
+  },
+  "user.location.city" : {
+    "translation" : "City"
+  },
+  "user.location.country" : {
+    "translation" : "Country"
+  },
+  "user.location.state" : {
+    "translation" : "State"
+  },
+  "user.location.street" : {
+    "translation" : "Street"
+  },
+  "user.location.zipcode" : {
+    "translation" : "Zipcode"
+  },
+  "user.status.create.success" : {
+    "translation" : "User {username} has been created in account {accountname} with a domain ID of {ddi}."
   },
   "user.tips.username.generate" : {
     "translation" : "If your first name or last name is changed, a new username will be automatically generated for you."

@@ -39,7 +39,7 @@ export class UserInfo extends React.Component {
               name="firstName"
               component={Input}
               type="text"
-              label={t('common:user.details.firstName')}
+              label={t('account:user.details.firstName')}
               required
             />
           </div>
@@ -48,7 +48,7 @@ export class UserInfo extends React.Component {
               name="lastName"
               component={Input}
               type="text"
-              label={t('common:user.details.lastName')}
+              label={t('account:user.details.lastName')}
               required
             />
           </div>
@@ -58,7 +58,7 @@ export class UserInfo extends React.Component {
             name="title"
             component={Input}
             type="text"
-            label={t('common:user.details.title')}
+            label={t('account:user.details.title')}
           />
         </div>
         <UserName />
@@ -67,7 +67,7 @@ export class UserInfo extends React.Component {
             name="accountName"
             component={Input}
             type="text"
-            label={t('common:user.details.accountName')}
+            label={t('account:user.actions.accountName.create')}
             required
           />
         </div>
@@ -76,7 +76,7 @@ export class UserInfo extends React.Component {
             name="email"
             component={Input}
             type="text"
-            label={t('common:user.details.email')}
+            label={t('account:user.details.email')}
             required
           />
         </div>
@@ -85,7 +85,7 @@ export class UserInfo extends React.Component {
             name="phoneNumber"
             id="phoneNumber"
             component={PhoneField}
-            label={t('common:user.details.phoneNumber')}
+            label={t('account:user.details.phoneNumber')}
             required
           />
         </div>

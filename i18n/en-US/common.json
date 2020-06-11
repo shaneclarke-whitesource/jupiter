@@ -51,38 +51,5 @@
   },
   "signUp.headers.main" : {
     "translation" : "Sign Up for Rackspace Invoice Cart"
-  },
-  "user.details.accountName" : {
-    "translation" : "Create Account Name"
-  },
-  "user.details.email" : {
-    "translation" : "Email Address"
-  },
-  "user.details.firstName" : {
-    "translation" : "First Name"
-  },
-  "user.details.lastName" : {
-    "translation" : "Last Name"
-  },
-  "user.details.phoneNumber" : {
-    "translation" : "Phone Number"
-  },
-  "user.details.title" : {
-    "translation" : "Title (optional)"
-  },
-  "user.location.city" : {
-    "translation" : "City"
-  },
-  "user.location.country" : {
-    "translation" : "Country"
-  },
-  "user.location.state" : {
-    "translation" : "State"
-  },
-  "user.location.street" : {
-    "translation" : "Street"
-  },
-  "user.location.zipcode" : {
-    "translation" : "Zipcode"
   }
 }
