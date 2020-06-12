@@ -29,10 +29,10 @@
     "translation" : "成功しました！"
   },
   "dropdown.label.noneSelected" : {
-    "translation" : "__NOT_TRANSLATED__"
+    "translation" : "--"
   },
   "dropdown.label.select" : {
-    "translation" : "__NOT_TRANSLATED__"
+    "translation" : "-- 選択してください --"
   },
   "footer.content.company" : {
     "translation" : "{year} Rackspace US, Inc."
@@ -47,7 +47,7 @@
     "translation" : "Rackspace Invoiceのサインアップ"
   },
   "selectorStrip.label.noneSelected" : {
-    "translation" : "__NOT_TRANSLATED__"
+    "translation" : "__"
   },
   "signUp.headers.main" : {
     "translation" : "Rackspace Invoice Cartにサインアップする"
