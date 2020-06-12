@@ -37,7 +37,7 @@ export class CustomerInfoForm extends React.Component {
     return (
       <form onSubmit={handleSubmit}>
         <div className="Input-section u-form">
-          <h2>{t('common:account.customer.info')}</h2>
+          <h2>{t('account:customer.header.info')}</h2>
           <FormSection name="customerInfo">
             <CustomerType handleChange={this.handleChange} />
             <Product customerType={customerType} />

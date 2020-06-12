@@ -1,0 +1,112 @@
+{
+  "smartling" : {
+    "string_format" : "icu",
+    "translate_paths" : {
+      "instruction" : "*/instruction",
+      "key" : "{*}/translation",
+      "path" : "*/translation"
+    }
+  },
+  "billing.actions.currency.select" : {
+    "translation" : "通貨を選択"
+  },
+  "billing.currency.cad" : {
+    "translation" : "CAD"
+  },
+  "billing.currency.usd" : {
+    "translation" : "USD"
+  },
+  "billing.header.info" : {
+    "translation" : "請求情報"
+  },
+  "customer.actions.select" : {
+    "translation" : "顧客タイプを選択"
+  },
+  "customer.header.info" : {
+    "translation" : "顧客情報"
+  },
+  "customer.tips.rbu.productRestriction" : {
+    "translation" : "現在、RBUのお客様は、マネージドAWSにのみアクセスできます。"
+  },
+  "customer.type.onica" : {
+    "translation" : "Onica"
+  },
+  "customer.type.rackspace" : {
+    "translation" : "Rackspace"
+  },
+  "customer.type.rbu" : {
+    "translation" : "RBU"
+  },
+  "product.actions.select" : {
+    "translation" : "製品を選択"
+  },
+  "product.type.aws" : {
+    "translation" : "マネージドAWS"
+  },
+  "product.type.azure" : {
+    "translation" : "マネージドAzureクラウド"
+  },
+  "product.type.managed_gcp" : {
+    "translation" : "マネージドGoogle Cloud"
+  },
+  "product.type.managed_vmc" : {
+    "translation" : "マネージドVMware Cloud on AWS"
+  },
+  "product.type.none" : {
+    "translation" : "なし"
+  },
+  "product.type.rpc_v" : {
+    "translation" : "Rackspace Private Cloud - VMware"
+  },
+  "user.actions.accountName.create" : {
+    "translation" : "アカウント名を作成する"
+  },
+  "user.actions.password.confirm" : {
+    "translation" : "パスワードを確認する"
+  },
+  "user.actions.password.create" : {
+    "translation" : "パスワードを作成する"
+  },
+  "user.actions.username.create" : {
+    "translation" : "ユーザー名を作成する"
+  },
+  "user.details.email" : {
+    "translation" : "メールアドレス"
+  },
+  "user.details.firstName" : {
+    "translation" : "名"
+  },
+  "user.details.header.info" : {
+    "translation" : "ユーザー情報"
+  },
+  "user.details.lastName" : {
+    "translation" : "姓"
+  },
+  "user.details.phoneNumber" : {
+    "translation" : "電話番号"
+  },
+  "user.details.title" : {
+    "translation" : "タイトル（省略可）"
+  },
+  "user.location.city" : {
+    "translation" : "都市"
+  },
+  "user.location.country" : {
+    "translation" : "国"
+  },
+  "user.location.state" : {
+    "translation" : "州"
+  },
+  "user.location.street" : {
+    "translation" : "番地"
+  },
+  "user.location.zipcode" : {
+    "translation" : "郵便番号"
+  },
+  "user.status.create.success" : {
+    "translation" : "アカウント「{accountname}」、ドメインID「{ddi}」のユーザー「{username}」が作成されました。"
+  },
+  "user.tips.username.generate" : {
+    "translation" : "姓または名が変更されると、新しいユーザー名が自動的に生成されます。"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "smartling" : {
+    "string_format" : "icu",
+    "translate_paths" : {
+      "instruction" : "*/instruction",
+      "key" : "{*}/translation",
+      "path" : "*/translation"
+    }
+  },
+  "billing.actions.currency.select" : {
+    "translation" : "Select Currency"
+  },
+  "billing.currency.cad" : {
+    "translation" : "CAD"
+  },
+  "billing.currency.usd" : {
+    "translation" : "USD"
+  },
+  "billing.header.info" : {
+    "translation" : "Billing Information"
+  },
+  "customer.actions.select" : {
+    "translation" : "Select Customer Type"
+  },
+  "customer.header.info" : {
+    "translation" : "Customer Information"
+  },
+  "customer.tips.rbu.productRestriction" : {
+    "translation" : "Currently RBU customers only have access to Managed AWS"
+  },
+  "customer.type.onica" : {
+    "translation" : "Onica"
+  },
+  "customer.type.rackspace" : {
+    "translation" : "Rackspace"
+  },
+  "customer.type.rbu" : {
+    "translation" : "RBU"
+  },
+  "product.actions.select" : {
+    "translation" : "Select Product"
+  },
+  "product.type.aws" : {
+    "translation" : "Managed AWS"
+  },
+  "product.type.azure" : {
+    "translation" : "Managed Azure Cloud"
+  },
+  "product.type.managed_gcp" : {
+    "translation" : "Managed Google Cloud"
+  },
+  "product.type.managed_vmc" : {
+    "translation" : "Managed VMware Cloud on AWS"
+  },
+  "product.type.none" : {
+    "translation" : "None"
+  },
+  "product.type.rpc_v" : {
+    "translation" : "Rackspace Private Cloud - VMware"
+  },
+  "user.actions.accountName.create" : {
+    "translation" : "Create Account Name"
+  },
+  "user.actions.password.confirm" : {
+    "translation" : "Confirm Password"
+  },
+  "user.actions.password.create" : {
+    "translation" : "Create Password"
+  },
+  "user.actions.username.create" : {
+    "translation" : "Create Username"
+  },
+  "user.details.email" : {
+    "translation" : "Email Address"
+  },
+  "user.details.firstName" : {
+    "translation" : "First Name"
+  },
+  "user.details.header.info" : {
+    "translation" : "User Information"
+  },
+  "user.details.lastName" : {
+    "translation" : "Last Name"
+  },
+  "user.details.phoneNumber" : {
+    "translation" : "Phone Number"
+  },
+  "user.details.title" : {
+    "translation" : "Title (optional)"
+  },
+  "user.location.city" : {
+    "translation" : "City"
+  },
+  "user.location.country" : {
+    "translation" : "Country"
+  },
+  "user.location.state" : {
+    "translation" : "State"
+  },
+  "user.location.street" : {
+    "translation" : "Street"
+  },
+  "user.location.zipcode" : {
+    "translation" : "Zipcode"
+  },
+  "user.status.create.success" : {
+    "translation" : "User {username} has been created in account {accountname} with a domain ID of {ddi}."
+  },
+  "user.tips.username.generate" : {
+    "translation" : "If your first name or last name is changed, a new username will be automatically generated for you."
+  }
+}

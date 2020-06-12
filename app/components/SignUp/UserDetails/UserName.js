@@ -29,7 +29,7 @@ export class UserName extends React.Component {
   render() {
     const { t, syncErrors: { userInfo }, username } = this.props;
     const tooltip = (
-      <Tooltip id="username">{t('common:actions.generate.username')}</Tooltip>
+      <Tooltip id="username">{t('account:user.tips.username.generate')}</Tooltip>
     );
     const suffix = username && this.returnSuffix(userInfo.username);
     return (
@@ -39,7 +39,7 @@ export class UserName extends React.Component {
           component={Input}
           tooltip={tooltip}
           type="text"
-          label={t('common:actions.create.username')}
+          label={t('account:user.actions.username.create')}
           required
         >
           {suffix && <span className="hxSuffix">{suffix}</span>}

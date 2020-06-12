@@ -25,7 +25,7 @@ const DropDown = (props) => {
           {...props.required ? props.required : null}
         >
           <option value="">
-            {t('common:account.product.select')}
+            {t('common:dropdown.label.select')}
           </option>
           {options}
         </select>

@@ -28,7 +28,7 @@ export class UserInfoForm extends React.Component {
     return (
       <div className="Input-section">
         <form onSubmit={handleSubmit(this.handleSubmit)}>
-          <h2>{t('common:account.header.userInfo')}</h2>
+          <h2>{t('account:user.details.header.info')}</h2>
           <FormSection name="userInfo">
             <UserInfo />
           </FormSection>
