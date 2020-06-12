@@ -27,7 +27,7 @@ export class CurrencySelector extends React.Component {
           selectorName="customerCurrency"
           options={options}
           defaultValue="usd"
-          label={t('common:selectorStrip.label.noneSelected')}
+          label={t('account:billing.actions.currency.select')}
           required
         />
       </div>

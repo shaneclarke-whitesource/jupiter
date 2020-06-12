@@ -7,6 +7,9 @@
       "path" : "*/translation"
     }
   },
+  "billing.actions.currency.select" : {
+    "translation" : "通貨を選択"
+  },
   "billing.currency.cad" : {
     "translation" : "CAD"
   },

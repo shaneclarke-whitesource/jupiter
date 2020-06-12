@@ -7,6 +7,9 @@
       "path" : "*/translation"
     }
   },
+  "billing.actions.currency.select" : {
+    "translation" : "Select Currency"
+  },
   "billing.currency.cad" : {
     "translation" : "CAD"
   },
