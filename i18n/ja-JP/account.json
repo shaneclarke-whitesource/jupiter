@@ -8,31 +8,31 @@
     }
   },
   "billing.currency.cad" : {
-    "translation" : "__NOT_TRANSLATED__"
+    "translation" : "CAD"
   },
   "billing.currency.usd" : {
-    "translation" : "__NOT_TRANSLATED__"
+    "translation" : "USD"
   },
   "billing.header.info" : {
-    "translation" : "__NOT_TRANSLATED__"
+    "translation" : "請求情報"
   },
   "customer.actions.select" : {
-    "translation" : "__NOT_TRANSLATED__"
+    "translation" : "顧客タイプを選択"
   },
   "customer.header.info" : {
-    "translation" : "__NOT_TRANSLATED__"
+    "translation" : "顧客情報"
   },
   "customer.tips.rbu.productRestriction" : {
-    "translation" : "__NOT_TRANSLATED__"
+    "translation" : "現在、RBUのお客様は、マネージドAWSにのみアクセスできます。"
   },
   "customer.type.onica" : {
-    "translation" : "__NOT_TRANSLATED__"
+    "translation" : "Onica"
   },
   "customer.type.rackspace" : {
-    "translation" : "__NOT_TRANSLATED__"
+    "translation" : "Rackspace"
   },
   "customer.type.rbu" : {
-    "translation" : "__NOT_TRANSLATED__"
+    "translation" : "RBU"
   },
   "product.actions.select" : {
     "translation" : "製品を選択"
