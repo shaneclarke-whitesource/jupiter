@@ -17,6 +17,21 @@ export class CurrencySelector extends React.Component {
         value: 'cad',
         label: t('account:billing.currency.cad'),
         disabled: customerType !== 'onica' || country !== 'CA'
+      },
+      {
+        value: 'aud',
+        label: t('account:billing.currency.aud'),
+        disabled: country !== 'AU'
+      },
+      {
+        value: 'eur',
+        label: t('account:billing.currency.eur'),
+        disabled: false // get european countries?
+      },
+      {
+        value: 'gbp', // somewhere with this info??
+        label: t('account:billing.currency.gbp'),
+        disabled: false // uk, england, scotland, wales, northern ireland
       }
     ];
     return (

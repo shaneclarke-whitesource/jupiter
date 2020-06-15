@@ -10,6 +10,15 @@
   "billing.actions.currency.select" : {
     "translation" : "Select Currency"
   },
+  "billing.currency.aud" : {
+    "translation" : "AUD"
+  },
+  "billing.currency.eur" : {
+    "translation" : "EUR"
+  },
+  "billing.currency.gbp" : {
+    "translation" : "GBP"
+  },
   "billing.currency.cad" : {
     "translation" : "CAD"
   },
