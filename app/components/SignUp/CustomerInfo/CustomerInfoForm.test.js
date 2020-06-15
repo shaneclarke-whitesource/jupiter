@@ -7,9 +7,9 @@ import enzyme from 'enzyme';
 describe('CustomerInfoForm', () => {
   const setAddressMock = jest.fn();
   const clearProductMock = jest.fn();
+  const submitMock = jest.fn();
   const defaultProps = {
-    handleSubmit: jest.fn(),
-    valid: false,
+    handleSubmit: submitMock,
     customerType: '',
     setAddress: setAddressMock,
     clearProduct: clearProductMock,
@@ -59,12 +59,7 @@ describe('CustomerInfoForm', () => {
   test('next button navigates to address page onClick', () => {
     const push = jest.fn();
     const wrapper = shallow({ history: { push } });
-    wrapper.find('Button').simulate('click');
-    expect(push).toBeCalledWith('/billing');
-  });
-
-  test('next button is disabled if form is not valid', () => {
-    const wrapper = shallow({ valid: false }).find('Button');
-    expect(wrapper.prop('disabled')).toBeTruthy();
+    wrapper.find('Submit').simulate('click');
+    expect(submitMock).toHaveBeenCalled();
   });
 });

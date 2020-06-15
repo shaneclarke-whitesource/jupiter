@@ -24,7 +24,7 @@ export class UserInfoForm extends React.Component {
   };
 
   render() {
-    const { handleSubmit, history, result, valid, t, pending } = this.props;
+    const { handleSubmit, history, result, t, pending } = this.props;
     return (
       <div className="Input-section">
         <form onSubmit={handleSubmit(this.handleSubmit)}>
@@ -45,7 +45,7 @@ export class UserInfoForm extends React.Component {
                 <Submit
                   classNames="hxBtn hxPrimary"
                   label={t('common:actions.basic.submit')}
-                  disabled={pending || !valid}
+                  disabled={pending}
                   processing={pending}
                 />
               </div>
@@ -65,7 +65,6 @@ UserInfoForm.propTypes = {
   signUp: PropTypes.func.isRequired,
   result: PropTypes.bool.isRequired,
   pending: PropTypes.bool.isRequired,
-  valid: PropTypes.bool.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
   })

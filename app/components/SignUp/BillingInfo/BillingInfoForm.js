@@ -11,10 +11,14 @@ import Submit from '../../helix/buttons/Submit';
 import CurrencySelector from './CurrencySelector';
 
 export class BillingInfoForm extends React.Component {
+  onSubmit = (e) => {
+    this.props.history.push('/user-detail');
+  };
+
   render() {
-    const { t, handleSubmit, history, valid, customerType, country } = this.props;
+    const { t, handleSubmit, history, customerType, country } = this.props;
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(this.onSubmit)}>
         <div className="Input-section u-form">
           <h2>{t('account:billing.header.info')}</h2>
           <FormSection name="billingInfo">
@@ -37,8 +41,6 @@ export class BillingInfoForm extends React.Component {
                 <Submit
                   classNames="btn-wide hxBtn hxPrimary"
                   label={t('common:actions.basic.next')}
-                  onClick={() => this.props.history.push('/user-detail')}
-                  disabled={!valid}
                 />
               </div>
             </div>
@@ -52,7 +54,6 @@ export class BillingInfoForm extends React.Component {
 BillingInfoForm.propTypes = {
   t: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  valid: PropTypes.bool.isRequired,
   customerType: PropTypes.string,
   country: PropTypes.string,
   history: PropTypes.shape({

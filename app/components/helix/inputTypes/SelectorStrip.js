@@ -1,8 +1,9 @@
 import React from 'react';
 import _map from 'lodash/map';
 import PropTypes from 'prop-types';
+import Error from '../Error';
 
-const SelectorStrip = ({ options, selectorName, label, required, input }) => {
+const SelectorStrip = ({ options, selectorName, label, required, input, meta }) => {
   const selections = _map(options, (item, index) => {
     return (
       <label htmlFor={item.value} key={index}>
@@ -19,7 +20,6 @@ const SelectorStrip = ({ options, selectorName, label, required, input }) => {
       </label>
     );
   });
-
   return (
     <div className="hxRow">
       <div className={`hxCol hxSpan-4${required ? ' hxRequired' : null}`}>
@@ -29,6 +29,7 @@ const SelectorStrip = ({ options, selectorName, label, required, input }) => {
         <div className="hxSelector hxRadio">
           {selections}
         </div>
+        <Error meta={meta} />
       </div>
     </div>
   );
@@ -47,7 +48,8 @@ SelectorStrip.propTypes = {
   ).isRequired,
   input: PropTypes.shape({
     value: PropTypes.string
-  })
+  }),
+  meta: PropTypes.object
 };
 
 export default SelectorStrip;
