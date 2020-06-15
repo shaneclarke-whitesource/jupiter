@@ -46,9 +46,6 @@
   "headers.main.signUp" : {
     "translation" : "Rackspace Invoiceのサインアップ"
   },
-  "selectorStrip.label.noneSelected" : {
-    "translation" : "__"
-  },
   "signUp.headers.main" : {
     "translation" : "Rackspace Invoice Cartにサインアップする"
   }
