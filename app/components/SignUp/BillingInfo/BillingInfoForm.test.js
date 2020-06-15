@@ -11,7 +11,6 @@ describe('BillingInfoForm', () => {
     customerType: 'rackspace',
     country: 'US',
     handleSubmit: submitMock,
-    valid: false,
     history: {
       push: pushMock
     },
@@ -43,21 +42,10 @@ describe('BillingInfoForm', () => {
     expect(push).toBeCalledWith('/');
   });
 
-  test('next button is disabled if form is not valid', () => {
-    const wrapper = shallow({ valid: false }).find('Submit');
-    expect(wrapper.prop('disabled')).toBeTruthy();
-  });
-
   test('next button navigates to address page onClick', () => {
     const push = jest.fn();
-    const wrapper = shallow({ history: { push } });
-    wrapper.find('form').simulate('submit');
+    const wrapper = mounted({ history: { push } });
+    wrapper.find('form').simulate('submit', { bubbles: true });
     expect(submitMock).toBeCalled();
-  });
-
-  test('navigates to user-detail onSubmit', () => {
-    const wrapper = shallow();
-    wrapper.find('Submit').simulate('click');
-    expect(pushMock).toBeCalledWith('/user-detail');
   });
 });

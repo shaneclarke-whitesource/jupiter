@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { change, FormSection, formValueSelector, reduxForm } from 'redux-form';
 import { withTranslation } from 'react-i18next';
 import { withRouter } from 'react-router';
-import Button from '../../helix/buttons/Button';
+import Submit from '../../helix/buttons/Submit';
 import { validateCustomerInformation } from '../../../validators';
 import CustomerType from './CustomerType';
 import Product from './Product';
@@ -32,10 +32,14 @@ export class CustomerInfoForm extends React.Component {
     });
   };
 
+  onSubmit = () => {
+    this.props.history.push('/billing');
+  };
+
   render() {
-    const { t, handleSubmit, valid, customerType } = this.props;
+    const { t, handleSubmit, customerType } = this.props;
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(this.onSubmit)}>
         <div className="Input-section u-form">
           <h2>{t('account:customer.header.info')}</h2>
           <FormSection name="customerInfo">
@@ -45,11 +49,9 @@ export class CustomerInfoForm extends React.Component {
           <div className="NavButtons">
             <div className="hxRow">
               <div className="hxCol hxSpan-12 align-right">
-                <Button
+                <Submit
                   classNames="btn-wide hxBtn hxPrimary"
                   label={t('common:actions.basic.next')}
-                  disabled={!valid}
-                  onClick={() => this.props.history.push('/billing')}
                   submit
                 />
               </div>
@@ -67,7 +69,6 @@ CustomerInfoForm.propTypes = {
   setAddress: PropTypes.func.isRequired,
   customerType: PropTypes.string,
   handleSubmit: PropTypes.func.isRequired,
-  valid: PropTypes.bool,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
   })
