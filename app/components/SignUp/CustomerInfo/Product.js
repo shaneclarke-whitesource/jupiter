@@ -32,7 +32,7 @@ export const Product = ({ customerType }) => {
     {
       label: t('account:product.type.rpc_v'),
       value: 'rpc_v',
-      disabled: customerType === 'rbu' || customerType === 'onica'
+      disabled: customerType === 'onica'
     }
   ];
   const tooltip = (
