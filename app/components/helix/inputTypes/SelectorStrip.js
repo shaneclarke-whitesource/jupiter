@@ -22,8 +22,8 @@ const SelectorStrip = ({ options, selectorName, label, required, input, meta }) 
   });
   return (
     <div className="hxRow">
-      <div className={`hxCol hxSpan-4${required ? ' hxRequired' : null}`}>
-        <span className="SelectorStrip-label">{label || ''}</span>
+      <div className="hxCol hxSpan-4">
+        <span className={`SelectorStrip-label${required ? ' hxRequired' : ''}`}>{label || ''}</span>
       </div>
       <div className="hxCol hxSpan-8">
         <div className="hxSelector hxRadio">
