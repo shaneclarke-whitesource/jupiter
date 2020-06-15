@@ -27,7 +27,7 @@ describe('Product', () => {
       true,
       true,
       true,
-      true
+      false
     ]);
   });
 
