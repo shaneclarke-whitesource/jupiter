@@ -10,8 +10,17 @@
   "billing.actions.currency.select" : {
     "translation" : "通貨を選択"
   },
+  "billing.currency.aud" : {
+    "translation" : "__NOT_TRANSLATED__"
+  },
   "billing.currency.cad" : {
     "translation" : "CAD"
+  },
+  "billing.currency.eur" : {
+    "translation" : "__NOT_TRANSLATED__"
+  },
+  "billing.currency.gbp" : {
+    "translation" : "__NOT_TRANSLATED__"
   },
   "billing.currency.usd" : {
     "translation" : "USD"

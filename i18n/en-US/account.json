@@ -13,14 +13,14 @@
   "billing.currency.aud" : {
     "translation" : "AUD"
   },
+  "billing.currency.cad" : {
+    "translation" : "CAD"
+  },
   "billing.currency.eur" : {
     "translation" : "EUR"
   },
   "billing.currency.gbp" : {
     "translation" : "GBP"
-  },
-  "billing.currency.cad" : {
-    "translation" : "CAD"
   },
   "billing.currency.usd" : {
     "translation" : "USD"
