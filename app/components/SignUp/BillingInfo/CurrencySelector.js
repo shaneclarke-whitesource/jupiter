@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
-import { withTranslation } from 'react-i18next';
+import { withTranslation, Trans } from 'react-i18next';
 import SelectorStrip from '../../helix/inputTypes/SelectorStrip';
+import Tooltip from '../../helix/Tooltip';
 
 export class CurrencySelector extends React.Component {
   render() {
-    const { t, customerType, country } = this.props;
+    const { t, customerType, country, productType } = this.props;
     const options = [
       {
         value: 'usd',
@@ -21,19 +22,24 @@ export class CurrencySelector extends React.Component {
       {
         value: 'aud',
         label: t('account:billing.currency.aud'),
-        disabled: country !== 'AU'
+        disabled: productType !== 'azure'
       },
       {
         value: 'eur',
         label: t('account:billing.currency.eur'),
-        disabled: false // get european countries?
+        disabled: productType !== 'azure'
       },
       {
-        value: 'gbp', // somewhere with this info??
+        value: 'gbp',
         label: t('account:billing.currency.gbp'),
-        disabled: false // uk, england, scotland, wales, northern ireland
+        disabled: productType !== 'azure'
       }
     ];
+    const tooltip = (
+      <Tooltip id="currency">
+        <Trans defaults={t('account:billing.tips.currency.restrictions')} />
+      </Tooltip>
+    );
     return (
       <div className="CurrencySelector-section">
         <Field
@@ -43,6 +49,7 @@ export class CurrencySelector extends React.Component {
           options={options}
           defaultValue="usd"
           label={t('account:billing.actions.currency.select')}
+          tooltip={tooltip}
           required
         />
       </div>
@@ -53,7 +60,8 @@ export class CurrencySelector extends React.Component {
 CurrencySelector.propTypes = {
   t: PropTypes.func.isRequired,
   country: PropTypes.string,
-  customerType: PropTypes.string
+  customerType: PropTypes.string,
+  productType: PropTypes.string
 };
 
 export default withTranslation()(CurrencySelector);

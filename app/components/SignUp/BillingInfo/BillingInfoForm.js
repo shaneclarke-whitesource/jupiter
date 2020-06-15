@@ -11,12 +11,12 @@ import Submit from '../../helix/buttons/Submit';
 import CurrencySelector from './CurrencySelector';
 
 export class BillingInfoForm extends React.Component {
-  onSubmit = (e) => {
+  onSubmit = () => {
     this.props.history.push('/user-detail');
   };
 
   render() {
-    const { t, handleSubmit, history, customerType, country } = this.props;
+    const { t, handleSubmit, history, customerType, productType, country } = this.props;
     return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
         <div className="Input-section u-form">
@@ -26,6 +26,7 @@ export class BillingInfoForm extends React.Component {
             <CurrencySelector
               customerType={customerType}
               country={country}
+              productType={productType}
             />
           </FormSection>
           <div className="NavButtons">
@@ -55,6 +56,7 @@ BillingInfoForm.propTypes = {
   t: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   customerType: PropTypes.string,
+  productType: PropTypes.string,
   country: PropTypes.string,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
@@ -64,6 +66,7 @@ BillingInfoForm.propTypes = {
 const mapStateToProps = (state) => {
   return {
     customerType: formValueSelector('signUp')(state, 'customerInfo.customerType'),
+    productType: formValueSelector('signUp')(state, 'customerInfo.productType'),
     country: formValueSelector('signUp')(state, 'billingInfo.address.country')
   };
 };
