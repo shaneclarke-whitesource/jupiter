@@ -11,16 +11,16 @@
     "translation" : "通貨を選択"
   },
   "billing.currency.aud" : {
-    "translation" : "__NOT_TRANSLATED__"
+    "translation" : "AUD"
   },
   "billing.currency.cad" : {
     "translation" : "CAD"
   },
   "billing.currency.eur" : {
-    "translation" : "__NOT_TRANSLATED__"
+    "translation" : "EUR"
   },
   "billing.currency.gbp" : {
-    "translation" : "__NOT_TRANSLATED__"
+    "translation" : "GBP"
   },
   "billing.currency.usd" : {
     "translation" : "USD"
@@ -29,7 +29,7 @@
     "translation" : "請求情報"
   },
   "billing.tips.currency.restrictions" : {
-    "translation" : "__NOT_TRANSLATED__"
+    "translation" : "CADは、カナダにお住まいのOnicaのお客様のみご利用いただけます。<br />AUD、EUR、GBPは、マネージドAzureクラウド製品が選択されている場合にのみ使用できます。"
   },
   "customer.actions.select" : {
     "translation" : "顧客タイプを選択"
