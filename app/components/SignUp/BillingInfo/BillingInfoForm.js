@@ -4,21 +4,16 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { formValueSelector, reduxForm, FormSection } from 'redux-form';
 import { withTranslation } from 'react-i18next';
-import { listCountries } from '../../../actions/listCountries';
-import { validateBilling } from '../../../validators';
+import { validateBilling, i18nT } from '../../../validators';
 import AddressSection from './AddressSection';
 import Button from '../../helix/buttons/Button';
 import Submit from '../../helix/buttons/Submit';
 import CurrencySelector from './CurrencySelector';
+import { asyncValidateStates } from '../../../validators/utils';
 
 export class BillingInfoForm extends React.Component {
-  componentDidMount() {
-    this.props.listCountries();
-  }
-
-  onSubmit = (e) => {
-    // this.props.listCountries(e.billingInfo.address);
-    // this.props.history.push('/user-detail');
+  onSubmit = () => {
+    this.props.history.push('/user-detail');
   };
 
   render() {
@@ -28,7 +23,7 @@ export class BillingInfoForm extends React.Component {
         <div className="Input-section u-form">
           <h2>{t('account:billing.header.info')}</h2>
           <FormSection name="billingInfo">
-            <AddressSection customerType={customerType} country={country} />
+            <AddressSection customerType={customerType} />
             <CurrencySelector
               customerType={customerType}
               country={country}
@@ -60,20 +55,11 @@ export class BillingInfoForm extends React.Component {
 BillingInfoForm.propTypes = {
   t: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  listCountries: PropTypes.func.isRequired,
   customerType: PropTypes.string,
   country: PropTypes.string,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
   })
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    listCountries: (values) => {
-      dispatch(listCountries(values));
-    }
-  };
 };
 
 const mapStateToProps = (state) => {
@@ -89,11 +75,21 @@ const validate = (values, props) => {
   };
 };
 
+export const asyncValidate = (values, dispatch, { t = i18nT() }) => {
+  console.log('WHY');
+  const { billingInfo: { address: { country } } } = values;
+  return asyncValidateStates(country, t);
+};
+
 const BillingReduxForm = reduxForm({
   form: 'signUp',
   validate,
+  asyncValidate,
+  asyncChangeFields: ['billingInfo.address.country'],
+  touchOnChange: true,
+  enableReinitialize: true,
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true // <------ unregister fields on unmount
 })(withTranslation()(BillingInfoForm));
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BillingReduxForm));
+export default withRouter(connect(mapStateToProps)(BillingReduxForm));

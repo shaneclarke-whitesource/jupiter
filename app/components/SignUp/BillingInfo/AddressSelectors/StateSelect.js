@@ -1,64 +1,44 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { RegionDropdown } from 'react-country-region-selector';
-import { formValueSelector } from 'redux-form';
-import Error from '../../../helix/Error';
+import { Field } from 'redux-form';
+import DropDown from '../../../helix/inputTypes/Dropdown';
+import { withTranslation } from 'react-i18next';
 
-export class StateSelect extends React.Component {
-  render() {
-    const { input, country, label, region, meta } = this.props;
+export const StateSelect = ({ setRegion, t, country: { states } }) => {
+  const options = states && states.map(({ code, name }) => {
     return (
-      <div className="InputField">
-        <hx-select-control>
-          <RegionDropdown
-            {...input}
-            name={input.name}
-            country={country}
-            value={region}
-            countryValueType="short"
-            id={input.name}
-            onChange={this.props.setRegion}
-          />
-          <hx-select />
-          <label htmlFor={input.name}>
-            <span className="InputField-label">{label}</span>
-          </label>
-        </hx-select-control>
-        <Error meta={meta} />
-      </div>
+      <option key={code} value={code}>
+        {name}
+      </option>
     );
-  }
-}
-
-StateSelect.propTypes = {
-  label: PropTypes.string.isRequired,
-  country: PropTypes.string,
-  input: PropTypes.shape({
-    name: PropTypes.string.isRequired
-  }).isRequired,
-  setRegion: PropTypes.func,
-  region: PropTypes.string,
-  meta: PropTypes.shape({
-    touched: PropTypes.bool,
-    warning: PropTypes.bool,
-    error: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.array
-    ])
-  })
+  });
+  return (
+    <div className="InputField">
+      <Field
+        name="state"
+        component={DropDown}
+        label={t('account:user.location.state')}
+        id="state-select-dropdown"
+        onChange={setRegion}
+        disabled={!states || !states.length}
+      >
+        {options}
+      </Field>
+    </div>
+  );
 };
 
-StateSelect.defaultProps = {
-  country: '',
-  region: '',
-  meta: {}
+StateSelect.propTypes = {
+  country: PropTypes.object,
+  setRegion: PropTypes.func,
+  t: PropTypes.func
 };
 
 const mapStateToProps = (state) => {
   return {
-    region: formValueSelector('signUp')(state, 'billingInfo.address.state')
+    country: state.country.details
   };
 };
 
-export default connect(mapStateToProps, null)(StateSelect);
+export default connect(mapStateToProps)(withTranslation()(StateSelect));

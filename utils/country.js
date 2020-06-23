@@ -1,4 +1,7 @@
 import _ from 'lodash';
+/*
+Code below is copied from Apollo
+*/
 
 export const assertIsArray = (value) => {
   if (!value || !_.isArray(value)) {

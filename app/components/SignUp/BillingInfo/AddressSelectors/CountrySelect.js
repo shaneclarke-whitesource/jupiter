@@ -14,7 +14,7 @@ class CountrySelect extends React.Component {
   }
 
   onChange = (e) => {
-    this.props.getRegions(e.target.value);
+    this.props.getCountry(e.target.value);
   }
 
   render() {
@@ -32,7 +32,6 @@ class CountrySelect extends React.Component {
           name="country"
           component={DropDown}
           valueField="value"
-          textField="label"
           label={t('account:user.location.country')}
           id="country-select-dropdown"
           onChange={this.onChange}
@@ -48,7 +47,7 @@ CountrySelect.propTypes = {
   t: PropTypes.func.isRequired,
   countries: PropTypes.object,
   getCountries: PropTypes.func.isRequired,
-  getRegions: PropTypes.func.isRequired
+  getCountry: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => {
@@ -62,7 +61,7 @@ const mapDispatchToProps = (dispatch) => {
     getCountries: () => {
       dispatch(listCountries());
     },
-    getRegions: (countryCode) => {
+    getCountry: (countryCode) => {
       dispatch(getCountry(countryCode));
     }
   };

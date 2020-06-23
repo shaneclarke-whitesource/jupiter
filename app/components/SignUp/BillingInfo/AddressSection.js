@@ -37,14 +37,7 @@ export class AddressSection extends React.Component {
             <CountrySelect />
           </div>
           <div className="hxCol hxSpan-6">
-            <Field
-              name="state"
-              component={StateSelect}
-              valueField="value"
-              textField="label"
-              label={t('account:user.location.state')}
-              id="state-select-dropdown"
-            />
+            <StateSelect />
           </div>
         </div>
       </FormSection>

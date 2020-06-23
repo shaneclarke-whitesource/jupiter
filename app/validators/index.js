@@ -7,7 +7,7 @@ function translateDefaultValidators(t) {
   validate.validators.presence.message = t('validation:input.required');
 }
 
-function i18nT() {
+export function i18nT() {
   return i18n.t.bind(i18n);
 }
 
@@ -117,9 +117,10 @@ export const validateCustomerInformation = (values, { t = i18nT() }) => {
   return errors ? { customerInfo: errors } : {};
 };
 
-export const validateAddress = (values, { t = i18nT() }) => {
+export const validateAddress = (values, { t, ...props }) => {
   translateDefaultValidators(t);
   const address = _.get(values, 'address', {});
+  // const thing = country && state ? false: true;
   const errors = validate(address, {
     country: {
       presence: {
@@ -132,9 +133,7 @@ export const validateAddress = (values, { t = i18nT() }) => {
       }
     },
     state: {
-      presence: {
-        allowEmpty: false
-      }
+      presence: true
     },
     city: {
       presence: {
@@ -174,12 +173,12 @@ export const validateCurrency = (values) => {
   return errors || {};
 };
 
-export const validateBilling = (values, { t = i18nT() }) => {
+export const validateBilling = (values, { t = i18nT(), ...props }) => {
   translateDefaultValidators(t);
   const billing = _.get(values, 'billingInfo', {});
   return {
     billingInfo: {
-      ...validateAddress(billing, t),
+      ...validateAddress(billing, { t, props }),
       ...validateCurrency(billing, t)
     }
   };

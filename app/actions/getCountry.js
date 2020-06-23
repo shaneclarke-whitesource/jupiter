@@ -5,20 +5,20 @@ export const GET_COUNTRY_PENDING = 'GET_COUNTRY_PENDING';
 export const GET_COUNTRY_SUCCESS = 'GET_COUNTRY_SUCCESS';
 export const GET_COUNTRY_FAILURE = 'GET_COUNTRY_FAILURE';
 
-export const getRegionsPending = () => {
+export const getCountryPending = () => {
   return {
     type: GET_COUNTRY_PENDING
   };
 };
 
-export const getRegionsSuccess = (country) => {
+export const getCountrySuccess = (country) => {
   return {
     type: GET_COUNTRY_SUCCESS,
     country
   };
 };
 
-export const getRegionsFailure = (errorResponse) => {
+export const getCountryFailure = (errorResponse) => {
   return {
     type: GET_COUNTRY_FAILURE,
     error: errorResponse
@@ -28,13 +28,13 @@ export const getRegionsFailure = (errorResponse) => {
 export function getCountry(countryCode) {
   const endpoint = `countries/${countryCode}`;
   return (dispatch) => {
-    dispatch(getRegionsPending());
+    dispatch(getCountryPending());
     return getCustomer(null, endpoint)
       .then((response) => {
         const country = parseState(response.data, countryCode);
-        return dispatch(getRegionsSuccess(country));
+        return dispatch(getCountrySuccess(country));
       }).catch((error) => {
-        return dispatch(getRegionsFailure(error.response));
+        return dispatch(getCountryFailure(error.response));
       });
   };
 }
