@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { RegionDropdown } from 'react-country-region-selector';
-import { change, formValueSelector } from 'redux-form';
+import { formValueSelector } from 'redux-form';
 import Error from '../../../helix/Error';
 
 export class StateSelect extends React.Component {
@@ -61,12 +61,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setRegion: (region) => {
-      dispatch(change('signUp', 'billingInfo.address.state', region));
-    }
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(StateSelect);
+export default connect(mapStateToProps, null)(StateSelect);

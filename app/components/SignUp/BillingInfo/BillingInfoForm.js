@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { formValueSelector, reduxForm, FormSection } from 'redux-form';
 import { withTranslation } from 'react-i18next';
+import { listCountries } from '../../../actions/listCountries';
 import { validateBilling } from '../../../validators';
 import AddressSection from './AddressSection';
 import Button from '../../helix/buttons/Button';
@@ -11,8 +12,13 @@ import Submit from '../../helix/buttons/Submit';
 import CurrencySelector from './CurrencySelector';
 
 export class BillingInfoForm extends React.Component {
+  componentDidMount() {
+    this.props.listCountries();
+  }
+
   onSubmit = (e) => {
-    this.props.history.push('/user-detail');
+    // this.props.listCountries(e.billingInfo.address);
+    // this.props.history.push('/user-detail');
   };
 
   render() {
@@ -54,11 +60,20 @@ export class BillingInfoForm extends React.Component {
 BillingInfoForm.propTypes = {
   t: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
+  listCountries: PropTypes.func.isRequired,
   customerType: PropTypes.string,
   country: PropTypes.string,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
   })
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    listCountries: (values) => {
+      dispatch(listCountries(values));
+    }
+  };
 };
 
 const mapStateToProps = (state) => {
@@ -81,4 +96,4 @@ const BillingReduxForm = reduxForm({
   forceUnregisterOnUnmount: true // <------ unregister fields on unmount
 })(withTranslation()(BillingInfoForm));
 
-export default withRouter(connect(mapStateToProps, null)(BillingReduxForm));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BillingReduxForm));

@@ -1,0 +1,34 @@
+import { GET_COUNTRY_PENDING, GET_COUNTRY_SUCCESS, GET_COUNTRY_FAILURE } from '../actions/getCountry';
+
+export const INITIAL_STATE = {
+  country: {},
+  pending: false,
+  success: false,
+  error: false
+};
+
+export default function checkCountriesReducer(state = INITIAL_STATE, action) {
+  switch (action.type) {
+    case GET_COUNTRY_PENDING:
+      return {
+        ...state,
+        pending: true,
+        success: false
+      };
+    case GET_COUNTRY_SUCCESS:
+      return {
+        ...state,
+        pending: false,
+        success: true,
+        country: action.country
+      };
+    case GET_COUNTRY_FAILURE:
+      return {
+        ...state,
+        success: false,
+        error: action.error
+      };
+    default:
+      return state;
+  }
+}

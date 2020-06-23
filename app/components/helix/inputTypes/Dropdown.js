@@ -13,7 +13,6 @@ const DropDown = (props) => {
       </option>
     );
   });
-
   return (
     <div className="Dropdown">
       <hx-select-control>
@@ -27,7 +26,7 @@ const DropDown = (props) => {
           <option value="">
             {t('common:dropdown.label.select')}
           </option>
-          {options}
+          {props.children || options}
         </select>
         <hx-select />
         <label htmlFor={props.id} className={props.required ? 'hxRequired' : null}>
@@ -41,6 +40,7 @@ const DropDown = (props) => {
 };
 
 DropDown.propTypes = {
+  children: PropTypes.node,
   label: PropTypes.string,
   id: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.object),

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { change, Field, FormSection } from 'redux-form';
+import { Field, FormSection } from 'redux-form';
 import { withTranslation } from 'react-i18next';
 import Input from '../../helix/inputTypes/Input';
 import CountrySelect from './AddressSelectors/CountrySelect';
@@ -9,7 +8,7 @@ import StateSelect from './AddressSelectors/StateSelect';
 
 export class AddressSection extends React.Component {
   render() {
-    const { t, country } = this.props;
+    const { t } = this.props;
     return (
       <FormSection name="address">
         <Field
@@ -35,16 +34,7 @@ export class AddressSection extends React.Component {
         />
         <div className="hxRow">
           <div className="hxCol hxSpan-6">
-            <Field
-              name="country"
-              component={CountrySelect}
-              valueField="value"
-              textField="label"
-              label={t('account:user.location.country')}
-              id="country-select-dropdown"
-              country={country}
-              onCountryChange={this.props.setCountry}
-            />
+            <CountrySelect />
           </div>
           <div className="hxCol hxSpan-6">
             <Field
@@ -54,7 +44,6 @@ export class AddressSection extends React.Component {
               textField="label"
               label={t('account:user.location.state')}
               id="state-select-dropdown"
-              country={country}
             />
           </div>
         </div>
@@ -63,18 +52,8 @@ export class AddressSection extends React.Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setCountry: (country) => {
-      dispatch(change('signUp', 'billingInfo.address.country', country));
-    }
-  };
-};
-
 AddressSection.propTypes = {
-  t: PropTypes.func.isRequired,
-  country: PropTypes.string,
-  setCountry: PropTypes.func
+  t: PropTypes.func.isRequired
 };
 
-export default connect(null, mapDispatchToProps)(withTranslation()(AddressSection));
+export default withTranslation()(AddressSection);
