@@ -4,9 +4,9 @@ import _ from 'lodash';
 import { connect } from 'react-redux';
 import { Field } from 'redux-form';
 import { withTranslation } from 'react-i18next';
-import DropDown from '../../../helix/inputTypes/Dropdown';
 import { listCountries } from '../../../../actions/listCountries';
 import { getCountry } from '../../../../actions/getCountry';
+import DropDown from '../../../helix/inputTypes/Dropdown';
 
 class CountrySelect extends React.Component {
   componentDidMount() {

@@ -117,10 +117,10 @@ export const validateCustomerInformation = (values, { t = i18nT() }) => {
   return errors ? { customerInfo: errors } : {};
 };
 
-export const validateAddress = (values, { t, ...props }) => {
+export const validateAddress = (values, { t, props: { country, countryData } }) => {
   translateDefaultValidators(t);
   const address = _.get(values, 'address', {});
-  // const thing = country && state ? false: true;
+  const checkState = !(country && (countryData.states && !countryData.states.length));
   const errors = validate(address, {
     country: {
       presence: {
@@ -133,7 +133,7 @@ export const validateAddress = (values, { t, ...props }) => {
       }
     },
     state: {
-      presence: true
+      presence: checkState
     },
     city: {
       presence: {

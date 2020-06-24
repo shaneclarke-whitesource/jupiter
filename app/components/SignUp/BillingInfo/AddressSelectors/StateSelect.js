@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Field } from 'redux-form';
-import DropDown from '../../../helix/inputTypes/Dropdown';
 import { withTranslation } from 'react-i18next';
+import DropDown from '../../../helix/inputTypes/Dropdown';
 
 export const StateSelect = ({ setRegion, t, country: { states } }) => {
   const options = states && states.map(({ code, name }) => {

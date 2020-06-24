@@ -4,12 +4,11 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { formValueSelector, reduxForm, FormSection } from 'redux-form';
 import { withTranslation } from 'react-i18next';
-import { validateBilling, i18nT } from '../../../validators';
+import { validateBilling } from '../../../validators';
 import AddressSection from './AddressSection';
 import Button from '../../helix/buttons/Button';
 import Submit from '../../helix/buttons/Submit';
 import CurrencySelector from './CurrencySelector';
-import { asyncValidateStates } from '../../../validators/utils';
 
 export class BillingInfoForm extends React.Component {
   onSubmit = () => {
@@ -65,7 +64,19 @@ BillingInfoForm.propTypes = {
 const mapStateToProps = (state) => {
   return {
     customerType: formValueSelector('signUp')(state, 'customerInfo.customerType'),
-    country: formValueSelector('signUp')(state, 'billingInfo.address.country')
+    country: formValueSelector('signUp')(state, 'billingInfo.address.country'),
+    countryData: state.country.details,
+    initialValues: {
+      // Creates a form field we use to validate states existence in a country
+      countryData: state.country.details,
+      billingInfo: {
+        address: {
+          // enableReinitialize will reset the form's country to null after it is selected
+          // Used redefine based on redux
+          country: state.country.details.code
+        }
+      }
+    }
   };
 };
 
@@ -75,18 +86,9 @@ const validate = (values, props) => {
   };
 };
 
-export const asyncValidate = (values, dispatch, { t = i18nT() }) => {
-  console.log('WHY');
-  const { billingInfo: { address: { country } } } = values;
-  return asyncValidateStates(country, t);
-};
-
 const BillingReduxForm = reduxForm({
   form: 'signUp',
   validate,
-  asyncValidate,
-  asyncChangeFields: ['billingInfo.address.country'],
-  touchOnChange: true,
   enableReinitialize: true,
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true // <------ unregister fields on unmount
