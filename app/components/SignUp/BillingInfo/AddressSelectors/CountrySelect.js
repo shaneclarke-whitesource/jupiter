@@ -8,7 +8,7 @@ import { listCountries } from '../../../../actions/listCountries';
 import { getCountry } from '../../../../actions/getCountry';
 import DropDown from '../../../helix/inputTypes/Dropdown';
 
-class CountrySelect extends React.Component {
+export class CountrySelect extends React.Component {
   componentDidMount() {
     this.props.getCountries();
   }

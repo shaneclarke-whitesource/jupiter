@@ -1,8 +1,7 @@
 import React from 'react';
-import { t } from '../../../../test/i18n/mocks';
 import enzyme from 'enzyme';
-import { mountWithForm } from '../../../../test/provider';
 import { BillingInfoForm } from './BillingInfoForm';
+const { t } = global;
 
 describe('BillingInfoForm', () => {
   const submitMock = jest.fn();
@@ -17,22 +16,14 @@ describe('BillingInfoForm', () => {
     t
   };
 
-  const mounted = (props) => {
-    return mountWithForm(BillingInfoForm, { defaultProps, props, withRouter: true });
-  };
-
   const shallow = (props) => {
     return enzyme.shallow(<BillingInfoForm {...defaultProps} {...props} />);
   };
 
   test('it passes correct props to AddressSection and CurrencySelector', () => {
-    const wrapper = mounted();
+    const wrapper = shallow();
     const addressProps = wrapper.find('AddressSection').props();
     expect(addressProps.customerType).toEqual(defaultProps.customerType);
-    expect(addressProps.country).toEqual(defaultProps.country);
-    const currencyProps = wrapper.find('CurrencySelector').props();
-    expect(currencyProps.customerType).toEqual(defaultProps.customerType);
-    expect(currencyProps.country).toEqual(defaultProps.country);
   });
 
   test('back button navigates to address page onClick', () => {
@@ -44,7 +35,7 @@ describe('BillingInfoForm', () => {
 
   test('next button navigates to address page onClick', () => {
     const push = jest.fn();
-    const wrapper = mounted({ history: { push } });
+    const wrapper = shallow({ history: { push } });
     wrapper.find('form').simulate('submit', { bubbles: true });
     expect(submitMock).toBeCalled();
   });
