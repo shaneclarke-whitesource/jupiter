@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, FormSection } from 'redux-form';
-import { withTranslation } from 'react-i18next';
 import Input from '../../helix/inputTypes/Input';
 import CountrySelect from './AddressSelectors/CountrySelect';
 import StateSelect from './AddressSelectors/StateSelect';
@@ -49,4 +48,4 @@ AddressSection.propTypes = {
   t: PropTypes.func.isRequired
 };
 
-export default withTranslation()(AddressSection);
+export default AddressSection;

@@ -1,39 +1,61 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import CountrySelect from './CountrySelect';
+import { mountWithForm } from '../../../../../test/provider';
+import { CountrySelect } from './CountrySelect';
+const { t } = global;
 
 describe('CountrySelect', () => {
-  let wrapper;
-  const onChangeMock = jest.fn();
-  const props = {
-    country: 'US',
-    label: 'United States',
-    onCountryChange: onChangeMock,
-    input: {
-      name: 'country',
-      onChange: onChangeMock
-    }
+  const getCountries = jest.fn();
+  const getCountry = jest.fn();
+  const defaultProps = {
+    countries: {},
+    getCountries,
+    getCountry,
+    t
   };
-  beforeEach(() => {
-    wrapper = shallow(<CountrySelect {...props} />);
+
+  const mounted = (props) => {
+    return mountWithForm(CountrySelect, { defaultProps, props });
+  };
+
+  test('it calls getCountriesMock on mount', () => {
+    mounted();
+    expect(getCountries).toHaveBeenCalled();
   });
 
-  test('it renders', () => {
-    const component = renderer.create(<CountrySelect {...props} />).toJSON();
-    expect(component).toMatchSnapshot();
+  test('it renders a Dropdown with correct label', () => {
+    const wrapper = mounted();
+    expect(wrapper.find('.InputField-label').text()).toEqual('Country');
   });
 
-  test('it renders the label according to the label prop', () => {
-    expect(wrapper.find('.InputField-label').text()).toEqual('United States');
+  test('it renders the options within the dropdown', () => {
+    const countries = {
+      'C1': { code: 'C1', name: 'Country 1' },
+      'C2': { code: 'C2', name: 'Country 2' }
+    };
+    const wrapper = mounted({ countries });
+    expect(wrapper.find('option').length).toEqual(3);
   });
-  test('CountryDropdown call onChange methods when onChange is invoked', () => {
-    wrapper.find('CountryDropdown').simulate('change', 'New Country');
-    expect(onChangeMock).toBeCalled();
+
+  test('it renders the correct option labels and values', () => {
+    const countries = {
+      'C1': { code: 'C1', name: 'Country 1' },
+      'C2': { code: 'C2', name: 'Country 2' },
+      'C3': { code: 'C3', name: 'Country 3' }
+    };
+    const wrapper = mounted({ countries });
+    const labels = wrapper.find('option').map((opt) => opt.text());
+    const values = wrapper.find('option').map((opt) => opt.prop('value'));
+    expect(labels).toEqual(['-- Please Select --', 'Country 1', 'Country 2', 'Country 3']);
+    expect(values).toEqual(['', 'C1', 'C2', 'C3']);
   });
-  test('it sets the name, id, and htmlFor attributes according to input name', () => {
-    const dropdown = wrapper.find('CountryDropdown');
-    expect(wrapper.find('label').prop('htmlFor')).toEqual('country');
-    expect(dropdown.prop('name')).toEqual('country');
-    expect(dropdown.prop('id')).toEqual('country');
+
+  test('it calls getCountry prop when onChange is invoked', () => {
+    const event = {
+      target: {
+        value: 'US'
+      }
+    };
+    const wrapper = mounted();
+    wrapper.find('select').simulate('change', event);
+    expect(getCountry).toHaveBeenCalledWith('US');
   });
 });

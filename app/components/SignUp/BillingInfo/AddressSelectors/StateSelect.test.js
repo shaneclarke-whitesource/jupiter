@@ -1,41 +1,31 @@
-import { renderWithForm, mountWithProvider } from '../../../../../test/provider';
+import { mountWithForm } from '../../../../../test/provider';
 import { StateSelect } from './StateSelect';
+const { t } = global;
 
 describe('StateSelect', () => {
   let wrapper;
   const onChangeMock = jest.fn();
   const defaultProps = {
-    country: 'US',
-    label: 'Colorado',
+    country: {},
     setRegion: onChangeMock,
-    region: '',
-    input: {
-      name: 'state'
-    }
+    t
   };
   beforeEach(() => {
-    wrapper = mountWithProvider(StateSelect, { defaultProps });
-  });
-
-  test('it renders', () => {
-    const component = renderWithForm(StateSelect, { defaultProps }).toJSON();
-    expect(component).toMatchSnapshot();
+    wrapper = mountWithForm(StateSelect, { defaultProps });
   });
 
   test('it renders the label according to the label prop', () => {
-    expect(wrapper.find('.InputField-label').text()).toEqual('Colorado');
+    expect(wrapper.find('.InputField-label').text()).toEqual('State');
   });
 
-  test('it sets the name, id, and htmlFor attributes according to input name', () => {
-    const dropdown = wrapper.find('RegionDropdown');
-    expect(wrapper.find('label').prop('htmlFor')).toEqual('state');
-    expect(dropdown.prop('name')).toEqual('state');
-    expect(dropdown.prop('id')).toEqual('state');
+  test('it sets the id, and htmlFor attributes according to input id', () => {
+    expect(wrapper.find('label').prop('htmlFor')).toEqual('state-select-dropdown');
+    expect(wrapper.find('select').prop('id')).toEqual('state-select-dropdown');
   });
 
   test('RegionDropdown calls onChange methods when onChange is invoked', () => {
     expect(onChangeMock).toHaveBeenCalledTimes(0);
-    wrapper.find('RegionDropdown').simulate('change', '');
+    wrapper.find('select').simulate('change', '');
     expect(onChangeMock).toBeCalled();
   });
 });

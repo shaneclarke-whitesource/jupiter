@@ -6,9 +6,9 @@ import { formValueSelector, reduxForm, FormSection } from 'redux-form';
 import { withTranslation } from 'react-i18next';
 import { validateBilling } from '../../../validators';
 import AddressSection from './AddressSection';
+import CurrencySelector from './CurrencySelector';
 import Button from '../../helix/buttons/Button';
 import Submit from '../../helix/buttons/Submit';
-import CurrencySelector from './CurrencySelector';
 
 export class BillingInfoForm extends React.Component {
   onSubmit = () => {
@@ -22,10 +22,11 @@ export class BillingInfoForm extends React.Component {
         <div className="Input-section u-form">
           <h2>{t('account:billing.header.info')}</h2>
           <FormSection name="billingInfo">
-            <AddressSection customerType={customerType} />
+            <AddressSection customerType={customerType} t={t} />
             <CurrencySelector
               customerType={customerType}
               country={country}
+              t={t}
             />
           </FormSection>
           <div className="NavButtons">
