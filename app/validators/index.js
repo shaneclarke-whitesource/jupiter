@@ -133,9 +133,7 @@ export const validateAddress = (values, { t, props: { country, countryData } }) 
       }
     },
     state: {
-      presence: {
-        allowEmpty: checkState
-      }
+      presence: checkState
     },
     city: {
       presence: {

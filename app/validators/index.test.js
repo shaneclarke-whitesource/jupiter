@@ -213,7 +213,7 @@ describe('validators', () => {
       expect(validateAddressMock({ ...defaultValueProps })).toEqual({});
     });
 
-    ['country', 'street', 'state', 'city', 'zipcode'].forEach((field) => {
+    ['country', 'street', 'city', 'zipcode'].forEach((field) => {
       test(`returns required when ${field} is empty`, () => {
         const result = validateAddressMock({ address: { field: '' } });
         expect([].concat(result.address[field])).toEqual(['Required']);
