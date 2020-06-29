@@ -1,4 +1,4 @@
-import { getSignup, postSignup, getCustomer } from '../../lib/axios/signupActions';
+import { getSignup, postSignup } from '../../lib/axios/signupActions';
 import { checkUsernameSuccess } from '../actions/checkUsername';
 
 export const asyncValidateUsername = (username, dispatch, t) => {
@@ -33,21 +33,6 @@ export const asyncValidatePassword = (password, t) => {
         } else {
           resolve();
         }
-      });
-  });
-};
-
-export const asyncValidateStates = (countryCode, t) => {
-  const endpoint = `countries/${countryCode}`;
-  return new Promise((resolve, reject) => {
-    getCustomer(null, endpoint)
-      .then((response) => {
-        // if (response.data.valid && response.data.blacklistCheck === 'FAILED') {
-        //   // eslint-disable-next-line prefer-promise-reject-errors
-        //   reject({ userInfo: { password: [t('validation:password.notComplicated')] } });
-        // } else {
-        //   resolve();
-        // }
       });
   });
 };
