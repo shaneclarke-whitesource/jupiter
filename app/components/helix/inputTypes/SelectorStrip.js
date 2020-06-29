@@ -3,7 +3,7 @@ import _map from 'lodash/map';
 import PropTypes from 'prop-types';
 import Error from '../Error';
 
-const SelectorStrip = ({ options, selectorName, label, required, input, meta }) => {
+const SelectorStrip = ({ options, selectorName, label, required, input, meta, tooltip }) => {
   const selections = _map(options, (item, index) => {
     return (
       <label htmlFor={item.value} key={index}>
@@ -22,10 +22,13 @@ const SelectorStrip = ({ options, selectorName, label, required, input, meta }) 
   });
   return (
     <div className="hxRow">
-      <div className="hxCol hxSpan-4">
-        <span className={`SelectorStrip-label${required ? ' hxRequired' : ''}`}>{label || ''}</span>
+      <div className="hxCol hxSpan-4 hxSpan-5-sm">
+        <span className={`SelectorStrip-label${required ? ' hxRequired' : ''}`}>
+          {label || ''}
+          {tooltip}
+        </span>
       </div>
-      <div className="hxCol hxSpan-8">
+      <div className="hxCol hxSpan-8 hxSpan-7-sm">
         <div className="hxSelector hxRadio">
           {selections}
         </div>
@@ -37,6 +40,7 @@ const SelectorStrip = ({ options, selectorName, label, required, input, meta }) 
 
 SelectorStrip.propTypes = {
   selectorName: PropTypes.string.isRequired,
+  tooltip: PropTypes.node,
   label: PropTypes.string,
   required: PropTypes.bool,
   options: PropTypes.arrayOf(

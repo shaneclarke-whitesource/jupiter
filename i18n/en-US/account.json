@@ -10,14 +10,26 @@
   "billing.actions.currency.select" : {
     "translation" : "Select Currency"
   },
+  "billing.currency.aud" : {
+    "translation" : "AUD"
+  },
   "billing.currency.cad" : {
     "translation" : "CAD"
+  },
+  "billing.currency.eur" : {
+    "translation" : "EUR"
+  },
+  "billing.currency.gbp" : {
+    "translation" : "GBP"
   },
   "billing.currency.usd" : {
     "translation" : "USD"
   },
   "billing.header.info" : {
     "translation" : "Billing Information"
+  },
+  "billing.tips.currency.restrictions" : {
+    "translation" : "CAD currency is restricted to Onica customers who live in Canada. <br /> AUD, EUR, and GBP currencies are only available when Managed Azure Cloud product is selected."
   },
   "customer.actions.select" : {
     "translation" : "Select Customer Type"
