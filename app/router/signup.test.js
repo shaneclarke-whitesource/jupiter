@@ -12,6 +12,7 @@ import { UserInfoForm } from '../components/SignUp/UserDetails/UserInfoForm';
 jest.mock('axios');
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
+
 describe('routes/signup', () => {
   const mounted = (route) => {
     return mount(
