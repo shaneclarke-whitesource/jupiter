@@ -98,15 +98,8 @@ describe('actions/listCountries', () => {
           }
         }
       ];
-      return new Promise((resolve, reject) => {
-        store.subscribe(() => {
-          const currentActions = store.getActions();
-          expect(currentActions).toEqual(expectedActions.slice(0, currentActions.length));
-          if (currentActions.length === expectedActions.length) {
-            resolve(true);
-          }
-        });
-        store.dispatch(actions.listCountries());
+      await store.dispatch(actions.listCountries()).then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
       });
     });
   });

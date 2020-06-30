@@ -97,15 +97,8 @@ describe('actions/getCountry', () => {
           error: error.response
         }
       ];
-      return new Promise((resolve, reject) => {
-        store.subscribe(() => {
-          const currentActions = store.getActions();
-          expect(currentActions).toEqual(expectedActions.slice(0, currentActions.length));
-          if (currentActions.length === expectedActions.length) {
-            resolve(true);
-          }
-        });
-        store.dispatch(actions.getCountry('AF'));
+      await store.dispatch(actions.getCountry('AF')).then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
       });
     });
   });
