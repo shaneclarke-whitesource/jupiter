@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { FormSection, formValueSelector, reduxForm } from 'redux-form';
+import { change, FormSection, formValueSelector, reduxForm } from 'redux-form';
 import { withTranslation } from 'react-i18next';
 import { withRouter } from 'react-router';
 import Submit from '../../helix/buttons/Submit';
@@ -13,6 +13,10 @@ export class CustomerInfoForm extends React.Component {
   onSubmit = () => {
     this.props.history.push('/billing');
   };
+
+  handleChange = () => {
+    this.props.clearProduct();
+  }
 
   render() {
     const { t, handleSubmit, customerType } = this.props;
@@ -45,6 +49,7 @@ CustomerInfoForm.propTypes = {
   t: PropTypes.func.isRequired,
   customerType: PropTypes.string,
   handleSubmit: PropTypes.func.isRequired,
+  clearProduct: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
   })
@@ -52,7 +57,9 @@ CustomerInfoForm.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    customerType: formValueSelector('signUp')(state, 'customerInfo.customerType')
+    customerType: formValueSelector('signUp')(state, 'customerInfo.customerType'),
+    productType: formValueSelector('signUp')(state, 'customerInfo.productType')
+
   };
 };
 
@@ -62,12 +69,20 @@ const validate = (values, props) => {
   };
 };
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    clearProduct: () => {
+      dispatch(change('signUp', 'customerInfo.productType', ''));
+    }
+  };
+};
+
 const CustomerInformationReduxForm = reduxForm({
   form: 'signUp',
   validate,
-  destroyOnUnmount: false,
   touchOnChange: true,
+  destroyOnUnmount: false,
   forceUnregisterOnUnmount: true // <------ unregister fields on unmount
 })(withTranslation()(CustomerInfoForm));
 
-export default withRouter(connect(mapStateToProps)(CustomerInformationReduxForm));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CustomerInformationReduxForm));

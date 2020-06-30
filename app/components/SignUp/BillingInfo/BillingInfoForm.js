@@ -14,11 +14,10 @@ import { getCountry } from '../../../actions/getCountry';
 
 export class BillingInfoForm extends React.Component {
   componentDidMount() {
-    const { customerType, clearProduct } = this.props;
+    const { customerType } = this.props;
     if (customerType === 'rbu') {
       this.populateAddressFields();
       this.props.getCountry('JP'); // used when RBU address pre-populates
-      clearProduct();
     } else {
       this.clearAddressFields();
     }
@@ -85,7 +84,6 @@ BillingInfoForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   customerType: PropTypes.string,
   setAddress: PropTypes.func.isRequired,
-  clearProduct: PropTypes.func.isRequired,
   getCountry: PropTypes.func.isRequired,
   country: PropTypes.string,
   history: PropTypes.shape({
@@ -114,9 +112,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    clearProduct: () => {
-      dispatch(change('signUp', 'customerInfo.productType', ''));
-    },
     setAddress: (field, value) => {
       dispatch(change('signUp', `billingInfo.address.${field}`, value));
     },
@@ -137,8 +132,9 @@ const BillingReduxForm = reduxForm({
   validate,
   enableReinitialize: true,
   keepDirtyOnReinitialize: true,
+  updateUnregisteredFields: true, // used for updating initialValues
   destroyOnUnmount: false,
-  forceUnregisterOnUnmount: true // <------ unregister fields on unmount
+  forceUnregisterOnUnmount: true // unregister fields on unmount
 })(withTranslation()(BillingInfoForm));
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BillingReduxForm));
