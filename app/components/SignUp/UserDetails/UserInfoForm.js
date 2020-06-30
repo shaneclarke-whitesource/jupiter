@@ -102,6 +102,7 @@ const UserInfoContainerReduxForm = reduxForm({
   touchOnBlur: false,
   touchOnChange: true,
   enableReinitialize: true,
+  keepDirtyOnReinitialize: true,
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true
 })(withTranslation()(UserInfoForm));
