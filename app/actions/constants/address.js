@@ -15,5 +15,5 @@ export const ADDRESS_FIELDS = {
   city: 'Minato-ku',
   zipcode: '106-6155',
   country: 'JP',
-  state: 13 // Tokyo
+  state: 'Tokyo'
 };

@@ -8,7 +8,7 @@ import DropDown from '../../../helix/inputTypes/Dropdown';
 export const StateSelect = ({ setRegion, t, country: { states } }) => {
   const options = states && states.map(({ code, name }) => {
     return (
-      <option key={code} value={code}>
+      <option key={code} value={name}>
         {name}
       </option>
     );
