@@ -28,7 +28,6 @@ export const CustomerType = ({ handleChange }) => {
             name="customerType"
             component={DropDown}
             options={customerTypes}
-            defaultValue=""
             valueField="value"
             textField="label"
             label={t('account:customer.actions.select')}

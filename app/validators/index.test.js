@@ -1,9 +1,8 @@
+import axios from 'axios';
 import _ from 'lodash';
 import * as validators from './index';
-import { t } from '../../test/i18n/mocks';
 import * as axiosActions from '../../lib/axios/signupActions';
-
-import axios from 'axios';
+const { t } = global;
 
 jest.mock('axios');
 
@@ -96,7 +95,6 @@ describe('validators', () => {
         .toEqual({ email: ['Required', 'Email domain must be in valid format'] });
     });
   });
-
   describe('validatePassword', () => {
     const validatePasswords = (props) => {
       return validators.validatePassword(props, defaultProps);
@@ -161,7 +159,6 @@ describe('validators', () => {
         .toEqual({ passwordValidate: ['Passwords do not match'] });
     });
   });
-
   describe('validateCustomerInfo', () => {
     const validateCustomerInfo = (props) => {
       return validators.validateCustomerInformation(props, defaultProps);
@@ -189,7 +186,7 @@ describe('validators', () => {
     });
   });
   describe('validateAddress', () => {
-    const defaultAddressProps = {
+    const defaultValueProps = {
       address: {
         country: 'US',
         street: 'Tree Ln.',
@@ -198,15 +195,25 @@ describe('validators', () => {
         zipcode: '12345'
       }
     };
+    const defaultAddressProps = {
+      props: {
+        country: 'US',
+        countryData: {
+          states: []
+        }
+      },
+      t
+    };
+
     const validateAddressMock = (props) => {
-      return validators.validateAddress(props, defaultProps);
+      return validators.validateAddress(props, defaultAddressProps);
     };
 
     test('it passes with valid input', () => {
-      expect(validateAddressMock({ ...defaultAddressProps })).toEqual({});
+      expect(validateAddressMock({ ...defaultValueProps })).toEqual({});
     });
 
-    ['country', 'street', 'state', 'city', 'zipcode'].forEach((field) => {
+    ['country', 'street', 'city', 'zipcode'].forEach((field) => {
       test(`returns required when ${field} is empty`, () => {
         const result = validateAddressMock({ address: { field: '' } });
         expect([].concat(result.address[field])).toEqual(['Required']);
@@ -217,13 +224,40 @@ describe('validators', () => {
       });
     });
 
+    test('state is required if no country prop or country data is present', () => {
+      const valueProps = { address: { country: 'AF' } };
+      const props = { props: { country: '', countryData: {} }, t };
+      const result = validators.validateAddress(valueProps, props);
+      expect(result.address.state).toEqual(['Required']);
+    });
+
+    test('state is required if no countryData is present', () => {
+      const valueProps = { address: { country: 'AF' } };
+      const props = { props: { country: 'AF', countryData: {} }, t };
+      const result = validators.validateAddress(valueProps, props);
+      expect(result.address.state).toEqual(['Required']);
+    });
+
+    test('state is required if no country prop is present', () => {
+      const valueProps = { address: { country: 'AF' } };
+      const props = { props: { country: '', countryData: { states: [] } }, t };
+      const result = validators.validateAddress(valueProps, props);
+      expect(result.address.state).toEqual(['Required']);
+    });
+
+    test('state returns no error if country and countryData are present', () => {
+      const valueProps = { address: { country: 'AF' } };
+      const props = { props: { country: 'AF', countryData: { states: [] } }, t };
+      const result = validators.validateAddress(valueProps, props);
+      expect(result.address.state).toBeUndefined();
+    });
+
     test('zipcode sends correct message if it is too long', () => {
       const longZip = _.fill(Array(21), 'c').join('');
       const result = validateAddressMock({ address: { zipcode: longZip } });
       expect(result.address.zipcode).toEqual(['Must be less than 20 characters long']);
     });
   });
-
   describe('asyncValidate', () => {
     const asyncValidateMock = (props, field) => {
       return validators.asyncValidate(props, jest.fn(), defaultProps, field);

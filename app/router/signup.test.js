@@ -2,23 +2,25 @@ import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { App } from '../containers/App';
 import { t } from '../../test/i18n/mocks';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
+import thunk from 'redux-thunk';
 import rootReducer from '../reducers/rootReducer';
 import { Provider } from 'react-redux';
 import { CustomerInfoForm } from '../components/SignUp/CustomerInfo/CustomerInfoForm';
 import { BillingInfoForm } from '../components/SignUp/BillingInfo/BillingInfoForm';
 import { UserInfoForm } from '../components/SignUp/UserDetails/UserInfoForm';
+jest.mock('axios');
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 describe('routes/signup', () => {
   const mounted = (route) => {
     return mount(
-      <MemoryRouter initialEntries={[route]}>
-        <Provider store={store}>
+      <Provider store={store}>
+        <MemoryRouter initialEntries={[route]}>
           <App t={t} />
-        </Provider>
-      </MemoryRouter>
+        </MemoryRouter>
+      </Provider>
     );
   };
 

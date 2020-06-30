@@ -1,55 +1,70 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CountryDropdown } from 'react-country-region-selector';
-import Error from '../../../helix/Error';
+import _ from 'lodash';
+import { connect } from 'react-redux';
+import { Field } from 'redux-form';
+import { withTranslation } from 'react-i18next';
+import { listCountries } from '../../../../actions/listCountries';
+import { getCountry } from '../../../../actions/getCountry';
+import DropDown from '../../../helix/inputTypes/Dropdown';
 
-class CountrySelect extends React.Component {
+export class CountrySelect extends React.Component {
+  componentDidMount() {
+    this.props.getCountries();
+  }
+
+  onChange = (e) => {
+    this.props.getCountry(e.target.value);
+  }
+
   render() {
-    const { input, country, label, onCountryChange, meta } = this.props;
+    const { countries, t } = this.props;
+    const options = _.values(countries).map(({ code, name: countryName }) => {
+      return (
+        <option key={code} value={code}>
+          {countryName}
+        </option>
+      );
+    });
     return (
       <div className="InputField">
-        <hx-select-control>
-          <CountryDropdown
-            {...input}
-            name={input.name}
-            value={country}
-            valueType="short"
-            id={input.name}
-            onChange={onCountryChange}
-          />
-          <hx-select />
-          <label htmlFor={input.name}>
-            <span className="InputField-label">{label}</span>
-          </label>
-        </hx-select-control>
-        <Error meta={meta} />
+        <Field
+          name="country"
+          component={DropDown}
+          valueField="value"
+          label={t('account:user.location.country')}
+          id="country-select-dropdown"
+          onChange={this.onChange}
+        >
+          {options}
+        </Field>
       </div>
     );
   }
 }
 
 CountrySelect.propTypes = {
-  country: PropTypes.string,
-  label: PropTypes.string.isRequired,
-  onCountryChange: PropTypes.func,
-  input: PropTypes.shape({
-    onChange: PropTypes.func.isRequired,
-    name: PropTypes.string.isRequired
-  }).isRequired,
-  meta: PropTypes.shape({
-    touched: PropTypes.bool,
-    warning: PropTypes.bool,
-    error: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.array
-    ])
-  })
+  t: PropTypes.func.isRequired,
+  countries: PropTypes.object,
+  getCountries: PropTypes.func.isRequired,
+  getCountry: PropTypes.func.isRequired
 };
 
-CountrySelect.defaultProps = {
-  country: '',
-  meta: {}
+const mapStateToProps = (state) => {
+  return {
+    countries: state.countries.countries
+  };
 };
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getCountries: () => {
+      dispatch(listCountries());
+    },
+    getCountry: (countryCode) => {
+      dispatch(getCountry(countryCode));
+    }
+  };
+};
 
-export default CountrySelect;
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(CountrySelect));

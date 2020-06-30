@@ -1,41 +1,47 @@
-import { renderWithForm, mountWithProvider } from '../../../../../test/provider';
+import { mountWithForm } from '../../../../../test/provider';
 import { StateSelect } from './StateSelect';
+const { t } = global;
 
 describe('StateSelect', () => {
-  let wrapper;
   const onChangeMock = jest.fn();
   const defaultProps = {
-    country: 'US',
-    label: 'Colorado',
+    country: {},
     setRegion: onChangeMock,
-    region: '',
-    input: {
-      name: 'state'
-    }
+    t
   };
-  beforeEach(() => {
-    wrapper = mountWithProvider(StateSelect, { defaultProps });
-  });
-
-  test('it renders', () => {
-    const component = renderWithForm(StateSelect, { defaultProps }).toJSON();
-    expect(component).toMatchSnapshot();
-  });
+  const mounted = (props) => {
+    return mountWithForm(StateSelect, { defaultProps, props });
+  };
 
   test('it renders the label according to the label prop', () => {
-    expect(wrapper.find('.InputField-label').text()).toEqual('Colorado');
+    expect(mounted().find('.InputField-label').text()).toEqual('State');
   });
 
-  test('it sets the name, id, and htmlFor attributes according to input name', () => {
-    const dropdown = wrapper.find('RegionDropdown');
-    expect(wrapper.find('label').prop('htmlFor')).toEqual('state');
-    expect(dropdown.prop('name')).toEqual('state');
-    expect(dropdown.prop('id')).toEqual('state');
+  test('it sets the id, and htmlFor attributes according to input id', () => {
+    expect(mounted().find('label').prop('htmlFor')).toEqual('state-select-dropdown');
+    expect(mounted().find('select').prop('id')).toEqual('state-select-dropdown');
   });
 
-  test('RegionDropdown calls onChange methods when onChange is invoked', () => {
+  test('Dropdown calls onChange methods when onChange is invoked', () => {
     expect(onChangeMock).toHaveBeenCalledTimes(0);
-    wrapper.find('RegionDropdown').simulate('change', '');
+    mounted().find('select').simulate('change', '');
     expect(onChangeMock).toBeCalled();
+  });
+
+  test('Dropdown is disabled if states prop is undefined', () => {
+    const wrapper = mounted();
+    expect(wrapper.find('select').prop('disabled')).toBeTruthy();
+  });
+
+  test('Dropdown is disabled if states exist but length is zero', () => {
+    const props = { country: { states: [] } };
+    const wrapper = mounted(props);
+    expect(wrapper.find('select').prop('disabled')).toBeTruthy();
+  });
+
+  test('Dropdown is enabled if states has a length', () => {
+    const props = { country: { states: ['test'] } };
+    const wrapper = mounted(props);
+    expect(wrapper.find('select').prop('disabled')).toBeFalsy();
   });
 });

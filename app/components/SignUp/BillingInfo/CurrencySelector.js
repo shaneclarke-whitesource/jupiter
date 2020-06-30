@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
-import { withTranslation, Trans } from 'react-i18next';
+import { Trans } from 'react-i18next';
 import SelectorStrip from '../../helix/inputTypes/SelectorStrip';
 import Tooltip from '../../helix/Tooltip';
 
@@ -64,4 +64,4 @@ CurrencySelector.propTypes = {
   productType: PropTypes.string
 };
 
-export default withTranslation()(CurrencySelector);
+export default CurrencySelector;

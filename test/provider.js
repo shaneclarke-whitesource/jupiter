@@ -3,23 +3,16 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
-import { createStore, combineReducers } from 'redux';
-import { reducer as formReducer, reduxForm } from 'redux-form';
+import { createStore, applyMiddleware } from 'redux';
+import { reduxForm } from 'redux-form';
 import renderer from 'react-test-renderer';
 import rootReducer from '../app/reducers/rootReducer';
+import thunk from 'redux-thunk';
 
-export function mountWithProvider(Component, { props = {}, defaultProps }) {
-  const store = createStore(combineReducers({ form: formReducer }));
-  return enzyme.mount((
-    <Provider store={store}>
-      <Component {...defaultProps} {...props} />
-    </Provider>
-  ));
-}
 
 function withForm(Component, { props = {}, defaultProps, method, withRouter = false }) {
   const FormWrapper = reduxForm({ form: 'testForm' })(Component);
-  const store = createStore(rootReducer);
+  const store = createStore(rootReducer, applyMiddleware(thunk));
   const history = createMemoryHistory();
   const func = method === 'create' ? renderer.create : enzyme[method];
   return func((
