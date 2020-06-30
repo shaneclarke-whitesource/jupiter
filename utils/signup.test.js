@@ -74,6 +74,42 @@ describe('utils/signup', () => {
         expect(phoneNumber.number).toEqual(defaultValues.userInfo.phoneNumber.number);
       });
     });
+    test('geography changes if type is onica and country is not US', () => {
+      const props = {
+        customerInfo: {
+          customerType: 'onica',
+          productType: 'product'
+        },
+        billingInfo: {
+          currency: 'CAD',
+          address: {
+            country: 'CA'
+          }
+        }
+      };
+      const result = formatRequest(props);
+      expect(result.geography).toEqual('UK');
+    });
+    ['rackspace', 'rbu'].forEach((customerType) => {
+      ['other', 'US'].forEach((country) => {
+        test(`returns US geography for ${customerType} when country is ${country}`, () => {
+          const props = {
+            customerInfo: {
+              productType: 'product',
+              customerType
+            },
+            billingInfo: {
+              currency: 'US',
+              address: {
+                country
+              }
+            }
+          };
+          const result = formatRequest(props);
+          expect(result.geography).toEqual('US');
+        });
+      });
+    });
   });
 
   describe('formatAltCustomer', () => {
