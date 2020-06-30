@@ -13,7 +13,6 @@ export const StateSelect = ({ setRegion, t, country: { states } }) => {
       </option>
     );
   });
-
   return (
     <div className="InputField">
       <Field

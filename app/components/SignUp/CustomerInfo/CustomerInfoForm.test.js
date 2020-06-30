@@ -28,22 +28,7 @@ describe('CustomerInfoForm', () => {
     return enzyme.shallow(<CustomerInfoForm {...defaultProps} {...props} />);
   };
 
-  it('calls setAddress and clearProduct if target value is rbu', () => {
-    const wrapper = mounted();
-    const event = {
-      target: {
-        value: 'rbu'
-      }
-    };
-    wrapper.find('CustomerType').props().handleChange(event);
-    wrapper.update();
-    expect(clearProductMock).toHaveBeenCalledTimes(1);
-    expect(setAddressMock).toHaveBeenNthCalledWith(
-      1, 'street', 'Toranomon Hills Mori Tower 7th Floor Toranomon 1-23-1'
-    );
-  });
-
-  it('it calls setAddress with empty field if value is not rbu', () => {
+  it('it calls clearProductMock on change', () => {
     const wrapper = mounted();
     const event = {
       target: {
@@ -53,7 +38,6 @@ describe('CustomerInfoForm', () => {
     wrapper.find('CustomerType').props().handleChange(event);
     wrapper.update();
     expect(clearProductMock).toHaveBeenCalledTimes(1);
-    expect(setAddressMock).toHaveBeenCalledWith(expect.anything(), '');
   });
 
   test('next button navigates to address page onClick', () => {

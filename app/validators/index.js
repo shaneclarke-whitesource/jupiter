@@ -120,7 +120,7 @@ export const validateCustomerInformation = (values, { t = i18nT() }) => {
 export const validateAddress = (values, { t, props: { country, countryData } }) => {
   translateDefaultValidators(t);
   const address = _.get(values, 'address', {});
-  const checkState = !(country && (countryData.states && countryData.states.length > 0));
+  const checkState = !(country && (countryData.states && countryData.states.length === 0));
   const errors = validate(address, {
     country: {
       presence: {

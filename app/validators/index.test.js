@@ -199,7 +199,7 @@ describe('validators', () => {
       props: {
         country: 'US',
         countryData: {
-          states: { state: [] }
+          states: []
         }
       },
       t
@@ -222,6 +222,34 @@ describe('validators', () => {
         const result = validateAddressMock({ address: { [field]: '     ' } });
         expect([].concat(result.address[field])).toEqual(['Required']);
       });
+    });
+
+    test('state is required if no country prop or country data is present', () => {
+      const valueProps = { address: { country: 'AF' } };
+      const props = { props: { country: '', countryData: {} }, t };
+      const result = validators.validateAddress(valueProps, props);
+      expect(result.address.state).toEqual(['Required']);
+    });
+
+    test('state is required if no countryData is present', () => {
+      const valueProps = { address: { country: 'AF' } };
+      const props = { props: { country: 'AF', countryData: {} }, t };
+      const result = validators.validateAddress(valueProps, props);
+      expect(result.address.state).toEqual(['Required']);
+    });
+
+    test('state is required if no country prop is present', () => {
+      const valueProps = { address: { country: 'AF' } };
+      const props = { props: { country: '', countryData: { states: [] } }, t };
+      const result = validators.validateAddress(valueProps, props);
+      expect(result.address.state).toEqual(['Required']);
+    });
+
+    test('state returns no error if country and countryData are present', () => {
+      const valueProps = { address: { country: 'AF' } };
+      const props = { props: { country: 'AF', countryData: { states: [] } }, t };
+      const result = validators.validateAddress(valueProps, props);
+      expect(result.address.state).toBeUndefined();
     });
 
     test('zipcode sends correct message if it is too long', () => {
