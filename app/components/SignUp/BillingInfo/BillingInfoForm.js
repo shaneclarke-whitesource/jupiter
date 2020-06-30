@@ -2,15 +2,40 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { formValueSelector, reduxForm, FormSection } from 'redux-form';
+import { formValueSelector, reduxForm, FormSection, change } from 'redux-form';
 import { withTranslation } from 'react-i18next';
 import { validateBilling } from '../../../validators';
 import AddressSection from './AddressSection';
 import CurrencySelector from './CurrencySelector';
 import Button from '../../helix/buttons/Button';
 import Submit from '../../helix/buttons/Submit';
+import { ADDRESS_FIELDS } from '../../../actions/constants/address';
+import { getCountry } from '../../../actions/getCountry';
 
 export class BillingInfoForm extends React.Component {
+  componentDidMount() {
+    const { customerType, clearProduct } = this.props;
+    if (customerType === 'rbu') {
+      this.populateAddressFields();
+      this.props.getCountry('JP'); // used when RBU address pre-populates
+      clearProduct();
+    } else {
+      this.clearAddressFields();
+    }
+  }
+
+  populateAddressFields = () => {
+    Object.entries(ADDRESS_FIELDS).forEach((entry) => {
+      this.props.setAddress(...entry);
+    });
+  };
+
+  clearAddressFields = () => {
+    Object.keys(ADDRESS_FIELDS).forEach((field) => {
+      this.props.setAddress(field, '');
+    });
+  };
+
   onSubmit = () => {
     this.props.history.push('/user-detail');
   };
@@ -22,7 +47,10 @@ export class BillingInfoForm extends React.Component {
         <div className="Input-section u-form">
           <h2>{t('account:billing.header.info')}</h2>
           <FormSection name="billingInfo">
-            <AddressSection customerType={customerType} t={t} />
+            <AddressSection
+              customerType={customerType}
+              t={t}
+            />
             <CurrencySelector
               customerType={customerType}
               country={country}
@@ -56,6 +84,9 @@ BillingInfoForm.propTypes = {
   t: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   customerType: PropTypes.string,
+  setAddress: PropTypes.func.isRequired,
+  clearProduct: PropTypes.func.isRequired,
+  getCountry: PropTypes.func.isRequired,
   country: PropTypes.string,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
@@ -81,6 +112,20 @@ const mapStateToProps = (state) => {
   };
 };
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    clearProduct: () => {
+      dispatch(change('signUp', 'customerInfo.productType', ''));
+    },
+    setAddress: (field, value) => {
+      dispatch(change('signUp', `billingInfo.address.${field}`, value));
+    },
+    getCountry: (countryCode) => {
+      dispatch(getCountry(countryCode));
+    }
+  };
+};
+
 const validate = (values, props) => {
   return {
     ...validateBilling(values, props)
@@ -91,8 +136,9 @@ const BillingReduxForm = reduxForm({
   form: 'signUp',
   validate,
   enableReinitialize: true,
+  keepDirtyOnReinitialize: true,
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true // <------ unregister fields on unmount
 })(withTranslation()(BillingInfoForm));
 
-export default withRouter(connect(mapStateToProps)(BillingReduxForm));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BillingReduxForm));

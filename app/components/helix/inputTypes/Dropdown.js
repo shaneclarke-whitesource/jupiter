@@ -47,7 +47,10 @@ DropDown.propTypes = {
   disabled: PropTypes.bool,
   input: PropTypes.shape({
     onChange: PropTypes.func,
-    value: PropTypes.string
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
+    ])
   }),
   meta: PropTypes.shape({
     error: PropTypes.oneOfType([

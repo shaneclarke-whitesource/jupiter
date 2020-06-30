@@ -13,15 +13,17 @@ export const StateSelect = ({ setRegion, t, country: { states } }) => {
       </option>
     );
   });
+
   return (
     <div className="InputField">
       <Field
         name="state"
         component={DropDown}
         label={t('account:user.location.state')}
+        valueField="value"
         id="state-select-dropdown"
         onChange={setRegion}
-        disabled={!states || !states.length}
+        disabled={!states || (states && !states.length)}
       >
         {options}
       </Field>
