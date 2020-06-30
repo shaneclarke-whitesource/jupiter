@@ -64,9 +64,7 @@ const mapStateToProps = (state) => {
 };
 
 const validate = (values, props) => {
-  return {
-    ...validateCustomerInformation(values, props)
-  };
+  return validateCustomerInformation(values, props);
 };
 
 const mapDispatchToProps = (dispatch) => {
