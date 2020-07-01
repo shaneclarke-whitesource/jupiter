@@ -15,7 +15,6 @@ export const formatAltCustomer = (type) => {
 
 export const formatRequest = (values) => {
   const type = _.get(values, ['customerInfo', 'customerType']);
-  const billingCountry = _.get(values, ['billingInfo', 'address', 'country']);
   const template = (
     type !== 'rackspace'
       ? formatAltCustomer(type.toUpperCase())
@@ -25,7 +24,6 @@ export const formatRequest = (values) => {
     ...template,
     accountName: values.userInfo.accountName,
     externalId: (values.customerInfo.productType).toUpperCase(),
-    geography: billingCountry !== 'US' && type === 'onica' ? 'UK' : 'US',
     serviceLevel: 'MANAGED',
     currencyCode: values.billingInfo.currency.toUpperCase(),
     description: `A Karate (${type.toUpperCase()}) cloud signup request from the retail site.`,
