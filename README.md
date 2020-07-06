@@ -52,8 +52,9 @@ yarn test -f "SomeTestFile" -t "test description"
 ### Dependencies
 Node v12.16.x
 
-
 ### Helpful Links
+
+Jupiter Internal Cart [docs](https://one.rackspace.com/display/IDPLAT/Jupiter+-+Internal+Cart).
 
 Manual Invoice sign up process [documentation](https://one.rackspace.com/display/manpubcld/Invoice+Sign+Up+Process).
 
