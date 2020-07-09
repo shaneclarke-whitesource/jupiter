@@ -1,6 +1,6 @@
-import { t } from '../../../../test/i18n/mocks';
 import { mountWithForm } from '../../../../test/provider';
 import { CurrencySelector } from './CurrencySelector';
+const { t } = global;
 
 describe('CurrencySelector', () => {
   const defaultProps = {

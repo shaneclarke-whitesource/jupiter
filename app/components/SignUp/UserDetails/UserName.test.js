@@ -1,7 +1,7 @@
 import React from 'react';
-import { t } from '../../../../test/i18n/mocks';
 import UserNameForm, { UserName } from './UserName';
 import { mountWithForm, renderWithForm } from '../../../../test/provider';
+const { t } = global;
 
 describe('UserName', () => {
   let mounted;

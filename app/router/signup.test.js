@@ -1,14 +1,15 @@
 import React from 'react';
-import { MemoryRouter } from 'react-router-dom';
-import { App } from '../containers/App';
-import { t } from '../../test/i18n/mocks';
-import { applyMiddleware, createStore } from 'redux';
-import thunk from 'redux-thunk';
-import rootReducer from '../reducers/rootReducer';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import { MemoryRouter } from 'react-router-dom';
+import { applyMiddleware, createStore } from 'redux';
+import rootReducer from '../reducers/rootReducer';
+import { App } from '../containers/App';
 import { CustomerInfoForm } from '../components/SignUp/CustomerInfo/CustomerInfoForm';
 import { BillingInfoForm } from '../components/SignUp/BillingInfo/BillingInfoForm';
 import { UserInfoForm } from '../components/SignUp/UserDetails/UserInfoForm';
+const { t } = global;
+
 jest.mock('axios');
 
 const store = createStore(rootReducer, applyMiddleware(thunk));

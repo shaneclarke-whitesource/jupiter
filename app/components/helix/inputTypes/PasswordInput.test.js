@@ -1,7 +1,7 @@
 import React from 'react';
 import PasswordInput from './PasswordInput';
 import renderer from 'react-test-renderer';
-import { t } from '../../../../test/i18n/mocks';
+const { t } = global;
 
 describe('PasswordInput', () => {
   const defaultProps = {

@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Footer from './Footer';
-import { t } from '../../../test/i18n/mocks';
+const { t } = global;
 
 describe('Footer', () => {
   test('it renders', () => {

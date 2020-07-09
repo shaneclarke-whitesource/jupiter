@@ -9,7 +9,6 @@ import renderer from 'react-test-renderer';
 import rootReducer from '../app/reducers/rootReducer';
 import thunk from 'redux-thunk';
 
-
 function withForm(Component, { props = {}, defaultProps, method, withRouter = false }) {
   const FormWrapper = reduxForm({ form: 'testForm' })(Component);
   const store = createStore(rootReducer, applyMiddleware(thunk));
@@ -44,7 +43,7 @@ export function mountWithForm(Component, options) {
   return withForm(Component, {
     ...options,
     method: 'mount'
-  });
+  }).find(Component);
 }
 
 export function shallowWithForm(Component, options) {

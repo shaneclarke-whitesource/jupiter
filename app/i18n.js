@@ -19,7 +19,7 @@ export const i18NextConfig = {
   defaultNS: 'common',
   nsSeparator: ':',
   debug: false,
-  load: 'languageOnly',
+  load: 'currentOnly',
   interpolation: { escapeValue: true },
   react: {
     hashTransKey(defaultValue) {

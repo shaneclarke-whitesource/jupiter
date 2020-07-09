@@ -2,7 +2,6 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Tooltip from './Tooltip';
 
-
 describe('Tooltip', () => {
   const props = {
     id: 'testing',

@@ -1,8 +1,7 @@
 import React from 'react';
-import { t } from '../../../../test/i18n/mocks';
-import enzyme from 'enzyme';
 import { UserInfo } from './UserInfo';
 import debounce from 'lodash/debounce';
+const { t } = global;
 jest.useFakeTimers();
 
 jest.mock('lodash/debounce', () => jest.fn((fn) => fn));
@@ -18,8 +17,8 @@ describe('UserInfo', () => {
     t
   };
 
-  const shallow = (props) => {
-    return enzyme.shallow(<UserInfo {...defaultProps} {...props} />);
+  const shallowWrapper = (props) => {
+    return shallow(<UserInfo {...defaultProps} {...props} />);
   };
 
   afterEach(() => {
@@ -27,11 +26,11 @@ describe('UserInfo', () => {
   });
 
   test('it renders 7 input fields', () => {
-    expect(shallow().find('Field').length).toEqual(8);
+    expect(shallowWrapper().find('Field').length).toEqual(8);
   });
 
   test('it renders correct labels', () => {
-    const labels = shallow().find('Field').map((field) => field.prop('label'));
+    const labels = shallowWrapper().find('Field').map((field) => field.prop('label'));
     expect(labels).toEqual([
       'First Name',
       'Last Name',
@@ -46,14 +45,14 @@ describe('UserInfo', () => {
 
   test('username must grab only first two characters of firstName and lastName', () => {
     global.Math.random = () => '314315654';
-    shallow().setProps({ firstName: 'John', lastName: 'Doe' });
+    shallowWrapper().setProps({ firstName: 'John', lastName: 'Doe' });
     jest.runAllTimers();
-    expect(shallow().instance().props.checkIfExists).toBeCalledWith('jodo.4315');
+    expect(shallowWrapper().instance().props.checkIfExists).toBeCalledWith('jodo.4315');
   });
 
   test('setUsername to be called on props update', () => {
-    shallow().setProps({ firstName: 'John', lastName: 'Doe' });
+    shallowWrapper().setProps({ firstName: 'John', lastName: 'Doe' });
     jest.runAllTimers();
-    expect(shallow().instance().props.checkIfExists).toHaveBeenCalled();
+    expect(shallowWrapper().instance().props.checkIfExists).toHaveBeenCalled();
   });
 });

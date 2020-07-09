@@ -1,8 +1,7 @@
 import React from 'react';
-import { t } from '../../../../test/i18n/mocks';
-import enzyme from 'enzyme';
 import { mountWithForm } from '../../../../test/provider';
 import { UserInfoForm } from './UserInfoForm';
+const { t } = global;
 
 describe('UserInfoForm', () => {
   const submitMock = jest.fn();
@@ -23,24 +22,24 @@ describe('UserInfoForm', () => {
     return mountWithForm(UserInfoForm, { defaultProps, props, withRouter: true });
   };
 
-  const shallow = (props) => {
-    return enzyme.shallow(<UserInfoForm {...defaultProps} {...props} />);
+  const shallowWrapper = (props) => {
+    return shallow(<UserInfoForm {...defaultProps} {...props} />);
   };
 
   test('back button navigates to address page onClick', () => {
     const push = jest.fn();
-    const wrapper = shallow({ history: { push } });
+    const wrapper = shallowWrapper({ history: { push } });
     wrapper.find('Button').simulate('click');
     expect(push).toBeCalledWith('/billing');
   });
 
   test('submit button is disabled if pending is true', () => {
-    const wrapper = shallow({ pending: true }).find('Submit');
+    const wrapper = shallowWrapper({ pending: true }).find('Submit');
     expect(wrapper.prop('disabled')).toBeTruthy();
   });
 
   test('submit button is not disabled if form is valid and pending is false', () => {
-    const wrapper = shallow({ pending: false }).find('Submit');
+    const wrapper = shallowWrapper({ pending: false }).find('Submit');
     expect(wrapper.prop('disabled')).toBeFalsy();
   });
 

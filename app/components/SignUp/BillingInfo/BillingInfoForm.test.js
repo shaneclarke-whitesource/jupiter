@@ -1,5 +1,4 @@
 import React from 'react';
-import enzyme from 'enzyme';
 import { BillingInfoForm } from './BillingInfoForm';
 import { mountWithForm } from '../../../../test/provider';
 const { t } = global;
@@ -21,8 +20,8 @@ describe('BillingInfoForm', () => {
     t
   };
 
-  const shallow = (props) => {
-    return enzyme.shallow(<BillingInfoForm {...defaultProps} {...props} />);
+  const shallowWrapper = (props) => {
+    return shallow(<BillingInfoForm {...defaultProps} {...props} />);
   };
 
   const mounted = (props) => {
@@ -57,21 +56,21 @@ describe('BillingInfoForm', () => {
   });
 
   test('it passes correct props to AddressSection and CurrencySelector', () => {
-    const wrapper = shallow();
+    const wrapper = shallowWrapper();
     const addressProps = wrapper.find('AddressSection').props();
     expect(addressProps.customerType).toEqual(defaultProps.customerType);
   });
 
   test('back button navigates to address page onClick', () => {
     const push = jest.fn();
-    const wrapper = shallow({ history: { push } });
+    const wrapper = shallowWrapper({ history: { push } });
     wrapper.find('Button').first().simulate('click');
     expect(push).toBeCalledWith('/');
   });
 
   test('next button navigates to address page onClick', () => {
     const push = jest.fn();
-    const wrapper = shallow({ history: { push } });
+    const wrapper = shallowWrapper({ history: { push } });
     wrapper.find('form').simulate('submit', { bubbles: true });
     expect(submitMock).toBeCalled();
   });

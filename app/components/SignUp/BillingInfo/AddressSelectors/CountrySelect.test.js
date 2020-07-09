@@ -1,3 +1,4 @@
+import React from 'react';
 import { mountWithForm } from '../../../../../test/provider';
 import { CountrySelect } from './CountrySelect';
 const { t } = global;
@@ -16,6 +17,10 @@ describe('CountrySelect', () => {
     return mountWithForm(CountrySelect, { defaultProps, props });
   };
 
+  const shallowWrapper = (props) => {
+    return shallow(<CountrySelect {...defaultProps} {...props} />);
+  };
+
   test('it calls getCountriesMock on mount', () => {
     mounted();
     expect(getCountries).toHaveBeenCalled();
@@ -31,8 +36,8 @@ describe('CountrySelect', () => {
       'C1': { code: 'C1', name: 'Country 1' },
       'C2': { code: 'C2', name: 'Country 2' }
     };
-    const wrapper = mounted({ countries });
-    expect(wrapper.find('option').length).toEqual(3);
+    const wrapper = shallowWrapper({ countries });
+    expect(wrapper.find('option').length).toEqual(2);
   });
 
   test('it renders the correct option labels and values', () => {
@@ -41,11 +46,11 @@ describe('CountrySelect', () => {
       'C2': { code: 'C2', name: 'Country 2' },
       'C3': { code: 'C3', name: 'Country 3' }
     };
-    const wrapper = mounted({ countries });
+    const wrapper = shallowWrapper({ countries });
     const labels = wrapper.find('option').map((opt) => opt.text());
     const values = wrapper.find('option').map((opt) => opt.prop('value'));
-    expect(labels).toEqual(['-- Please Select --', 'Country 1', 'Country 2', 'Country 3']);
-    expect(values).toEqual(['', 'C1', 'C2', 'C3']);
+    expect(labels).toEqual(['Country 1', 'Country 2', 'Country 3']);
+    expect(values).toEqual(['C1', 'C2', 'C3']);
   });
 
   test('it calls getCountry prop when onChange is invoked', () => {

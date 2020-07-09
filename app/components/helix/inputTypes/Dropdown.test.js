@@ -1,8 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import DropDown from './Dropdown';
-import { t } from '../../../../test/i18n/mocks';
-
+const { t } = global;
 
 describe('Dropdown', () => {
   let wrapper;

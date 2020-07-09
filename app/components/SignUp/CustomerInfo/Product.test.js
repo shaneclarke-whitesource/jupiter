@@ -1,8 +1,7 @@
 import React from 'react';
-import enzyme from 'enzyme';
 import { renderWithForm, mountWithForm } from '../../../../test/provider';
-import { t } from '../../../../test/i18n/mocks';
 import { Product } from './Product';
+const { t } = global;
 
 describe('Product', () => {
   const defaultProps = {
@@ -10,8 +9,8 @@ describe('Product', () => {
     t
   };
 
-  const shallow = (props) => {
-    return enzyme.shallow(<Product {...defaultProps} {...props} />);
+  const shallowWrapper = (props) => {
+    return shallow(<Product {...defaultProps} {...props} />);
   };
 
   test('it renders', () => {
@@ -20,7 +19,7 @@ describe('Product', () => {
   });
 
   test('dropdown options are disabled if customer type is rbu', () => {
-    const { options } = shallow({ customerType: 'rbu' }).props();
+    const { options } = shallowWrapper({ customerType: 'rbu' }).props();
     const disabled = options.map((opts) => opts.disabled);
     expect(disabled).toEqual([
       false,
@@ -32,7 +31,7 @@ describe('Product', () => {
   });
 
   test('dropdown options are disabled if customer type is onica', () => {
-    const { options } = shallow({ customerType: 'onica' }).props();
+    const { options } = shallowWrapper({ customerType: 'onica' }).props();
     const disabled = options.map((opts) => opts.disabled);
     expect(disabled).toEqual([
       false,
@@ -44,7 +43,7 @@ describe('Product', () => {
   });
 
   test('dropdown options are disabled if customer type is not rbu', () => {
-    const { options } = shallow({ customerType: 'aws' }).props();
+    const { options } = shallowWrapper({ customerType: 'aws' }).props();
     const disabled = options.map((opts) => opts.disabled);
     expect(disabled).toEqual([
       false,
@@ -56,12 +55,12 @@ describe('Product', () => {
   });
 
   test('dropdown is disabled if customer type is undefined', () => {
-    const wrapperProps = shallow().props();
+    const wrapperProps = shallowWrapper().props();
     expect(wrapperProps.disabled).toBeTruthy();
   });
 
   test('dropdown is disabled if customer type has a value', () => {
-    const wrapperProps = shallow({ customerType: 'aws' }).props();
+    const wrapperProps = shallowWrapper({ customerType: 'aws' }).props();
     expect(wrapperProps.disabled).toBeFalsy();
   });
 

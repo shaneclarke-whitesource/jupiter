@@ -1,3 +1,4 @@
+import React from 'react';
 import { mountWithForm } from '../../../../../test/provider';
 import { StateSelect } from './StateSelect';
 const { t } = global;
@@ -11,6 +12,10 @@ describe('StateSelect', () => {
   };
   const mounted = (props) => {
     return mountWithForm(StateSelect, { defaultProps, props });
+  };
+
+  const shallowWrapper = (props) => {
+    return shallow(<StateSelect {...defaultProps} {...props} />);
   };
 
   test('it renders the label according to the label prop', () => {
@@ -43,5 +48,20 @@ describe('StateSelect', () => {
     const props = { country: { states: ['test'] } };
     const wrapper = mounted(props);
     expect(wrapper.find('select').prop('disabled')).toBeFalsy();
+  });
+
+  test('it renders correct option state labels and values', () => {
+    const country = {
+      states: [
+        { code: 'S1', name: 'State 1' },
+        { code: 'S2', name: 'State 2' },
+        { code: 'S3', name: 'State 3' }
+      ]
+    };
+    const wrapper = shallowWrapper({ country });
+    const labels = wrapper.find('option').map((opt) => opt.text());
+    const values = wrapper.find('option').map((opt) => opt.prop('value'));
+    expect(labels).toEqual(['State 1', 'State 2', 'State 3']);
+    expect(values).toEqual(['State 1', 'State 2', 'State 3']);
   });
 });

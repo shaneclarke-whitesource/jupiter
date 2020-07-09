@@ -1,6 +1,6 @@
 import * as validators from './utils';
-import { t } from '../../test/i18n/mocks';
 import axios from 'axios';
+const { t } = global;
 
 describe('validators/utils', () => {
   describe('asyncValidateUsername', () => {

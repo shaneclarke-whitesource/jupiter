@@ -1,8 +1,7 @@
 import React from 'react';
 import { mountWithForm } from '../../../../test/provider';
-import { t } from '../../../../test/i18n/mocks';
 import { CustomerInfoForm } from './CustomerInfoForm';
-import enzyme from 'enzyme';
+const { t } = global;
 
 describe('CustomerInfoForm', () => {
   const setAddressMock = jest.fn();
@@ -24,8 +23,8 @@ describe('CustomerInfoForm', () => {
     });
   };
 
-  const shallow = (props) => {
-    return enzyme.shallow(<CustomerInfoForm {...defaultProps} {...props} />);
+  const shallowWrapper = (props) => {
+    return shallow(<CustomerInfoForm {...defaultProps} {...props} />);
   };
 
   it('it calls clearProductMock on change', () => {
@@ -42,7 +41,7 @@ describe('CustomerInfoForm', () => {
 
   test('next button navigates to address page onClick', () => {
     const push = jest.fn();
-    const wrapper = shallow({ history: { push } });
+    const wrapper = shallowWrapper({ history: { push } });
     wrapper.find('Submit').simulate('click');
     expect(submitMock).toHaveBeenCalled();
   });

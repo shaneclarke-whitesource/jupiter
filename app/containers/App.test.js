@@ -1,6 +1,6 @@
 import React from 'react';
 import { App } from './App';
-import { t } from '../../test/i18n/mocks';
+const { t } = global;
 
 describe('App', () => {
   test('renders the document title', () => {

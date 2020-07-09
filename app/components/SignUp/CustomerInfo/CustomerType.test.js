@@ -1,8 +1,7 @@
 import React from 'react';
-import enzyme from 'enzyme';
 import { mountWithForm, renderWithForm } from '../../../../test/provider';
-import { t } from '../../../../test/i18n/mocks';
 import CustomerTypeForm, { CustomerType } from './CustomerType';
+const { t } = global;
 
 describe('CustomerType', () => {
   const handleChangeMock = jest.fn();
@@ -11,8 +10,8 @@ describe('CustomerType', () => {
     t
   };
 
-  const shallow = (props) => {
-    return enzyme.shallow(<CustomerType {...defaultProps} {...props} />);
+  const shallowWrapper = (props) => {
+    return shallow(<CustomerType {...defaultProps} {...props} />);
   };
 
   const mounted = (props) => {
@@ -25,7 +24,7 @@ describe('CustomerType', () => {
   });
 
   test('customer type values to match Field options', () => {
-    const { options } = shallow().find('Field').props();
+    const { options } = shallowWrapper().find('Field').props();
     const labels = options.map((label) => label.label);
     const values = options.map((value) => value.value);
     expect(labels).toEqual([

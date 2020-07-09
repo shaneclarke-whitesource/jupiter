@@ -1,7 +1,7 @@
 import React from 'react';
 import { SubmissionModal } from './SubmissionModal';
-import { t } from '../../../test/i18n/mocks';
 import renderer from 'react-test-renderer';
+const { t } = global;
 
 describe('SubmissionModal', () => {
   let wrapper;
