@@ -11,6 +11,7 @@ import Button from '../../helix/buttons/Button';
 import Submit from '../../helix/buttons/Submit';
 import { ADDRESS_FIELDS } from '../../../actions/constants/address';
 import { getCountry } from '../../../actions/getCountry';
+import _ from 'lodash';
 
 export class BillingInfoForm extends React.Component {
   componentDidMount() {
@@ -92,10 +93,14 @@ BillingInfoForm.propTypes = {
 };
 
 const mapStateToProps = (state) => {
+  const countryLists = state.countries.countries;
+  const countrywithZip = formValueSelector('signUp')(state, 'billingInfo.address.country');
+  const zipcode = _.get(countryLists, [countrywithZip, 'hasZipCode']);
   return {
     customerType: formValueSelector('signUp')(state, 'customerInfo.customerType'),
-    country: formValueSelector('signUp')(state, 'billingInfo.address.country'),
+    country: countrywithZip,
     countryData: state.country.details,
+    hasZipcode: zipcode,
     initialValues: {
       // Creates a form field we use to validate states existence in a country
       countryData: state.country.details,
