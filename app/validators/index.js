@@ -121,7 +121,6 @@ export const validateAddress = (values, { t, props: { country, countryData, hasZ
   translateDefaultValidators(t);
   const address = _.get(values, 'address', {});
   const checkState = !(country && (countryData.states && countryData.states.length === 0));
-  const checkZipcode = hasZipcode;
   const errors = validate(address, {
     country: {
       presence: {
@@ -143,7 +142,7 @@ export const validateAddress = (values, { t, props: { country, countryData, hasZ
       }
     },
     zipcode: {
-      presence: checkZipcode,
+      presence: hasZipcode,
       length: {
         maximum: 20,
         tooLong: t('validation:input.maxLength', {

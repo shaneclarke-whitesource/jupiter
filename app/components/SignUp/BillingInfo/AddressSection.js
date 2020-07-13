@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Field, FormSection, formValueSelector } from 'redux-form';
+import { Field, FormSection } from 'redux-form';
 import Input from '../../helix/inputTypes/Input';
 import CountrySelect from './AddressSelectors/CountrySelect';
 import StateSelect from './AddressSelectors/StateSelect';
-import { connect } from 'react-redux';
-import _ from 'lodash';
 
 export class AddressSection extends React.Component {
   render() {
@@ -40,7 +38,7 @@ export class AddressSection extends React.Component {
           label={t('account:user.location.zipcode')}
           component={Input}
           required
-          disabled={!hasZipcode || hasZipcode === false}
+          disabled={!hasZipcode}
         />
       </FormSection>
     );
@@ -52,12 +50,4 @@ AddressSection.propTypes = {
   hasZipcode: PropTypes.bool
 };
 
-const mapStateToProps = (state) => {
-  const countries1 = state.countries.countries;
-  const country = formValueSelector('signUp')(state, 'billingInfo.address.country');
-  const checkZipcode = _.get(countries1, [country, 'hasZipCode']);
-  return {
-    hasZipcode: checkZipcode
-  };
-};
-export default connect(mapStateToProps)(AddressSection);
+export default (AddressSection);

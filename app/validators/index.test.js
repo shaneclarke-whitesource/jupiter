@@ -200,7 +200,8 @@ describe('validators', () => {
         country: 'US',
         countryData: {
           states: []
-        }
+        },
+        hasZipcode: true
       },
       t
     };
@@ -213,7 +214,7 @@ describe('validators', () => {
       expect(validateAddressMock({ ...defaultValueProps })).toEqual({});
     });
 
-    ['country', 'street', 'city', 'zipcode'].forEach((field) => {
+    ['country', 'street', 'city'].forEach((field) => {
       test(`returns required when ${field} is empty`, () => {
         const result = validateAddressMock({ address: { field: '' } });
         expect([].concat(result.address[field])).toEqual(['Required']);
@@ -250,6 +251,10 @@ describe('validators', () => {
       const props = { props: { country: 'AF', countryData: { states: [] } }, t };
       const result = validators.validateAddress(valueProps, props);
       expect(result.address.state).toBeUndefined();
+    });
+    test('zipcode is required if hasZipcode is true', () => {
+      const result = validateAddressMock({});
+      expect(result.address.zipcode).toEqual(['Required']);
     });
 
     test('zipcode sends correct message if it is too long', () => {

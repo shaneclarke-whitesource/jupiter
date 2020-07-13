@@ -41,7 +41,7 @@ export class BillingInfoForm extends React.Component {
   };
 
   render() {
-    const { t, handleSubmit, history, customerType, country } = this.props;
+    const { t, handleSubmit, history, customerType, country, hasZipcode } = this.props;
     return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
         <div className="Input-section u-form">
@@ -50,6 +50,7 @@ export class BillingInfoForm extends React.Component {
             <AddressSection
               customerType={customerType}
               t={t}
+              hasZipcode={hasZipcode}
             />
             <CurrencySelector
               customerType={customerType}
@@ -86,6 +87,7 @@ BillingInfoForm.propTypes = {
   customerType: PropTypes.string,
   setAddress: PropTypes.func.isRequired,
   getCountry: PropTypes.func.isRequired,
+  hasZipcode: PropTypes.bool,
   country: PropTypes.string,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
