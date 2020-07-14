@@ -8,15 +8,35 @@ import Submit from '../../helix/buttons/Submit';
 import { validateCustomerInformation } from '../../../validators';
 import CustomerType from './CustomerType';
 import Product from './Product';
+import { ADDRESS_FIELDS } from '../../../actions/constants/address';
+import { getCountry } from '../../../actions/getCountry';
 
 export class CustomerInfoForm extends React.Component {
   onSubmit = () => {
     this.props.history.push('/billing');
   };
 
-  handleChange = () => {
+  handleChange = (e) => {
+    if (e.target.value === 'rbu') {
+      this.populateAddressFields();
+      this.props.getCountry('JP'); // used when RBU address pre-populates
+    } else {
+      this.clearAddressFields();
+    }
     this.props.clearProduct();
-  }
+  };
+
+  populateAddressFields = () => {
+    Object.entries(ADDRESS_FIELDS).forEach((entry) => {
+      this.props.setAddress(...entry);
+    });
+  };
+
+  clearAddressFields = () => {
+    Object.keys(ADDRESS_FIELDS).forEach((field) => {
+      this.props.setAddress(field, '');
+    });
+  };
 
   render() {
     const { t, handleSubmit, customerType } = this.props;
@@ -50,6 +70,8 @@ CustomerInfoForm.propTypes = {
   customerType: PropTypes.string,
   handleSubmit: PropTypes.func.isRequired,
   clearProduct: PropTypes.func.isRequired,
+  setAddress: PropTypes.func.isRequired,
+  getCountry: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
   })
@@ -58,8 +80,18 @@ CustomerInfoForm.propTypes = {
 const mapStateToProps = (state) => {
   return {
     customerType: formValueSelector('signUp')(state, 'customerInfo.customerType'),
-    productType: formValueSelector('signUp')(state, 'customerInfo.productType')
-
+    productType: formValueSelector('signUp')(state, 'customerInfo.productType'),
+    initialValues: {
+      billingInfo: {
+        address: {
+          street: '',
+          city: '',
+          zipcode: '',
+          country: '',
+          state: ''
+        }
+      }
+    }
   };
 };
 
@@ -69,8 +101,14 @@ const validate = (values, props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    setAddress: (field, value) => {
+      dispatch(change('signUp', `billingInfo.address.${field}`, value));
+    },
     clearProduct: () => {
       dispatch(change('signUp', 'customerInfo.productType', ''));
+    },
+    getCountry: (countryCode) => {
+      dispatch(getCountry(countryCode));
     }
   };
 };
