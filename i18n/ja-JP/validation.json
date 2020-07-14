@@ -28,6 +28,9 @@
   "error.serverError" : {
     "translation" : "サーバー接続エラー"
   },
+  "input.invalidCharacter" : {
+    "translation" : "__NOT_TRANSLATED__"
+  },
   "input.lessOrEqual" : {
     "translation" : "{content}は{characterCount}文字以下である必要があります"
   },

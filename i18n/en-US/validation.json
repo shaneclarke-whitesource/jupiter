@@ -28,6 +28,9 @@
   "error.serverError" : {
     "translation" : "Error connecting to server"
   },
+  "input.invalidCharacter" : {
+    "translation" : "{content} must not contain these special characters !@#$%^&*()-?_"
+  },
   "input.lessOrEqual" : {
     "translation" : "{content} must be less than or equal to {characterCount} characters long"
   },

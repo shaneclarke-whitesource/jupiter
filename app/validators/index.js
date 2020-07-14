@@ -216,6 +216,12 @@ export const validateUser = (values, { t = i18nT() }) => {
       presence: {
         allowEmpty: false
       },
+      format: {
+        pattern: "^[^!@#$%^&*()?_\v-]*$",
+        message: t('validation:input.invalidCharacter', {
+            content: 'Username'
+          })
+      },
       length: {
         maximum: 15,
         tooLong: t('validation:input.lessOrEqual', {

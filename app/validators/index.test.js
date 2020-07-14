@@ -72,6 +72,13 @@ describe('validators', () => {
       ]);
     });
 
+    test('username returns required and invalid character when contains special character', () => {
+      const result = validateUserInfo({ userInfo: { username: 'test&test' } });
+      expect([].concat(result.userInfo.username)).toEqual([
+        'Username must not contain these special characters !@#$%^&*()-?_'
+      ]);
+    });
+
     test('username returns minimum length when it is less than 8 characters', () => {
       const result = validateUserInfo({ userInfo: { username: 'user' } });
       expect([].concat(result.userInfo.username)).toEqual([
