@@ -256,7 +256,6 @@ describe('validators', () => {
       const props = { props: { country: 'AF', countryData: { states: [] }, hasZipcode: true }, t };
       const valueProps = { address: { zipcode: undefined } };
       const result = validators.validateAddress(valueProps, props);
-      console.log(result);
       expect(result.address.zipcode).toEqual(['Required']);
     });
     test('zipcode is disabled if hasZipcode is false', () => {
