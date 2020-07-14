@@ -51,4 +51,4 @@ AddressSection.propTypes = {
   hasZipcode: PropTypes.bool
 };
 
-export default (AddressSection);
+export default AddressSection;
