@@ -24,6 +24,14 @@ export class BillingInfoForm extends React.Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    const lastHasZip = prevProps.hasZipcode;
+    const hasZip = this.props.hasZipcode;
+    if (!hasZip && hasZip !== lastHasZip) {
+      this.props.change('billingInfo.address.zipcode', '');
+    }
+  }
+
   populateAddressFields = () => {
     Object.entries(ADDRESS_FIELDS).forEach((entry) => {
       this.props.setAddress(...entry);
@@ -88,6 +96,7 @@ BillingInfoForm.propTypes = {
   setAddress: PropTypes.func.isRequired,
   getCountry: PropTypes.func.isRequired,
   hasZipcode: PropTypes.bool,
+  change: PropTypes.func,
   country: PropTypes.string,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired

@@ -201,7 +201,7 @@ describe('validators', () => {
         countryData: {
           states: []
         },
-        hasZipcode: true
+        hasZipcode: {}
       },
       t
     };
@@ -256,7 +256,12 @@ describe('validators', () => {
       const result = validateAddressMock({});
       expect(result.address.zipcode).toEqual(['Required']);
     });
-
+    test('zipcode is disabled if hasZipcode is false', () => {
+      const props = { props: { country: '', countryData: { states: [] }, hasZipcode: undefined }, t };
+      const valueProps = { address: { zipcode: undefined } };
+      const result = validators.validateAddress(valueProps, props);
+      expect(result.address.zipcode).toEqual(undefined);
+    });
     test('zipcode sends correct message if it is too long', () => {
       const longZip = _.fill(Array(21), 'c').join('');
       const result = validateAddressMock({ address: { zipcode: longZip } });

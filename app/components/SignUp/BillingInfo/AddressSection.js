@@ -34,6 +34,7 @@ export class AddressSection extends React.Component {
         </div>
         <Field
           name="zipcode"
+          id="zipcode"
           type="text"
           label={t('account:user.location.zipcode')}
           component={Input}
