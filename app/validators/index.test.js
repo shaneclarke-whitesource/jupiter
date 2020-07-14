@@ -201,7 +201,7 @@ describe('validators', () => {
         countryData: {
           states: []
         },
-        hasZipcode: {}
+        hasZipcode: true
       },
       t
     };
@@ -253,11 +253,14 @@ describe('validators', () => {
       expect(result.address.state).toBeUndefined();
     });
     test('zipcode is required if hasZipcode is true', () => {
-      const result = validateAddressMock({});
+      const props = { props: { country: 'AF', countryData: { states: [] }, hasZipcode: true }, t };
+      const valueProps = { address: { zipcode: undefined } };
+      const result = validators.validateAddress(valueProps, props);
+      console.log(result);
       expect(result.address.zipcode).toEqual(['Required']);
     });
     test('zipcode is disabled if hasZipcode is false', () => {
-      const props = { props: { country: '', countryData: { states: [] }, hasZipcode: undefined }, t };
+      const props = { props: { country: '', countryData: { states: [] }, hasZipcode: false }, t };
       const valueProps = { address: { zipcode: undefined } };
       const result = validators.validateAddress(valueProps, props);
       expect(result.address.zipcode).toEqual(undefined);
