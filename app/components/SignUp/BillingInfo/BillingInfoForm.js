@@ -9,14 +9,23 @@ import AddressSection from './AddressSection';
 import CurrencySelector from './CurrencySelector';
 import Button from '../../helix/buttons/Button';
 import Submit from '../../helix/buttons/Submit';
+import _ from 'lodash';
 
 export class BillingInfoForm extends React.Component {
+  componentDidUpdate(prevProps) {
+    const lastHasZip = prevProps.hasZipcode;
+    const hasZip = this.props.hasZipcode;
+    if (!hasZip && hasZip !== lastHasZip) {
+      this.props.change('billingInfo.address.zipcode', '');
+    }
+  }
+
   onSubmit = () => {
     this.props.history.push('/user-detail');
   };
 
   render() {
-    const { t, handleSubmit, history, customerType, country } = this.props;
+    const { t, handleSubmit, history, customerType, country, hasZipcode } = this.props;
     return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
         <div className="Input-section u-form">
@@ -25,6 +34,7 @@ export class BillingInfoForm extends React.Component {
             <AddressSection
               customerType={customerType}
               t={t}
+              hasZipcode={hasZipcode}
             />
             <CurrencySelector
               customerType={customerType}
@@ -59,6 +69,8 @@ BillingInfoForm.propTypes = {
   t: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   customerType: PropTypes.string,
+  hasZipcode: PropTypes.bool,
+  change: PropTypes.func,
   country: PropTypes.string,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
@@ -66,10 +78,14 @@ BillingInfoForm.propTypes = {
 };
 
 const mapStateToProps = (state) => {
+  const countryLists = state.countries.countries;
+  const countrywithZip = formValueSelector('signUp')(state, 'billingInfo.address.country');
+  const zipcode = _.get(countryLists, [countrywithZip, 'hasZipCode']);
   return {
     customerType: formValueSelector('signUp')(state, 'customerInfo.customerType'),
-    country: formValueSelector('signUp')(state, 'billingInfo.address.country'),
+    country: countrywithZip,
     countryData: state.country.details,
+    hasZipcode: zipcode,
     initialValues: {
       // Creates a form field we use to validate states existence in a country
       countryData: state.country.details,

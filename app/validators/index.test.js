@@ -200,7 +200,8 @@ describe('validators', () => {
         country: 'US',
         countryData: {
           states: []
-        }
+        },
+        hasZipcode: true
       },
       t
     };
@@ -213,7 +214,7 @@ describe('validators', () => {
       expect(validateAddressMock({ ...defaultValueProps })).toEqual({});
     });
 
-    ['country', 'street', 'city', 'zipcode'].forEach((field) => {
+    ['country', 'street', 'city'].forEach((field) => {
       test(`returns required when ${field} is empty`, () => {
         const result = validateAddressMock({ address: { field: '' } });
         expect([].concat(result.address[field])).toEqual(['Required']);
@@ -251,7 +252,18 @@ describe('validators', () => {
       const result = validators.validateAddress(valueProps, props);
       expect(result.address.state).toBeUndefined();
     });
-
+    test('zipcode is required if hasZipcode is true', () => {
+      const props = { props: { country: 'AF', countryData: { states: [] }, hasZipcode: true }, t };
+      const valueProps = { address: { zipcode: undefined } };
+      const result = validators.validateAddress(valueProps, props);
+      expect(result.address.zipcode).toEqual(['Required']);
+    });
+    test('zipcode is disabled if hasZipcode is false', () => {
+      const props = { props: { country: '', countryData: { states: [] }, hasZipcode: false }, t };
+      const valueProps = { address: { zipcode: undefined } };
+      const result = validators.validateAddress(valueProps, props);
+      expect(result.address.zipcode).toEqual(undefined);
+    });
     test('zipcode sends correct message if it is too long', () => {
       const longZip = _.fill(Array(21), 'c').join('');
       const result = validateAddressMock({ address: { zipcode: longZip } });

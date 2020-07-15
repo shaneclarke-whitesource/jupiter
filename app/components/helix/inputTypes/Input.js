@@ -7,6 +7,7 @@ const Input = (props) => {
     input,
     label,
     required,
+    disabled,
     type,
     tooltip,
     meta,
@@ -24,6 +25,7 @@ const Input = (props) => {
           name={input.name}
           required={meta.touched ? required : false}
           autoComplete={autoComplete}
+          disabled={disabled}
         />
         <label htmlFor={input.name}>
           <span className="InputField-label">{label}</span>
@@ -42,6 +44,7 @@ Input.propTypes = {
   optional: PropTypes.bool,
   label: PropTypes.string.isRequired,
   required: PropTypes.bool,
+  disabled: PropTypes.bool,
   type: PropTypes.string,
   tooltip: PropTypes.node,
   autoComplete: PropTypes.string,

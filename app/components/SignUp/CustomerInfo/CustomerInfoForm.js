@@ -12,18 +12,22 @@ import { ADDRESS_FIELDS } from '../../../actions/constants/address';
 import { getCountry } from '../../../actions/getCountry';
 
 export class CustomerInfoForm extends React.Component {
-  onSubmit = () => {
-    this.props.history.push('/billing');
-  };
+  componentDidUpdate(prevProps) {
+    if (prevProps.customerType === 'rbu' && prevProps.customerType !== this.props.customerType) {
+      this.clearAddressFields();
+    }
+  }
 
   handleChange = (e) => {
     if (e.target.value === 'rbu') {
       this.populateAddressFields();
       this.props.getCountry('JP'); // used when RBU address pre-populates
-    } else {
-      this.clearAddressFields();
     }
     this.props.clearProduct();
+  };
+
+  onSubmit = () => {
+    this.props.history.push('/billing');
   };
 
   populateAddressFields = () => {

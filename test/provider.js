@@ -44,7 +44,7 @@ export function mountWithForm(Component, options) {
   return withForm(Component, {
     ...options,
     method: 'mount'
-  });
+  }).find(Component);
 }
 
 export function shallowWithForm(Component, options) {

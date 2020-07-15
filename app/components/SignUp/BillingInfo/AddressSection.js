@@ -7,7 +7,7 @@ import StateSelect from './AddressSelectors/StateSelect';
 
 export class AddressSection extends React.Component {
   render() {
-    const { t } = this.props;
+    const { t, hasZipcode } = this.props;
     return (
       <FormSection name="address">
         <Field
@@ -24,13 +24,6 @@ export class AddressSection extends React.Component {
           component={Input}
           required
         />
-        <Field
-          name="zipcode"
-          type="text"
-          label={t('account:user.location.zipcode')}
-          component={Input}
-          required
-        />
         <div className="hxRow">
           <div className="hxCol hxSpan-6">
             <CountrySelect />
@@ -39,13 +32,23 @@ export class AddressSection extends React.Component {
             <StateSelect />
           </div>
         </div>
+        <Field
+          name="zipcode"
+          id="zipcode"
+          type="text"
+          label={t('account:user.location.zipcode')}
+          component={Input}
+          required
+          disabled={!hasZipcode}
+        />
       </FormSection>
     );
   }
 }
 
 AddressSection.propTypes = {
-  t: PropTypes.func.isRequired
+  t: PropTypes.func.isRequired,
+  hasZipcode: PropTypes.bool
 };
 
 export default AddressSection;

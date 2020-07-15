@@ -8,11 +8,13 @@ describe('CustomerInfoForm', () => {
   const setAddressMock = jest.fn();
   const clearProductMock = jest.fn();
   const submitMock = jest.fn();
+  const getCountryMock = jest.fn();
   const defaultProps = {
     handleSubmit: submitMock,
     customerType: '',
     setAddress: setAddressMock,
     clearProduct: clearProductMock,
+    getCountry: getCountryMock,
     t
   };
 
@@ -27,6 +29,32 @@ describe('CustomerInfoForm', () => {
   const shallow = (props) => {
     return enzyme.shallow(<CustomerInfoForm {...defaultProps} {...props} />);
   };
+
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
+
+  it('calls setAddress and clearProduct if customerType is rbu', () => {
+    const wrapper = mounted();
+    const event = {
+      target: {
+        value: 'rbu'
+      }
+    };
+    wrapper.find('CustomerType').props().handleChange(event);
+    expect(getCountryMock).toHaveBeenCalledWith('JP');
+    expect(setAddressMock).toHaveBeenNthCalledWith(
+      1, 'street', 'Toranomon Hills Mori Tower 7th Floor Toranomon 1-23-1'
+    );
+  });
+
+  it('calls setAddress with empty params if customerType was changed from rbu', () => {
+    const wrapper = shallow({ customerType: 'rbu' });
+    wrapper.find('CustomerType').find('select');
+    wrapper.setProps({ customerType: 'aws' });
+    wrapper.update();
+    expect(setAddressMock).toHaveBeenNthCalledWith(1, 'street', '');
+  });
 
   it('it calls clearProductMock on change', () => {
     const wrapper = mounted();
