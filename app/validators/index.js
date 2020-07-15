@@ -117,7 +117,7 @@ export const validateCustomerInformation = (values, { t = i18nT() }) => {
   return errors ? { customerInfo: errors } : {};
 };
 
-export const validateAddress = (values, { t, props: { country, countryData } }) => {
+export const validateAddress = (values, { t, props: { country, countryData, hasZipcode } }) => {
   translateDefaultValidators(t);
   const address = _.get(values, 'address', {});
   const checkState = !(country && (countryData.states && countryData.states.length === 0));
@@ -142,14 +142,7 @@ export const validateAddress = (values, { t, props: { country, countryData } }) 
       }
     },
     zipcode: {
-      presence: {
-        allowEmpty: false,
-        maximum: 32,
-        tooLong: t('validation:input.maxLength', {
-          content: undefined,
-          characterCount: '%{count}'
-        })
-      },
+      presence: hasZipcode,
       length: {
         maximum: 20,
         tooLong: t('validation:input.maxLength', {

@@ -11,6 +11,7 @@ import Button from '../../helix/buttons/Button';
 import Submit from '../../helix/buttons/Submit';
 import { ADDRESS_FIELDS } from '../../../actions/constants/address';
 import { getCountry } from '../../../actions/getCountry';
+import _ from 'lodash';
 
 export class BillingInfoForm extends React.Component {
   componentDidMount() {
@@ -20,6 +21,14 @@ export class BillingInfoForm extends React.Component {
       this.props.getCountry('JP'); // used when RBU address pre-populates
     } else {
       this.clearAddressFields();
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const lastHasZip = prevProps.hasZipcode;
+    const hasZip = this.props.hasZipcode;
+    if (!hasZip && hasZip !== lastHasZip) {
+      this.props.change('billingInfo.address.zipcode', '');
     }
   }
 
@@ -40,7 +49,7 @@ export class BillingInfoForm extends React.Component {
   };
 
   render() {
-    const { t, handleSubmit, history, customerType, country } = this.props;
+    const { t, handleSubmit, history, customerType, country, hasZipcode } = this.props;
     return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
         <div className="Input-section u-form">
@@ -49,6 +58,7 @@ export class BillingInfoForm extends React.Component {
             <AddressSection
               customerType={customerType}
               t={t}
+              hasZipcode={hasZipcode}
             />
             <CurrencySelector
               customerType={customerType}
@@ -85,6 +95,8 @@ BillingInfoForm.propTypes = {
   customerType: PropTypes.string,
   setAddress: PropTypes.func.isRequired,
   getCountry: PropTypes.func.isRequired,
+  hasZipcode: PropTypes.bool,
+  change: PropTypes.func,
   country: PropTypes.string,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
@@ -92,10 +104,14 @@ BillingInfoForm.propTypes = {
 };
 
 const mapStateToProps = (state) => {
+  const countryLists = state.countries.countries;
+  const countrywithZip = formValueSelector('signUp')(state, 'billingInfo.address.country');
+  const zipcode = _.get(countryLists, [countrywithZip, 'hasZipCode']);
   return {
     customerType: formValueSelector('signUp')(state, 'customerInfo.customerType'),
-    country: formValueSelector('signUp')(state, 'billingInfo.address.country'),
+    country: countrywithZip,
     countryData: state.country.details,
+    hasZipcode: zipcode,
     initialValues: {
       // Creates a form field we use to validate states existence in a country
       countryData: state.country.details,
