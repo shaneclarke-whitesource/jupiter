@@ -3,15 +3,16 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { formValueSelector, reduxForm, FormSection, change } from 'redux-form';
+import _ from 'lodash';
 import { withTranslation } from 'react-i18next';
 import { validateBilling } from '../../../validators';
+import { ADDRESS_FIELDS } from '../../../actions/constants/address';
+import { getCountry } from '../../../actions/address/getCountry';
+import { checkAddress } from '../../../actions/address/validateAddress';
 import AddressSection from './AddressSection';
 import CurrencySelector from './CurrencySelector';
 import Button from '../../helix/buttons/Button';
 import Submit from '../../helix/buttons/Submit';
-import { ADDRESS_FIELDS } from '../../../actions/constants/address';
-import { getCountry } from '../../../actions/getCountry';
-import _ from 'lodash';
 
 export class BillingInfoForm extends React.Component {
   componentDidMount() {
@@ -44,7 +45,8 @@ export class BillingInfoForm extends React.Component {
     });
   };
 
-  onSubmit = () => {
+  onSubmit = (values) => {
+    this.props.checkAddress(values.billingInfo.address);
     this.props.history.push('/user-detail');
   };
 
@@ -95,6 +97,7 @@ BillingInfoForm.propTypes = {
   customerType: PropTypes.string,
   setAddress: PropTypes.func.isRequired,
   getCountry: PropTypes.func.isRequired,
+  checkAddress: PropTypes.func.isRequired,
   hasZipcode: PropTypes.bool,
   change: PropTypes.func,
   country: PropTypes.string,
@@ -112,6 +115,7 @@ const mapStateToProps = (state) => {
     country: countrywithZip,
     countryData: state.country.details,
     hasZipcode: zipcode,
+    addressValidation: state.addressValidation,
     initialValues: {
       // Creates a form field we use to validate states existence in a country
       countryData: state.country.details,
@@ -133,6 +137,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     getCountry: (countryCode) => {
       dispatch(getCountry(countryCode));
+    },
+    checkAddress: (values) => {
+      dispatch(checkAddress(values));
     }
   };
 };
