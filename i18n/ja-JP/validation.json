@@ -29,7 +29,7 @@
     "translation" : "サーバー接続エラー"
   },
   "input.invalidCharacter" : {
-    "translation" : "__NOT_TRANSLATED__"
+    "translation" : "{content}には、次の特殊文字を含めることはできません：!@#$%^&*()-?_"
   },
   "input.lessOrEqual" : {
     "translation" : "{content}は{characterCount}文字以下である必要があります"
