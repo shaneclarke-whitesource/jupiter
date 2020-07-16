@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { formValueSelector, reduxForm, FormSection, change } from 'redux-form';
+import { formValueSelector, reduxForm, FormSection, change, SubmissionError } from 'redux-form';
 import _ from 'lodash';
 import { withTranslation } from 'react-i18next';
 import { validateBilling } from '../../../validators';
@@ -45,15 +45,34 @@ export class BillingInfoForm extends React.Component {
     });
   };
 
-  onSubmit = (values) => {
+  submitAddressValidation = (values) => {
     this.props.checkAddress(values.billingInfo.address);
-    this.props.history.push('/user-detail');
+    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    return sleep(1000).then(() => {
+      if (!this.props.addressValidation.valid) {
+        this.props.addressValidation.errorMsg.forEach((error) => {
+          throw new SubmissionError({
+            billingInfo: {
+              address: {
+                [(error.name).toLowerCase()]: 'error here'
+              }
+            },
+            _error: error.description
+          });
+        });
+      }
+    });
+  }
+
+  onSubmit = (values) => {
+    this.submitAddressValidation();
+    // this.props.history.push('/user-detail');
   };
 
   render() {
     const { t, handleSubmit, history, customerType, country, hasZipcode } = this.props;
     return (
-      <form onSubmit={handleSubmit(this.onSubmit)}>
+      <form onSubmit={handleSubmit(this.submitAddressValidation)}>
         <div className="Input-section u-form">
           <h2>{t('account:billing.header.info')}</h2>
           <FormSection name="billingInfo">
@@ -98,6 +117,7 @@ BillingInfoForm.propTypes = {
   setAddress: PropTypes.func.isRequired,
   getCountry: PropTypes.func.isRequired,
   checkAddress: PropTypes.func.isRequired,
+  addressValidation: PropTypes.object,
   hasZipcode: PropTypes.bool,
   change: PropTypes.func,
   country: PropTypes.string,
