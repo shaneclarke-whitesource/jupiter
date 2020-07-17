@@ -31,14 +31,29 @@
   "billing.tips.currency.restrictions" : {
     "translation" : "CADは、カナダにお住まいのOnicaのお客様のみご利用いただけます。<br />AUD、EUR、GBPは、マネージドAzureクラウド製品が選択されている場合にのみ使用できます。"
   },
+  "channel.type.insight" : {
+    "translation" : "__NOT_TRANSLATED__"
+  },
   "customer.actions.select" : {
     "translation" : "顧客タイプを選択"
+  },
+  "customer.channel.select" : {
+    "translation" : "__NOT_TRANSLATED__"
   },
   "customer.header.info" : {
     "translation" : "顧客情報"
   },
   "customer.tips.rbu.productRestriction" : {
     "translation" : "現在、RBUのお客様は、マネージドAWSにのみアクセスできます。"
+  },
+  "customer.tips.vmc.channelRestriction" : {
+    "translation" : "__NOT_TRANSLATED__"
+  },
+  "customer.type.aws" : {
+    "translation" : "__NOT_TRANSLATED__"
+  },
+  "customer.type.carahsoft" : {
+    "translation" : "__NOT_TRANSLATED__"
   },
   "customer.type.onica" : {
     "translation" : "Onica"
