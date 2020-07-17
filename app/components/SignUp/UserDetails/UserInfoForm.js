@@ -15,6 +15,7 @@ import { asyncValidate, validateUser } from '../../../validators';
 export class UserInfoForm extends React.Component {
   handleSubmit = (values) => {
     const toSubmit = formatRequest(values);
+    console.log('req:', toSubmit);
     this.props.signUp(toSubmit);
   };
 

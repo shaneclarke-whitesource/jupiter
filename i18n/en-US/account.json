@@ -120,5 +120,20 @@
   },
   "user.tips.username.generate" : {
     "translation" : "If your first name or last name is changed, a new username will be automatically generated for you."
+  },
+  "customer.channel.select" : {
+    "translation" : "Select Channel"
+  },
+  "customer.type.carahsoft" : {
+    "translation" : "Carahsoft"
+  },
+  "channel.type.insight" : {
+    "translation" : "Insight"
+  },
+  "customer.type.aws" : {
+    "translation" : "AWS"
+  },
+  "customer.tips.vmc.channelRestriction" : {
+    "translation" : "Only Managed VMware Cloud customers have access to select channel"
   }
 }

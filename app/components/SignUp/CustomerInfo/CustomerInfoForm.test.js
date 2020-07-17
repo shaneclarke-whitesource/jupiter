@@ -7,12 +7,15 @@ import enzyme from 'enzyme';
 describe('CustomerInfoForm', () => {
   const setAddressMock = jest.fn();
   const clearProductMock = jest.fn();
+  const clearChannelMock = jest.fn();
   const submitMock = jest.fn();
   const defaultProps = {
     handleSubmit: submitMock,
     customerType: '',
+    productType: '',
     setAddress: setAddressMock,
     clearProduct: clearProductMock,
+    clearChannel: clearChannelMock,
     t
   };
 
