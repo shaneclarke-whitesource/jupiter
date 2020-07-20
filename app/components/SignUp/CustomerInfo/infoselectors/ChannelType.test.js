@@ -42,14 +42,4 @@ describe('Product', () => {
     expect(mounted.find('hx-tooltip').text())
       .toEqual('Only Managed VMware Cloud customers have access to select channel');
   });
-
-  // test('handleChange is invoked', () => {
-  //   const props = {
-  //     ...defaultProps,
-  //     productType: 'managed_vmc'
-  //   };
-  //   // const useRefSpy = jest.spyOn(React, 'useRef').mockReturnValue({ current: 'aws' });
-  //   const mounted = mountWithForm(ChannelType, { props });
-  //   expect(mockHandleChange).toHaveBeenCalledTimes(1);
-  // });
 });

@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import DropDown from '../../../helix/inputTypes/Dropdown';
 import Tooltip from '../../../helix/Tooltip';
 
-export const ChannelType = ({ handleChange, productType }) => {
+export const ChannelType = ({ clearChannelType, productType }) => {
   const { t } = useTranslation();
   const prevProdType = React.useRef();
   const channelTypes = [
@@ -26,7 +26,7 @@ export const ChannelType = ({ handleChange, productType }) => {
   useEffect(() => {
     if (prevProdType.current === 'managed_vmc'
     && productType !== 'managed_vmc') {
-      handleChange();
+      clearChannelType();
     }
     prevProdType.current = productType;
   }, [productType]);
@@ -53,7 +53,7 @@ export const ChannelType = ({ handleChange, productType }) => {
 };
 
 ChannelType.propTypes = {
-  handleChange: PropTypes.func,
+  clearChannelType: PropTypes.func,
   productType: PropTypes.string
 };
 

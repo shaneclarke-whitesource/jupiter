@@ -32,7 +32,7 @@ export class CustomerInfoForm extends React.Component {
           <FormSection name="customerInfo">
             <CustomerType handleChange={this.handleChange} />
             <Product customerType={customerType} />
-            <ChannelType productType={productType} handleChange={this.handleCleanChannel} />
+            <ChannelType productType={productType} clearChannelType={this.handleCleanChannel} />
           </FormSection>
           <div className="NavButtons">
             <div className="hxRow">
