@@ -45,23 +45,40 @@ export class BillingInfoForm extends React.Component {
     });
   };
 
-  submitAddressValidation = (values) => {
+  submitAddressValidation = async (values) => {
+    let validationErrors = {
+      billingInfo: {
+        address: {
+        }
+      }
+      // _error: error.description
+    };
     this.props.checkAddress(values.billingInfo.address);
     const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-    return sleep(1000).then(() => {
-      if (!this.props.addressValidation.valid) {
-        this.props.addressValidation.errorMsg.forEach((error) => {
-          throw new SubmissionError({
-            billingInfo: {
-              address: {
-                [(error.name).toLowerCase()]: 'error here'
-              }
-            },
-            _error: error.description
-          });
-        });
-      }
-    });
+    // initial sleep time to reflect the initial pending redux state
+    await sleep(400);
+    // sleep time configuration to reflect the completion of validation
+    while (this.props.addressValidation.pending === true) {
+      /* eslint-disable no-await-in-loop */
+      await sleep(400);
+    }
+    if (!this.props.addressValidation.valid) {
+      this.props.addressValidation.errorMsg.forEach((error) => {
+        const fieldName = (error.name).toLowerCase();
+        validationErrors = {
+          ...validationErrors,
+          billingInfo: {
+            ...validationErrors.billingInfo,
+            address: {
+              ...validationErrors.billingInfo.address,
+              [fieldName]: error.description
+            }
+          }
+        };
+      });
+      throw new SubmissionError(validationErrors);
+    }
+    this.props.history.push('/user-detail');
   }
 
   onSubmit = (values) => {

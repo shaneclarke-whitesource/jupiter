@@ -5,7 +5,7 @@ import {
   POST_ADDRESS_FAILURE
 } from '../actions/address/validateAddress';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   pending: false,
   success: true,
   valid: false,
