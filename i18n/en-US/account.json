@@ -31,14 +31,29 @@
   "billing.tips.currency.restrictions" : {
     "translation" : "CAD currency is restricted to Onica customers who live in Canada. <br /> AUD, EUR, and GBP currencies are only available when Managed Azure Cloud product is selected."
   },
+  "channel.type.insight" : {
+    "translation" : "Insight"
+  },
   "customer.actions.select" : {
     "translation" : "Select Customer Type"
+  },
+  "customer.channel.select" : {
+    "translation" : "Select Channel"
   },
   "customer.header.info" : {
     "translation" : "Customer Information"
   },
   "customer.tips.rbu.productRestriction" : {
     "translation" : "Currently RBU customers only have access to Managed AWS"
+  },
+  "customer.tips.vmc.channelRestriction" : {
+    "translation" : "Only Managed VMware Cloud customers have access to select channel"
+  },
+  "customer.type.aws" : {
+    "translation" : "AWS"
+  },
+  "customer.type.carahsoft" : {
+    "translation" : "Carahsoft"
   },
   "customer.type.onica" : {
     "translation" : "Onica"
