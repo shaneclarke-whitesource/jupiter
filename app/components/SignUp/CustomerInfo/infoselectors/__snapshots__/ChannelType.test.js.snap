@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product it renders 1`] = `
+<div
+  className="channelType-section"
+>
+  <div
+    className="Dropdown"
+  >
+    <hx-select-control>
+      <select
+        disabled={true}
+        id="channel-select-popover"
+        onChange={[Function]}
+        value=""
+      >
+        <option
+          value=""
+        >
+          -- Please Select --
+        </option>
+        <option
+          value="Insight"
+        >
+          Insight
+        </option>
+        <option
+          value="Carahsoft"
+        >
+          Carahsoft
+        </option>
+        <option
+          value="AWS"
+        >
+          AWS
+        </option>
+      </select>
+      <hx-select />
+      <label
+        className="hxRequired"
+        htmlFor="channel-select-popover"
+      >
+        <span
+          className="InputField-label"
+        >
+          Select Channel
+        </span>
+        <div
+          className="tooltip"
+        >
+          <hx-icon
+            id="channel-restriction-tooltip"
+            type="help-circle"
+          />
+          <hx-tooltip
+            for="channel-restriction-tooltip"
+            position="right-middle"
+          >
+            Only Managed VMware Cloud customers have access to select channel
+          </hx-tooltip>
+        </div>
+      </label>
+    </hx-select-control>
+    <div
+      className="error"
+    />
+  </div>
+</div>
+`;

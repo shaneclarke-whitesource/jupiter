@@ -2,6 +2,12 @@ import _ from 'lodash';
 import { ALT_CUSTOMER_SIGNUP_REQUEST } from '../app/signupReqFormat/altCustomer';
 import { RACK_CUSTOMER_SIGNUP_REQUEST } from '../app/signupReqFormat/rackspaceCustomer';
 
+export const channelInput = {
+  'key': 'Aggregator',
+  'value': '',
+  'destination': 'CMS'
+};
+
 export const formatAltCustomer = (type) => {
   ALT_CUSTOMER_SIGNUP_REQUEST.metadata.property.forEach((obj) => {
     if (obj.key === 'Business_Unit') {
@@ -13,12 +19,23 @@ export const formatAltCustomer = (type) => {
   };
 };
 
+export const formatRackspaceCustomer = (channelType) => {
+  if (channelType) {
+    channelInput.value = channelType;
+    RACK_CUSTOMER_SIGNUP_REQUEST.metadata.property.push(channelInput);
+  }
+  return {
+    ...RACK_CUSTOMER_SIGNUP_REQUEST
+  };
+};
+
 export const formatRequest = (values) => {
   const type = _.get(values, ['customerInfo', 'customerType']);
+  const channelType = _.get(values, ['customerInfo', 'channelType']);
   const template = (
     type !== 'rackspace'
       ? formatAltCustomer(type.toUpperCase())
-      : RACK_CUSTOMER_SIGNUP_REQUEST
+      : formatRackspaceCustomer(channelType)
   );
   return {
     ...template,
