@@ -31,7 +31,6 @@ describe('actions/validateAddress', () => {
   });
 
   test('it should create an action to fail', () => {
-    // const error = { status: 400, data: { message: 'oh noes!' } };
     const error = {
       errorField: [
         {
@@ -58,7 +57,7 @@ describe('actions/validateAddress', () => {
     expect(actions.postAddressFailure(error)).toEqual(expectedAction);
   });
 
-  test('axios calls success if if address is valid', async () => {
+  test('axios calls success if address is valid', async () => {
     const store = mockStore();
     const mockData = {
       matchStatus: 'C4',

@@ -36,7 +36,7 @@ export const postAddressFailure = (error) => {
 };
 
 export function checkAddress(address) {
-  return async (dispatch) => {
+  return (dispatch) => {
     dispatch(postAddressPending());
     return axios.post('/api/address/v1/address/validations', { ...address }, { axiosParameters })
       .then((response) => {

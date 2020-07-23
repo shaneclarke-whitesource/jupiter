@@ -9,8 +9,7 @@ export const INITIAL_STATE = {
   pending: false,
   success: true,
   valid: false,
-  errorMsg: [],
-  error: false
+  errorMsg: []
 };
 
 export default function validateAddressReducer(state = INITIAL_STATE, action) {

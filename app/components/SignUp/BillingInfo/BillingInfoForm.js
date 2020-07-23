@@ -51,17 +51,9 @@ export class BillingInfoForm extends React.Component {
         address: {
         }
       }
-      // _error: error.description
     };
-    this.props.checkAddress(values.billingInfo.address);
-    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-    // initial sleep time to reflect the initial pending redux state
-    await sleep(400);
-    // sleep time configuration to reflect the completion of validation
-    while (this.props.addressValidation.pending === true) {
-      /* eslint-disable no-await-in-loop */
-      await sleep(400);
-    }
+    await this.props.checkAddress(values.billingInfo.address);
+
     if (!this.props.addressValidation.valid) {
       this.props.addressValidation.errorMsg.forEach((error) => {
         const fieldName = (error.name).toLowerCase();
@@ -80,11 +72,6 @@ export class BillingInfoForm extends React.Component {
     }
     this.props.history.push('/user-detail');
   }
-
-  onSubmit = (values) => {
-    this.submitAddressValidation();
-    // this.props.history.push('/user-detail');
-  };
 
   render() {
     const { t, handleSubmit, history, customerType, country, hasZipcode } = this.props;
@@ -170,13 +157,13 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setAddress: (field, value) => {
-      dispatch(change('signUp', `billingInfo.address.${field}`, value));
+      return dispatch(change('signUp', `billingInfo.address.${field}`, value));
     },
     getCountry: (countryCode) => {
-      dispatch(getCountry(countryCode));
+      return dispatch(getCountry(countryCode));
     },
     checkAddress: (values) => {
-      dispatch(checkAddress(values));
+      return dispatch(checkAddress(values));
     }
   };
 };
