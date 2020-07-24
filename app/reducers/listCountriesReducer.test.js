@@ -1,5 +1,5 @@
 import listCountriesReducer, { INITIAL_STATE } from './listCountriesReducer';
-import { GET_COUNTRIES_PENDING, GET_COUNTRIES_SUCCESS, GET_COUNTRIES_FAILURE } from '../actions/listCountries';
+import { GET_COUNTRIES_PENDING, GET_COUNTRIES_SUCCESS, GET_COUNTRIES_FAILURE } from '../actions/address/listCountries';
 
 describe('reducers/checkUsernameReducer', () => {
   test('it should return the initial state', () => {
