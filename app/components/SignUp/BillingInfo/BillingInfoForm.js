@@ -2,17 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { formValueSelector, reduxForm, FormSection, change, SubmissionError } from 'redux-form';
-import _ from 'lodash';
+import { formValueSelector, reduxForm, FormSection, change } from 'redux-form';
 import { withTranslation } from 'react-i18next';
 import { validateBilling } from '../../../validators';
-import { ADDRESS_FIELDS } from '../../../actions/constants/address';
-import { getCountry } from '../../../actions/address/getCountry';
-import { checkAddress } from '../../../actions/address/validateAddress';
 import AddressSection from './AddressSection';
 import CurrencySelector from './CurrencySelector';
 import Button from '../../helix/buttons/Button';
 import Submit from '../../helix/buttons/Submit';
+import { ADDRESS_FIELDS } from '../../../actions/constants/address';
+import { getCountry } from '../../../actions/getCountry';
+import _ from 'lodash';
 
 export class BillingInfoForm extends React.Component {
   componentDidMount() {
@@ -45,28 +44,14 @@ export class BillingInfoForm extends React.Component {
     });
   };
 
-  submitAddressValidation = async (values) => {
-    const validationErrors = {
-      billingInfo: {
-        address: {
-        }
-      }
-    };
-    await this.props.checkAddress(values.billingInfo.address);
-
-    if (!this.props.addressValidation.valid) {
-      this.props.addressValidation.errorMsg.forEach((error) => {
-        validationErrors.billingInfo.address[error.name.toLowerCase()] = error.description;
-      });
-      throw new SubmissionError(validationErrors);
-    }
+  onSubmit = () => {
     this.props.history.push('/user-detail');
-  }
+  };
 
   render() {
     const { t, handleSubmit, history, customerType, country, hasZipcode } = this.props;
     return (
-      <form onSubmit={handleSubmit(this.submitAddressValidation)}>
+      <form onSubmit={handleSubmit(this.onSubmit)}>
         <div className="Input-section u-form">
           <h2>{t('account:billing.header.info')}</h2>
           <FormSection name="billingInfo">
@@ -110,8 +95,6 @@ BillingInfoForm.propTypes = {
   customerType: PropTypes.string,
   setAddress: PropTypes.func.isRequired,
   getCountry: PropTypes.func.isRequired,
-  checkAddress: PropTypes.func.isRequired,
-  addressValidation: PropTypes.object,
   hasZipcode: PropTypes.bool,
   change: PropTypes.func,
   country: PropTypes.string,
@@ -129,7 +112,6 @@ const mapStateToProps = (state) => {
     country: countrywithZip,
     countryData: state.country.details,
     hasZipcode: zipcode,
-    addressValidation: state.addressValidation,
     initialValues: {
       // Creates a form field we use to validate states existence in a country
       countryData: state.country.details,
@@ -147,13 +129,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setAddress: (field, value) => {
-      return dispatch(change('signUp', `billingInfo.address.${field}`, value));
+      dispatch(change('signUp', `billingInfo.address.${field}`, value));
     },
     getCountry: (countryCode) => {
-      return dispatch(getCountry(countryCode));
-    },
-    checkAddress: (values) => {
-      return dispatch(checkAddress(values));
+      dispatch(getCountry(countryCode));
     }
   };
 };

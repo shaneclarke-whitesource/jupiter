@@ -4,7 +4,7 @@ import _ from 'lodash';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import { Field, formValueSelector } from 'redux-form';
-import { checkUsername } from '../../../actions/userInfo/checkUsername';
+import { checkUsername } from '../../../actions/checkUsername';
 import Input from '../../helix/inputTypes/Input';
 import PhoneField from '../../helix/inputTypes/PhoneField';
 import PasswordInput from '../../helix/inputTypes/PasswordInput';

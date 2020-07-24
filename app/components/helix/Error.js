@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
 
 const Error = ({ meta: { touched, error } }) => {
   return (
     <div className="error">
       {touched && error && (
         <hx-error>
-          <small>{(_.isArray(error) && error[0]) || error}</small>
+          <small>{error[0] || error}</small>
         </hx-error>
       )}
     </div>

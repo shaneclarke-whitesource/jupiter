@@ -1,5 +1,5 @@
 import { getSignup, postSignup } from '../../lib/axios/signupActions';
-import { checkUsernameSuccess } from '../actions/userInfo/checkUsername';
+import { checkUsernameSuccess } from '../actions/checkUsername';
 
 export const asyncValidateUsername = (username, dispatch, t) => {
   const endpoint = 'cloud-username-check';
