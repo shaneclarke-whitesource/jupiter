@@ -1,5 +1,5 @@
-import { getCustomer } from '../../../lib/axios/signupActions';
-import { parseState } from '../../../utils/country';
+import { getCustomer } from '../../lib/axios/signupActions';
+import { parseState } from '../../utils/country';
 
 export const GET_COUNTRY_PENDING = 'GET_COUNTRY_PENDING';
 export const GET_COUNTRY_SUCCESS = 'GET_COUNTRY_SUCCESS';
