@@ -46,7 +46,7 @@ export class BillingInfoForm extends React.Component {
   };
 
   submitAddressValidation = async (values) => {
-    let validationErrors = {
+    const validationErrors = {
       billingInfo: {
         address: {
         }
@@ -56,17 +56,7 @@ export class BillingInfoForm extends React.Component {
 
     if (!this.props.addressValidation.valid) {
       this.props.addressValidation.errorMsg.forEach((error) => {
-        const fieldName = (error.name).toLowerCase();
-        validationErrors = {
-          ...validationErrors,
-          billingInfo: {
-            ...validationErrors.billingInfo,
-            address: {
-              ...validationErrors.billingInfo.address,
-              [fieldName]: error.description
-            }
-          }
-        };
+        validationErrors.billingInfo.address[error.name.toLowerCase()] = error.description;
       });
       throw new SubmissionError(validationErrors);
     }
