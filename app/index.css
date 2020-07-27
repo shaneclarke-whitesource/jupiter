@@ -184,4 +184,8 @@ hx-text-control[hx-dirty] > input[type="password"]:enabled:invalid, hx-text-cont
     text-align: center;
 }
 
+.channelType-section {
+    margin-top: 15px;
+}
+
 

@@ -107,4 +107,16 @@ describe('utils/signup', () => {
       expect(businessUnit.value).toEqual('RBU');
     });
   });
+
+  describe('formatRackspaceCustomer', () => {
+    const formatRackspaceCustomer = (channelType = 'AWS', values) => {
+      return signup.formatRackspaceCustomer(channelType, { ...defaultValues, ...values });
+    };
+
+    test('it changes the Business_Unit value based on customer type', () => {
+      const result = formatRackspaceCustomer();
+      const businessUnit = result.metadata.property.find((value) => value.key === 'Aggregator');
+      expect(businessUnit.value).toEqual('AWS');
+    });
+  });
 });
