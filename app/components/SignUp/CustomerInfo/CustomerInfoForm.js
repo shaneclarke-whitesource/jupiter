@@ -7,6 +7,7 @@ import { withRouter } from 'react-router';
 import Submit from '../../helix/buttons/Submit';
 import { validateCustomerInformation } from '../../../validators';
 import CustomerType from './CustomerType';
+import ChannelType from './infoselectors/ChannelType';
 import Product from './Product';
 import { ADDRESS_FIELDS } from '../../../actions/constants/address';
 import { getCountry } from '../../../actions/getCountry';
@@ -42,8 +43,12 @@ export class CustomerInfoForm extends React.Component {
     });
   };
 
+  handleCleanChannel = () => {
+    this.props.clearChannel();
+  }
+
   render() {
-    const { t, handleSubmit, customerType } = this.props;
+    const { t, handleSubmit, customerType, productType } = this.props;
     return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
         <div className="Input-section u-form">
@@ -51,6 +56,7 @@ export class CustomerInfoForm extends React.Component {
           <FormSection name="customerInfo">
             <CustomerType handleChange={this.handleChange} />
             <Product customerType={customerType} />
+            <ChannelType productType={productType} clearChannelType={this.handleCleanChannel} />
           </FormSection>
           <div className="NavButtons">
             <div className="hxRow">
@@ -72,7 +78,9 @@ export class CustomerInfoForm extends React.Component {
 CustomerInfoForm.propTypes = {
   t: PropTypes.func.isRequired,
   customerType: PropTypes.string,
+  productType: PropTypes.string,
   handleSubmit: PropTypes.func.isRequired,
+  clearChannel: PropTypes.func.isRequired,
   clearProduct: PropTypes.func.isRequired,
   setAddress: PropTypes.func.isRequired,
   getCountry: PropTypes.func.isRequired,
@@ -113,6 +121,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     getCountry: (countryCode) => {
       dispatch(getCountry(countryCode));
+    },
+    clearChannel: () => {
+      dispatch(change('signUp', 'customerInfo.channelType', ''));
     }
   };
 };
