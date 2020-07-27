@@ -1,5 +1,5 @@
 import React from 'react';
-import { mountWithForm } from '../../../../test/provider';
+import { mountWithForm, mountedForm } from '../../../../test/provider';
 import { t } from '../../../../test/i18n/mocks';
 import { CustomerInfoForm } from './CustomerInfoForm';
 import enzyme from 'enzyme';
@@ -84,7 +84,7 @@ describe('CustomerInfoForm', () => {
       productType: 'managed_vmc',
       handleChange: jest.fn()
     };
-    const wrapper = mountWithForm(CustomerInfoForm, { props });
+    const wrapper = mountedForm(CustomerInfoForm, { props });
     wrapper.setProps(
       // setProps on children: https://github.com/enzymejs/enzyme/issues/1384
       { children: React.cloneElement(wrapper.props().children, { ...props, productType: '' }) }
