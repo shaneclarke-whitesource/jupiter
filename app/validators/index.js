@@ -129,7 +129,12 @@ export const validateAddress = (values, { t, props: { country, countryData, hasZ
     },
     street: {
       presence: {
-        allowEmpty: false
+        allowEmpty: false,
+        maximum: 100,
+        tooLong: t('validation:input.maxLength', {
+          content: undefined,
+          characterCount: '%{count}'
+        })
       }
     },
     state: {
@@ -138,7 +143,12 @@ export const validateAddress = (values, { t, props: { country, countryData, hasZ
     city: {
       presence: {
         allowEmpty: false,
-        message: t('validation:input.required')
+        message: t('validation:input.required'),
+        maximum: 100,
+        tooLong: t('validation:input.maxLength', {
+          content: undefined,
+          characterCount: '%{count}'
+        })
       }
     },
     zipcode: {
