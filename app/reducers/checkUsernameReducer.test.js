@@ -1,5 +1,9 @@
 import checkUsernameReducer, { INITIAL_STATE } from './checkUsernameReducer';
-import { CHECK_USERNAME_PENDING, CHECK_USERNAME_SUCCESS, CHECK_USERNAME_FAILURE } from '../actions/checkUsername';
+import {
+  CHECK_USERNAME_PENDING,
+  CHECK_USERNAME_SUCCESS,
+  CHECK_USERNAME_FAILURE
+} from '../actions/userInfo/checkUsername';
 
 describe('reducers/checkUsernameReducer', () => {
   test('it should return the initial state', () => {

@@ -44,7 +44,7 @@ describe('CustomerInfoForm', () => {
         value: 'rbu'
       }
     };
-    wrapper.find('CustomerType').props().handleChange(event);
+    wrapper.find('CustomerType').props().handleCustomerTypeChange(event);
     expect(getCountryMock).toHaveBeenCalledWith('JP');
     expect(setAddressMock).toHaveBeenNthCalledWith(
       1, 'street', 'Toranomon Hills Mori Tower 7th Floor Toranomon 1-23-1'
@@ -66,7 +66,7 @@ describe('CustomerInfoForm', () => {
         value: 'aws'
       }
     };
-    wrapper.find('CustomerType').props().handleChange(event);
+    wrapper.find('CustomerType').props().handleCustomerTypeChange(event);
     wrapper.update();
     expect(clearProductMock).toHaveBeenCalledTimes(1);
   });
@@ -82,7 +82,7 @@ describe('CustomerInfoForm', () => {
     const props = {
       ...defaultProps,
       productType: 'managed_vmc',
-      handleChange: jest.fn()
+      handleCleanChannel: jest.fn()
     };
     const wrapper = mountedForm(CustomerInfoForm, { props });
     wrapper.setProps(

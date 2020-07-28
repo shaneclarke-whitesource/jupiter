@@ -1,4 +1,8 @@
-import { CHECK_USERNAME_FAILURE, CHECK_USERNAME_SUCCESS, CHECK_USERNAME_PENDING } from '../actions/checkUsername';
+import {
+  CHECK_USERNAME_FAILURE,
+  CHECK_USERNAME_SUCCESS,
+  CHECK_USERNAME_PENDING
+} from '../actions/userInfo/checkUsername';
 
 export const INITIAL_STATE = {
   username: '',

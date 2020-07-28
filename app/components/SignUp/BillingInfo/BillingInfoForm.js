@@ -2,14 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { formValueSelector, reduxForm, FormSection } from 'redux-form';
+import { formValueSelector, reduxForm, FormSection, SubmissionError } from 'redux-form';
+import _ from 'lodash';
 import { withTranslation } from 'react-i18next';
 import { validateBilling } from '../../../validators';
+import { checkAddress } from '../../../actions/address/validateAddress';
 import AddressSection from './AddressSection';
 import CurrencySelector from './CurrencySelector';
 import Button from '../../helix/buttons/Button';
 import Submit from '../../helix/buttons/Submit';
-import _ from 'lodash';
 
 export class BillingInfoForm extends React.Component {
   componentDidUpdate(prevProps) {
@@ -20,14 +21,28 @@ export class BillingInfoForm extends React.Component {
     }
   }
 
-  onSubmit = () => {
+  submitAddressValidation = async (values) => {
+    const validationErrors = {
+      billingInfo: {
+        address: {
+        }
+      }
+    };
+    await this.props.checkAddress(values.billingInfo.address);
+
+    if (!this.props.addressValidation.valid) {
+      this.props.addressValidation.errorMsg.forEach((error) => {
+        validationErrors.billingInfo.address[error.name.toLowerCase()] = error.description;
+      });
+      throw new SubmissionError(validationErrors);
+    }
     this.props.history.push('/user-detail');
-  };
+  }
 
   render() {
     const { t, handleSubmit, history, customerType, country, hasZipcode } = this.props;
     return (
-      <form onSubmit={handleSubmit(this.onSubmit)}>
+      <form onSubmit={handleSubmit(this.submitAddressValidation)}>
         <div className="Input-section u-form">
           <h2>{t('account:billing.header.info')}</h2>
           <FormSection name="billingInfo">
@@ -69,6 +84,8 @@ BillingInfoForm.propTypes = {
   t: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   customerType: PropTypes.string,
+  checkAddress: PropTypes.func.isRequired,
+  addressValidation: PropTypes.object,
   hasZipcode: PropTypes.bool,
   change: PropTypes.func,
   country: PropTypes.string,
@@ -86,6 +103,7 @@ const mapStateToProps = (state) => {
     country: countrywithZip,
     countryData: state.country.details,
     hasZipcode: zipcode,
+    addressValidation: state.addressValidation,
     initialValues: {
       // Creates a form field we use to validate states existence in a country
       countryData: state.country.details,
@@ -96,6 +114,14 @@ const mapStateToProps = (state) => {
           country: state.country.details.code
         }
       }
+    }
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    checkAddress: (values) => {
+      return dispatch(checkAddress(values));
     }
   };
 };
@@ -116,4 +142,4 @@ const BillingReduxForm = reduxForm({
   forceUnregisterOnUnmount: true // unregister fields on unmount
 })(withTranslation()(BillingInfoForm));
 
-export default withRouter(connect(mapStateToProps)(BillingReduxForm));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BillingReduxForm));

@@ -10,7 +10,7 @@ import CustomerType from './CustomerType';
 import ChannelType from './infoselectors/ChannelType';
 import Product from './Product';
 import { ADDRESS_FIELDS } from '../../../actions/constants/address';
-import { getCountry } from '../../../actions/getCountry';
+import { getCountry } from '../../../actions/address/getCountry';
 
 export class CustomerInfoForm extends React.Component {
   componentDidUpdate(prevProps) {
@@ -19,7 +19,7 @@ export class CustomerInfoForm extends React.Component {
     }
   }
 
-  handleChange = (e) => {
+  handleCustomerTypeChange = (e) => {
     if (e.target.value === 'rbu') {
       this.populateAddressFields();
       this.props.getCountry('JP'); // used when RBU address pre-populates
@@ -54,7 +54,7 @@ export class CustomerInfoForm extends React.Component {
         <div className="Input-section u-form">
           <h2>{t('account:customer.header.info')}</h2>
           <FormSection name="customerInfo">
-            <CustomerType handleChange={this.handleChange} />
+            <CustomerType handleCustomerTypeChange={this.handleCustomerTypeChange} />
             <Product customerType={customerType} />
             <ChannelType productType={productType} clearChannelType={this.handleCleanChannel} />
           </FormSection>

@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { normalize, schema } from 'normalizr';
-import { getCustomer } from '../../lib/axios/signupActions';
-import { parseCountry, assertIsArray } from '../../utils/country';
+import { getCustomer } from '../../../lib/axios/signupActions';
+import { parseCountry, assertIsArray } from '../../../utils/country';
 
 export const GET_COUNTRIES_PENDING = 'GET_COUNTRIES_PENDING';
 export const GET_COUNTRIES_SUCCESS = 'GET_COUNTRIES_SUCCESS';
