@@ -1,4 +1,4 @@
-import { GET_COUNTRIES_PENDING, GET_COUNTRIES_SUCCESS, GET_COUNTRIES_FAILURE } from '../actions/listCountries';
+import { GET_COUNTRIES_PENDING, GET_COUNTRIES_SUCCESS, GET_COUNTRIES_FAILURE } from '../actions/address/listCountries';
 
 export const INITIAL_STATE = {
   countries: {},
