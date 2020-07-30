@@ -33,12 +33,6 @@ export function renderWithForm(Component, options) {
   });
 }
 
-export function mountedForm(Component, options) {
-  return withForm(Component, {
-    ...options,
-    method: 'mount'
-  });
-}
 
 /**
  * Note: this only works with SFCs
@@ -47,7 +41,10 @@ export function mountedForm(Component, options) {
  * See AddressSection.test.js for reference
  * */
 export function mountWithForm(Component, options) {
-  return mountedForm(Component, options).find(Component);
+  return withForm(Component, {
+    ...options,
+    method: 'mount'
+  });
 }
 
 export function shallowWithForm(Component, options) {
