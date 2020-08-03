@@ -9,39 +9,15 @@ import { validateCustomerInformation } from '../../../validators';
 import CustomerType from './CustomerType';
 import ChannelType from './infoselectors/ChannelType';
 import Product from './Product';
-import { ADDRESS_FIELDS } from '../../../actions/constants/address';
-import { getCountry } from '../../../actions/address/getCountry';
 
 export class CustomerInfoForm extends React.Component {
-  componentDidUpdate(prevProps) {
-    if (prevProps.customerType === 'rbu' && prevProps.customerType !== this.props.customerType) {
-      this.clearAddressFields();
-    }
-  }
-
-  handleCustomerTypeChange = (e) => {
-    if (e.target.value === 'rbu') {
-      this.populateAddressFields();
-      this.props.getCountry('JP'); // used when RBU address pre-populates
-    }
-    this.props.clearProduct();
-  };
-
   onSubmit = () => {
     this.props.history.push('/billing');
   };
 
-  populateAddressFields = () => {
-    Object.entries(ADDRESS_FIELDS).forEach((entry) => {
-      this.props.setAddress(...entry);
-    });
-  };
-
-  clearAddressFields = () => {
-    Object.keys(ADDRESS_FIELDS).forEach((field) => {
-      this.props.setAddress(field, '');
-    });
-  };
+  handleChange = () => {
+    this.props.clearProduct();
+  }
 
   handleCleanChannel = () => {
     this.props.clearChannel();
@@ -54,7 +30,7 @@ export class CustomerInfoForm extends React.Component {
         <div className="Input-section u-form">
           <h2>{t('account:customer.header.info')}</h2>
           <FormSection name="customerInfo">
-            <CustomerType handleCustomerTypeChange={this.handleCustomerTypeChange} />
+            <CustomerType handleChange={this.handleChange} />
             <Product customerType={customerType} />
             <ChannelType productType={productType} clearChannelType={this.handleCleanChannel} />
           </FormSection>
@@ -82,8 +58,6 @@ CustomerInfoForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   clearChannel: PropTypes.func.isRequired,
   clearProduct: PropTypes.func.isRequired,
-  setAddress: PropTypes.func.isRequired,
-  getCountry: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
   })
@@ -92,18 +66,8 @@ CustomerInfoForm.propTypes = {
 const mapStateToProps = (state) => {
   return {
     customerType: formValueSelector('signUp')(state, 'customerInfo.customerType'),
-    productType: formValueSelector('signUp')(state, 'customerInfo.productType'),
-    initialValues: {
-      billingInfo: {
-        address: {
-          street: '',
-          city: '',
-          zipcode: '',
-          country: '',
-          state: ''
-        }
-      }
-    }
+    productType: formValueSelector('signUp')(state, 'customerInfo.productType')
+
   };
 };
 
@@ -113,14 +77,8 @@ const validate = (values, props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setAddress: (field, value) => {
-      dispatch(change('signUp', `billingInfo.address.${field}`, value));
-    },
     clearProduct: () => {
       dispatch(change('signUp', 'customerInfo.productType', ''));
-    },
-    getCountry: (countryCode) => {
-      dispatch(getCountry(countryCode));
     },
     clearChannel: () => {
       dispatch(change('signUp', 'customerInfo.channelType', ''));
