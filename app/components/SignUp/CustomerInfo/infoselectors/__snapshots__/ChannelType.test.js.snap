@@ -119,6 +119,7 @@ exports[`Product it renders 1`] = `
     />
     <div
       className="hxRow"
+      id="tiles-desc"
     >
       <span
         className="hxCol hxSpan-12"
