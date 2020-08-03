@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChoiceTile it renders with appropriate props 1`] = `
+<label
+  className="hxChoice hxCol hxSpan-4-xs"
+  htmlFor="tiles-id"
+>
+  <input
+    checked={false}
+    disabled={true}
+    invalid="false"
+    name="channelType"
+    onChange={[Function]}
+    type="radio"
+    value="value_1"
+  />
+  <hx-tile
+    class="hxMd"
+  >
+    <hx-icon
+      type="checkmark"
+    />
+    
+    <header>
+      option-1
+    </header>
+    <header
+      className="hxSubdued"
+    >
+      <small>
+        First Choice SubHeader
+      </small>
+    </header>
+    <p>
+      First Choice Description
+    </p>
+  </hx-tile>
+</label>
+`;
