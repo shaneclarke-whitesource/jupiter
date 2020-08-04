@@ -37,19 +37,22 @@ jobs:
 
       - run: yarn build
 
+      - persist_to_workspace:
+          root: .
+          paths:
+            - build
+
+  acceptance:
+    steps:
       - setup_remote_docker:
-          remote: true
+         remote: true
+          reusable: true
           docker_layer_caching: true
           version: '18.09.3'
 
       - run: cd acceptance; yarn build
 
       - run: cd acceptance; yarn test
-
-      - persist_to_workspace:
-          root: .
-          paths:
-            - build
 
   deploy-staging:
     docker:
@@ -97,6 +100,7 @@ workflows:
     jobs:
       # Triggered on all branches
       - build
+      - acceptance
 
       # All branches must go to staging before going to master - enforced by git branch protection.
       - staging-deploy-ask:
@@ -104,6 +108,7 @@ workflows:
           type: approval
           requires:
             - build
+            - acceptance
       - deploy-staging:
           <<: *not_master
           requires:
