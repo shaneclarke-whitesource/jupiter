@@ -21,9 +21,8 @@ export class CustomerInfoForm extends React.Component {
 
   handleCleanChannel = (e) => {
     this.props.channelType !== ''
-    && e.target.value !== 'managed_vmc'
-      ? this.props.clearChannel()
-      : null;
+         && e.target.value !== 'managed_vmc'
+         && this.props.clearChannel();
   }
 
   handleChannelUpdate = (e) => {
@@ -40,9 +39,9 @@ export class CustomerInfoForm extends React.Component {
             <CustomerType handleChange={this.handleChange} />
             <Product customerType={customerType} clearChannelType={this.handleCleanChannel} />
             {
-              productType === 'managed_vmc'
-                ? <ChannelType channelType={this.props.channelType} handleChannelUpdate={this.handleChannelUpdate} />
-                : null
+            productType === 'managed_vmc' && (
+              <ChannelType channelType={this.props.channelType} handleChannelUpdate={this.handleChannelUpdate} />
+            )
             }
           </FormSection>
           <div className="NavButtons">

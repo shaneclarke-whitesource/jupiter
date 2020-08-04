@@ -2,7 +2,7 @@
 
 exports[`ChoiceTile it renders with appropriate props 1`] = `
 <label
-  className="hxChoice hxCol hxSpan-4-xs"
+  className="hxChoice undefined"
   htmlFor="tiles-id"
 >
   <input

@@ -28,7 +28,7 @@ exports[`InputTiles it renders with appropriate props 1`] = `
         value="value_1"
       />
       <hx-tile
-        class="hxMd"
+        class="undefined"
       >
         <hx-icon
           type="checkmark"
@@ -59,7 +59,7 @@ exports[`InputTiles it renders with appropriate props 1`] = `
         value="value_2"
       />
       <hx-tile
-        class="hxMd"
+        class="undefined"
       >
         <hx-icon
           type="checkmark"

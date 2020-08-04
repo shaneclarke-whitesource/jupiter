@@ -9,6 +9,7 @@ const InputTiles = (props) => {
   const options = _.map(props.options, (item, index) => {
     return (
       <ChoiceTile
+        className="hxCol hxSpan-4-xs"
         {...props.input}
         size={props.size}
         key={item.value}

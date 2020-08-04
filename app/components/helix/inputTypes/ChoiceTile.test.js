@@ -3,6 +3,7 @@ import renderer from 'react-test-renderer';
 import ChoiceTile from './ChoiceTile';
 import enzyme from 'enzyme';
 import { t } from '../../../../test/i18n/mocks';
+import { SIZES } from '../constants';
 
 
 describe('ChoiceTile', () => {
@@ -22,7 +23,7 @@ describe('ChoiceTile', () => {
     label: 'Tiles Label',
     id: 'tiles-id',
     name: 'channelType',
-    size: 'hxMd',
+    size: 'medium',
     selectedValue: '',
     t
   };
@@ -53,6 +54,7 @@ describe('ChoiceTile', () => {
   test('tile is selected if the passed selected value is same as the current one', () => {
     const props = { selectedValue: 'value_1' };
     const wrapper = shallow(props);
+    expect(wrapper.find('hx-tile').props().class).toEqual(SIZES[defaultProps.size]);
     expect(wrapper.find('input').props().checked).toBeTruthy();
   });
 

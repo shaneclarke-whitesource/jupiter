@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { SIZES } from '../constants';
 
 const ChoiceTile = ({
   disabled,
@@ -12,10 +13,11 @@ const ChoiceTile = ({
   subdued,
   name,
   selectedValue,
-  item
+  item,
+  className
 }) => {
   return (
-    <label htmlFor={id} className="hxChoice hxCol hxSpan-4-xs">
+    <label htmlFor={id} className={`hxChoice ${className}`}>
       <input
         disabled={disabled}
         invalid={invalid?.toString()}
@@ -25,7 +27,7 @@ const ChoiceTile = ({
         checked={item.value === selectedValue}
         type="radio"
       />
-      <hx-tile class={classNames({ hxSubdued: subdued, [size]: true })}>
+      <hx-tile class={classNames({ hxSubdued: subdued, [SIZES[size]]: true })}>
         <hx-icon type="checkmark" />
         {icon && (
         <div className="hx-tile-icon">
@@ -42,6 +44,7 @@ const ChoiceTile = ({
 
 ChoiceTile.propTypes = {
   size: PropTypes.string.isRequired,
+  className: PropTypes.string,
   id: PropTypes.string,
   name: PropTypes.string.isRequired,
   selectedValue: PropTypes.string,

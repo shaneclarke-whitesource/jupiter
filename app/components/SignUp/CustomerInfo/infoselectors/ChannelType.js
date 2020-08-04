@@ -38,7 +38,7 @@ export const ChannelType = ({ handleChannelUpdate, channelType = '' }) => {
         options={channelTypes}
         label={t('account:customer.channel.select')}
         id="vmc-channeltype-select"
-        size="hxMd"
+        size="medium"
         required
         selectedValue={channelType}
         handleChannelUpdate={handleChannelUpdate}
