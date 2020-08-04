@@ -58,7 +58,7 @@ jobs:
           version: '18.09.3'
 
       - run:
-          name: Build and run acceptance tests
+          name: Run acceptance tests
           command: |
             cd acceptance; docker-compose build && docker-compose up -d
             docker exec -it acceptance npm run codecept
