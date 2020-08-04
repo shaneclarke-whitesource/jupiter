@@ -24,7 +24,7 @@ exports.config = {
       }
     },
     ChaiWrapper: {
-      require: 'codeceptjs-chai'
+      require: './node_modules/codeceptjs-chai'
     }
   },
   include: {
