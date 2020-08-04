@@ -37,6 +37,11 @@ jobs:
 
       - run: yarn build
 
+      - setup_remote_docker:
+          remote: true
+          reusable: true
+          version: '18.09.3'
+
       - run: cd acceptance; yarn build
 
       - run: cd acceptance; yarn test
