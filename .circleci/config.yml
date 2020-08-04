@@ -51,6 +51,8 @@ jobs:
     steps:
       - checkout
 
+      - run: yarn install
+
       - setup_remote_docker:
           remote: true
           reusable: true
