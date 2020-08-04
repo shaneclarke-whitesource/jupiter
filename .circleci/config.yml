@@ -45,7 +45,7 @@ jobs:
   acceptance:
     steps:
       - setup_remote_docker:
-         remote: true
+          remote: true
           reusable: true
           docker_layer_caching: true
           version: '18.09.3'
