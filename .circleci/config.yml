@@ -39,7 +39,7 @@ jobs:
 
       - setup_remote_docker:
           remote: true
-          reusable: true
+          docker_layer_caching: true
           version: '18.09.3'
 
       - run: cd acceptance; yarn build
