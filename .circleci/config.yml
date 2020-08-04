@@ -37,6 +37,10 @@ jobs:
 
       - run: yarn build
 
+      - run: cd acceptance; yarn build
+
+      - run: cd acceptance; yarn test
+
       - persist_to_workspace:
           root: .
           paths:
@@ -102,6 +106,6 @@ workflows:
 
       # Because deploy to staging has already happened before merge to master, we can go to prod - enforced by git branch protection.
       - deploy-prod:
-            <<: *master_only
-            requires:
-              - build
+          <<: *master_only
+          requires:
+            - build
