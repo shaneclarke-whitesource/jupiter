@@ -43,6 +43,9 @@ jobs:
             - build
 
   acceptance:
+    docker:
+      - image: circleci/python:2.7
+
     steps:
       - setup_remote_docker:
           remote: true
