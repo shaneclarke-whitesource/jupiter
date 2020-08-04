@@ -46,6 +46,8 @@ jobs:
     docker:
       - image: circleci/python:2.7
 
+    working_directory: ~/repo
+
     steps:
       - setup_remote_docker:
           remote: true
@@ -110,7 +112,6 @@ workflows:
           <<: *not_master
           type: approval
           requires:
-            - build
             - acceptance
       - deploy-staging:
           <<: *not_master
