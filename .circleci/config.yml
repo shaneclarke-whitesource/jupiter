@@ -107,7 +107,9 @@ workflows:
     jobs:
       # Triggered on all branches
       - build
-      - acceptance
+
+      - acceptance:
+          - acceptance
 
       # All branches must go to staging before going to master - enforced by git branch protection.
       - staging-deploy-ask:
