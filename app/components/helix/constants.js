@@ -1,5 +1,5 @@
 export const SIZES = {
-    small: 'hxSm',
-    medium: 'hxMd',
-    large: 'hxLg',
-  };
+  small: 'hxSm',
+  medium: 'hxMd',
+  large: 'hxLg'
+};
