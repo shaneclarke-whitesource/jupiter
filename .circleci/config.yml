@@ -44,16 +44,18 @@ jobs:
 
   acceptance:
     docker:
-      - setup_remote_docker:
-          remote: true
-          reusable: true
-          docker_layer_caching: true
-          version: '18.09.3'
+      - image: circleci/python:2.7
 
     working_directory: ~/repo
 
     steps:
       - checkout
+
+      - setup_remote_docker:
+          remote: true
+          reusable: true
+          docker_layer_caching: true
+          version: '18.09.3'
 
       - run:
           name: Run acceptance tests
