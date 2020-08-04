@@ -10,6 +10,7 @@ describe('CustomerInfoForm', () => {
   const clearChannelMock = jest.fn();
   const submitMock = jest.fn();
   const mockUpdateChannel = jest.fn();
+  const getCountryMock = jest.fn();
   const defaultProps = {
     handleSubmit: submitMock,
     customerType: '',
@@ -17,6 +18,7 @@ describe('CustomerInfoForm', () => {
     updateChannel: mockUpdateChannel,
     setAddress: setAddressMock,
     clearProduct: clearProductMock,
+    getCountry: getCountryMock,
     clearChannel: clearChannelMock,
     t
   };
@@ -33,6 +35,32 @@ describe('CustomerInfoForm', () => {
     return enzyme.shallow(<CustomerInfoForm {...defaultProps} {...props} />);
   };
 
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
+
+  it('calls setAddress and clearProduct if customerType is rbu', () => {
+    const wrapper = mounted();
+    const event = {
+      target: {
+        value: 'rbu'
+      }
+    };
+    wrapper.find('CustomerType').props().handleCustomerTypeChange(event);
+    expect(getCountryMock).toHaveBeenCalledWith('JP');
+    expect(setAddressMock).toHaveBeenNthCalledWith(
+      1, 'street', 'Toranomon Hills Mori Tower 7th Floor Toranomon 1-23-1'
+    );
+  });
+
+  it('calls setAddress with empty params if customerType was changed from rbu', () => {
+    const wrapper = shallow({ customerType: 'rbu' });
+    wrapper.find('CustomerType').find('select');
+    wrapper.setProps({ customerType: 'aws' });
+    wrapper.update();
+    expect(setAddressMock).toHaveBeenNthCalledWith(1, 'street', '');
+  });
+
   it('it calls clearProductMock on change', () => {
     const wrapper = mounted();
     const event = {
@@ -40,7 +68,7 @@ describe('CustomerInfoForm', () => {
         value: 'aws'
       }
     };
-    wrapper.find('CustomerType').props().handleChange(event);
+    wrapper.find('CustomerType').props().handleCustomerTypeChange(event);
     wrapper.update();
     expect(clearProductMock).toHaveBeenCalledTimes(1);
   });
