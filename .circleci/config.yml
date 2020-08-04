@@ -51,24 +51,17 @@ jobs:
     steps:
       - checkout
 
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
-      - run: yarn install
-
       - setup_remote_docker:
           remote: true
           reusable: true
           docker_layer_caching: true
           version: '18.09.3'
 
-      - run: cd acceptance; yarn build
-
-      - run: cd acceptance; yarn test
+      - run:
+          name: Build and run acceptance tests
+          command: |
+            cd acceptance; docker-compose build && docker-compose up -d
+            docker exec -it acceptance npm run codecept
 
   deploy-staging:
     docker:

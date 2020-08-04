@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "docker-compose build --no-cache && docker-compose up -d",
     "codecept": "npx codeceptjs run-workers --suites 4 --grep @smoke --debug --plugins allure",
     "test": "docker exec -it acceptance npm run codecept",
     "posttest": "docker-compose down"
