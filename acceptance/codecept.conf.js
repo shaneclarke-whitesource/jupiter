@@ -1,11 +1,10 @@
 exports.config = {
-  tests: './tests/test_*.js',
+  tests: './tests/**/*/test_testCodeceptInCircleCI.js',
   output: './output',
   helpers: {
     WebDriver: {
-      url: 'http://apollo.rax.io',
-      host: '127.0.0.1',
-      port: 4444,
+      url: 'https://localhost:3000',
+      host: 'hub',
       browser: 'chrome',
       waitForTimeout: 20000,
       smartWait: 8000,
@@ -30,7 +29,8 @@ exports.config = {
   },
   include: {
     I: './steps_file.js',
-    customerInfo: './fragments/customerInfo.js'
+    customerInfo: './fragments/customerInfo.js',
+    billing: './fragments/billing.js'
   },
   bootstrap: null,
   mocha: {},
@@ -41,10 +41,6 @@ exports.config = {
     },
     screenshotOnFail: {
       enabled: true
-    },
-    wdio: {
-      enabled: true,
-      services: ['selenium-standalone']
     }
   }
 };
