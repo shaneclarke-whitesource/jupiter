@@ -18,7 +18,7 @@ exports[`Product it renders 1`] = `
       </span>
     </label>
     <div
-      className="hxRow"
+      className="hxRow channelType-fields-spacing"
     >
       <label
         className="hxChoice hxCol hxSpan-4-xs"
@@ -42,11 +42,15 @@ exports[`Product it renders 1`] = `
           <header
             className="hxSubdued"
           >
-            <small>
-              (Rackspace/ VMware Originated)
-            </small>
+            <i>
+              <small>
+                Rackspace/VMware Originated
+              </small>
+            </i>
           </header>
-          <p>
+          <p
+            className="channelType-section-desc"
+          >
             Choose this option if the customer was originated by Rackspace or VMware and IS NOT a Public Sector/State, Local, and Education (SLED) customer.
           </p>
         </hx-tile>
@@ -73,11 +77,15 @@ exports[`Product it renders 1`] = `
           <header
             className="hxSubdued"
           >
-            <small>
-              (Rackspace RGS/Carahsoft Originated)
-            </small>
+            <i>
+              <small>
+                Rackspace RGS/Carahsoft Originated
+              </small>
+            </i>
           </header>
-          <p>
+          <p
+            className="channelType-section-desc"
+          >
             Choose this option if the customer IS a Public Sector/State, Local, and Education (SLED) customer that needs to transact through RGS/Carahsoft.
           </p>
         </hx-tile>
@@ -104,11 +112,15 @@ exports[`Product it renders 1`] = `
           <header
             className="hxSubdued"
           >
-            <small>
-              
-            </small>
+            <i>
+              <small>
+                
+              </small>
+            </i>
           </header>
-          <p>
+          <p
+            className="channelType-section-desc"
+          >
             Choose this option if the customer originated from AWS or needs to transact VMC on AWS on AWS paper.
           </p>
         </hx-tile>
@@ -125,13 +137,13 @@ exports[`Product it renders 1`] = `
         className="hxCol hxSpan-12"
       >
         <div
-          className="hxSubBody"
+          className="channelType-disclaimer channelType-fields-spacing"
         >
           <hx-icon
             type="info-circle"
           />
            
-          Please be sure of your choice as this affects finance and compensation. If you are not sure please contact 
+          Please be sure of your choice as this affects finance and compensation. If unsure please contact 
           <a
             href="mailto: vmware@rackspace.com"
             rel="noopener noreferrer"
@@ -143,7 +155,6 @@ exports[`Product it renders 1`] = `
               type="envelope"
             />
           </a>
-           for guidance.
         </div>
       </span>
     </div>

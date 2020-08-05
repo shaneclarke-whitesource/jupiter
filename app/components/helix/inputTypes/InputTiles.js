@@ -24,7 +24,7 @@ const InputTiles = (props) => {
       <label htmlFor={props.id} className={props.required ? 'hxRequired' : null}>
         <span className="InputField-label">{props.label}</span>
       </label>
-      <div className="hxRow">
+      <div className="hxRow channelType-fields-spacing">
         {options}
       </div>
       <Error meta={props.meta} />

@@ -41,10 +41,10 @@
     "translation" : "Standard"
   },
   "channel.type.subheader.carahsoft" : {
-    "translation" : "(Rackspace RGS/Carahsoft Originated)"
+    "translation" : "Rackspace RGS/Carahsoft Originated"
   },
   "channel.type.subheader.insight" : {
-    "translation" : "(Rackspace/ VMware Originated)"
+    "translation" : "Rackspace/VMware Originated"
   },
   "customer.actions.select" : {
     "translation" : "Select Customer Type"
@@ -68,7 +68,7 @@
     "translation" : "Currently RBU customers only have access to Managed AWS"
   },
   "customer.tips.vmc.channeltype.alert" : {
-    "translation" : "Please be sure of your choice as this affects finance and compensation. If you are not sure please contact <0>{email}</0> for guidance."
+    "translation" : "Please be sure of your choice as this affects finance and compensation. If unsure please contact <0>{email}</0>"
   },
   "customer.type.onica" : {
     "translation" : "Onica"

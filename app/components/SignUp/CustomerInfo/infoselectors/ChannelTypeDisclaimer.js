@@ -10,7 +10,7 @@ export const EmailLink = ({ children }) => (
 
 export const ChannelTypeDisclaimer = ({ footer }) => {
   return (
-    <div className="hxSubBody">
+    <div className="channelType-disclaimer channelType-fields-spacing">
       <hx-icon type="info-circle" />
       {' '}
       <Trans

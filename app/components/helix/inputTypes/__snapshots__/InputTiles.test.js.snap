@@ -15,7 +15,7 @@ exports[`InputTiles it renders with appropriate props 1`] = `
     </span>
   </label>
   <div
-    className="hxRow"
+    className="hxRow channelType-fields-spacing"
   >
     <label
       className="hxChoice hxCol hxSpan-4-xs"
@@ -39,11 +39,15 @@ exports[`InputTiles it renders with appropriate props 1`] = `
         <header
           className="hxSubdued"
         >
-          <small>
-            First Choice SubHeader
-          </small>
+          <i>
+            <small>
+              First Choice SubHeader
+            </small>
+          </i>
         </header>
-        <p>
+        <p
+          className="channelType-section-desc"
+        >
           First Choice Description
         </p>
       </hx-tile>
@@ -70,11 +74,15 @@ exports[`InputTiles it renders with appropriate props 1`] = `
         <header
           className="hxSubdued"
         >
-          <small>
-            Second Choice SubHeader
-          </small>
+          <i>
+            <small>
+              Second Choice SubHeader
+            </small>
+          </i>
         </header>
-        <p>
+        <p
+          className="channelType-section-desc"
+        >
           Second Choice Description
         </p>
       </hx-tile>

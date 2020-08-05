@@ -35,8 +35,8 @@ const ChoiceTile = ({
         </div>
         )}
         <header>{item.label}</header>
-        <header className="hxSubdued"><small>{item.subheader}</small></header>
-        <p>{item.description}</p>
+        <header className="hxSubdued"><i><small>{item.subheader}</small></i></header>
+        <p className="channelType-section-desc">{item.description}</p>
       </hx-tile>
     </label>
   );

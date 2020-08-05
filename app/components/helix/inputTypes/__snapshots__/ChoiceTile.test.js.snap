@@ -27,11 +27,15 @@ exports[`ChoiceTile it renders with appropriate props 1`] = `
     <header
       className="hxSubdued"
     >
-      <small>
-        First Choice SubHeader
-      </small>
+      <i>
+        <small>
+          First Choice SubHeader
+        </small>
+      </i>
     </header>
-    <p>
+    <p
+      className="channelType-section-desc"
+    >
       First Choice Description
     </p>
   </hx-tile>
