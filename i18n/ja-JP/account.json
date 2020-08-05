@@ -32,34 +32,34 @@
     "translation" : "CADは、カナダにお住まいのOnicaのお客様のみご利用いただけます。<br />AUD、EUR、GBPは、マネージドAzureクラウド製品が選択されている場合にのみ使用できます。"
   },
   "channel.type.aws" : {
-    "translation" : "__NOT_TRANSLATED__"
+    "translation" : "AWS由来"
   },
   "channel.type.carahsoft" : {
-    "translation" : "__NOT_TRANSLATED__"
+    "translation" : "公共部門"
   },
   "channel.type.insight" : {
-    "translation" : "インサイト"
+    "translation" : "標準"
   },
   "channel.type.subheader.carahsoft" : {
-    "translation" : "__NOT_TRANSLATED__"
+    "translation" : "（Rackspace RGs/Carahsoft由来）"
   },
   "channel.type.subheader.insight" : {
-    "translation" : "__NOT_TRANSLATED__"
+    "translation" : "（Rackspace/VMware由来）"
   },
   "customer.actions.select" : {
     "translation" : "顧客タイプを選択"
   },
   "customer.channel.select" : {
-    "translation" : "チャネルを選択"
+    "translation" : "VMware Cloud on AWSのトランザクションタイプを選択"
   },
   "customer.desc.vmc.channeltype.aws" : {
-    "translation" : "__NOT_TRANSLATED__"
+    "translation" : "お客様がAWSによって作成された場合や、AWS上のVMCをAWSの紙で取引する必要がある場合は、このオプションを選択してください。"
   },
   "customer.desc.vmc.channeltype.publicsector" : {
-    "translation" : "__NOT_TRANSLATED__"
+    "translation" : "お客様が公共部門/州、地方、教育（SLED）のお客様で、RGS/Carahsoftを介して取引する必要がある場合は、このオプションを選択してください。"
   },
   "customer.desc.vmc.channeltype.standard" : {
-    "translation" : "__NOT_TRANSLATED__"
+    "translation" : "お客様がRackspaceまたはVMwareによって作成され、公共部門/州、地方自治体、および教育（SLED）のお客様ではない場合は、このオプションを選択してください。"
   },
   "customer.header.info" : {
     "translation" : "顧客情報"
@@ -68,7 +68,7 @@
     "translation" : "現在、RBUのお客様は、マネージドAWSにのみアクセスできます。"
   },
   "customer.tips.vmc.channeltype.alert" : {
-    "translation" : "__NOT_TRANSLATED__"
+    "translation" : "これはファイナンスや補償にも影響しますので、お間違いのないように確認してください。ご不明な点がある場合は、&lt;0&gt;{email}&lt;/0&gt; までご連絡ください。"
   },
   "customer.type.onica" : {
     "translation" : "Onica"
